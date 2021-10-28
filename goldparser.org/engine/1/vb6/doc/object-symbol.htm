@@ -1,0 +1,74 @@
+<html>
+
+<head>
+<title>Symbol Object</title>
+<link REL="STYLESHEET" HREF="gold-engine-doc-style.css">
+</head>
+
+<body class="ssMainPage">
+
+<h1>Symbol Object</h1>
+
+<p>&nbsp;</p>
+
+<h2>Description</h2>
+
+<p>The Symbol Object is used to represent each terminal, special terminal and nonterminal
+in the <a href="object-goldparser.htm">GOLDParser</a> Object's symbol table. </p>
+
+<p>&nbsp;</p>
+
+<h2>Properties</h2>
+
+<table width="100%" class="ssChartTable" cellspacing="0" cellpadding="0">
+  <tr>
+    <th valign="top" class="ssChartTableColumn">Property</th>
+    <th valign="top" class="ssChartTableColumn">Data Type</th>
+    <th valign="top" class="ssChartTableColumn">Access</th>
+    <th valign="top" class="ssChartTableColumn">Description</th>
+  </tr>
+  <tr>
+    <td valign="top" class="ssChartTableBodyItem">Kind</td>
+    <td valign="top" class="ssChartTableBodyDesc"><a href="enum-symboltypeconstants.htm">SymbolTypeConstants</a>
+    </td>
+    <td valign="top" nowrap class="ssChartTableBodyDesc">Read only</td>
+    <td valign="top" class="ssChartTableBodyDesc">Returns an enumerated data type that denotes
+    the class of symbols that the object belongs to.</td>
+  </tr>
+  <tr>
+    <td valign="top" class="ssChartTableBodyItem">Name</td>
+    <td valign="top" class="ssChartTableBodyDesc">String</td>
+    <td valign="top" nowrap class="ssChartTableBodyDesc">Read only</td>
+    <td valign="top" class="ssChartTableBodyDesc">Returns the name of the symbol.</td>
+  </tr>
+  <tr>
+    <td valign="top" class="ssChartTableBodyItem">TableIndex</td>
+    <td valign="top" class="ssChartTableBodyDesc">Integer (16-bit)</td>
+    <td valign="top" nowrap class="ssChartTableBodyDesc">Read only</td>
+    <td valign="top" class="ssChartTableBodyDesc">Returns the index of the symbol in the
+    GOLDParser object's Symbol Table.</td>
+  </tr>
+  <tr>
+    <td valign="top" class="ssChartTableBodyItem">Text</td>
+    <td valign="top" class="ssChartTableBodyDesc">String</td>
+    <td valign="top" nowrap class="ssChartTableBodyDesc">Read only</td>
+    <td valign="top" class="ssChartTableBodyDesc">Returns the text representation of the
+    symbol. In the case of nonterminals, the name is delimited by angle brackets, special
+    terminals are delimited by parenthesis and terminals are delimited by single quotes (if
+    special characters are present).</td>
+  </tr>
+</table>
+
+<p>&nbsp;</p>
+
+<h2>Methods</h2>
+
+<table class="ssChartTable" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" class="ssChartTableBodyItem">This object does not contain any methods.</td>
+  </tr>
+</table>
+
+<p>&nbsp;</p>
+</body>
+</html>

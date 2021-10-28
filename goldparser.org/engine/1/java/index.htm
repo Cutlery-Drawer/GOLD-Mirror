@@ -1,0 +1,329 @@
+<html>
+
+<head>
+<meta NAME="GENERATOR" Content="Microsoft FrontPage 12.0">
+<meta http-equiv="X-UA-Compatible" content="IE=9">
+
+<link REL="STYLESHEET" HREF="../../../gold-parser-style.css">
+<title>GOLD Parsing System - Engine - Java Programming Language</title>
+</head>
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%" class="ssMainContentTop">
+  <tr>
+    <td valign="top" class="ssMainTitleCell" colspan="2" height="110"><table border="0" cellspacing="0" cellpadding="0" class="ssTitleTable">
+      <tr>
+        <td class="ssTitleLogoCell" rowspan="2"><img src="../../../images/gold-logo-v4-100.png" alt="The Tower Bridge in Sacramento, California" WIDTH="100" HEIGHT="100"></td>
+        <td class="ssTitleTopicCell">Original GOLD Engine </td>
+        <td class="ssTitleGraphicCell" rowspan="2"><img src="../../../images/pic-title-graphic.png" WIDTH="200" HEIGHT="110"></td>
+      </tr>
+      <tr>
+        <td class="ssTitleDescCell">Java Programming Language</td>
+      </tr>
+    </table>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" class="ssMainContentTop" colspan="2"></td>
+  </tr>
+  <tr valign="top">
+    <td valign="top" align="center" class="ssMainMenuCell" width="150"><table class="ssMenuTable" border="0" cellspacing="0">
+      <tr>
+        <td valign="bottom" class="ssMenuTitleCell" colspan="2">
+		<a href="../../../index.htm">Main</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../../images/bullets/bullet-news.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell"><a href="../../../news/index.htm">Latest News</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../../images/bullets/bullet-getting-started.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a target="_top" href="../../../getting-started/index.htm">Getting
+        Started</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell">
+		<img src="../../../images/bullets/bullet-picture.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a href="../../../builder/screenshots.htm">Screen Shots</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../../images/bullets/bullet-disk.gif" border="0" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a href="../../../download.htm" target="_top">Download</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../../images/bullets/bullet-help.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell"><a href="../../../doc/index.htm">Documentation</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../../images/bullets/bullet-contributor.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a target="_top" href="../../../contributors/index.htm">Contributors</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../../images/bullets/bullet-contact.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a target="_top" href="../../../contact.htm">Contact</a></td>
+      </tr>
+    </table>
+    <table class="ssMenuTable" border="0" cellspacing="0">
+      <tr>
+        <td valign="bottom" class="ssMenuTitleCell" colspan="2">
+		<a href="../../../about/index.htm">About GOLD</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../../images/bullets/bullet-information.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a href="../../../about/how-it-works.htm" target="_top">How
+        It Works</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../../images/bullets/bullet-information.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a href="../../../about/faq.htm" target="_top">FAQ</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../../images/bullets/bullet-information.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a target="_top" href="../../../about/why-use-gold.htm">Why
+        Use GOLD?</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../../images/bullets/bullet-information.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a href="../../../about/comparison-parsers.htm" target="_top">Comparison</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../../images/bullets/bullet-information.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a href="../../../about/revision-history.htm" target="_top">Revision History</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../../images/bullets/bullet-information.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a target="_top" href="../../../about/license.htm">Freeware
+        License</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../../images/bullets/bullet-information.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a target="_top" href="../../../about/index.htm">More ...</a></td>
+      </tr>
+    </table>
+    <div align="center"><center><table border="0" class="ssMenuTable" cellspacing="0" cellpadding="0">
+      <tr>
+        <td valign="bottom" class="ssMenuTitleCell" colspan="2">
+		<a href="../../../articles/index.htm">Articles</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../../images/bullets/bullet-article.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a target="_top" href="../../../articles/parser.htm">What
+        is a Parser?</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../../images/bullets/bullet-article.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a href="../../../articles/bnf.htm">Backus-Naur Form</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../../images/bullets/bullet-article.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a href="../../../articles/dfa.htm">DFA Lexer</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../../images/bullets/bullet-article.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a href="../../../articles/lalr.htm">LALR Parsing</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../../images/bullets/bullet-article.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a href="../../../articles/glossary.htm">Glossary</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../../images/bullets/bullet-article.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a target="_top" href="../../../articles/links.htm">Links</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../../images/bullets/bullet-article.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a target="_top" href="../../../articles/index.htm">More
+        ...</a></td>
+      </tr>
+    </table>
+    </center></div><p><br>
+    </p>
+    <p align="center">
+	<img src="../../../images/spacer-150.gif" border="0" WIDTH="150" HEIGHT="4"></td>
+    <td valign="top" class="ssMainContentCell" align="center"><div align="left"><table border="0" width="100%" cellspacing="0" cellpadding="4" class="ssHeaderTable">
+      <tr>
+        <td valign="middle" align="left" class="ssHeaderTableText">
+		The Java programming language
+        was designed by <a title="James Gosling" href="http://en.wikipedia.org/wiki/James_Gosling">James
+        Gosling</a> at <a href="http://www.sun.com">Sun Microsystems</a> as clean and easy to
+        program version of C++. As part of the language definition, Java programs compile into the
+        Java Virtual Machine bytecode, which is designed to run on multiple platforms through
+        interpretation.<p><img src="../../../images/inline-link.gif" hspace="5" align="absmiddle" WIDTH="5" HEIGHT="9"><a href="http://java.sun.com/" target="_blank">Java Programming Language Homepage</a></td>
+        <td valign="middle" align="left" class="ssHeaderTableGraphic">
+		<img alt="Java" height="96" src="../../../images/logos/logo-java.png" width="150" style="float: none"></td>
+      </tr>
+    </table>
+    </div>
+    <div align="center"><center><table border="0" width="100%" cellspacing="0" cellpadding="0" class="ssActiveTable">
+      <tr>
+        <td class="ssActiveTitleCell" colspan="3">Plug-ins and Documentation</td>
+      </tr>
+      <tr>
+        <td class="ssActiveSubTitleCell" colspan="3">by Matthew Hawkins</td>
+      </tr>
+      <tr>
+        <td class="ssActiveIconCell" nowrap>
+		<img src="../../../images/bullets/bullet-disk.gif" alt="" align="bottom" vspace="2" WIDTH="11" HEIGHT="11"></td>
+        <td class="ssActiveBodyCell" nowrap><a href="hawkins-java-jar-1.3.jar">.jar Module</a></td>
+        <td class="ssActiveBodyDescCell">This version of the Engine will allow you to develop
+        interpreters, translators and compilers with the popular Java programming language. Your
+        project will be will be able run on a wide range of platforms from Windows 32-bit to
+        Macintosh to Linux.<table border="0" cellspacing="0" cellpadding="0" class="ssAboutTable">
+          <tr>
+            <td class="ssAboutCellName">Author:</td>
+            <td class="ssAboutCellValue"><a href="../../../contributors/index.htm">Matthew Hawkins</a></td>
+          </tr>
+          <tr>
+            <td class="ssAboutCellName">Version:</td>
+            <td class="ssAboutCellValue">1.0.3</td>
+          </tr>
+          <tr>
+            <td class="ssAboutCellName">Size:</td>
+            <td class="ssAboutCellValue">24 KB</td>
+          </tr>
+          <tr>
+            <td class="ssAboutCellName">Homepage:</td>
+            <td class="ssAboutCellValue"><a href="http://www.hawkini.co.uk" target="_blank">www.hawkini.co.uk</a></td>
+          </tr>
+        </table>
+        </td>
+      </tr>
+      <tr>
+        <td class="ssActiveIconCell" nowrap height="58">
+		<img src="../../../images/bullets/bullet-disk.gif" alt="" align="bottom" vspace="2" WIDTH="11" HEIGHT="11"></td>
+        <td class="ssActiveBodyCell" nowrap height="58"><a href="schwibbe-java-jar.zip">Ecclipse
+        .jar Module</a></td>
+        <td class="ssActiveBodyDescCell" height="58"><a href="../../../contributors/index.htm">Hansgeorg Schwibbe</a>
+        modified the source and .jar file to be compatible with Ecclipse.<table border="0" cellspacing="0" cellpadding="0" class="ssAboutTable">
+          <tr>
+            <td class="ssAboutCellName">Author:</td>
+            <td class="ssAboutCellValue"><a href="../../../contributors/index.htm">Hansgeorg Schwibbe</a></td>
+          </tr>
+          <tr>
+            <td class="ssAboutCellName">Version:</td>
+            <td class="ssAboutCellValue">1.2</td>
+          </tr>
+          <tr>
+            <td class="ssAboutCellName">Size:</td>
+            <td class="ssAboutCellValue">26 KB</td>
+          </tr>
+        </table>
+        </td>
+      </tr>
+      <tr>
+        <td class="ssActiveIconCell" nowrap><img src="../../../images/bullets/bullet-help.gif" align="absmiddle" WIDTH="11" HEIGHT="11"></td>
+        <td class="ssActiveBodyCell" nowrap><a href="doc/index.html">Documentation</a></td>
+        <td class="ssActiveBodyDescCell">Documentation is available for this
+        implementation of the Engine.</td>
+      </tr>
+      </table>
+    </center></div><p>&nbsp;<div align="center"><center><table border="0" width="100%" cellspacing="0" cellpadding="0" class="ssActiveTable">
+      <tr>
+        <td class="ssActiveTitleCell" colspan="3">Source Code and Projects</td>
+      </tr>
+      <tr>
+        <td class="ssActiveIconCell" nowrap>
+		<img src="../../../images/bullets/bullet-disk.gif" alt="" align="bottom" vspace="2" WIDTH="11" HEIGHT="11"></td>
+        <td class="ssActiveBodyCell" nowrap><a href="hawkins-java-source-v1.3.zip">Source
+        Code</a></td>
+        <td class="ssActiveBodyDescCell">Mathew Hawkins ported the GOLD Parser Engine to the
+        popular Java programming language. The zip file contains all the Java source code used to
+        create the .jar plugin available above. <table border="0" cellspacing="0" cellpadding="0" class="ssAboutTable">
+          <tr>
+            <td class="ssAboutCellName">Author:</td>
+            <td class="ssAboutCellValue"><a href="../../../contributors/index.htm">Matthew Hawkins</a></td>
+          </tr>
+          <tr>
+            <td class="ssAboutCellName">Language:</td>
+            <td class="ssAboutCellValue">Java</td>
+          </tr>
+          <tr>
+            <td class="ssAboutCellName">Version:</td>
+            <td class="ssAboutCellValue">1.0.3</td>
+          </tr>
+          <tr>
+            <td class="ssAboutCellName">Size:</td>
+            <td class="ssAboutCellValue">33 KB</td>
+          </tr>
+          <tr>
+            <td class="ssAboutCellName">Homepage:</td>
+            <td class="ssAboutCellValue"><a href="http://www.hawkini.co.uk" target="_blank">www.hawkini.co.uk</a></td>
+          </tr>
+        </table>
+        </td>
+      </tr>
+      <tr>
+        <td class="ssActiveIconCell" nowrap>
+		<img src="../../../images/bullets/bullet-disk.gif" alt="" align="bottom" vspace="2" WIDTH="11" HEIGHT="11"></td>
+        <td class="ssActiveBodyCell" nowrap><a href="hawkins-java-sample.zip">Tutorial</a></td>
+        <td class="ssActiveBodyDescCell">Matthew Hawkins has created a simple project that shows
+        how to use the Java version of the Engine.<table border="0" cellspacing="0" cellpadding="0" class="ssAboutTable">
+          <tr>
+            <td class="ssAboutCellName">Author:</td>
+            <td class="ssAboutCellValue"><a href="../../../contributors/index.htm">Matthew Hawkins</a></td>
+          </tr>
+          <tr>
+            <td class="ssAboutCellName">Language:</td>
+            <td class="ssAboutCellValue">Java</td>
+          </tr>
+          <tr>
+            <td class="ssAboutCellName">Version:</td>
+            <td class="ssAboutCellValue">1.0</td>
+          </tr>
+          <tr>
+            <td class="ssAboutCellName">Size:</td>
+            <td class="ssAboutCellValue">5 KB</td>
+          </tr>
+          <tr>
+            <td class="ssAboutCellName">Homepage:</td>
+            <td class="ssAboutCellValue"><a href="http://www.hawkini.co.uk" target="_blank">www.hawkini.co.uk</a></td>
+          </tr>
+        </table>
+        </td>
+      </tr>
+    </table>
+    </center></div><p>&nbsp;<p>&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

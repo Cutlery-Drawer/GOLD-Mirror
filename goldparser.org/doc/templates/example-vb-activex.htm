@@ -1,0 +1,401 @@
+<html>
+
+<head>
+<link REL="STYLESHEET" HREF="../gold-parser-doc-style.css">
+<title>Example: Visual Basic - ActiveX</title>
+</head>
+
+<body class="ssMainPage">
+
+<h1>Example: Visual Basic - ActiveX</h1>
+
+<p>&nbsp;</p>
+
+<table class="ssCodeTable" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td nowrap class="ssCodeTableBody"><span id="ssCodeReservedSymbol" class="ssCodeReservedSymbol">##TEMPLATE-NAME</span> 'Visual Basic - ActiveX DLL'</td>
+  </tr>
+  <tr>
+    <td nowrap class="ssCodeTableBody"><span class="ssCodeReservedSymbol">##LANGUAGE</span>
+    'Visual Basic'</td>
+  </tr>
+  <tr>
+    <td nowrap class="ssCodeTableBody"><span class="ssCodeReservedSymbol">##ENGINE-NAME</span>
+    'ActiveX DLL'</td>
+  </tr>
+  <tr>
+    <td nowrap class="ssCodeTableBody"><span class="ssCodeReservedSymbol">##AUTHOR </span>'Devin
+    Cook' </td>
+  </tr>
+  <tr>
+    <td nowrap class="ssCodeTableBody"><span class="ssCodeReservedSymbol">##FILE-EXTENSION</span>
+    'bas'</td>
+  </tr>
+  <tr>
+    <td nowrap class="ssCodeTableBody"><span class="ssCodeReservedSymbol">##NOTES</span></td>
+  </tr>
+  <tr>
+    <td nowrap class="ssCodeTableBody">This template creates a Visual Basic program for use
+    with the ActiveX DLL<br>
+    The code will work with both Visual Basic 5 and 6.</td>
+  </tr>
+  <tr>
+    <td nowrap class="ssCodeTableBody"><span class="ssCodeReservedSymbol">##END-NOTES</span></td>
+  </tr>
+  <tr>
+    <td nowrap class="ssCodeTableBody"><span class="ssCodeReservedSymbol">##ID-CASE</span>
+    Propercase</td>
+  </tr>
+  <tr>
+    <td nowrap class="ssCodeTableBody"><span class="ssCodeReservedSymbol">##ID-SEPARATOR</span>
+    '_'</td>
+  </tr>
+  <tr>
+    <td nowrap class="ssCodeTableBody"><span class="ssCodeReservedSymbol">##ID-SYMBOL-PREFIX</span>
+    'Symbol'</td>
+  </tr>
+  <tr>
+    <td nowrap class="ssCodeTableBody"><span class="ssCodeReservedSymbol">##ID-RULE-PREFIX</span>
+    'Rule'</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>Option&nbsp;Explicit</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap><br>
+    </td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>Public&nbsp;Parser&nbsp;As&nbsp;New&nbsp;GOLDParserEngine.GOLDParser</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap><br>
+    </td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>Public&nbsp;Enum&nbsp;SymbolConstants</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap><span class="ssCodeReservedSymbol">##SYMBOLS</span></td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp; <span class="ssCodeKeySymbol">%ID.Padded%</span>
+    <span class="ssCodeNormal">= </span><span class="ssCodeKeySymbol">%Value%</span><span class="ssCodeNormal"> ' </span><span class="ssCodeKeySymbol">%Description%</span></td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap><span class="ssCodeReservedSymbol">##END-SYMBOLS</span></td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>End&nbsp;Enum</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap><br>
+    </td>
+  </tr>
+  <tr>
+    <td nowrap class="ssCodeTableBody"><span class="ssCodeNormal">Enum RuleConstants</span></td>
+  </tr>
+  <tr>
+    <td nowrap class="ssCodeTableBody"><span class="ssCodeReservedSymbol">##RULES</span></td>
+  </tr>
+  <tr>
+    <td nowrap class="ssCodeTableBody">&nbsp;&nbsp;&nbsp; <span class="ssCodeKeySymbol">%ID.Padded%</span>
+    <span class="ssCodeNormal">= </span><span class="ssCodeKeySymbol">%Value%</span><span class="ssCodeNormal"> ' </span><span class="ssCodeKeySymbol">%Description%</span></td>
+  </tr>
+  <tr>
+    <td nowrap class="ssCodeTableBody"><span class="ssCodeReservedSymbol">##END-RULES</span></td>
+  </tr>
+  <tr>
+    <td nowrap class="ssCodeTableBody">End Enum</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap><br>
+    </td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>public&nbsp;Sub&nbsp;DoParse(ByVal&nbsp;Source&nbsp;As&nbsp;String)</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;'This&nbsp;procedure&nbsp;starts&nbsp;the&nbsp;GOLD&nbsp;Parser&nbsp;Engine&nbsp;and&nbsp;handles&nbsp;each&nbsp;of&nbsp;the</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;'messages&nbsp;it&nbsp;returns.&nbsp;Each&nbsp;time&nbsp;a&nbsp;reduction&nbsp;is&nbsp;made,&nbsp;a&nbsp;new&nbsp;custom&nbsp;object</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;'can&nbsp;be&nbsp;created&nbsp;and&nbsp;used&nbsp;to&nbsp;store&nbsp;the&nbsp;rule.&nbsp;Otherwise,&nbsp;the&nbsp;system&nbsp;will&nbsp;use</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;'the&nbsp;Reduction&nbsp;object&nbsp;that&nbsp;was&nbsp;returned.</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;'</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;'The&nbsp;resulting&nbsp;tree&nbsp;will&nbsp;be&nbsp;a&nbsp;pure&nbsp;representation&nbsp;of&nbsp;the&nbsp;language</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;'and&nbsp;will&nbsp;be&nbsp;ready&nbsp;to&nbsp;implement.</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap><br>
+    </td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;Dim&nbsp;Response&nbsp;As&nbsp;GOLDParserEngine.GPMessageConstants</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;Dim&nbsp;Result&nbsp;As&nbsp;Object</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;Dim&nbsp;Done&nbsp;As&nbsp;Boolean,&nbsp;Success&nbsp;As&nbsp;Boolean&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'Controls&nbsp;when&nbsp;we&nbsp;leave&nbsp;the&nbsp;loop</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap><br>
+    </td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;Success&nbsp;=&nbsp;False&nbsp;&nbsp;&nbsp;&nbsp;'Unless&nbsp;the&nbsp;program&nbsp;is&nbsp;accepted&nbsp;by&nbsp;the&nbsp;parser</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap><br>
+    </td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;With&nbsp;Parser</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If&nbsp;.LoadCompiledGrammar(App.Path&nbsp;&amp;&nbsp;&quot;\grammar.cgt&quot;)&nbsp;Then</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.OpenTextString&nbsp;Source</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.TrimReductions&nbsp;=&nbsp;True</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap><br>
+    </td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Done&nbsp;=&nbsp;False</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Do&nbsp;Until&nbsp;Done</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Response&nbsp;=&nbsp;.Parse()</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap><br>
+    </td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Select&nbsp;Case&nbsp;Response</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Case&nbsp;gpMsgLexicalError</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'Cannot&nbsp;recognize&nbsp;token</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Done&nbsp;=&nbsp;True</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap><br>
+    </td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Case&nbsp;gpMsgSyntaxError</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'Expecting&nbsp;a&nbsp;different&nbsp;token</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Done&nbsp;=&nbsp;True</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap><br>
+    </td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Case&nbsp;gpMsgReduction</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'You&nbsp;can&nbsp;create&nbsp;a&nbsp;new&nbsp;customized&nbsp;object&nbsp;and&nbsp;replace&nbsp;the</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'CurrentReduction&nbsp;with&nbsp;it.&nbsp;This&nbsp;saves&nbsp;memory&nbsp;and&nbsp;allows</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'easier&nbsp;interpretation.</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'&nbsp;&nbsp;&nbsp;Set&nbsp;.CurrentReduction&nbsp;=&nbsp;Result</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'Of&nbsp;course,&nbsp;you&nbsp;can&nbsp;just&nbsp;let&nbsp;the&nbsp;system&nbsp;create&nbsp;a&nbsp;parse</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'tree&nbsp;of&nbsp;Reduction&nbsp;objects.&nbsp;Remember:&nbsp;The&nbsp;value&nbsp;of&nbsp;the</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'token&nbsp;is&nbsp;accessed&nbsp;through&nbsp;the&nbsp;Data&nbsp;property.</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap><br>
+    </td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;With&nbsp;.CurrentReduction&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'Easy&nbsp;notation</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Select&nbsp;Case&nbsp;.ParentRule.TableIndex</td>
+  </tr>
+  <tr>
+    <td nowrap class="ssCodeTableBody"><span class="ssCodeReservedSymbol">##RULES</span></td>
+  </tr>
+  <tr>
+    <td nowrap class="ssCodeTableBody">&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Case <span class="ssCodeKeySymbol">%ID%</span></td>
+  </tr>
+  <tr>
+    <td nowrap class="ssCodeTableBody">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; '<span class="ssCodeNormal"> </span><span class="ssCodeKeySymbol">%Description%</span></td>
+  </tr>
+  <tr>
+    <td nowrap class="ssCodeTableBody"><span class="ssCodeReservedSymbol">##END-RULES</span></td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;End&nbsp;Select</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;End&nbsp;With</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap><br>
+    </td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'Set&nbsp;.CurrentReduction&nbsp;=&nbsp;Result</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap><br>
+    </td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Case&nbsp;gpMsgAccept</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'Success!</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'Set&nbsp;Program&nbsp;=&nbsp;.CurrentReduction&nbsp;&nbsp;'The&nbsp;root&nbsp;node!</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Done&nbsp;=&nbsp;True</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Success&nbsp;=&nbsp;True</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap><br>
+    </td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Case&nbsp;gpMsgTokenRead</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'You&nbsp;don't&nbsp;have&nbsp;to&nbsp;do&nbsp;anything&nbsp;here.</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap><br>
+    </td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Case&nbsp;gpMsgInternalError</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'INTERNAL&nbsp;ERROR!&nbsp;Something&nbsp;is&nbsp;horribly&nbsp;wrong.</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Done&nbsp;=&nbsp;True</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap><br>
+    </td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Case&nbsp;gpMsgNotLoadedError</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'Due&nbsp;to&nbsp;the&nbsp;if-statement&nbsp;above,&nbsp;this&nbsp;case&nbsp;statement&nbsp;should&nbsp;never&nbsp;be&nbsp;true</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Done&nbsp;=&nbsp;True</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap><br>
+    </td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Case&nbsp;gpMsgCommentError</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'COMMENT&nbsp;ERROR!&nbsp;Unexpected&nbsp;end&nbsp;of&nbsp;file</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Done&nbsp;=&nbsp;True</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;End&nbsp;Select</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Loop</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Else</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'Could&nbsp;not&nbsp;load&nbsp;the&nbsp;CGT&nbsp;file</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;End&nbsp;If</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;End&nbsp;With</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap><br>
+    </td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>End&nbsp;Sub</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap><br>
+    </td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>Public&nbsp;Sub&nbsp;Setup</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;'Call&nbsp;this&nbsp;function&nbsp;before&nbsp;calling&nbsp;DoParse</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;Parser.LoadCompiledGrammar(App.Path&nbsp;&amp;&nbsp;&quot;\grammar.cgt&quot;)</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>End&nbsp;Sub</td>
+  </tr>
+</table>
+
+<p>&nbsp;</p>
+</body>
+</html>

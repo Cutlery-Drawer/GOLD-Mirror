@@ -1,0 +1,72 @@
+<html>
+
+<head>
+<title>File Structure: Entries</title>
+<link REL="STYLESHEET" HREF="../gold-parser-doc-style.css">
+</head>
+
+<body class="ssMainPage">
+
+<h1>File Structure: Entries</h1>
+
+<p>&nbsp;</p>
+
+<p>Each <a href="sdb-multitype-record.htm">multitype</a> record consists of a series of <strong>entries</strong>
+which, in turn, can hold any number of data types. Preceding each entry is an
+identification byte which denotes the type of data which is stored. Based on this
+information, the appropriate number of bytes and the manner in which they are read can be
+deduced.</p>
+
+<p>&nbsp;</p>
+
+<table border="0" width="100%" cellspacing="5" cellpadding="0">
+  <tr>
+    <td nowrap width="5%"><font size="4">Empty</font></td>
+    <td><img src="images/diagram-sdb-entry-empty.gif" alt="pic-sdb-entry-empty.gif (1091 bytes)" WIDTH="78" HEIGHT="53"></td>
+  </tr>
+  <tr>
+    <td colspan="2">The entry only consists of an identification byte containing the value 69;
+    the ASCII value of 'E'. This type of entry is used to represent a piece of information
+    that has not been defined for reserved for future use. It has no actual value and should
+    be interpreted as a logical NULL.<p>&nbsp;</td>
+  </tr>
+  <tr>
+    <td nowrap width="5%"><font size="4">Byte</font></td>
+    <td><img src="images/diagram-sdb-entry-byte.gif" alt="pic-sdb-entry-byte.gif (1279 bytes)" WIDTH="130" HEIGHT="55"></td>
+  </tr>
+  <tr>
+    <td colspan="2">A &quot;byte&quot; entry is preceded by a single byte containing the value
+    98; the ASCII value for 'b'. The next byte contains the actual information stored in the
+    entry. This is a rather inefficient method for storing a mass number of bytes given that
+    there is as much overhead as actual data. But, in the case of storing small numbers, it
+    does save a byte over using an integer entry.<p>&nbsp;</td>
+  </tr>
+  <tr>
+    <td nowrap width="5%"><font size="4">Boolean</font></td>
+    <td><img src="images/diagram-sdb-entry-boolean.gif" alt="pic-sdb-entry-boolean.gif (1231 bytes)" WIDTH="133" HEIGHT="55"></td>
+  </tr>
+  <tr>
+    <td colspan="2">A Boolean entry is preceded by a byte containing the value 66; the ASCII
+    value for 'B'. This entry is identical in structure to the Byte except the second byte
+    will only contain a 1, for True, or a 0 for False.<p>&nbsp;</td>
+  </tr>
+  <tr>
+    <td nowrap width="5%"><font size="4">Integer</font></td>
+    <td><img src="images/diagram-sdb-entry-integer.gif" alt="pic-sdb-type-int.gif (930 bytes)" WIDTH="193" HEIGHT="53"></td>
+  </tr>
+  <tr>
+    <td colspan="2">This is the most common entry used to store the Compiled Grammar Table
+    information. Following the identification byte, the integer is stored using <a href="../about/byte-ordering.htm">Little-Endian</a> byte ordering. In other words, the
+    least significant byte is stored first.<p>&nbsp;</td>
+  </tr>
+  <tr>
+    <td nowrap width="5%"><font size="4">String</font></td>
+    <td><img src="images/diagram-sdb-entry-string.gif" alt="pic-sdb-entry-string.gif (2017 bytes)" WIDTH="336" HEIGHT="53"></td>
+  </tr>
+  <tr>
+    <td colspan="2">A string entry starts with a byte containing the value 83, which is the
+    ASCII value for &quot;S&quot;. This is immediately followed by a sequence of 1 or more <a href="../about/unicode.htm">Unicode</a> characters which are terminated by a null.</td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<html>
+
+<head>
+<title>Symbol Type Constants</title>
+<link REL="STYLESHEET" HREF="gold-engine-doc-style.css">
+</head>
+
+<body class="ssMainPage">
+
+<h1>Symbol Type Constants</h1>
+
+<p>&nbsp;</p>
+
+<table class="ssChartTable" cellspacing="0" cellpadding="0">
+  <tr>
+    <th valign="top" nowrap class="ssChartTableColumn">Message</th>
+    <th valign="top" nowrap class="ssChartTableColumn">Numeric Value</th>
+    <th nowrap class="ssChartTableColumn">Details</th>
+  </tr>
+  <tr>
+    <td valign="top" class="ssChartTableBodyItem">SymbolTypeNonterminal </td>
+    <td valign="top" class="ssChartTableBodyDesc">0</td>
+    <td valign="top" class="ssChartTableBodyDesc">A normal nonterminal.</td>
+  </tr>
+  <tr>
+    <td valign="top" class="ssChartTableBodyItem">SymbolTypeTerminal </td>
+    <td valign="top" class="ssChartTableBodyDesc">1</td>
+    <td valign="top" class="ssChartTableBodyDesc">A normal terminal.</td>
+  </tr>
+  <tr>
+    <td valign="top" class="ssChartTableBodyItem">SymbolTypeWhitespace</td>
+    <td valign="top" class="ssChartTableBodyDesc">2</td>
+    <td valign="top" class="ssChartTableBodyDesc">This Whitespace symbols is a special
+    terminal that is automatically ignored the the parsing engine. Any text accepted as
+    whitespace is considered to be inconsequential and &quot;meaningless&quot;.</td>
+  </tr>
+  <tr>
+    <td valign="top" class="ssChartTableBodyItem">SymbolTypeEnd</td>
+    <td valign="top" class="ssChartTableBodyDesc">3</td>
+    <td valign="top" class="ssChartTableBodyDesc">The End symbol is generated when the
+    tokenizer reaches the end of the source text.</td>
+  </tr>
+  <tr>
+    <td valign="top" class="ssChartTableBodyItem">SymbolTypeCommentStart</td>
+    <td valign="top" class="ssChartTableBodyDesc">4</td>
+    <td valign="top" class="ssChartTableBodyDesc">This type of symbol designates the start of
+    a block quote.</td>
+  </tr>
+  <tr>
+    <td valign="top" class="ssChartTableBodyItem">SymbolTypeCommentEnd </td>
+    <td valign="top" class="ssChartTableBodyDesc">5</td>
+    <td valign="top" class="ssChartTableBodyDesc">This type of symbol designates the end of a
+    block quote.</td>
+  </tr>
+  <tr>
+    <td valign="top" class="ssChartTableBodyItem">SymbolTypeCommentLine</td>
+    <td valign="top" class="ssChartTableBodyDesc">6</td>
+    <td valign="top" class="ssChartTableBodyDesc">When the engine reads a token that is
+    recognized as a line comment, the remaining characters on the line are automatically
+    ignored by the parser.</td>
+  </tr>
+  <tr>
+    <td valign="top" class="ssChartTableBodyItem">SymbolTypeError </td>
+    <td valign="top" class="ssChartTableBodyDesc">7</td>
+    <td valign="top" class="ssChartTableBodyDesc">The Error symbol is a general-purpose means
+    of representing characters that were not recognized by the tokenizer. In other words, when
+    the tokenizer reads a series of characters that is not accepted by the DFA engine, a <a href="object-token.htm">token</a> of this type is created.</td>
+  </tr>
+</table>
+
+<p>&nbsp;</p>
+</body>
+</html>

@@ -1,0 +1,464 @@
+<html>
+
+<head>
+<meta NAME="GENERATOR" Content="Microsoft FrontPage 12.0">
+<meta http-equiv="X-UA-Compatible" content="IE=9">
+
+<link REL="STYLESHEET" HREF="../gold-parser-style.css">
+<title>GOLD Parsing System - Proposed changes to the Meta-Language</title>
+</head>
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%" class="ssMainContentTop">
+  <tr>
+    <td valign="top" class="ssMainTitleCell" colspan="2" height="110"><table border="0" cellspacing="0" cellpadding="0" class="ssTitleTable">
+      <tr>
+        <td class="ssTitleLogoCell" rowspan="2"><img src="../images/gold-logo-v4-100.png" alt="The Tower Bridge in Sacramento, California" WIDTH="100" HEIGHT="100"></td>
+        <td class="ssTitleTopicCell">Future Work</td>
+        <td class="ssTitleGraphicCell" rowspan="2"><img src="../images/pic-title-graphic.png" WIDTH="200" HEIGHT="110"></td>
+      </tr>
+      <tr>
+        <td class="ssTitleDescCell">Proposed Changes to GOLD Parsing System</td>
+      </tr>
+    </table>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" class="ssMainContentTop" colspan="2"></td>
+  </tr>
+  <tr valign="top">
+    <td valign="top" align="center" class="ssMainMenuCell" width="150"><table class="ssMenuTable" border="0" cellspacing="0">
+      <tr>
+        <td valign="bottom" class="ssMenuTitleCell" colspan="2">
+		<a href="../index.htm">Main</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../images/bullets/bullet-news.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell"><a href="../news/index.htm">Latest News</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../images/bullets/bullet-getting-started.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a target="_top" href="../getting-started/index.htm">Getting
+        Started</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell">
+		<img src="../images/bullets/bullet-picture.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a href="../builder/screenshots.htm">Screen Shots</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../images/bullets/bullet-disk.gif" border="0" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a href="../download.htm" target="_top">Download</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../images/bullets/bullet-help.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell"><a href="../doc/index.htm">Documentation</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../images/bullets/bullet-contributor.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a target="_top" href="../contributors/index.htm">Contributors</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../images/bullets/bullet-contact.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a target="_top" href="../contact.htm">Contact</a></td>
+      </tr>
+    </table>
+    <table class="ssMenuTable" border="0" cellspacing="0">
+      <tr>
+        <td valign="bottom" class="ssMenuTitleCell" colspan="2">
+		<a href="index.htm">About GOLD</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../images/bullets/bullet-information.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a href="how-it-works.htm" target="_top">How
+        It Works</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../images/bullets/bullet-information.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell"><a href="faq.htm" target="_top">FAQ</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../images/bullets/bullet-information.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a target="_top" href="why-use-gold.htm">Why
+        Use GOLD?</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../images/bullets/bullet-information.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a href="comparison-parsers.htm" target="_top">Comparison</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../images/bullets/bullet-information.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a href="revision-history.htm" target="_top">Revision History</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../images/bullets/bullet-information.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a target="_top" href="license.htm">Freeware
+        License</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../images/bullets/bullet-information.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a target="_top" href="index.htm">More ...</a></td>
+      </tr>
+    </table>
+    <div align="center"><center><table border="0" class="ssMenuTable" cellspacing="0" cellpadding="0">
+      <tr>
+        <td valign="bottom" class="ssMenuTitleCell" colspan="2">
+		<a href="../articles/index.htm">Articles</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../images/bullets/bullet-article.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a target="_top" href="../articles/parser.htm">What
+        is a Parser?</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../images/bullets/bullet-article.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell"><a href="../articles/bnf.htm">Backus-Naur Form</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../images/bullets/bullet-article.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell"><a href="../articles/dfa.htm">DFA Lexer</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../images/bullets/bullet-article.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell"><a href="../articles/lalr.htm">LALR Parsing</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../images/bullets/bullet-article.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a href="../articles/glossary.htm">Glossary</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../images/bullets/bullet-article.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a target="_top" href="../articles/links.htm">Links</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../images/bullets/bullet-article.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a target="_top" href="../articles/index.htm">More
+        ...</a></td>
+      </tr>
+    </table>
+    </center></div><p><br>
+    </p>
+    <p align="center">
+	<img src="../images/spacer-150.gif" border="0" WIDTH="150" HEIGHT="4"></td>
+    <td valign="top" class="ssMainContentCell" align="center"><div align="left"><table border="0" width="100%" cellspacing="0" cellpadding="0" class="ssHeaderTable">
+      <tr>
+        <td valign="top" align="left" class="ssHeaderTableText">This pages contains a number of
+        proposed and possible changes to the GOLD Meta-Language. As ideas come in, I will update
+        this page. <p>Previously, this page contained different notations for set ranges. This
+        feature was subsequently added to the GOLD Builder v 2.6 after a discussion on the <a href="http://groups.yahoo.com/group/GOLDParser">Yahoo Group</a>.</td>
+        <td valign="top" align="left" class="ssHeaderTableGraphic">&nbsp;</td>
+        <td valign="top" class="ssHeaderTableSide"><div align="right"><table border="0" cellspacing="0" cellpadding="0" class="ssSideTable" width="100%">
+          <tr>
+            <td nowrap class="ssSideTitleCell">Quick Menu</td>
+          </tr>
+          <tr>
+            <td nowrap class="ssSideBodyCell"><a href="future-work.htm#Conflicts">Resolving Conflicts</a></td>
+          </tr>
+          <tr>
+            <td nowrap class="ssSideBodyCell"><a href="future-work.htm#Tags">Rule Tags</a></td>
+          </tr>
+          <tr>
+            <td nowrap class="ssSideBodyCell"><a href="future-work.htm#Includes">Includes &amp;
+            Namespacing</a></td>
+          </tr>
+          <tr>
+            <td nowrap class="ssSideBodyCell"><a href="#ExprMinMax">Regular Expressions - Min &amp;
+            Max</a></td>
+          </tr>
+          <tr>
+            <td nowrap class="ssSideBodyCell"><a href="#BlockComments">Multiple Block Comments</a></td>
+          </tr>
+        </table>
+        </div></td>
+      </tr>
+    </table>
+    </div><h1><a name="Conflicts"></a>Resolving Conflicts</h1>
+    <h2>Overview</h2>
+    <p>Often, grammars can contain ambiguities that ultimately result in conflicts. When
+    conflicts occur during the construction of the LALR tables, they either take the form of
+    shift-reduce or reduce-reduce errors. Currently, shift-reduce conflicts are resolved by
+    selecting the &quot;shift&quot; action. </p>
+    <p>DFA conflicts are resolved by selecting the terminal that has a fixed length. These are
+    most likely reserved words used in the grammar and typically have the same format as
+    identifiers.</p>
+    <h2>Parameter Approach</h2>
+    <p>One possible solution is to add a number of parameters that the developer can use to
+    specify how conflicts will be resolved. </p>
+    <table border="0" cellspacing="0" cellpadding="0" class="ssCodeTable">
+      <tr>
+        <td width="100%" class="ssCodeTableBody">&quot;Resolve LALR&quot; = First declared</td>
+      </tr>
+    </table>
+    <p>The exact name and values of each still needs to be decided. However, the obvious
+    &quot;possible&quot; values would include 'First Declared' and 'Last Declared'.</p>
+    <h2>Rank Approach</h2>
+    <p>The other approach would be to resolve conflicts by assigning a &quot;rank&quot; to
+    each terminal and rule definition. When the system analyzes the grammar and constructs the
+    Deterministic Finite Automata and the LALR State Table, conflicts could be resolved by
+    simply selecting the higher-ranked object.</p>
+    <table border="0" cellspacing="0" cellpadding="0" class="ssCodeTable">
+      <tr>
+        <td class="ssCodeTableBody">&lt;Stm&gt; ::= IF &lt;Exp&gt; THEN &lt;Stm&gt; 
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; #1<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp; IF &lt;Exp&gt; THEN &lt;Stm&gt; ELSE &lt;Stm&gt;
+        &nbsp;&nbsp;&nbsp; #2&nbsp; </td>
+      </tr>
+      </table>
+    <p>In the example above, the &quot;If-Then-Else&quot; rule has a higher rank. The system
+    would then resolve the conflict by selecting it over the &quot;If-Then&quot; rule. &nbsp;
+    The notation used in the example is preliminary.</p>
+    <p>Whether #1 should be considered a higher rank than #2 or the other way around is still
+    needed to be determined.</p>
+    <h2>Compatibility</h2>
+    <table border="0" cellspacing="0" cellpadding="0" class="ssCodeTable">
+      <tr>
+        <td class="ssCodeTableColumn">Component</td>
+        <td class="ssCodeTableColumn">Changes</td>
+      </tr>
+      <tr>
+        <td class="ssCodeTableBodyDesc">Meta-Language</td>
+        <td class="ssCodeTableBodyDesc">Grammars will be completely backward compatible.</td>
+      </tr>
+      <tr>
+        <td class="ssCodeTableBodyDesc">Builder</td>
+        <td class="ssCodeTableBodyDesc">No Changes.</td>
+      </tr>
+      <tr>
+        <td class="ssCodeTableBodyDesc">CGT File Format</td>
+        <td class="ssCodeTableBodyDesc">No Changes.</td>
+      </tr>
+      <tr>
+        <td class="ssCodeTableBodyDesc">Engine</td>
+        <td class="ssCodeTableBodyDesc">No Changes.</td>
+      </tr>
+    </table>
+    <h1><a name="Tags"></a>Rule Tags</h1>
+    <h2>Overview</h2>
+    <p>It might be a great aid to developers if additional information can be saved along with
+    each rule. This information would be passive and would not affect how the parse tables are
+    constructed. However, this information could be useful to the developer implement their
+    compiler or interpreter.</p>
+    <p>These &quot;tags&quot; could be stored in the &quot;Reserved&quot; field of the
+    Compiled Grammar Table file. This would result in a new version of the GOLD CGT file
+    format - version 1.1. Current implementations of the Engine <u>should</u> be able to read
+    the updated file, but would not have access to the field. It is currently thrown away
+    since it contains no information.</p>
+    <h2>Numeric Tags</h2>
+    <p>If the tag contains a numeric value, the developer could use it to specify enumerated
+    constants independent of those generated by the Builder.&nbsp; The notation used in the
+    example below is preliminary.</p>
+    <table border="0" cellspacing="0" cellpadding="0" class="ssCodeTable">
+      <tr>
+        <td class="ssCodeTableBody">&lt;Stm&gt; ::= IF &lt;Exp&gt; THEN &lt;Stms&gt; END
+        IF&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; %12%</td>
+      </tr>
+    </table>
+    <h2>Text Tags</h2>
+    <p>Tags could also be stored as a string - giving more flexibility. In the example below,
+    the developer has specified the text &quot;If-Then&quot;.</p>
+    <table border="0" cellspacing="0" cellpadding="0" class="ssCodeTable">
+      <tr>
+        <td class="ssCodeTableBody">&lt;Stm&gt; ::= IF &lt;Exp&gt; THEN &lt;Stms&gt; END
+        IF&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; %If-Then%</td>
+      </tr>
+    </table>
+    <p>However, there is the danger that tags could be used to to embed source code into the
+    grammar. While this would follow the compiler-compiler paradigm, it would create
+    language-dependent elements in grammars.</p>
+    <p>In either case, the information stored in the tag (and saved to the CGT), could be
+    accessed through an object property or exported to the program template.</p>
+    <h2>Compatibility</h2>
+    <table border="0" cellspacing="0" cellpadding="0" class="ssCodeTable" width="95%">
+      <tr>
+        <td class="ssCodeTableColumn">Component</td>
+        <td class="ssCodeTableColumn">Changes</td>
+      </tr>
+      <tr>
+        <td class="ssCodeTableBodyDesc" nowrap>Meta-Language</td>
+        <td class="ssCodeTableBodyDesc">Grammars will be completely backward compatible.</td>
+      </tr>
+      <tr>
+        <td class="ssCodeTableBodyDesc" nowrap>Builder</td>
+        <td class="ssCodeTableBodyDesc">No Changes.</td>
+      </tr>
+      <tr>
+        <td class="ssCodeTableBodyDesc" nowrap>CGT File Format</td>
+        <td class="ssCodeTableBodyDesc">Compiled Grammar Table files <u>should</u> work all
+        Engines. A few problems could result if the Engine reads the &quot;reserved&quot; field as
+        a fixed number of bytes rather than using the entry's prefix byte.</td>
+      </tr>
+      <tr>
+        <td class="ssCodeTableBodyDesc" nowrap>Engine</td>
+        <td class="ssCodeTableBodyDesc">No Changes.</td>
+      </tr>
+    </table>
+    <h1><a name="Includes"></a>Includes &amp; Namespacing</h1>
+    <h2>Overview</h2>
+    <p>Suggested by Max Battcher. One possible change to the Meta-Language is adding
+    &quot;includes&quot;. Most programming languages contain the ability to add the source
+    written in another module or file.</p>
+    <p>In C++, this is the #Include directive. Pascal and Delphi have a &quot;uses&quot;
+    section.</p>
+    <h2>Compatibility</h2>
+    <table border="0" cellspacing="0" cellpadding="0" class="ssCodeTable">
+      <tr>
+        <td class="ssCodeTableColumn">Component</td>
+        <td class="ssCodeTableColumn">Changes</td>
+      </tr>
+      <tr>
+        <td class="ssCodeTableBodyDesc" nowrap>Meta-Language</td>
+        <td class="ssCodeTableBodyDesc">Grammars will be completely backward compatible.</td>
+      </tr>
+      <tr>
+        <td class="ssCodeTableBodyDesc" nowrap>Builder</td>
+        <td class="ssCodeTableBodyDesc">No Changes.</td>
+      </tr>
+      <tr>
+        <td class="ssCodeTableBodyDesc" nowrap>CGT File Format</td>
+        <td class="ssCodeTableBodyDesc">No Changes.</td>
+      </tr>
+      <tr>
+        <td class="ssCodeTableBodyDesc" nowrap>Engine</td>
+        <td class="ssCodeTableBodyDesc">No Changes.</td>
+      </tr>
+    </table>
+    <h1><a name="ExprMinMax"></a>Regular Expressions - Minimum &amp; Maximum</h1>
+    <h2>Overview</h2>
+    <p>Suggested by Don. POSIX uses an extended version of regular expressions that allows
+    developers to specify the minimum and maximum number occurrences of a character group.</p>
+    <table border="0" cellspacing="0" cellpadding="0" class="ssCodeTable">
+      <tr>
+        <td width="100%" class="ssCodeTableBody">DOS_NAME = {dos-char}[1,8] ( '.' {dos-char}[1,3]
+        )?</td>
+      </tr>
+    </table>
+    <p>The notation conflicts with GOLD's notation for set literals. Any notation used in the
+    Meta-language will have to modified so no conflicts exist.</p>
+    <h2>Compatibility</h2>
+    <table border="0" cellspacing="0" cellpadding="0" class="ssCodeTable">
+      <tr>
+        <td class="ssCodeTableColumn">Component</td>
+        <td class="ssCodeTableColumn">Changes</td>
+      </tr>
+      <tr>
+        <td class="ssCodeTableBodyDesc" nowrap>Meta-Language</td>
+        <td class="ssCodeTableBodyDesc">Grammars should be backwards compatible given the
+        notation is chosen carefully.</td>
+      </tr>
+      <tr>
+        <td class="ssCodeTableBodyDesc" nowrap>Builder</td>
+        <td class="ssCodeTableBodyDesc">No Changes.</td>
+      </tr>
+      <tr>
+        <td class="ssCodeTableBodyDesc" nowrap>CGT File Format</td>
+        <td class="ssCodeTableBodyDesc">No Changes.</td>
+      </tr>
+      <tr>
+        <td class="ssCodeTableBodyDesc" nowrap>Engine</td>
+        <td class="ssCodeTableBodyDesc">No Changes.</td>
+      </tr>
+    </table>
+    <h1><a name="BlockComments"></a>Multiple Block Comments</h1>
+    <h2>Overview</h2>
+    <p>Currently, most Engines use an internal &quot;comment level&quot; variable to determine
+    when a the system is in &quot;comment mode&quot;. When a block comment start terminal is
+    read, the variable is incremented. While the variable is greater than or equal to one, the
+    system will ignore all tokens and lexical errors. If a block comment end token is read,
+    the variable is decremented by one. </p>
+    <p>This approach allows the system to easily handle the logic of block comments, but has
+    one major drawback. Many programming languages, such as Pascal, have multiple block
+    comments. In Pascal, the comment terminals must match. For instance, a <span class="ssCodeText">(*</span> must match a <span class="ssCodeText">*)</span>and a <span class="ssCodeText">{</span>&nbsp; must match a <span class="ssCodeText">}</span>.
+    Currently, GOLD cannot handle this logic.</p>
+    <h2>Engine Changes</h2>
+    <p>One approach would change how Engines handle block comments. Instead of using the
+    single &quot;comment level&quot; variable, Engines would use an internal stack. Each time
+    a Start Token is read, its symbol would be placed on a stack. If the stack has one or more
+    items, the system would be in &quot;comment mode&quot;.</p>
+    <p>When a End Token is read, the system would check if the top of the stack is the
+    matching symbol. If it matches, the top of the stack would be discarded. If not, a
+    &quot;block comment mismatch&quot; error must be reported.</p>
+    <h2>CGT File Format Changes</h2>
+    <p>The solution would require a modification of the CGT File Format. The Symbol Record in
+    the Compiled Grammar Table file would require an additional field that contains the
+    matching token for block comments. However, some problems can occur when the file is
+    loaded. </p>
+    <h2>Meta-language Changes</h2>
+    <p>The changes to the Meta-language will be minor. The notation can be modified to to
+    handle multiple block comments by adding a number to the Comment Start / End definition.
+    The following is an example for Pascal:</p>
+    <table border="0" cellspacing="0" cellpadding="0" class="ssCodeTable">
+      <tr>
+        <td width="100%" class="ssCodeTableBody">Comment Start&nbsp;&nbsp; = '{'<br>
+        Comment End&nbsp;&nbsp;&nbsp;&nbsp; = '}'<br>
+        <br>
+        Comment 2 Start = '(*'<br>
+        Comment 2 End&nbsp;&nbsp; = '*)'</td>
+      </tr>
+    </table>
+    <h2>Compatibility</h2>
+    <table border="0" cellspacing="0" cellpadding="0" class="ssCodeTable" width="95%">
+      <tr>
+        <td class="ssCodeTableColumn">Component</td>
+        <td class="ssCodeTableColumn">Changes</td>
+      </tr>
+      <tr>
+        <td class="ssCodeTableBodyDesc" nowrap>Meta-Language</td>
+        <td class="ssCodeTableBodyDesc">Grammars will be backwards-compatible.</td>
+      </tr>
+      <tr>
+        <td class="ssCodeTableBodyDesc" nowrap>Builder</td>
+        <td class="ssCodeTableBodyDesc">The Builder will have to have to allow the developers to
+        save the parse tables in Version 1.1 (current) or Version 2.</td>
+      </tr>
+      <tr>
+        <td class="ssCodeTableBodyDesc" nowrap>CGT File Format</td>
+        <td class="ssCodeTableBodyDesc">The CGT file should be backwards compatible to existing
+        Engines. However, some problems can occur when the file is loaded. This is due to the new
+        field in the Symbol Record. </td>
+      </tr>
+      <tr>
+        <td class="ssCodeTableBodyDesc" nowrap>Engine</td>
+        <td class="ssCodeTableBodyDesc">To use this new feature, each Engine will have be
+        modified to use a stack rather than a single &quot;comment level&quot; variable.</td>
+      </tr>
+    </table>
+    <p>&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

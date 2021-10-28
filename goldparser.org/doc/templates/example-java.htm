@@ -1,0 +1,729 @@
+<html>
+
+<head>
+<link REL="STYLESHEET" HREF="../gold-parser-doc-style.css">
+<title>Example: Java - Matthew Hawkins Engine</title>
+</head>
+
+<body class="ssMainPage">
+
+<h1>Example: Java - Matthew Hawkins Engine</h1>
+
+<p>&nbsp;</p>
+
+<table class="ssCodeTable" border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <td nowrap class="ssCodeTableBody"><span id="ssCodeReservedSymbol" class="ssCodeReservedSymbol">##TEMPLATE-NAME</span>
+    'Java&nbsp;-&nbsp;Matthew&nbsp;Hawkins&nbsp;Engine'</td>
+  </tr>
+  <tr>
+    <td nowrap class="ssCodeTableBody"><span class="ssCodeReservedSymbol">##LANGUAGE</span>
+    'Java'</td>
+  </tr>
+  <tr>
+    <td nowrap class="ssCodeTableBody"><span class="ssCodeReservedSymbol">##ENGINE-NAME</span>
+    'Matthew Hawkins Java Engine'</td>
+  </tr>
+  <tr>
+    <td nowrap class="ssCodeTableBody"><span class="ssCodeReservedSymbol">##AUTHOR </span>'Matthew
+    Hawkins' </td>
+  </tr>
+  <tr>
+    <td nowrap class="ssCodeTableBody"><span class="ssCodeReservedSymbol">##FILE-EXTENSION</span>
+    'java'</td>
+  </tr>
+  <tr>
+    <td nowrap class="ssCodeTableBody"><span class="ssCodeReservedSymbol">##NOTES</span></td>
+  </tr>
+  <tr>
+    <td nowrap class="ssCodeTableBody">This&nbsp;template&nbsp;creates&nbsp;a&nbsp;skeleton&nbsp;program&nbsp;for&nbsp;Matthew&nbsp;Hawkins&nbsp;Java&nbsp;GOLD&nbsp;Parser&nbsp;Engine</td>
+  </tr>
+  <tr>
+    <td nowrap class="ssCodeTableBody"><span class="ssCodeReservedSymbol">##END-NOTES</span></td>
+  </tr>
+  <tr>
+    <td nowrap class="ssCodeTableBody"><span class="ssCodeReservedSymbol">##ID-CASE</span>
+    UPPERCASE</td>
+  </tr>
+  <tr>
+    <td nowrap class="ssCodeTableBody"><span class="ssCodeReservedSymbol">##ID-SEPARATOR</span>
+    '_'</td>
+  </tr>
+  <tr>
+    <td nowrap class="ssCodeTableBody"><span class="ssCodeReservedSymbol">##ID-SYMBOL-PREFIX</span>
+    'Symbol'</td>
+  </tr>
+  <tr>
+    <td nowrap class="ssCodeTableBody"><span class="ssCodeReservedSymbol">##ID-RULE-PREFIX</span>
+    'Rule'</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>import&nbsp;java.io.*;</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>import&nbsp;goldengine.java.*;</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap><br>
+    </td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>/*</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;*&nbsp;Licensed&nbsp;Material&nbsp;-&nbsp;Property&nbsp;of&nbsp;Matthew&nbsp;Hawkins&nbsp;(hawkini@myrealbox.com)</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;*/</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap><br>
+    </td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>public&nbsp;class&nbsp;MyParser&nbsp;implements&nbsp;GPMessageConstants</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>{</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap><br>
+    </td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;private&nbsp;interface&nbsp;SymbolConstants</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;{</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap><span class="ssCodeReservedSymbol">##SYMBOLS</span></td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;final&nbsp;int&nbsp;<span class="ssCodeKeySymbol">%ID.Padded%</span>&nbsp;=&nbsp;<span class="ssCodeKeySymbol">%Value%</span>;&nbsp;&nbsp;//&nbsp;<span class="ssCodeKeySymbol">%Description%</span></td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap><span class="ssCodeReservedSymbol">##END-SYMBOLS</span></td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;};</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap><br>
+    </td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;private&nbsp;interface&nbsp;RuleConstants</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;{</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap><span class="ssCodeReservedSymbol">##RULES</span></td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;final&nbsp;int&nbsp;<span class="ssCodeKeySymbol">%ID.Padded%</span>&nbsp;=&nbsp;<span class="ssCodeKeySymbol">%Value%</span>;&nbsp;&nbsp;//&nbsp;<span class="ssCodeKeySymbol">%Description%</span></td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap><span class="ssCodeReservedSymbol">##END-RULES</span></td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;};</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap><br>
+    </td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;private&nbsp;static&nbsp;BufferedReader&nbsp;buffR;</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap><br>
+    </td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;/***************************************************************</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;This&nbsp;class&nbsp;will&nbsp;run&nbsp;the&nbsp;engine,&nbsp;and&nbsp;needs&nbsp;a&nbsp;file&nbsp;called&nbsp;config.dat</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;in&nbsp;the&nbsp;current&nbsp;directory.&nbsp;This&nbsp;file&nbsp;should&nbsp;contain&nbsp;two&nbsp;lines,</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;The&nbsp;first&nbsp;should&nbsp;be&nbsp;the&nbsp;absolute&nbsp;path&nbsp;name&nbsp;to&nbsp;the&nbsp;.cgt&nbsp;file,&nbsp;the&nbsp;second</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;should&nbsp;be&nbsp;the&nbsp;source&nbsp;file&nbsp;you&nbsp;wish&nbsp;to&nbsp;parse.</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;args&nbsp;Array&nbsp;of&nbsp;arguments.</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;***************************************************************/</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;static&nbsp;void&nbsp;main(String[]&nbsp;args)</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;{</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;String&nbsp;textToParse&nbsp;=&nbsp;&quot;&quot;,&nbsp;compiledGrammar&nbsp;=&nbsp;&quot;&quot;;</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap><br>
+    </td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;try</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;buffR&nbsp;=&nbsp;new&nbsp;BufferedReader(new&nbsp;FileReader(new&nbsp;File(&quot;./config.dat&quot;)));</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;compiledGrammar&nbsp;=&nbsp;buffR.readLine();</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;textToParse&nbsp;=&nbsp;buffR.readLine();</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap><br>
+    </td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;buffR.close();</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;catch(FileNotFoundException&nbsp;fnfex)</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(&quot;Config&nbsp;File&nbsp;was&nbsp;not&nbsp;found.\n\n&quot;&nbsp;+</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;Please&nbsp;place&nbsp;it&nbsp;in&nbsp;the&nbsp;current&nbsp;directory.&quot;);</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.exit(1);</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;catch(IOException&nbsp;ioex)</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(&quot;An&nbsp;error&nbsp;occured&nbsp;while&nbsp;reading&nbsp;config.dat.\n\n&quot;&nbsp;+</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;Please&nbsp;re-try&nbsp;ensuring&nbsp;the&nbsp;file&nbsp;can&nbsp;be&nbsp;read.&quot;);</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.exit(1);</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap><br>
+    </td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GOLDParser&nbsp;parser&nbsp;=&nbsp;new&nbsp;GOLDParser();</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap><br>
+    </td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;try</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;parser.loadCompiledGrammar(compiledGrammar);</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;parser.openFile(textToParse);</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;catch(ParserException&nbsp;parse)</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(&quot;**PARSER&nbsp;ERROR**\n&quot;&nbsp;+&nbsp;parse.toString());</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.exit(1);</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap><br>
+    </td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;boolean&nbsp;done&nbsp;=&nbsp;false;</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;response&nbsp;=&nbsp;-1;</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap><br>
+    </td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;while(!done)</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;try</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;response&nbsp;=&nbsp;parser.parse();</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;catch(ParserException&nbsp;parse)</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(&quot;**PARSER&nbsp;ERROR**\n&quot;&nbsp;+&nbsp;parse.toString());</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.exit(1);</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap><br>
+    </td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;switch(response)</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case&nbsp;gpMsgTokenRead:</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/*&nbsp;A&nbsp;token&nbsp;was&nbsp;read&nbsp;by&nbsp;the&nbsp;parser.&nbsp;The&nbsp;Token&nbsp;Object&nbsp;can&nbsp;be&nbsp;accessed</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;through&nbsp;the&nbsp;CurrentToken()&nbsp;property:&nbsp;&nbsp;Parser.CurrentToken&nbsp;*/</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap><br>
+    </td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case&nbsp;gpMsgReduction:</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/*&nbsp;This&nbsp;message&nbsp;is&nbsp;returned&nbsp;when&nbsp;a&nbsp;rule&nbsp;was&nbsp;reduced&nbsp;by&nbsp;the</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;parse&nbsp;engine.
+    The&nbsp;CurrentReduction&nbsp;property&nbsp;is&nbsp;assigned</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a&nbsp;Reduction&nbsp;object
+    containing&nbsp;the&nbsp;rule&nbsp;and&nbsp;its&nbsp;related</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tokens.&nbsp;You&nbsp;can&nbsp;reassign&nbsp;this
+    property&nbsp;to&nbsp;your&nbsp;own&nbsp;customized</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;class.&nbsp;If&nbsp;this&nbsp;is&nbsp;not&nbsp;the&nbsp;case,
+    this&nbsp;message&nbsp;can&nbsp;be&nbsp;ignored</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;and&nbsp;the&nbsp;Reduction&nbsp;object&nbsp;will&nbsp;be&nbsp;used
+    to&nbsp;store&nbsp;the&nbsp;parse&nbsp;tree.*/</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap><br>
+    </td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;switch(Parser.CurrentReduction.TableIndex)</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap><span class="ssCodeReservedSymbol">##RULES</span></td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case&nbsp;<span class="ssCodeKeySymbol">%ID%</span>:</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//
+    <span class="ssCodeKeySymbol">%Description%</span></td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap><span class="ssCodeReservedSymbol">##END-RULES</span></td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap><br>
+    </td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//Parser.Reduction&nbsp;=&nbsp;//Object&nbsp;you&nbsp;created&nbsp;to&nbsp;store&nbsp;the&nbsp;rule</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap><br>
+    </td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;**************************************&nbsp;log&nbsp;file</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(&quot;gpMsgReduction&quot;);</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Reduction&nbsp;myRed&nbsp;=&nbsp;parser.currentReduction();</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(myRed.getParentRule().getText());</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;**************************************&nbsp;end&nbsp;log</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap><br>
+    </td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap><br>
+    </td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case&nbsp;gpMsgAccept:</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/*&nbsp;The&nbsp;program&nbsp;was&nbsp;accepted&nbsp;by&nbsp;the&nbsp;parsing&nbsp;engine&nbsp;*/</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap><br>
+    </td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;**************************************&nbsp;log&nbsp;file</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(&quot;gpMsgAccept&quot;);</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;**************************************&nbsp;end&nbsp;log</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap><br>
+    </td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;done&nbsp;=&nbsp;true;</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap><br>
+    </td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case&nbsp;gpMsgLexicalError:</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/*&nbsp;Place&nbsp;code&nbsp;here&nbsp;to&nbsp;handle&nbsp;a&nbsp;illegal&nbsp;or&nbsp;unrecognized&nbsp;token</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;To&nbsp;recover,&nbsp;pop&nbsp;the&nbsp;token&nbsp;from&nbsp;the&nbsp;stack:&nbsp;Parser.PopInputToken&nbsp;*/</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap><br>
+    </td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;**************************************&nbsp;log&nbsp;file</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(&quot;gpMsgLexicalError&quot;);</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;**************************************&nbsp;end&nbsp;log</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap><br>
+    </td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;parser.popInputToken();</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap><br>
+    </td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case&nbsp;gpMsgNotLoadedError:</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/*&nbsp;Load&nbsp;the&nbsp;Compiled&nbsp;Grammar&nbsp;Table&nbsp;file&nbsp;first.&nbsp;*/</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap><br>
+    </td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;**************************************&nbsp;log&nbsp;file</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(&quot;gpMsgNotLoadedError&quot;);</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;**************************************&nbsp;end&nbsp;log</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap><br>
+    </td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;done&nbsp;=&nbsp;true;</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap><br>
+    </td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case&nbsp;gpMsgSyntaxError:</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/*&nbsp;This&nbsp;is&nbsp;a&nbsp;syntax&nbsp;error:&nbsp;the&nbsp;source&nbsp;has&nbsp;produced&nbsp;a&nbsp;token&nbsp;that</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;was
+    not&nbsp;expected&nbsp;by&nbsp;the&nbsp;LALR&nbsp;State&nbsp;Machine.&nbsp;The&nbsp;expected</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tokens&nbsp;are&nbsp;stored
+    into&nbsp;the&nbsp;Tokens()&nbsp;list.&nbsp;To&nbsp;recover,&nbsp;push&nbsp;one&nbsp;of</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the
+    expected&nbsp;tokens&nbsp;onto&nbsp;the&nbsp;parser's&nbsp;input&nbsp;queue&nbsp;(the&nbsp;first&nbsp;in</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this&nbsp;case):
+    You&nbsp;should&nbsp;limit&nbsp;the&nbsp;number&nbsp;of&nbsp;times&nbsp;this&nbsp;type&nbsp;of</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;recovery&nbsp;can&nbsp;take
+    place.&nbsp;*/</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap><br>
+    </td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;done&nbsp;=&nbsp;true;</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap><br>
+    </td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Token&nbsp;theTok&nbsp;=&nbsp;parser.currentToken();</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(&quot;Token&nbsp;not&nbsp;expected:&nbsp;&quot;&nbsp;+&nbsp;(String)theTok.getData());</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap><br>
+    </td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;**************************************&nbsp;log&nbsp;file</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(&quot;gpMsgSyntaxError&quot;);</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;**************************************&nbsp;end&nbsp;log</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap><br>
+    </td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap><br>
+    </td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case&nbsp;gpMsgCommentError:</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/*&nbsp;The&nbsp;end&nbsp;of&nbsp;the&nbsp;input&nbsp;was&nbsp;reached&nbsp;while&nbsp;reading&nbsp;a&nbsp;comment.</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This&nbsp;is&nbsp;caused&nbsp;by&nbsp;a&nbsp;comment&nbsp;that&nbsp;was&nbsp;not&nbsp;terminated&nbsp;*/</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap><br>
+    </td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;**************************************&nbsp;log&nbsp;file</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(&quot;gpMsgCommentError&quot;);</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;**************************************&nbsp;end&nbsp;log</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap><br>
+    </td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;done&nbsp;=&nbsp;true;</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap><br>
+    </td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;break;</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap><br>
+    </td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case&nbsp;gpMsgInternalError:</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/*&nbsp;Something&nbsp;horrid&nbsp;happened&nbsp;inside&nbsp;the&nbsp;parser.&nbsp;You&nbsp;cannot&nbsp;recover&nbsp;*/</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap><br>
+    </td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;**************************************&nbsp;log&nbsp;file</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(&quot;gpMsgInternalError&quot;);</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;**************************************&nbsp;end&nbsp;log</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap><br>
+    </td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;done&nbsp;=&nbsp;true;</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;try</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;parser.closeFile();</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;catch(ParserException&nbsp;parse)</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(&quot;**PARSER&nbsp;ERROR**\n&quot;&nbsp;+&nbsp;parse.toString());</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.exit(1);</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;}</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" nowrap>}</td>
+  </tr>
+</table>
+
+<p>&nbsp;</p>
+</body>
+</html>

@@ -1,0 +1,228 @@
+<html>
+
+<head>
+<meta NAME="GENERATOR" Content="Microsoft FrontPage 12.0">
+<meta http-equiv="X-UA-Compatible" content="IE=9">
+
+<link REL="STYLESHEET" HREF="../../gold-parser-style.css">
+<title>GOLD Parsing System - Engine - DLLs &amp; Other Plug-ins</title>
+</head>
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%" class="ssMainContentTop">
+  <tr>
+    <td valign="top" class="ssMainTitleCell" colspan="2" height="110"><table border="0" cellspacing="0" cellpadding="0" class="ssTitleTable">
+      <tr>
+        <td class="ssTitleLogoCell" rowspan="2"><img src="../../images/gold-logo-v4-100.png" alt="The Tower Bridge in Sacramento, California" WIDTH="100" HEIGHT="100"></td>
+        <td class="ssTitleTopicCell">GOLD Parser Engine</td>
+        <td class="ssTitleGraphicCell" rowspan="2"><img src="../../images/pic-title-graphic.png" WIDTH="200" HEIGHT="110"></td>
+      </tr>
+      <tr>
+        <td class="ssTitleDescCell">DLLs &amp; Other Plug-ins</td>
+      </tr>
+    </table>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" class="ssMainContentTop" colspan="2"></td>
+  </tr>
+  <tr valign="top">
+    <td valign="top" align="center" class="ssMainMenuCell" width="150"><table class="ssMenuTable" border="0" cellspacing="0">
+      <tr>
+        <td valign="bottom" class="ssMenuTitleCell" colspan="2">
+		<a href="../../index.htm">Main</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../images/bullets/bullet-news.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell"><a href="../../news/index.htm">Latest News</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../images/bullets/bullet-getting-started.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a target="_top" href="../../getting-started/index.htm">Getting
+        Started</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell">
+		<img src="../../images/bullets/bullet-picture.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a href="../../builder/screenshots.htm">Screen Shots</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../images/bullets/bullet-disk.gif" border="0" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a href="../../download.htm" target="_top">Download</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../images/bullets/bullet-help.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell"><a href="../../doc/index.htm">Documentation</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../images/bullets/bullet-contributor.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a target="_top" href="../../contributors/index.htm">Contributors</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../images/bullets/bullet-contact.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a target="_top" href="../../contact.htm">Contact</a></td>
+      </tr>
+    </table>
+    <table class="ssMenuTable" border="0" cellspacing="0">
+      <tr>
+        <td valign="bottom" class="ssMenuTitleCell" colspan="2">
+		<a href="../../about/index.htm">About GOLD</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../images/bullets/bullet-information.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a href="../../about/how-it-works.htm" target="_top">How
+        It Works</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../images/bullets/bullet-information.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a href="../../about/faq.htm" target="_top">FAQ</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../images/bullets/bullet-information.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a target="_top" href="../../about/why-use-gold.htm">Why
+        Use GOLD?</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../images/bullets/bullet-information.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a href="../../about/comparison-parsers.htm" target="_top">Comparison</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../images/bullets/bullet-information.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a href="../../about/revision-history.htm" target="_top">Revision History</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../images/bullets/bullet-information.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a target="_top" href="../../about/license.htm">Freeware
+        License</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../images/bullets/bullet-information.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a target="_top" href="../../about/index.htm">More ...</a></td>
+      </tr>
+    </table>
+    <div align="center"><center><table border="0" class="ssMenuTable" cellspacing="0" cellpadding="0">
+      <tr>
+        <td valign="bottom" class="ssMenuTitleCell" colspan="2">
+		<a href="../../articles/index.htm">Articles</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../images/bullets/bullet-article.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a target="_top" href="../../articles/parser.htm">What
+        is a Parser?</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../images/bullets/bullet-article.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell"><a href="../../articles/bnf.htm">Backus-Naur Form</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../images/bullets/bullet-article.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell"><a href="../../articles/dfa.htm">DFA Lexer</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../images/bullets/bullet-article.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell"><a href="../../articles/lalr.htm">LALR Parsing</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../images/bullets/bullet-article.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a href="../../articles/glossary.htm">Glossary</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../images/bullets/bullet-article.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a target="_top" href="../../articles/links.htm">Links</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../images/bullets/bullet-article.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a target="_top" href="../../articles/index.htm">More
+        ...</a></td>
+      </tr>
+    </table>
+    </center></div><p><br>
+    </p>
+    <p align="center">
+	<img src="../../images/spacer-150.gif" border="0" WIDTH="150" HEIGHT="4"></td>
+    <td valign="top" class="ssMainContentCell" align="center"><table border="0" width="100%" class="ssHeaderTable" cellspacing="0" cellpadding="0">
+      <tr>
+        <td width="100%" class="ssHeaderTableText">This page contains links to different modules
+        that can be plugged directly into your application. Some components can be used with
+        multiple programming languages. An example is the Dynamic Linked Library (.DLL). This
+        type of component is supported by most integrated development environments.<p>Below is a
+        collection of links to Engines that have plug-ins available. The lists are organized by the
+        language used to implement the Engine.</td>
+        <td width="100%" class="ssHeaderTableGraphic" style="width: 50%">&nbsp;</td>
+      </tr>
+    </table>
+    <h1>Dynamic Linked Libraries</h1>
+    <table border="0" cellspacing="0" cellpadding="2">
+      <tr>
+        <td valign="middle"><img src="../../images/inline-bullet.gif" align="baseline" border="0" hspace="4" WIDTH="6" HEIGHT="6"></td>
+        <td valign="middle"><a href="assembly-x86/index.htm">Intel x86 Assembly</a></td>
+      </tr>
+      <tr>
+        <td valign="middle"><img src="../../images/inline-bullet.gif" align="baseline" border="0" hspace="4" WIDTH="6" HEIGHT="6"></td>
+        <td valign="middle"><a href="cpp/index.htm">C++ Programming Language</a></td>
+      </tr>
+      <tr>
+        <td valign="middle"><img src="../../images/inline-bullet.gif" align="baseline" border="0" hspace="4" WIDTH="6" HEIGHT="6"></td>
+        <td valign="middle"><a href="vb6/index.htm">Visual Basic 6 Programming Language</a></td>
+      </tr>
+    </table>
+    <h1>.NET Module</h1>
+    <table border="0" cellspacing="0" cellpadding="2">
+      <tr>
+        <td valign="middle"><img src="../../images/inline-bullet.gif" align="baseline" border="0" hspace="4" WIDTH="6" HEIGHT="6"></td>
+        <td valign="middle"><a href="net/index.htm">C# Programming Language</a></td>
+      </tr>
+      <tr>
+        <td valign="middle"><img src="../../images/inline-bullet.gif" align="baseline" border="0" hspace="4" WIDTH="6" HEIGHT="6"></td>
+        <td valign="middle"><a href="net/wilbanks/index.htm">Visual Basic .NET Programming Language</a></td>
+      </tr>
+    </table>
+    <h1>Java Virtual Machine</h1>
+    <table border="0" cellspacing="0" cellpadding="2">
+      <tr>
+        <td valign="middle"><img src="../../images/inline-bullet.gif" align="baseline" border="0" hspace="4" WIDTH="6" HEIGHT="6"></td>
+        <td valign="middle"><a href="java/index.htm">Java Programming Language</a></td>
+      </tr>
+    </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

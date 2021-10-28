@@ -1,0 +1,106 @@
+<html>
+
+<head>
+<link REL="STYLESHEET" HREF="../gold-parser-doc-style.css">
+<title>Program: YACC to GOLD</title>
+</head>
+
+<body class="ssMainPage">
+
+<h1>YACC to GOLD</h1>
+
+<h2>Format</h2>
+
+<table class="ssCodeTable" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="ssCodeTableBody" valign="bottom" nowrap><span class="ssCodeReservedSymbol">yacctogold</span><em>
+    </em>YACC-File [GOLD-File] [Options]</td>
+  </tr>
+</table>
+
+<h2>Overview</h2>
+
+<p>This utility program will convert a grammar written using the YACC Meta-language to the
+GOLD Meta-language. The program will create the &quot;hidden&quot; rules that are implied with the %left
+and %right YACC directives. The %prec directive, which is primarily used for unary
+operators, is also supported.</p>
+
+<p>Currently, all other YACC directives such as embedded code, %union, %type, etc... are
+parsed by this utility program, but are discarded.</p>
+
+<h2>About YACC</h2>
+
+<p>One of the oldest and most respected parsing engine generators available to developers
+is YACC. Like &quot;vi&quot; &quot;grep&quot; and &quot;awk&quot;, this software is
+considered the de facto standard in the UNIX world. YACC, which is an acronym for Yet
+Another Compiler-Compiler, was developed by Stephen C. Johnson at AT&amp;T </p>
+
+<p>YACC can be used to create parsers using the C and C++ programming languages. </p>
+
+<p>The term &quot;YACC&quot; actually refers to two separate compiler-compilers,
+&quot;lex&quot; and &quot;yacc&quot;, which constitute the development platform. Each
+application is used to generate a different part of the parsing system and, in turn, use
+different input files with the same generic format, but varying semantics. </p>
+
+<p>The &quot;lex&quot; application generates a new program called &quot;lex.yy.c&quot;
+which implements the lexer using a Deterministic Finite Automaton. The other
+application, &quot;yacc&quot;, generates a new program called &quot;y.tab.c&quot; which
+implements a LALR parsing algorithm. Once each application has created their respective
+program, both can be combined to create the complete system. </p>
+
+<h2>Details</h2>
+
+<table width="100%" class="ssChartTable" cellspacing="0" cellpadding="0" border="0">
+  <tr>
+    <td valign="top" class="ssChartTableColumn" nowrap>Field</td>
+    <td valign="top" class="ssChartTableColumn" nowrap>Values</td>
+    <td class="ssChartTableColumn" valign="top">Description</td>
+  </tr>
+  <tr>
+    <td valign="top" class="ssChartTableBodyItem" nowrap rowspan="4">Options</td>
+    <td valign="top" class="ssChartTableBodyItem" nowrap>-verbose, <br>+verbose</td>
+    <td class="ssChartTableBodyDesc" valign="top">If this flag is set to true, 
+	the program will output progress text to the screen as well as error 
+	messages. If set to false, no output will be generated. It defaults to true.</td>
+  </tr>
+  <tr>
+    <td valign="top" class="ssChartTableBodyItem" nowrap>-uniform, <br>+uniform</td>
+    <td class="ssChartTableBodyDesc" valign="top"><p>If this flag is set to true, 
+	each production will be indented the same number of spaces from left hand 
+	margin. This format makes large grammars much easier to read. If set to false, the width of the rule's name will be
+    used to indent each of the productions. This was the original format used by the GOLD
+    Meta-Language. For small grammars, this format is ideal. </p>
+    <p>The style you select has no effect how the grammar is interpreted by the Builder. By
+    default, this flag is set to true.</td>
+  </tr>
+  <tr>
+    <td valign="top" class="ssChartTableBodyItem" nowrap>-underscores, <br>+underscores</td>
+    <td class="ssChartTableBodyDesc" valign="top">In YACC, rule names follow the same syntax
+    as C++ identifiers. Often they include underscores or compound words. Examples include:
+    stmt_list, stmtList, and STMT_LIST.<p>If this this flag is set to true, the system will
+    convert all underscores to spaces. The default value is true.</td>
+  </tr>
+  <tr>
+    <td valign="top" class="ssChartTableBodyItem" nowrap>-case, <br>+case</td>
+    <td class="ssChartTableBodyDesc" valign="top">In many cases, the YACC grammar will use a
+    change in typecase to represent new words. This is common in most programming languages.
+    If this option is set to true, a space will be inserted whenever the typecase changes. The
+    default value is true.</td>
+  </tr>
+  <tr>
+    <td valign="top" class="ssChartTableBodyItem" nowrap>YACC-File</td>
+    <td valign="top" class="ssChartTableBodyItem" nowrap></td>
+    <td class="ssChartTableBodyDesc" valign="top">Required. This file contains the grammar
+    written in the YACC Meta-language</td>
+  </tr>
+  <tr>
+    <td valign="top" class="ssChartTableBodyItem" nowrap>GOLD-File</td>
+    <td valign="top" class="ssChartTableBodyItem" nowrap></td>
+    <td class="ssChartTableBodyDesc" valign="top">Optional. This file will be 
+	created by the utility program. .</td>
+  </tr>
+</table>
+
+<p>&nbsp;</p>
+</body>
+</html>

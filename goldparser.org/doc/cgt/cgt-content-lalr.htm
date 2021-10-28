@@ -1,0 +1,127 @@
+<html>
+
+<head>
+<title>File Content: LALR States</title>
+<link REL="STYLESHEET" HREF="../gold-parser-doc-style.css">
+</head>
+
+<body class="ssMainPage">
+
+<h1>File Content: LALR States</h1>
+
+<h2>Structure</h2>
+
+<p><img src="images/diagram-cgt-lalr-states.gif" alt="cgt-lalr-states.gif (2172 bytes)" WIDTH="472" HEIGHT="123"></p>
+
+<p>Each record describing a state in the LALR State Table is preceded by a byte field
+containing the value 76 - the ASCII code for &quot;L&quot;. The file will contain one of
+these records for each state in the table. The <a href="cgt-content-table-counts.htm">Table
+Count</a> record, which precedes any LALR records, will contain the total number of
+states.</p>
+
+<p>A <a href="../about/lalr.htm">LALR</a> State contains a series of actions that are
+performed based on the next token. The record mostly consists of a series of fields (in
+groups of 4) which describe each of these actions.</p>
+
+<h2>Initial Fields</h2>
+
+<table class="ssChartTable" cellspacing="0" cellpadding="0">
+  <tr>
+    <th class="ssChartTableColumn">Item</th>
+    <th class="ssChartTableColumn">Type</th>
+    <th class="ssChartTableColumn">Description</th>
+  </tr>
+  <tr>
+    <td valign="top" nowrap class="ssChartTableBodyItem">Index</td>
+    <td valign="top" class="ssChartTableBodyDesc">Integer</td>
+    <td class="ssChartTableBodyDesc">This parameter holds the index of the state in the LALR
+    State Table.</td>
+  </tr>
+  <tr>
+    <td valign="top" nowrap class="ssChartTableBodyItem">(Reserved)</td>
+    <td valign="top" class="ssChartTableBodyDesc">Empty</td>
+    <td class="ssChartTableBodyDesc">This field is reserved for future use.</td>
+  </tr>
+  <tr>
+    <td valign="top" nowrap class="ssChartTableBodyItem">Action <strong><em>0</em></strong>...<strong><em>n</em></strong></td>
+    <td valign="top" class="ssChartTableBodyDesc"></td>
+    <td class="ssChartTableBodyDesc">Described below.</td>
+  </tr>
+</table>
+
+<h2>Action <em>0</em>...<em>n</em></h2>
+<div align="center"><center>
+
+<table class="ssChartTable" cellspacing="0" cellpadding="0">
+  <tr>
+    <th class="ssChartTableColumn">Value</th>
+    <th class="ssChartTableColumn">Type</th>
+    <th class="ssChartTableColumn">Description</th>
+  </tr>
+  <tr>
+    <td valign="top" nowrap class="ssChartTableBodyItem">Symbol Index</td>
+    <td valign="top" class="ssChartTableBodyDesc">Integer</td>
+    <td class="ssChartTableBodyDesc">This field contains the index in the <a href="cgt-content-symbol.htm">Symbol Table</a>.</td>
+  </tr>
+  <tr>
+    <td valign="top" nowrap class="ssChartTableBodyItem">Action</td>
+    <td valign="top" class="ssChartTableBodyDesc">Integer</td>
+    <td class="ssChartTableBodyDesc">This field contains a value that represents the action
+    that LALR parsing engine is to take based on the symbol. These values are enumerated
+    below.</td>
+  </tr>
+  <tr>
+    <td valign="top" nowrap class="ssChartTableBodyItem">Target</td>
+    <td valign="top" class="ssChartTableBodyDesc">Integer</td>
+    <td class="ssChartTableBodyDesc">Depending on the value of the Action field, the target
+    will hold different types of information. </td>
+  </tr>
+  <tr>
+    <td valign="top" nowrap class="ssChartTableBodyItem">(Reserved)</td>
+    <td valign="top" class="ssChartTableBodyDesc">Empty</td>
+    <td class="ssChartTableBodyDesc">This field is reserved for future use.</td>
+  </tr>
+</table>
+</center></div>
+
+<h2>'Action' Constants</h2>
+
+<table class="ssChartTable" cellspacing="0" cellpadding="0">
+  <tr>
+    <th class="ssChartTableColumn">Value</th>
+    <th class="ssChartTableColumn">Name</th>
+    <th class="ssChartTableColumn">Description</th>
+  </tr>
+  <tr>
+    <td valign="top" class="ssChartTableBodyItem">1</td>
+    <td valign="top" class="ssChartTableBodyDesc">ActionShift</td>
+    <td class="ssChartTableBodyDesc">This action indicates the symbol is to be shifted. The
+    Target field will contain the index of the state in the LALR State table that the parsing
+    engine will advance to.</td>
+  </tr>
+  <tr>
+    <td valign="top" class="ssChartTableBodyItem">2</td>
+    <td valign="top" class="ssChartTableBodyDesc">ActionReduce</td>
+    <td class="ssChartTableBodyDesc">This action denotes that the parser can reduce a rule.
+    The Target field will contain the index of the rule in the Rule Table.</td>
+  </tr>
+  <tr>
+    <td valign="top" class="ssChartTableBodyItem">3</td>
+    <td valign="top" class="ssChartTableBodyDesc">ActionGoto</td>
+    <td class="ssChartTableBodyDesc">This action is used when a rule is reduced and the parser
+    jumps to the state that represents the shifted nonterminal. The Target field will contain
+    the index of the state in the LALR State table that the parsing engine will jump to after
+    a reduction if completed.</td>
+  </tr>
+  <tr>
+    <td valign="top" class="ssChartTableBodyItem">4</td>
+    <td valign="top" class="ssChartTableBodyDesc">ActionAccept</td>
+    <td class="ssChartTableBodyDesc">When the parser encounters the Accept action for a given
+    symbol, the source text is accepted as correct and complete. In this case, the Target
+    field is not needed and should be ignored.</td>
+  </tr>
+</table>
+
+<p>&nbsp;</p>
+</body>
+</html>

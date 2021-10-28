@@ -1,0 +1,35 @@
+<html>
+
+<head>
+<title>Compiled Grammar Table file</title>
+<link REL="STYLESHEET" HREF="../gold-parser-doc-style.css">
+<base target="_self">
+</head>
+
+<body class="ssMainPage">
+
+<h1>Compiled Grammar Table (.cgt) File</h1>
+
+<p>&nbsp;</p>
+
+<h2>Overview</h2>
+
+<table border="0" width="100%" cellpadding="8" cellspacing="0">
+  <tr>
+    <td valign="top">One of the primary goals of the GOLD Parsing System is to support any
+    number of programming languages. To accomplish this, the logic used to construct parse
+    tables is logically removed from the algorithms that do the actual parsing. <p>When a
+    grammar is analyzed by the GOLD Builder, parse tables are constructed for the
+    Deterministic Finite Automata (DFA) and LALR algorithms. Both the <a href="../about/dfa.htm">DFA</a> and <a href="../about/lalr.htm">LALR</a> algorithms are
+    simple automatas, and can be easily implemented in different programming languages with a
+    minimum of code. The Engine has already been implemented in Visual Basic, C++, C#, ANSI C,
+    Java and Delphi.</p>
+    <p>Once the parse tables are constructed, they can be saved to a Compiled Grammar Table
+    file (.cgt). This file is platform and programming language independent. As a result,
+    different implementations of the Engine can load the file and use its information.</p>
+    <p>This documentation contains information on the CGT file format and contents.</td>
+    <td valign="top"><img src="images/flow-cgt.gif" WIDTH="80" HEIGHT="274"></td>
+  </tr>
+</table>
+</body>
+</html>

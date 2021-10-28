@@ -1,0 +1,260 @@
+<html>
+
+<head>
+<meta NAME="GENERATOR" Content="Microsoft FrontPage 12.0">
+<meta http-equiv="X-UA-Compatible" content="IE=9">
+
+<link REL="STYLESHEET" HREF="../gold-parser-style.css">
+<title>GOLD Parsing System - How GOLD Compares to YACC</title>
+</head>
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%" class="ssMainContentTop">
+  <tr>
+    <td valign="top" class="ssMainTitleCell" colspan="2" height="110"><table border="0" cellspacing="0" cellpadding="0" class="ssTitleTable">
+      <tr>
+        <td class="ssTitleLogoCell" rowspan="2"><img src="../images/gold-logo-v4-100.png" alt="The Tower Bridge in Sacramento, California" WIDTH="100" HEIGHT="100"></td>
+        <td class="ssTitleTopicCell">Parser Comparison</td>
+        <td class="ssTitleGraphicCell" rowspan="2"><img src="../images/pic-title-graphic.png" WIDTH="200" HEIGHT="110"></td>
+      </tr>
+      <tr>
+        <td class="ssTitleDescCell">How GOLD Compares to YACC</td>
+      </tr>
+    </table>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" class="ssMainContentTop" colspan="2"></td>
+  </tr>
+  <tr valign="top">
+    <td valign="top" align="center" class="ssMainMenuCell" width="150"><table class="ssMenuTable" border="0" cellspacing="0">
+      <tr>
+        <td valign="bottom" class="ssMenuTitleCell" colspan="2">
+		<a href="../index.htm">Main</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../images/bullets/bullet-news.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell"><a href="../news/index.htm">Latest News</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../images/bullets/bullet-getting-started.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a target="_top" href="../getting-started/index.htm">Getting
+        Started</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell">
+		<img src="../images/bullets/bullet-picture.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a href="../builder/screenshots.htm">Screen Shots</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../images/bullets/bullet-disk.gif" border="0" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a href="../download.htm" target="_top">Download</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../images/bullets/bullet-help.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell"><a href="../doc/index.htm">Documentation</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../images/bullets/bullet-contributor.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a target="_top" href="../contributors/index.htm">Contributors</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../images/bullets/bullet-contact.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a target="_top" href="../contact.htm">Contact</a></td>
+      </tr>
+    </table>
+    <table class="ssMenuTable" border="0" cellspacing="0">
+      <tr>
+        <td valign="bottom" class="ssMenuTitleCell" colspan="2">
+		<a href="index.htm">About GOLD</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../images/bullets/bullet-information.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a href="how-it-works.htm" target="_top">How
+        It Works</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../images/bullets/bullet-information.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell"><a href="faq.htm" target="_top">FAQ</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../images/bullets/bullet-information.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a target="_top" href="why-use-gold.htm">Why
+        Use GOLD?</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../images/bullets/bullet-information.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a href="comparison-parsers.htm" target="_top">Comparison</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../images/bullets/bullet-information.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a href="revision-history.htm" target="_top">Revision History</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../images/bullets/bullet-information.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a target="_top" href="license.htm">Freeware
+        License</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../images/bullets/bullet-information.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a target="_top" href="index.htm">More ...</a></td>
+      </tr>
+    </table>
+    <div align="center"><center><table border="0" class="ssMenuTable" cellspacing="0" cellpadding="0">
+      <tr>
+        <td valign="bottom" class="ssMenuTitleCell" colspan="2">
+		<a href="../articles/index.htm">Articles</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../images/bullets/bullet-article.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a target="_top" href="../articles/parser.htm">What
+        is a Parser?</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../images/bullets/bullet-article.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell"><a href="../articles/bnf.htm">Backus-Naur Form</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../images/bullets/bullet-article.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell"><a href="../articles/dfa.htm">DFA Lexer</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../images/bullets/bullet-article.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell"><a href="../articles/lalr.htm">LALR Parsing</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../images/bullets/bullet-article.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a href="../articles/glossary.htm">Glossary</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../images/bullets/bullet-article.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a target="_top" href="../articles/links.htm">Links</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../images/bullets/bullet-article.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a target="_top" href="../articles/index.htm">More
+        ...</a></td>
+      </tr>
+    </table>
+    </center></div><p><br>
+    </p>
+    <p align="center">
+	<img src="../images/spacer-150.gif" border="0" WIDTH="150" HEIGHT="4"></td>
+    <td valign="top" class="ssMainContentCell" align="center"><h1>Overview of YACC</h1>
+    <p>One of the oldest and most respected parsing engine generators available to developers
+    is YACC. Like &quot;vi&quot; &quot;grep&quot; and &quot;awk&quot;, this software is
+    considered the de facto standard in the UNIX world.</p>
+    <p>When developing a parser using YACC, the grammar description is added directly to the C
+    source code. Special notation is used to define the data type used to store reductions as
+    well as where YACC code is to link to the original C source. For instance, using a
+    &quot;$1&quot; will refer to the first token of a reduced rule. </p>
+    <p>Naturally this source code, containing both YACC grammar information and normal C,
+    cannot be compiled directly. Instead, YACC is used to analyze this source code and create
+    a <strong>new</strong> C program with the compiled parser tables and engine
+    &quot;hard-wired&quot; into it. After this process is complete, the new C program can be
+    compiled and executed. This type of approach is known as a &quot;compiler-compiler&quot;.</p>
+    <p>For developers using C or C++ on the UNIX platform, YACC is an ideal tool. However, the
+    approach YACC uses has several drawbacks that limit it for developing modern interpreters
+    and compilers. The most notable drawback is the limitation on the programming language
+    used for development. There are several versions of YACC for different programming
+    languages, but in each case the grammar definition is not directly portable. Another major
+    drawback lies in the overall approach of&nbsp; compiler-compilers. </p>
+    <h1>Comparison Between GOLD &amp; YACC</h1>
+    <p>Essentially, GOLD differs for the classic YACC parser in four important ways.</p>
+    <table width="100%" cellspacing="0" cellpadding="0" class="ssListTable">
+      <tr>
+        <td valign="top" class="ssListIconCell"><span class="ssListHeaderText"><strong>1.</strong></span></td>
+        <td valign="top" class="ssListItemCell"><p class="ssListHeaderText">GOLD uses standard
+        notation for specifying rules, tokens, sets, etc.... </p>
+        <p>Rules are specified by Backus-Naur Form (non-enhanced at this time). </p>
+        <p>Terminals are represented through Regular Expressions </p>
+        <p>Character sets are represented through set notation (more or less). </td>
+      </tr>
+      <tr>
+        <td valign="top" class="ssListIconCell"><span class="ssListHeaderText">2.</span></td>
+        <td valign="top" class="ssListItemCell"><p class="ssListHeaderText">The actual parser
+        engine and tables exist separately. </p>
+        <p>One of the key differences between YACC and GOLD is how the grammar is used in
+        conjunction with the developer's source code.&nbsp; Unlike YACC, which combines C source
+        code and grammar constructs, GOLD operationally separates the parse engine and the code
+        that derives the table information.</p>
+        <p>Instead of integrating the grammar description into C source code, GOLD reads the
+        grammar from a separate file and then generates the tables. Afterwards, the derived tables
+        can be saved to a separate binary file which can be used at a later time. &nbsp; </p>
+        <p>This allows developers to build a grammar on one platform, and then use this binary
+        file to develop the interpreter/compiler on another. For instance, the developer can use
+        GOLD Builder to analyze a grammar on a x86 machine and then use that binary file on a
+        UNIX, Mac, Linux, etc... Since the DFA and LALR algorithms are simple, creating a parsing
+        engine on other platforms can be accomplished&nbsp; with a minimum of coding.</td>
+      </tr>
+      <tr>
+        <td valign="top" class="ssListIconCell"><span class="ssListHeaderText">3.</span></td>
+        <td valign="top" class="ssListItemCell"><p class="ssListHeaderText">GOLD is
+        language-independent</p>
+        <p>When a grammar is compiled and saved to a file by the GOLD Builder, the data exists
+        independent of any particular programming language.&nbsp; As a result, the parsing engine
+        that loads this file can be implemented in such languages as C, C++, Java, C#, Visual
+        Basic, Eiffel, etc... </p>
+        <p>There is an ActiveX DLL provided with GOLD Builder that reads and parses the
+        information stored in a Compiled Grammar Table file, but you create your own parser engine</td>
+      </tr>
+      <tr>
+        <td valign="top" class="ssListIconCell"><span class="ssListHeaderText">4.</span></td>
+        <td valign="top" class="ssListItemCell"><p class="ssListHeaderText">The GOLD Builder does
+        not have short-cut notation for operator precedence. </p>
+        <p>YACC provides a mechanism for providing operator precedence. The developer can specify
+        the order of operator precedence and whether each operator associates left-to-right or
+        right-to-left.</p>
+        <p>The GOLD Builder does not provide such a mechanism for an important reason. Operator
+        precedence actually consists of a series of rules. In the case with YACC, the extra rules
+        needed to implement the proper logic are created &quot;behind the scene&quot;. This makes
+        sense for YACC since the additional rules can be hidden from the programmer and the
+        special logic needed for the parser engine is already implemented.</p>
+        <p>However, if these &quot;hidden&quot; rules were saved to the Compiled Grammar Table
+        file, reductions would take place in the parser engine that the grammar designer would not
+        expect (nor plan for). Essentially, it would give ambiguity to the parsing process and
+        defeat the purpose of a generalized parser generator such as GOLD.</p>
+        <p>Fortunately,&nbsp; implementing operator precedence is easy, though often tedious. </td>
+      </tr>
+    </table>
+    <p>&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

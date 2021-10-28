@@ -1,0 +1,319 @@
+<html dir="LTR">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" />
+    <meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5" />
+    <title>com.calitha.goldparser</title>
+    <xml>
+    </xml>
+    <link rel="stylesheet" type="text/css" href="MSDN.css" />
+  </head>
+  <body id="bodyID" class="dtBODY">
+    <div id="nsbanner">
+      <div id="bannerrow1">
+        <table class="bannerparthead" cellspacing="0">
+          <tr id="hdr">
+            <td class="runninghead">Calitha GOLD Parser Engine Documentation</td>
+            <td class="product">
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div id="TitleRow">
+        <h1 class="dtH1">com.calitha.goldparser Namespace</h1>
+      </div>
+    </div>
+    <div id="nstext">
+      <p>
+        <a href="com.calitha.goldparserHierarchy.html">Namespace hierarchy</a>
+      </p>
+      <h3 class="dtH3">Classes</h3>
+      <div class="tablediv">
+        <table class="dtTABLE" cellspacing="0">
+          <tr valign="top">
+            <th width="50%">Class</th>
+            <th width="50%">Description</th>
+          </tr>
+          <tr valign="top">
+            <td width="50%">
+              <a href="com.calitha.goldparser.AcceptEventArgs.html">AcceptEventArgs</a>
+            </td>
+            <td width="50%"> Event argument for an Accept event. </td>
+          </tr>
+          <tr valign="top">
+            <td width="50%">
+              <a href="com.calitha.goldparser.CGTReader.html">CGTReader</a>
+            </td>
+            <td width="50%"> The CGTReader is for reading a Compiled Grammar Table file and parsing it so that a tokenizer and parser is created. </td>
+          </tr>
+          <tr valign="top">
+            <td width="50%">
+              <a href="com.calitha.goldparser.CommentReadEventArgs.html">CommentReadEventArgs</a>
+            </td>
+            <td width="50%"> Event argument for a CommentRead event. </td>
+          </tr>
+          <tr valign="top">
+            <td width="50%">
+              <a href="com.calitha.goldparser.GotoEventArgs.html">GotoEventArgs</a>
+            </td>
+            <td width="50%"> Event arguments after a goto event. </td>
+          </tr>
+          <tr valign="top">
+            <td width="50%">
+              <a href="com.calitha.goldparser.LALRParser.html">LALRParser</a>
+            </td>
+            <td width="50%"> The LALR Parser is used to parse a source string into tokens and rules. </td>
+          </tr>
+          <tr valign="top">
+            <td width="50%">
+              <a href="com.calitha.goldparser.Location.html">Location</a>
+            </td>
+            <td width="50%"> The Location defines positional information of the input that is being parsed. </td>
+          </tr>
+          <tr valign="top">
+            <td width="50%">
+              <a href="com.calitha.goldparser.NonterminalToken.html">NonterminalToken</a>
+            </td>
+            <td width="50%"> The nonterminal token is created when tokens are reduced by a rule. </td>
+          </tr>
+          <tr valign="top">
+            <td width="50%">
+              <a href="com.calitha.goldparser.ParseErrorEventArgs.html">ParseErrorEventArgs</a>
+            </td>
+            <td width="50%"> Event arguments for the Parse Error event. </td>
+          </tr>
+          <tr valign="top">
+            <td width="50%">
+              <a href="com.calitha.goldparser.ParserException.html">ParserException</a>
+            </td>
+            <td width="50%"> ParserException is throws when an unexpected situation occurs while parsing. For example if the LALR parser is in a state where no actions can be taken. </td>
+          </tr>
+          <tr valign="top">
+            <td width="50%">
+              <a href="com.calitha.goldparser.ReduceEventArgs.html">ReduceEventArgs</a>
+            </td>
+            <td width="50%"> Event arguments for the Reduce event. </td>
+          </tr>
+          <tr valign="top">
+            <td width="50%">
+              <a href="com.calitha.goldparser.Rule.html">Rule</a>
+            </td>
+            <td width="50%"> The Rule consists of the symbols that can be reduced to another symbol. </td>
+          </tr>
+          <tr valign="top">
+            <td width="50%">
+              <a href="com.calitha.goldparser.RuleCollection.html">RuleCollection</a>
+            </td>
+            <td width="50%"> Type-safe list of Rule objects. </td>
+          </tr>
+          <tr valign="top">
+            <td width="50%">
+              <a href="com.calitha.goldparser.ShiftEventArgs.html">ShiftEventArgs</a>
+            </td>
+            <td width="50%"> Event arguments for the Shift event. </td>
+          </tr>
+          <tr valign="top">
+            <td width="50%">
+              <a href="com.calitha.goldparser.StateStack.html">StateStack</a>
+            </td>
+            <td width="50%"> The stack of LALR states for the parser. It is used to store the current and previous states, which is usefull if a reduction occurs. </td>
+          </tr>
+          <tr valign="top">
+            <td width="50%">
+              <a href="com.calitha.goldparser.StringTokenizer.html">StringTokenizer</a>
+            </td>
+            <td width="50%"> This class is used to split a string into tokens. It needs a Deterministic Finite Automata to accomplish this. </td>
+          </tr>
+          <tr valign="top">
+            <td width="50%">
+              <a href="com.calitha.goldparser.Symbol.html">Symbol</a>
+            </td>
+            <td width="50%"> Abstract symbol implementation. </td>
+          </tr>
+          <tr valign="top">
+            <td width="50%">
+              <a href="com.calitha.goldparser.SymbolCollection.html">SymbolCollection</a>
+            </td>
+            <td width="50%"> Type-safe list for Symbol objects. The class contains constant symbol objects for the pre-defined terminal symbols. </td>
+          </tr>
+          <tr valign="top">
+            <td width="50%">
+              <a href="com.calitha.goldparser.SymbolCommentEnd.html">SymbolCommentEnd</a>
+            </td>
+            <td width="50%"> SymbolCommentEnd is the symbol for the comment end token. </td>
+          </tr>
+          <tr valign="top">
+            <td width="50%">
+              <a href="com.calitha.goldparser.SymbolCommentLine.html">SymbolCommentLine</a>
+            </td>
+            <td width="50%"> SymbolCommentLine is the symbol for the comment line token. </td>
+          </tr>
+          <tr valign="top">
+            <td width="50%">
+              <a href="com.calitha.goldparser.SymbolCommentStart.html">SymbolCommentStart</a>
+            </td>
+            <td width="50%"> SymbolCommentStart is the symbol for the comment start token. </td>
+          </tr>
+          <tr valign="top">
+            <td width="50%">
+              <a href="com.calitha.goldparser.SymbolEnd.html">SymbolEnd</a>
+            </td>
+            <td width="50%"> SymbolEnd is the symbol for the end-of-file token. </td>
+          </tr>
+          <tr valign="top">
+            <td width="50%">
+              <a href="com.calitha.goldparser.SymbolError.html">SymbolError</a>
+            </td>
+            <td width="50%"> SymbolError is the symbol for the error token. </td>
+          </tr>
+          <tr valign="top">
+            <td width="50%">
+              <a href="com.calitha.goldparser.SymbolFactory.html">SymbolFactory</a>
+            </td>
+            <td width="50%"> The SymbolFactory is for creating a symbol identified by a record in the fil content. </td>
+          </tr>
+          <tr valign="top">
+            <td width="50%">
+              <a href="com.calitha.goldparser.SymbolNonterminal.html">SymbolNonterminal</a>
+            </td>
+            <td width="50%"> SymbolNonterminal is for symbols that are not directly linked to one token. </td>
+          </tr>
+          <tr valign="top">
+            <td width="50%">
+              <a href="com.calitha.goldparser.SymbolTerminal.html">SymbolTerminal</a>
+            </td>
+            <td width="50%"> SymbolTerminal is a symbol that is linked to a token. </td>
+          </tr>
+          <tr valign="top">
+            <td width="50%">
+              <a href="com.calitha.goldparser.SymbolWhiteSpace.html">SymbolWhiteSpace</a>
+            </td>
+            <td width="50%"> SymbolWhiteSpace is the symbol of white-space tokens. </td>
+          </tr>
+          <tr valign="top">
+            <td width="50%">
+              <a href="com.calitha.goldparser.TerminalToken.html">TerminalToken</a>
+            </td>
+            <td width="50%"> Terminal token objects are retrieved from the tokenizer. </td>
+          </tr>
+          <tr valign="top">
+            <td width="50%">
+              <a href="com.calitha.goldparser.Token.html">Token</a>
+            </td>
+            <td width="50%"> Abstract class representing both terminal and nonterminal tokens. </td>
+          </tr>
+          <tr valign="top">
+            <td width="50%">
+              <a href="com.calitha.goldparser.TokenErrorEventArgs.html">TokenErrorEventArgs</a>
+            </td>
+            <td width="50%"> Event arguments for a token read error. </td>
+          </tr>
+          <tr valign="top">
+            <td width="50%">
+              <a href="com.calitha.goldparser.TokenReadEventArgs.html">TokenReadEventArgs</a>
+            </td>
+            <td width="50%"> Event arguments for the TokenRead event. </td>
+          </tr>
+          <tr valign="top">
+            <td width="50%">
+              <a href="com.calitha.goldparser.TokenStack.html">TokenStack</a>
+            </td>
+            <td width="50%"> Stack of tokens and reductions. </td>
+          </tr>
+        </table>
+      </div>
+      <h3 class="dtH3">Interfaces</h3>
+      <div class="tablediv">
+        <table class="dtTABLE" cellspacing="0">
+          <tr valign="top">
+            <th width="50%">Interface</th>
+            <th width="50%">Description</th>
+          </tr>
+          <tr valign="top">
+            <td width="50%">
+              <a href="com.calitha.goldparser.IStringTokenizer.html">IStringTokenizer</a>
+            </td>
+            <td width="50%">&nbsp;</td>
+          </tr>
+        </table>
+      </div>
+      <h3 class="dtH3">Delegates</h3>
+      <div class="tablediv">
+        <table class="dtTABLE" cellspacing="0">
+          <tr valign="top">
+            <th width="50%">Delegate</th>
+            <th width="50%">Description</th>
+          </tr>
+          <tr valign="top">
+            <td width="50%">
+              <a href="com.calitha.goldparser.LALRParser.AcceptHandler.html">LALRParser.AcceptHandler</a>
+            </td>
+            <td width="50%">&nbsp;</td>
+          </tr>
+          <tr valign="top">
+            <td width="50%">
+              <a href="com.calitha.goldparser.LALRParser.CommentReadHandler.html">LALRParser.CommentReadHandler</a>
+            </td>
+            <td width="50%">&nbsp;</td>
+          </tr>
+          <tr valign="top">
+            <td width="50%">
+              <a href="com.calitha.goldparser.LALRParser.GotoHandler.html">LALRParser.GotoHandler</a>
+            </td>
+            <td width="50%">&nbsp;</td>
+          </tr>
+          <tr valign="top">
+            <td width="50%">
+              <a href="com.calitha.goldparser.LALRParser.ParseErrorHandler.html">LALRParser.ParseErrorHandler</a>
+            </td>
+            <td width="50%">&nbsp;</td>
+          </tr>
+          <tr valign="top">
+            <td width="50%">
+              <a href="com.calitha.goldparser.LALRParser.ReduceHandler.html">LALRParser.ReduceHandler</a>
+            </td>
+            <td width="50%">&nbsp;</td>
+          </tr>
+          <tr valign="top">
+            <td width="50%">
+              <a href="com.calitha.goldparser.LALRParser.ShiftHandler.html">LALRParser.ShiftHandler</a>
+            </td>
+            <td width="50%">&nbsp;</td>
+          </tr>
+          <tr valign="top">
+            <td width="50%">
+              <a href="com.calitha.goldparser.LALRParser.TokenErrorHandler.html">LALRParser.TokenErrorHandler</a>
+            </td>
+            <td width="50%">&nbsp;</td>
+          </tr>
+          <tr valign="top">
+            <td width="50%">
+              <a href="com.calitha.goldparser.LALRParser.TokenReadHandler.html">LALRParser.TokenReadHandler</a>
+            </td>
+            <td width="50%">&nbsp;</td>
+          </tr>
+        </table>
+      </div>
+      <h3 class="dtH3">Enumerations</h3>
+      <div class="tablediv">
+        <table class="dtTABLE" cellspacing="0">
+          <tr valign="top">
+            <th width="50%">Enumeration</th>
+            <th width="50%">Description</th>
+          </tr>
+          <tr valign="top">
+            <td width="50%">
+              <a href="com.calitha.goldparser.ContinueMode.html">ContinueMode</a>
+            </td>
+            <td width="50%">&nbsp;</td>
+          </tr>
+          <tr valign="top">
+            <td width="50%">
+              <a href="com.calitha.goldparser.LALRParser.StoreTokensMode.html">LALRParser.StoreTokensMode</a>
+            </td>
+            <td width="50%">&nbsp;</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>

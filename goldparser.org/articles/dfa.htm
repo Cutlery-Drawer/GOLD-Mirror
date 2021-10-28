@@ -1,0 +1,226 @@
+<html>
+
+<head>
+<meta NAME="GENERATOR" Content="Microsoft FrontPage 12.0">
+<meta http-equiv="X-UA-Compatible" content="IE=9">
+
+<link REL="STYLESHEET" HREF="../gold-parser-style.css">
+<title>GOLD Parsing System - Deterministic Finite Automata</title>
+</head>
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%" class="ssMainContentTop">
+  <tr>
+    <td valign="top" class="ssMainTitleCell" colspan="2" height="110"><table border="0" cellspacing="0" cellpadding="0" class="ssTitleTable">
+      <tr>
+        <td class="ssTitleLogoCell" rowspan="2"><img src="../images/gold-logo-v4-100.png" alt="The Tower Bridge in Sacramento, California" WIDTH="100" HEIGHT="100"></td>
+        <td class="ssTitleTopicCell">Parsing Concepts</td>
+        <td class="ssTitleGraphicCell" rowspan="2"><img src="../images/pic-title-graphic.png" WIDTH="200" HEIGHT="110"></td>
+      </tr>
+      <tr>
+        <td class="ssTitleDescCell">Deterministic Finite Automata</td>
+      </tr>
+    </table>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" class="ssMainContentTop" colspan="2"></td>
+  </tr>
+  <tr valign="top">
+    <td valign="top" align="center" class="ssMainMenuCell" width="150"><table class="ssMenuTable" border="0" cellspacing="0">
+      <tr>
+        <td valign="bottom" class="ssMenuTitleCell" colspan="2">
+		<a href="../index.htm">Main</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../images/bullets/bullet-news.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell"><a href="../news/index.htm">Latest News</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../images/bullets/bullet-getting-started.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a target="_top" href="../getting-started/index.htm">Getting
+        Started</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell">
+		<img src="../images/bullets/bullet-picture.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a href="../builder/screenshots.htm">Screen Shots</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../images/bullets/bullet-disk.gif" border="0" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a href="../download.htm" target="_top">Download</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../images/bullets/bullet-help.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell"><a href="../doc/index.htm">Documentation</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../images/bullets/bullet-contributor.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a target="_top" href="../contributors/index.htm">Contributors</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../images/bullets/bullet-contact.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a target="_top" href="../contact.htm">Contact</a></td>
+      </tr>
+    </table>
+    <table class="ssMenuTable" border="0" cellspacing="0">
+      <tr>
+        <td valign="bottom" class="ssMenuTitleCell" colspan="2">
+		<a href="../about/index.htm">About GOLD</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../images/bullets/bullet-information.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a href="../about/how-it-works.htm" target="_top">How
+        It Works</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../images/bullets/bullet-information.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a href="../about/faq.htm" target="_top">FAQ</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../images/bullets/bullet-information.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a target="_top" href="../about/why-use-gold.htm">Why
+        Use GOLD?</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../images/bullets/bullet-information.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a href="../about/comparison-parsers.htm" target="_top">Comparison</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../images/bullets/bullet-information.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a href="../about/revision-history.htm" target="_top">Revision History</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../images/bullets/bullet-information.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a target="_top" href="../about/license.htm">Freeware
+        License</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../images/bullets/bullet-information.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a target="_top" href="../about/index.htm">More ...</a></td>
+      </tr>
+    </table>
+    <div align="center"><center><table border="0" class="ssMenuTable" cellspacing="0" cellpadding="0">
+      <tr>
+        <td valign="bottom" class="ssMenuTitleCell" colspan="2">
+		<a href="index.htm">Articles</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../images/bullets/bullet-article.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a target="_top" href="parser.htm">What
+        is a Parser?</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../images/bullets/bullet-article.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell"><a href="bnf.htm">Backus-Naur Form</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../images/bullets/bullet-article.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell"><a href="dfa.htm">DFA Lexer</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../images/bullets/bullet-article.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell"><a href="lalr.htm">LALR Parsing</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../images/bullets/bullet-article.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell"><a href="glossary.htm">Glossary</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../images/bullets/bullet-article.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a target="_top" href="links.htm">Links</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../images/bullets/bullet-article.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a target="_top" href="index.htm">More
+        ...</a></td>
+      </tr>
+    </table>
+    </center></div><p><br>
+    </p>
+    <p align="center">
+	<img src="../images/spacer-150.gif" border="0" WIDTH="150" HEIGHT="4"></td>
+    <td valign="top" class="ssMainContentCell" align="center">One of the major componants of
+    GOLD (and many other parsing systems) is the tokenizer. The goal of the tokenizer (also
+    called a scanner) is to recognize different tokens and pass this information to the
+    parsing algorithm.<p>Essentially, <a href="regular-expressions.htm">regular expressions</a>
+    can be used to define a regular language. Regular languages, in turn, exhibit very simple
+    patterns. A deterministic finite automaton, or DFA for short, is a method if recognizing
+    this pattern algorithmically. </p>
+    <p>As the name implies, deterministic finite automata are deterministic. This means that
+    from any given state there is only one path for any given input. In other words, there is
+    no ambiguity in state transition. It is also complete which means there is one path from
+    any given input. It is finite; meaning there is a fixed and known number of states and
+    transitions between states. Finally, it is an automaton. The transition from state to
+    state is completely determined by the input. The algorithm merely follows the correct
+    branches based on the information provided. </p>
+    <p>A DFA is commonly represented with a graph. The term &quot;graph&quot; is used quite
+    loosely by other scientific fields. Often, it is refers to a plotted mathematical function
+    or graphical representation of data. In computer science terms, however, a
+    &quot;graph&quot; is simply a collection of nodes connected by edges. </p>
+    <p><img src="../images/diagram-dfa.gif" alt="Deterministic Finite Automata" align="right" border="0" hspace="4" vspace="4" WIDTH="300" HEIGHT="309">Most parser engines, including the GOLD Parsing System,
+    use a DFA to implement the tokenizer. This part of the engine scans the input and
+    determines when and if a series of characters can be recognized as a token. </p>
+    <p>The figure to the right is a simple Deterministic Finite Automata that recognizes
+    common identifiers and numbers. For instance, assume that the input contains the text
+    &quot;gold&quot;. From State 1 (the initial state), the DFA moves to State 2 when the
+    &quot;g&quot; is read. For the next three characters, &quot;o&quot;, &quot;l&quot; and
+    &quot;d&quot;, the DFA continues to loop to State 2.</p>
+    <p>By design, the tokenizer attempts to match the longest series of characters possible
+    before accepting a token. For example: if the tokenizer is reading the characters
+    &quot;count&quot; from the source, it can match the first character &quot;c&quot; as an
+    identifier. It would not be prudent for the tokenizer to report five separate identifiers:
+    &quot;c&quot;, &quot;o&quot;, &quot;u&quot;, &quot;n&quot; and &quot;t&quot;.</p>
+    <p>Each time a token is identified, it is passed to the <img src="../images/inline-link.gif" alt="inline-arrow-r.gif (99 bytes)" hspace="3" WIDTH="5" HEIGHT="9"><a href="lalr.htm">LALR</a> parse engine and the tokenizer restarts at the initial state.</p>
+    <p>&nbsp;</p>
+    <p>For more information, please refer to the following: <ul>
+      <li>Loudan, Kenneth C. (1997). <u>Compiler Construction</u>, PWS Publishing Company, 20 Park
+        Plaza, Boston, MA 02116-4324</li>
+      <li>Appel, Andrew W. (1998). <u>Modern Compiler Implementation in C</u>. Cambridge
+        University Press, 40 West 20th Street, New York City, New York 10011-4211</li>
+      <li>Fischer, Charles N. &amp; LeBlanc Jr., Richard J. (1988). <u>Crafting a Compiler</u>,
+        The Benjamin/Cummings Publishing Company Inc., 2727 Sand Hill Road, Menlo Park, California
+        94025</li>
+      <li>... or just search for &quot;Deterministic Finite Automata&quot; on the Internet.</li>
+    </ul>
+    <p>&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<html>
+
+<head>
+<link REL="STYLESHEET" HREF="../gold-parser-doc-style.css">
+<title>Program: testgrammar</title>
+</head>
+
+<body class="ssMainPage">
+
+<h1>Test Grammar</h1>
+
+<h2>Format</h2>
+
+<table class="ssCodeTable" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="ssCodeTableBody" valign="bottom" nowrap>
+	<span class="ssCodeReservedSymbol">goldtest</span> Table-File Test-File [Log-File] 
+	[options] </td>
+  </tr>
+</table>
+
+<h2>Overview</h2>
+
+<p>After the grammar has been successfully compiled by the Builder, the developer can
+check how Deterministic Finite Automata and LALR algorithms will analyze any number of
+test cases. </p>
+
+<p>To test the behavior of the algorithms, a local embedded implementation of the Visual
+Basic 6 Engine is used. Although different implementations of the Engine exist, the
+behavior of the LALR and DFA algorithms is constant. Regardless of whether an Engine is
+written for Visual Basic, C++ or Java, the parse tables will create the same number of
+reductions and will accept or reject the same information. As a result, the specific
+details on how the Engine was implemented, will have no effect on testing. </p>
+
+<h2>Details</h2>
+
+<table width="100%" class="ssChartTable" cellspacing="0" cellpadding="0" border="0">
+  <tr>
+    <td valign="top" class="ssChartTableColumn" nowrap>Field</td>
+    <td class="ssChartTableColumn" valign="top" nowrap>Values</td>
+    <td class="ssChartTableColumn" valign="top">Description</td>
+  </tr>
+    <tr>
+    <td valign="top" class="ssChartTableBodyItem" nowrap>Table File</td>
+    <td class="ssChartTableBodyItem" valign="top" nowrap></td>
+    <td class="ssChartTableBodyDesc" valign="top">Required. This can be either a 
+	CGT or EGT file.</td>
+    </tr>
+	<tr>
+    <td valign="top" class="ssChartTableBodyItem" nowrap>Test File</td>
+    <td class="ssChartTableBodyItem" valign="top" nowrap></td>
+    <td class="ssChartTableBodyDesc" valign="top">Required. This file will be 
+	read and parsed. </td>
+    </tr>
+	<tr>
+    <td valign="top" class="ssChartTableBodyItem" nowrap>Log File</td>
+    <td class="ssChartTableBodyItem" valign="top" nowrap></td>
+    <td class="ssChartTableBodyDesc" valign="top">Optional. If this field is left blank, the
+    program will automatically create a filename using the test file's filename.
+    The new filename will contain the same base, but will have a .out extension. For example,
+    if the test filename is &quot;test.txt&quot;, the file &quot;test.out&quot; will be
+    created. </td>
+    </tr>
+  <tr>
+    <td valign="top" class="ssChartTableBodyItem" nowrap rowspan="6">Options</td>
+    <td class="ssChartTableBodyItem" valign="top" nowrap>-verbose, <br>+verbose</td>
+    <td class="ssChartTableBodyDesc" valign="top">If this flag is set to true, 
+	the program will output progress text to the screen as well as error 
+	messages. If set to false, no output will be generated. It defaults to true.</td>
+  </tr>
+  <tr>
+    <td class="ssChartTableBodyItem" valign="top" nowrap>-logs, <br>+logs</td>
+    <td class="ssChartTableBodyDesc" valign="top">If this option is set to true, 
+	a separate log file will be generated for each file tested. The file will 
+	contain detailed information about what parse actions were taken and where 
+	if any errors occured.</td>
+  </tr>
+  <tr>
+    <td class="ssChartTableBodyItem" valign="top" nowrap>-tree, <br>+tree</td>
+    <td class="ssChartTableBodyDesc" valign="top">If this flag is set to true, a 
+	text version of the parse tree will be saved to the Log File. This feature 
+	is identical to the Export Parse Tree option in the Windows version of the 
+	Builder. If the test file is not accepted by the parser (there was a syntax 
+	or&nbsp; lexical error), then no tree will be generated. The option defaults to 
+	&quot;+tree&quot; if not specified. </td>
+  </tr>
+  <tr>
+    <td class="ssChartTableBodyItem" valign="top" nowrap>-trim, <br>+trim</td>
+    <td class="ssChartTableBodyDesc" valign="top">If this flag is set true, the 
+    program will use the Trim Reductions feature This reduces the number of 
+	nodes in the parse tree. </td>
+  </tr>
+  <tr>
+    <td class="ssChartTableBodyItem" valign="top" nowrap>-noise, <br>+noise</td>
+    <td class="ssChartTableBodyDesc" valign="top">If set to true, the individual 
+	parse logs will record when noise (comments, whitespace, etc... were read. 
+	This defaults to false.</td>
+  </tr>
+  <tr>
+    <td class="ssChartTableBodyItem" valign="top" nowrap>-actions,<br>+actions</td>
+    <td class="ssChartTableBodyDesc" valign="top">If this flag is set to true, 
+	the parse actions performed by the Engine will be saved to the Log File. The 
+	option defaults to &quot;+actions&quot; if not specified.</td>
+  </tr>
+  </table>
+<p></p>
+
+<table cellpadding="4" cellspacing="0">
+	<tr>
+		<td valign="top"><b>Note:</b></td>
+		<td valign="top">If you prefer, you can use the common
+		<span class="CodeInline">/</span> character for designating options. The 
+		slash will be interpreted as a <span class="CodeInline">+</span>.&nbsp; 
+		So, <span class="CodeInline">+verbose</span> can be specified as
+		<span class="CodeInline">/verbose</span>.</td>
+	</tr>
+</table>
+
+</body>
+</html>

@@ -1,0 +1,691 @@
+<html>
+
+<head>
+<meta NAME="GENERATOR" Content="Microsoft FrontPage 12.0">
+<meta http-equiv="X-UA-Compatible" content="IE=9">
+
+<link REL="STYLESHEET" HREF="../gold-parser-style.css">
+<title>GOLD Parsing System - Character Sets - ASCII, ISO and Unicode</title>
+</head>
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%" class="ssMainContentTop">
+  <tr>
+    <td valign="top" class="ssMainTitleCell" colspan="2" height="110"><table border="0" cellspacing="0" cellpadding="0" class="ssTitleTable">
+      <tr>
+        <td class="ssTitleLogoCell" rowspan="2"><img src="../images/gold-logo-v4-100.png" alt="The Tower Bridge in Sacramento, California" WIDTH="100" HEIGHT="100"></td>
+        <td class="ssTitleTopicCell">Parsing Concepts</td>
+        <td class="ssTitleGraphicCell" rowspan="2"><img src="../images/pic-title-graphic.png" WIDTH="200" HEIGHT="110"></td>
+      </tr>
+      <tr>
+        <td class="ssTitleDescCell">Character Sets - ASCII, ISO and Unicode</td>
+      </tr>
+    </table>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" class="ssMainContentTop" colspan="2"></td>
+  </tr>
+  <tr valign="top">
+    <td valign="top" align="center" class="ssMainMenuCell" width="150"><table class="ssMenuTable" border="0" cellspacing="0">
+      <tr>
+        <td valign="bottom" class="ssMenuTitleCell" colspan="2">
+		<a href="../index.htm">Main</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../images/bullets/bullet-news.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell"><a href="../news/index.htm">Latest News</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../images/bullets/bullet-getting-started.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a target="_top" href="../getting-started/index.htm">Getting
+        Started</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell">
+		<img src="../images/bullets/bullet-picture.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a href="../builder/screenshots.htm">Screen Shots</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../images/bullets/bullet-disk.gif" border="0" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a href="../download.htm" target="_top">Download</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../images/bullets/bullet-help.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell"><a href="../doc/index.htm">Documentation</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../images/bullets/bullet-contributor.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a target="_top" href="../contributors/index.htm">Contributors</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../images/bullets/bullet-contact.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a target="_top" href="../contact.htm">Contact</a></td>
+      </tr>
+    </table>
+    <table class="ssMenuTable" border="0" cellspacing="0">
+      <tr>
+        <td valign="bottom" class="ssMenuTitleCell" colspan="2">
+		<a href="../about/index.htm">About GOLD</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../images/bullets/bullet-information.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a href="../about/how-it-works.htm" target="_top">How
+        It Works</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../images/bullets/bullet-information.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a href="../about/faq.htm" target="_top">FAQ</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../images/bullets/bullet-information.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a target="_top" href="../about/why-use-gold.htm">Why
+        Use GOLD?</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../images/bullets/bullet-information.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a href="../about/comparison-parsers.htm" target="_top">Comparison</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../images/bullets/bullet-information.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a href="../about/revision-history.htm" target="_top">Revision History</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../images/bullets/bullet-information.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a target="_top" href="../about/license.htm">Freeware
+        License</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../images/bullets/bullet-information.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a target="_top" href="../about/index.htm">More ...</a></td>
+      </tr>
+    </table>
+    <div align="center"><center><table border="0" class="ssMenuTable" cellspacing="0" cellpadding="0">
+      <tr>
+        <td valign="bottom" class="ssMenuTitleCell" colspan="2">
+		<a href="index.htm">Articles</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../images/bullets/bullet-article.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a target="_top" href="parser.htm">What
+        is a Parser?</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../images/bullets/bullet-article.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell"><a href="bnf.htm">Backus-Naur Form</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../images/bullets/bullet-article.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell"><a href="dfa.htm">DFA Lexer</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../images/bullets/bullet-article.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell"><a href="lalr.htm">LALR Parsing</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../images/bullets/bullet-article.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell"><a href="glossary.htm">Glossary</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../images/bullets/bullet-article.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a target="_top" href="links.htm">Links</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../images/bullets/bullet-article.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a target="_top" href="index.htm">More
+        ...</a></td>
+      </tr>
+    </table>
+    </center></div><p><br>
+    </p>
+    <p align="center">
+	<img src="../images/spacer-150.gif" border="0" WIDTH="150" HEIGHT="4"></td>
+    <td valign="top" class="ssMainContentCell" align="center"><h1>ASCII</h1>
+    <p>One of the most common character encodings is ASCII (American Standard Code for
+    Information Interchange). </p>
+    <p>ASCII uses a total of 7 bits to store each character code - giving a total of 128
+    possible values. The first 32 characters of ASCII are reserved for control characters such
+    as Line Feed, Carriage Return, and Form Feed (new page). Character #127 is interpreted as
+    &quot;delete&quot; and was used in the past to delete information stored on tape and punch
+    card media.</p>
+    <p align="center"><img src="../images/ascii-67.gif" WIDTH="539" HEIGHT="253"></p>
+    <p>Although ASCII only contains 128 characters (only 95 not counting the control
+    characters), it is sufficient for the English language. </p>
+    <h1>ISO 646 - Making ASCII International</h1>
+    <table border="0" width="100%" cellspacing="0" cellpadding="3">
+      <tr>
+        <td valign="top">ASCII, although sufficiently expressive for English, lacks many of the
+        characters found in other world languages such as German and Dutch. Many languages contain
+        accented versions of normal Latin characters and additional characters not found in
+        English. ASCII simply did not have the space to store these codes.<p>To help resolve this
+        issue,&nbsp;the International Standards Organization (ISO), in 1972, created the 646
+        specification. This specification defined a number of&nbsp; variants of the ASCII
+        character set to use in different world states.&nbsp; The number of bits in the ISO-646
+        encoding is still 7-bit. To handle the additional characters, many of the symbols in ASCII
+        were replaced. For instance, in the Dutch version, 646-DK, the backslash character was
+        replaced with <strong><span class="ssCodeText">Ö</span>.</strong>&nbsp; 646-US is
+        identical to US-ASCII.</p>
+        <p>For the most part, each version is compatible with one another. However, problems can
+        arise if information was passed between different sets. For instance, if a 646-US text
+        file containing the &quot;<span class="ssCodeText"><strong>[</strong></span>&quot;
+        character is moved to a 646-DE (German) system, the character will change to &quot;<span class="ssCodeText"><strong>Ä</strong></span>&quot;.</td>
+        <td valign="top"><div align="right"><table cellSpacing="0" cellPadding="0" border="0" class="ssSideTable" align="right">
+<tbody>
+          <tr>
+            <th class="ssSideTitleCell" align="left" nowrap colspan="2">Some ISO-646
+            Sets</th>
+          </tr>
+          <tr>
+            <td class="ssSideBodyCell" nowrap>646-CA</td>
+            <td class="ssSideBodyCell" nowrap>Canada</td>
+          </tr>
+          <tr>
+            <td class="ssSideBodyCell" nowrap>646-DE</td>
+            <td class="ssSideBodyCell" nowrap>Germany</td>
+          </tr>
+          <tr>
+            <td class="ssSideBodyCell" nowrap>646-DK</td>
+            <td class="ssSideBodyCell" nowrap>Denmark</td>
+          </tr>
+          <tr>
+            <td class="ssSideBodyCell" nowrap>646-GB</td>
+            <td class="ssSideBodyCell" nowrap>Great Britain</td>
+          </tr>
+          <tr>
+            <td class="ssSideBodyCell" nowrap>646-JP</td>
+            <td class="ssSideBodyCell" nowrap>Japan</td>
+          </tr>
+          <tr>
+            <td class="ssSideBodyCell" nowrap>646-KR</td>
+            <td class="ssSideBodyCell" nowrap>Korean</td>
+          </tr>
+          <tr>
+            <td class="ssSideBodyCell" nowrap>646-NO</td>
+            <td class="ssSideBodyCell" nowrap>Norway</td>
+          </tr>
+          <tr>
+            <td class="ssSideBodyCell" nowrap>646-SE</td>
+            <td class="ssSideBodyCell" nowrap>Sweden</td>
+          </tr>
+          <tr>
+            <td class="ssSideBodyCell" nowrap>646-US</td>
+            <td class="ssSideBodyCell" nowrap>United States</td>
+          </tr>
+          <tr>
+            <td class="ssSideBodyCell" nowrap>646-YU</td>
+            <td class="ssSideBodyCell" nowrap>Yugoslavia</td>
+          </tr>
+</tbody>
+        </table>
+        </div></td>
+      </tr>
+    </table>
+    <h1>Extended ASCII</h1>
+    <table border="0" width="100%" cellspacing="0" cellpadding="3">
+      <tr>
+        <td valign="top">
+    <p>In many cases, different companies extended ASCII (or ISO-646) to the full 8 bits
+    available in the byte - creating a total of 256 possible values. However, the values from
+    128 to 256 varied greatly from company to company. For instance, in the early 80's each
+    computer platform used the 128-256 range for its own particular needs - depending on the
+    intended market.</p>
+    <p>The <a href="http://www.old-computers.com/museum/computer.asp?st=1&amp;c=73" target="_blank">Mattel Aquarius</a> (known as the <u>worst</u> computer of all time) was
+    designed primarily for games and home use (of both it was ill-suited). The extended
+    characters contained cartoons, explosions, and box-drawing graphics. This was the only
+    graphics capabilities of this system.</p>
+    	The IBM-PC was designed to be easily used by different world states for
+        both business and science. As a result, the extended characters contained additional Latin
+        characters, mathematical symbols, and symbols for drawing graphical boxes. <p>When
+        necessary, characters in the 128-255 character range were modified for different
+        languages. Like ISO 646, different versions of the IBM-PC/DOS encoding were created for
+        different world states and different languages.</p>
+        <p>These different versions of Extended ASCII were created by the Microsoft Corporation
+        and are generally known as &quot;Code Pages&quot;. The chart on the right contains a
+        number of the different character encodings that were used throughout the world. The
+        characters between 0-127 followed the ISO 646 encodings - meaning that the characters
+        would not always match.</p>
+        <p>In most cases, the various Code Pages became the de-facto standard.</td>
+        <td valign="top"><div align="right"><table cellSpacing="0" cellPadding="0" border="0" class="ssSideTable" align="right">
+<tbody>
+          <tr>
+            <th class="ssSideTitleCell" align="left" nowrap colspan="2">DOS Code Pages</th>
+          </tr>
+          <tr>
+            <td class="ssSideBodyCell" nowrap>CP437</td>
+            <td class="ssSideBodyCell" nowrap>English</td>
+          </tr>
+          <tr>
+            <td class="ssSideBodyCell" nowrap>CP737</td>
+            <td class="ssSideBodyCell" nowrap>Greek</td>
+          </tr>
+          <tr>
+            <td class="ssSideBodyCell" nowrap>CP775</td>
+            <td class="ssSideBodyCell" nowrap>Baltic</td>
+          </tr>
+          <tr>
+            <td class="ssSideBodyCell" nowrap>CP850</td>
+            <td class="ssSideBodyCell" nowrap>Latin</td>
+          </tr>
+          <tr>
+            <td class="ssSideBodyCell" nowrap>CP852</td>
+            <td class="ssSideBodyCell" nowrap>Latin (Revised)</td>
+          </tr>
+          <tr>
+            <td class="ssSideBodyCell" nowrap>CP855</td>
+            <td class="ssSideBodyCell" nowrap>Cyrillic</td>
+          </tr>
+          <tr>
+            <td class="ssSideBodyCell" nowrap>CP857</td>
+            <td class="ssSideBodyCell" nowrap>Turkish</td>
+          </tr>
+          <tr>
+            <td class="ssSideBodyCell" nowrap>CP860</td>
+            <td class="ssSideBodyCell" nowrap><span class="csaka" id="DOSPortuguese">Portuguese</span></td>
+          </tr>
+          <tr>
+            <td class="ssSideBodyCell" nowrap>CP861</td>
+            <td class="ssSideBodyCell" nowrap><span class="csaka" id="DOSIcelandic">Icelandic</span></td>
+          </tr>
+          <tr>
+            <td class="ssSideBodyCell" nowrap>CP862</td>
+            <td class="ssSideBodyCell" nowrap>Hebrew</td>
+          </tr>
+          <tr>
+            <td class="ssSideBodyCell" nowrap>CP863</td>
+            <td class="ssSideBodyCell" nowrap>Canada</td>
+          </tr>
+          <tr>
+            <td class="ssSideBodyCell" nowrap>CP864</td>
+            <td class="ssSideBodyCell" nowrap><span class="cslangs">Arabic</span></td>
+          </tr>
+          <tr>
+            <td class="ssSideBodyCell" nowrap>CP865</td>
+            <td class="ssSideBodyCell" nowrap>Nordic</td>
+          </tr>
+          <tr>
+            <td class="ssSideBodyCell" nowrap>CP866</td>
+            <td class="ssSideBodyCell" nowrap>Cyrillic (Revised)</td>
+          </tr>
+          <tr>
+            <td class="ssSideBodyCell" nowrap>CP869</td>
+            <td class="ssSideBodyCell" nowrap>Greek (Revised)</td>
+          </tr>
+</tbody>
+        </table>
+        </div></td>
+      </tr>
+    </table>
+    <p>The following two diagrams contain the Extended ASCII character codes for the IBM-PC
+    and the Mattel Aquarius. Note the difference between the different characters in the
+    &quot;extended&quot; range. Both companies assigned additional characters to the 0 - 31
+    range. When printed, they acted as normal control characters but could be POKE'd to the
+    screen to display the graphical characters.</p>
+    <div align="center"><center><table border="0" cellspacing="0" cellpadding="4">
+      <tr>
+        <td width="50%" align="center"><img src="../images/chart-set-ibm-pc2.gif" alt="IBM-PC Extended ASCII" WIDTH="304" HEIGHT="280"><br>
+        <span class="csstd" id="CP437">CP437</span> - IBM-PC / DOS Extended ASCII</td>
+        <td width="50%" align="center"><img src="../images/char-set-mattel-aquarius.gif" alt="Mattel Aquarius Extended ASCII" WIDTH="304" HEIGHT="280"><br>
+        Mattel Aquarius Extended ASCII</td>
+      </tr>
+    </table>
+    </center></div><h1>ISO 8859 - The 8-Bit Solution</h1>
+    <table border="0" width="100%" cellspacing="0" cellpadding="3">
+      <tr>
+        <td valign="top">The existence of different, slightly incompatible, versions of ISO-646
+        and different versions of extended ASCII made is difficult to transport text between
+        systems.<p>The first attempt to resolve this issue was in 1987 by International Standards
+        Organization (ISO). The ISO 8859 specifications were not designed to create a single
+        uniform character set, but to avoid the incompatibility of ISO-646. To accomplish this,
+        rather than just use the first 7 bits of each byte, the 8859 character set was expanded to
+        8 bits - giving a total of 256 total codes.&nbsp; </p>
+        <p>ISO could have accepted IBM-PC/DOS Extended ASCII as an international standard, but,
+        instead, decided to create a new encoding.</p>
+        <p>The codes between 0 and 127 were set to the same values in US-ASCII. This allowed easy
+        portability of text&nbsp; - given that the lower 7-bits would be identical regardless of
+        platform. The codes from 128 to 256, however, were specialized for different languages.
+        While the first 128 codes would overlap between languages, the remaining 128 codes would
+        not.</p>
+        <p>ISO created a total of 16 different sets between 1987 and present time. The chart on
+        the right contains each of the ISO 8859 sets along with its primary and secondary names. </p>
+        <p>The 8859-12 set was rejected by the organization and numbering continued at 13. ISO
+        8859-16 was a revision of Latin-1 (a.k.a. &quot;Western&quot;). Various characters where
+        replaced with those in higher demand such as the Euro.</td>
+        <td valign="top"><div align="center"><center><table border="0" class="ssSideTable" cellspacing="0" cellpadding="0" width="90%">
+          <tr>
+            <th class="ssSideTitleCell" align="left" nowrap colspan="2">ISO 8859</th>
+          </tr>
+          <tr>
+            <td class="ssSideBodyCell" nowrap valign="top">8859-1</td>
+            <td class="ssSideBodyCell" nowrap valign="top">Latin-1, Western</td>
+          </tr>
+          <tr>
+            <td class="ssSideBodyCell" nowrap valign="top">8859-2</td>
+            <td class="ssSideBodyCell" nowrap valign="top">Latin-2, C. Europe</td>
+          </tr>
+          <tr>
+            <td class="ssSideBodyCell" nowrap valign="top">8859-3</td>
+            <td class="ssSideBodyCell" nowrap valign="top">Latin-3, S. Europe</td>
+          </tr>
+          <tr>
+            <td class="ssSideBodyCell" nowrap valign="top">8859-4</td>
+            <td class="ssSideBodyCell" nowrap valign="top">Latin-4, N. Europe</td>
+          </tr>
+          <tr>
+            <td class="ssSideBodyCell" nowrap valign="top">8859-5</td>
+            <td class="ssSideBodyCell" nowrap valign="top">Cyrillic</td>
+          </tr>
+          <tr>
+            <td class="ssSideBodyCell" nowrap valign="top">8859-6</td>
+            <td class="ssSideBodyCell" nowrap valign="top">Arabic</td>
+          </tr>
+          <tr>
+            <td class="ssSideBodyCell" nowrap valign="top">8859-7</td>
+            <td class="ssSideBodyCell" nowrap valign="top">Greek</td>
+          </tr>
+          <tr>
+            <td class="ssSideBodyCell" nowrap valign="top">8859-8</td>
+            <td class="ssSideBodyCell" nowrap valign="top">Hebrew</td>
+          </tr>
+          <tr>
+            <td class="ssSideBodyCell" nowrap valign="top">8859-9</td>
+            <td class="ssSideBodyCell" nowrap valign="top">Latin-5, Turkish</td>
+          </tr>
+          <tr>
+            <td class="ssSideBodyCell" nowrap valign="top">8859-10</td>
+            <td class="ssSideBodyCell" nowrap valign="top">Latin-6, Nordic</td>
+          </tr>
+          <tr>
+            <td class="ssSideBodyCell" nowrap valign="top">8859-11</td>
+            <td class="ssSideBodyCell" nowrap valign="top">Thai</td>
+          </tr>
+          <tr>
+            <td class="ssSideBodyCell" nowrap valign="top">8859-12</td>
+            <td class="ssSideBodyCell" nowrap valign="top"><em>Does not exist</em></td>
+          </tr>
+          <tr>
+            <td class="ssSideBodyCell" nowrap valign="top">8859-13</td>
+            <td class="ssSideBodyCell" nowrap valign="top">Latin-7, Baltic</td>
+          </tr>
+          <tr>
+            <td class="ssSideBodyCell" nowrap valign="top">8859-14</td>
+            <td class="ssSideBodyCell" nowrap valign="top">Latin-8, Celtic</td>
+          </tr>
+          <tr>
+            <td class="ssSideBodyCell" nowrap valign="top">8859-15</td>
+            <td class="ssSideBodyCell" nowrap valign="top">Latin-9, Rev. Latin-1</td>
+          </tr>
+          <tr>
+            <td class="ssSideBodyCell" nowrap valign="top">8859-16</td>
+            <td class="ssSideBodyCell" nowrap valign="top">Latin-10, S.E. Europe</td>
+          </tr>
+        </table>
+        </center></div></td>
+      </tr>
+    </table>
+    <h2>Windows-1252</h2>
+    <p>Microsoft modified the ISO 8859-1 character set to use in its Windows Operating System.
+    The characters between 128 and 159, which beforehand contained control characters, were
+    modified to contain commonly needed characters. These characters included:<strong> &#159;</strong>,
+    the Euro symbol <strong>&#128;</strong>, and the trademark symbol <strong>&#153;. </strong>This
+    set is commonly, and vaguely, referred to as &quot;<strong>ANSI</strong>&quot;.</p>
+    <p align="center">&nbsp;<img src="../images/windows-1252.gif" alt="Windows 1252 - Mapped Characters" WIDTH="484" HEIGHT="84"><br>
+    </p>
+    <p>Essentially, Windows-1252 is a superset of ISO 8859-1. Windows versions 3.1, 95, 98 and
+    ME use this character set. The NT and XP series are strictly Unicode.</p>
+    <h1>Unicode - The Universal Code</h1>
+    <p>It became apparent after the ISO 8859 standard was created, that it was ill-suited for
+    transmitting information between different languages. To resolve this problem, as well as
+    the problems with earlier encodings, work began on the &quot;universal&quot; coding
+    system. The system is called Unicode.</p>
+    <p>The Unicode Consortium, which is based in Mountain View, California (near San
+    Francisco), published &quot;The Unicode Standard&quot; in 1991. The primary premise of the
+    Unicode system is that each character should have a single and unique code. This value,
+    called a &quot;code point&quot;, would used universally - regardless of where in the world
+    the system is used. </p>
+    <p>The original Unicode standard set the coding system to 16-bits - giving a total of
+    65536 possible code points. This was more than sufficient space to include all the
+    characters for every language on the planet - and leave plenty of room for future
+    expansion. The problems that plagued ASCII, IBM-PC/DOS Extended ASCII, ISO 646 and ISO
+    8859 would not&nbsp; affect Unicode.</p>
+    <p>The characters that shared the 128-255 range in ISO 8859 were given unique code points
+    by the Unicode system. The first 256 codes are identical to ISO 8859-1 and conversion
+    between the two is simple. The characters themselves were organized into different ranges
+    within the 65636 code range. For instance, Greek characters are stored between 880 and
+    1023 (0x370 and 0x3FF); Hebrew characters are stored between 1424 and 1535 (0x590 and
+    0x5FF).</p>
+    <p>Unicode was developed at the same time as many of the latter ISO 8859 standards. It
+    has, subsequently, replaced it on most modern operating systems. The Unicode Consortium
+    works with the International Standards Organization (ISO) on the Unicode standard.
+    However, the ISO/IEC 10646 standard is considered a subset of the Unicode standard. While
+    ISO/IEC 10646 contains the same code points as Unicode, it does not contain additional
+    information such as how the character is displayed and other metrics. In other words, ISO
+    simply validated the Unicode Consortium standard for international use.</p>
+    <h2>Beyond 16-bit</h2>
+    <table border="0" width="100%" cellspacing="0" cellpadding="3">
+      <tr>
+        <td valign="top">In 2001, the Unicode Consortium released version 3.1 of the Unicode
+        encoding specification. At this point, the 16-bit code range was expanded to 21-bits which
+        made it possible to store over 1 million different code points.<p>The system was
+        subdivided into different logical &quot;planes&quot; that contain different broad classes
+        of characters. The initial 65536 characters of Unicode were organized into the Basic
+        Multilingual Plane (BMP). This set includes all characters that are part of modern written
+        languages and common symbols such as icons.</td>
+        <td valign="top"><div align="right"><table cellSpacing="0" cellPadding="0" border="0" class="ssSideTable" align="right">
+<tbody>
+          <tr>
+            <th class="ssSideTitleCell" align="left" nowrap colspan="2">Unicode
+            Character Planes</th>
+          </tr>
+          <tr>
+            <td class="ssSideBodyCell" nowrap>Plane 0</td>
+            <td class="ssSideBodyCell" nowrap>Basic Multilingual Plane</td>
+          </tr>
+          <tr>
+            <td class="ssSideBodyCell" nowrap>Plane 1</td>
+            <td class="ssSideBodyCell" nowrap>Supplementary Multilingual Plane</td>
+          </tr>
+          <tr>
+            <td class="ssSideBodyCell" nowrap>Plane 2</td>
+            <td class="ssSideBodyCell" nowrap>Supplementary Ideographic Plane</td>
+          </tr>
+          <tr>
+            <td class="ssSideBodyCell" nowrap>Plane 14</td>
+            <td class="ssSideBodyCell" nowrap><em>Nonrecommended</em></td>
+          </tr>
+          <tr>
+            <td class="ssSideBodyCell" nowrap>Plane 15</td>
+            <td class="ssSideBodyCell" nowrap>Open to private use</td>
+          </tr>
+          <tr>
+            <td class="ssSideBodyCell" nowrap>Plane 16</td>
+            <td class="ssSideBodyCell" nowrap>Open to private use</td>
+          </tr>
+</tbody>
+        </table>
+        </div></td>
+      </tr>
+    </table>
+    <p>Plane 1, the Supplementary Multilingual Plane (SMP), is used to store characters that
+    are part of historical languages such as Linear B. Musical and rare mathematical
+    characters are also stored here.</p>
+    <p>Plane 2, the Supplementary Ideographic Plane (SIP), is used to store over
+    40,000 rare historical Chinese characters.</p>
+    <p>Plane 14 is used to store a number of nonrecommended and experimental tag symbols. The
+    nature of this plane is nebulous and will, no doubt, change over time.</p>
+    <p>Planes 15 and 16 are open for private use.</p>
+    <h1>Unicode Character Encoding</h1>
+    <table border="0" width="100%" cellspacing="0" cellpadding="3">
+      <tr>
+        <td valign="top">Since Unicode is a multiple-byte encoding standard, <img src="../images/inline-link.gif" alt="inline-arrow-r.gif (99 bytes)" hspace="3" WIDTH="5" HEIGHT="9"><a href="byte-ordering.htm">byte ordering</a>&nbsp; is of&nbsp; vital importance.&nbsp;The
+        Unicode Consortium defined a number of&nbsp; Unicode Transformation Formats (UTF) to
+        encode characters. These include UTF-7, UTF-8, UTF-16 and UTF-32. <p>The International
+        Standards Organization (ISO), in the ISO/IEC 10646 specification, also defined two
+        different Universal Character Sets (UCS) to store Unicode code points.</p>
+        <p>Essentially, both UCS encodings are subsets of the UTF encoding.</td>
+        <td valign="top"><div align="right"><table cellSpacing="0" cellPadding="0" border="0" class="ssSideTable" align="right">
+<tbody>
+          <tr>
+            <th class="ssSideTitleCell" align="left" nowrap colspan="2">Unicode
+            Encoding Methods</th>
+          </tr>
+          <tr>
+            <td class="ssSideBodyCell" nowrap>UCS-2</td>
+            <td class="ssSideBodyCell" nowrap>16 bits only</td>
+          </tr>
+          <tr>
+            <td class="ssSideBodyCell" nowrap>UCS-4</td>
+            <td class="ssSideBodyCell" nowrap>32 bits only</td>
+          </tr>
+          <tr>
+            <td class="ssSideBodyCell" nowrap>UTF-7</td>
+            <td class="ssSideBodyCell" nowrap>7 bits with override</td>
+          </tr>
+          <tr>
+            <td class="ssSideBodyCell" nowrap>UTF-8</td>
+            <td class="ssSideBodyCell" nowrap>8 bits with override</td>
+          </tr>
+          <tr>
+            <td class="ssSideBodyCell" nowrap>UTF-16</td>
+            <td class="ssSideBodyCell" nowrap>16 bits with override</td>
+          </tr>
+</tbody>
+        </table>
+        </div></td>
+      </tr>
+    </table>
+    <h2>UCS-2 and UCS-4</h2>
+    <p>UCS-2, like the original version of Unicode, is primarily 16-bit. As expected, UCS-2 is
+    only able to store the Basic Multilingual Plane (the first 65536 Unicode Characters). </p>
+    <p>UCS-4 encoding uses a total of 32-bits to store each character code. The full Unicode
+    encoding can currently be represented with only 21 bits, which makes UCS-4 a particularly
+    inefficient format. However, since computers generally store integer values in powers of
+    2, 32-bit integers are common on practically all platforms while 24-bit variants are
+    exceedingly rare.</p>
+    <h2>UTF-16</h2>
+    <p>UTF-16 is almost identical to the UCS-2 format with some, very important, exceptions.
+    This format usually stores each character code using 2-bytes like UCS-2, but also provides
+    override sequences for encoding characters that are not part of the Basic Multilingual
+    Plane. This allows the system to represent the normal Unicode characters using 16-bit, but
+    also can provide the representation of Plane 1 and Plane 2 characters.</p>
+    <table border="0" width="100%" cellspacing="0" cellpadding="3">
+      <tr>
+        <td valign="top">UTF-16 also supports different <a href="byte-ordering.htm">byte ordering</a>&nbsp;sequences.
+        To accomplish this, every transmitted UTF string is preceeded by a Byte Order Mark (BOM)
+        which tells the decoder the byte ordering of the following Unicode code points. The BOM is
+        2-bytes - with one byte containing FF and the other containing FE. 0xFFFE alerts the
+        decoder that the information is stored in Little Endian; 0xFEFF is for Big Endian.</td>
+        <td valign="top"><div align="right"><table cellSpacing="0" cellPadding="0" border="0" class="ssSideTable" align="right">
+          <tr>
+            <th class="ssSideTitleCell" align="left" nowrap colspan="2">Byte Order
+            Mark</th>
+          </tr>
+          <tr>
+            <td class="ssSideBodyCell" nowrap>FF FE</td>
+            <td class="ssSideBodyCell" nowrap><a href="byte-ordering.htm">Little Endian</a></td>
+          </tr>
+          <tr>
+            <td class="ssSideBodyCell" nowrap>FE FF</td>
+            <td class="ssSideBodyCell" nowrap><a href="byte-ordering.htm">Big Endian</a></td>
+          </tr>
+        </table>
+        </div></td>
+      </tr>
+    </table>
+    <p>Since practically all real-world Unicode characters are part of the Basic Multilingual
+    Plane, UCS-2 is usually sufficient. However, UTF-16 has the benefit of providing a method
+    for supporting the full Unicode encoding. As a result, UTF-16 is predominately used in
+    most systems that support Unicode. Both Windows NT / XP and Linux use UTF-16 internally.</p>
+    <p align="center"><img src="../images/diagram-unicode.gif" alt="diagram-unicode.gif (3704 bytes)" WIDTH="355" HEIGHT="138"></p>
+    <p>Note that the most significant byte (the second listed in Little Endian) will contain a
+    0 in for all ASCII characters.</p>
+    <h2>UTF-8 and UTF-7</h2>
+    <table border="0" width="100%" cellspacing="0" cellpadding="3">
+      <tr>
+        <td valign="top">The UTF-8 format supports a number of override sequences such that each
+        code in the Unicode encoding can be represented using 8 bits.&nbsp; UTF-8 was designed
+        specifically so that a string can be represented without any issues caused by byte
+        ordering. The encoding also will not conflict with ASCII control characters - meaning that
+        the string can be stored in legacy programs that are strictly based on ASCII and use the
+        null-character to terminate strings.<p>UTF-8 is popular for transmitting Unicode
+        information over the Internet and, more notabily, e-mail. Unfortunately, the number of
+        e-mail clients that support Unicode varies and most information sent via e-mail is done
+        using ISO 8859 or Windows-1252.</p>
+        <p>UTF-7 is a 7-bit variant of UTF that uses a combination of Base64 (used in MIME) and
+        override characters. However, since HTML-style encoding can also represent any Unicode
+        code point, UTF-7 is rarely, if never, used.</td>
+        <td valign="top"><div align="right"><table cellSpacing="0" cellPadding="0" border="0" class="ssSideTable" align="right">
+          <tr>
+            <th class="ssSideTitleCell" align="left" nowrap colspan="2">UTF-8
+            Encoding</th>
+          </tr>
+          <tr>
+            <td class="ssSideBodyCell" nowrap>0000 ... 007F</td>
+            <td class="ssSideBodyCell" nowrap>0xxxxxxx</td>
+          </tr>
+          <tr>
+            <td class="ssSideBodyCell" nowrap>0080 ... 07FF</td>
+            <td class="ssSideBodyCell" nowrap>110xxxxx 10xxxxxx</td>
+          </tr>
+          <tr>
+            <td class="ssSideBodyCell" nowrap>0800 ... FFFF</td>
+            <td class="ssSideBodyCell" nowrap>1110xxxx 10xxxxxx <br>
+            10xxxxxx</td>
+          </tr>
+          <tr>
+            <td class="ssSideBodyCell" nowrap>10000 ... 10FFFF</td>
+            <td class="ssSideBodyCell" nowrap>11110xxx 10xxxxxx <br>
+            10xxxxxx 10xxxxxx</td>
+          </tr>
+        </table>
+        </div></td>
+      </tr>
+    </table>
+    <h1>References</h1>
+    <p>For more information, please see following links:<ul>
+      <li><a href="http://www.unicode.org">Unicode Consortium Website</a></li>
+      <li><a href="http://en.wikipedia.org/wiki/ASCII">Wikipedia: ASCII</a> </li>
+      <li><a href="http://en.wikipedia.org/wiki/ISO_8859">Wikipedia: ISO_8859</a> </li>
+      <li><a href="http://en.wikipedia.org/wiki/Unicode">Wikipedia: Unicode</a> </li>
+    </ul>
+    <p>&nbsp;</p>
+    <p><em>Special thanks to Mike Brown &amp; Robert van Loenhout for their help.</em></td>
+  </tr>
+</table>
+</body>
+</html>

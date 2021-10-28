@@ -1,0 +1,114 @@
+<html>
+
+<head>
+<link REL="STYLESHEET" HREF="gold-engine-doc-style.css">
+<title>Token Object</title>
+</head>
+
+<body class="ssMainPage">
+
+<h1>Token Object</h1>
+
+<p>&nbsp;</p>
+
+<h2>Description</h2>
+
+<p>The Token Object inherits from the <a href="object-symbol.htm">Symbol</a> Object and
+used to represent and organize parsed data. Unlike symbols, which are used to represent a
+category of&nbsp; terminals and nonterminals, tokens represent different instances of
+these symbols. For instance, the common &quot;identifier&quot; is a specific type of
+symbol, but can exist in various forms such as &quot;Value1&quot;, &quot;cat&quot;,
+&quot;Sacramento&quot;, etc...&nbsp; </p>
+
+<p>The information that is read from the source text is stored into the 'data' property
+which can be modified at the developer's will. These objects can be created at runtime.</p>
+
+<p>&nbsp;</p>
+
+<h2>Properties</h2>
+
+<table width="100%" class="ssChartTable" cellspacing="0" cellpadding="0">
+  <tr>
+    <th valign="top" width="25%" class="ssChartTableColumn">Property</th>
+    <th valign="top" class="ssChartTableColumn">Data Type</th>
+    <th valign="top" class="ssChartTableColumn">Access</th>
+    <th valign="top" class="ssChartTableColumn">Description</th>
+  </tr>
+  <tr>
+    <td valign="top" nowrap class="ssChartTableBodyItem">ColumnNumber</td>
+    <td valign="top" nowrap class="ssChartTableBodyDesc">Integer (32-bit)</td>
+    <td valign="top" nowrap class="ssChartTableBodyDesc">Read/Write</td>
+    <td valign="top" class="ssChartTableBodyDesc">Returns/sets the column number where the
+    token was read. This can be used to track when indentation changes or for highlighting a
+    piece of information. The value stored in this property is passive and has no effect on
+    how the system performs.&nbsp; It was added in version 2.5 of the Engine.</td>
+  </tr>
+  <tr>
+    <td valign="top" width="25%" nowrap class="ssChartTableBodyItem">Data</td>
+    <td valign="top" class="ssChartTableBodyDesc">Variant</td>
+    <td valign="top" nowrap class="ssChartTableBodyDesc">Read/Write</td>
+    <td valign="top" class="ssChartTableBodyDesc">Returns/sets the information stored in the
+    token. This can be either an standard data type or an object reference.</td>
+  </tr>
+  <tr>
+    <td valign="top" width="25%" nowrap class="ssChartTableBodyItem">Kind</td>
+    <td valign="top" class="ssChartTableBodyDesc"><a href="enum-symboltypeconstants.htm">SymbolTypeConstants</a>
+    </td>
+    <td valign="top" nowrap class="ssChartTableBodyDesc">Read only</td>
+    <td valign="top" class="ssChartTableBodyDesc">Returns an enumerated data type that denotes
+    the symbol class of the token.</td>
+  </tr>
+  <tr>
+    <td valign="top" nowrap class="ssChartTableBodyItem">LineNumber</td>
+    <td valign="top" nowrap class="ssChartTableBodyDesc">Integer (32-bit)</td>
+    <td valign="top" nowrap class="ssChartTableBodyDesc">Read/Write</td>
+    <td valign="top" class="ssChartTableBodyDesc">Returns/sets the line number where the token
+    was read. This can be used to track when indentation changes or for highlighting a piece
+    of information. The value stored in this property is passive and has no effect on how the
+    system performs. It was added in version 2.5 of the Engine.</td>
+  </tr>
+  <tr>
+    <td valign="top" width="25%" nowrap class="ssChartTableBodyItem">Name</td>
+    <td valign="top" class="ssChartTableBodyDesc">String</td>
+    <td valign="top" nowrap class="ssChartTableBodyDesc">Read only</td>
+    <td valign="top" class="ssChartTableBodyDesc">Returns the name of the token. This is
+    equivalent to the parent symbol's name.</td>
+  </tr>
+  <tr>
+    <td valign="top" width="25%" nowrap class="ssChartTableBodyItem">ParentSymbol</td>
+    <td valign="top" class="ssChartTableBodyDesc"><a href="object-symbol.htm">Symbol</a></td>
+    <td valign="top" nowrap class="ssChartTableBodyDesc">Read/Write</td>
+    <td valign="top" class="ssChartTableBodyDesc">Returns a reference the token's parent
+    symbol.</td>
+  </tr>
+  <tr>
+    <td valign="top" width="25%" nowrap class="ssChartTableBodyItem">TableIndex</td>
+    <td valign="top" class="ssChartTableBodyDesc">Integer (16-bit)</td>
+    <td valign="top" nowrap class="ssChartTableBodyDesc">Read only</td>
+    <td valign="top" class="ssChartTableBodyDesc">Returns the index of the token's parent
+    symbol in the GOLDParser object's symbol table.</td>
+  </tr>
+  <tr>
+    <td valign="top" width="25%" nowrap class="ssChartTableBodyItem">Text</td>
+    <td valign="top" class="ssChartTableBodyDesc">String</td>
+    <td valign="top" nowrap class="ssChartTableBodyDesc">Read only</td>
+    <td valign="top" class="ssChartTableBodyDesc">Returns the text representation of the
+    token's parent symbol. In the case of nonterminals, the name is delimited by angle
+    brackets, special terminals are delimited by parenthesis and terminals are delimited by
+    single quotes (if special characters are present).</td>
+  </tr>
+</table>
+
+<p>&nbsp;</p>
+
+<h2>Methods</h2>
+
+<table class="ssChartTable" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" class="ssChartTableBodyItem">This object does not contain any methods.</td>
+  </tr>
+</table>
+
+<p>&nbsp;</p>
+</body>
+</html>

@@ -1,0 +1,246 @@
+<html>
+
+<head>
+<title>GOLDParser Object</title>
+<link REL="STYLESHEET" HREF="gold-engine-doc-style.css">
+</head>
+
+<body class="ssMainPage">
+
+<h1>GOLDParser Object</h1>
+
+<p>&nbsp;</p>
+
+<h2>Description</h2>
+
+<p>The GOLDParser object is the primary class in the parser engine. Unlike the <a href="object-rule.htm">Rule</a>, <a href="object-reduction.htm">Reduction</a>, <a href="object-symbol.htm">Symbol</a> and <a href="object-token.htm">Token</a> objects, the
+GOLDParser object performs all the required logic and operations needed to analyze the
+source text. Like all DFA and LALR engines, the GOLDParser relies on tables to drive the
+tokenizer and parser. </p>
+
+<p>The developer interacts with the GOLDParser object by first loading the Compiled
+Grammar Table file and then subsequently calling the &quot;Parse&quot; method within a
+control loop. The &quot;Parse&quot; method returns codes that inform developer of the
+action(s) performed by the system and if any lexical or syntax errors were found. </p>
+
+<p>Each time a rule is reduced, the system will create a Reduction Object. This object,
+which is described in the following sections, contains a series of tokens and is directly
+associated with the reduced rule. The tokens can contain actual text for the source string
+as well as other Reduction Objects (or even customized ones). This mechanism allows the
+construction of a parse tree. Essentially the developer performs the following actions to
+initiate the GOLDParser object. 
+
+<ol>
+  <li>Call LoadCompiledGrammar( ) method to load a previously developed Compiled Grammar Table
+    file </li>
+  <li>Call the appropriate method to open the source string to be parsed </li>
+  <li>Continue to call the Parse( ) method until the string is either accepted or an error
+    occurs.</li>
+</ol>
+
+<p>This documentation contains examples on how to use the GOLDParser object using <a href="engine-skeleton-vb-net.htm">Visual Basic 6</a>, <a href="engine-skeleton-vb-net.htm">Visual
+Basic NET</a>, and <a href="engine-skeleton-cpp.htm">C++</a>.</p>
+
+<p>&nbsp;</p>
+
+<h2>Properties</h2>
+<div align="left">
+
+<table class="ssChartTable" cellspacing="0" cellpadding="0">
+  <tr>
+    <th valign="top" nowrap class="ssChartTableColumn">Property</th>
+    <th valign="top" nowrap class="ssChartTableColumn">Data Type</th>
+    <th valign="top" nowrap class="ssChartTableColumn">Access</th>
+    <th nowrap class="ssChartTableColumn">Description</th>
+  </tr>
+  <tr>
+    <td valign="top" nowrap class="ssChartTableBodyItem">CurrentColumnNumber</td>
+    <td valign="top" nowrap class="ssChartTableBodyDesc">Integer (32-bit)</td>
+    <td valign="top" nowrap class="ssChartTableBodyDesc">Read only</td>
+    <td valign="top" class="ssChartTableBodyDesc">Returns the column line in the source
+    string. This can be used to track when indentation changes or for highlighting a piece of
+    information. This method was added in version 2.2.0 of the Engine.</td>
+  </tr>
+  <tr>
+    <td valign="top" nowrap class="ssChartTableBodyItem">CurrentComment</td>
+    <td valign="top" nowrap class="ssChartTableBodyDesc">String</td>
+    <td valign="top" nowrap class="ssChartTableBodyDesc">Read only</td>
+    <td valign="top" class="ssChartTableBodyDesc">Returns the text associated with a line or
+    block comment. When the system reads a block or line comment, the text is temporarily
+    stored. This property was add in version 2.4 of the Engine.</td>
+  </tr>
+  <tr>
+    <td valign="top" nowrap class="ssChartTableBodyItem">CurrentLineNumber</td>
+    <td valign="top" nowrap class="ssChartTableBodyDesc">Integer (32-bit)</td>
+    <td valign="top" nowrap class="ssChartTableBodyDesc">Read only</td>
+    <td valign="top" class="ssChartTableBodyDesc">Returns the current line in the source
+    string.</td>
+  </tr>
+  <tr>
+    <td valign="top" nowrap class="ssChartTableBodyItem">CurrentReduction</td>
+    <td valign="top" nowrap class="ssChartTableBodyDesc">Object</td>
+    <td valign="top" class="ssChartTableBodyDesc">Read/Write</td>
+    <td valign="top" class="ssChartTableBodyDesc">Returns/sets the reduction made by the
+    parsing engine. When a reduction takes place, this property will be set to a Reduction
+    object which will store the reduced rule and its related tokens. This property may be
+    reassigned a customized object if the developer so desires. <p>The value of this property
+    is only valid when the Parse() method returns the <a href="enum-messageconstants.htm">gpMsgReduction</a>
+    message. </td>
+  </tr>
+  <tr>
+    <td valign="top" nowrap class="ssChartTableBodyItem">CurrentToken </td>
+    <td valign="top" nowrap class="ssChartTableBodyDesc"><a href="object-token.htm">Token</a></td>
+    <td valign="top" nowrap class="ssChartTableBodyDesc">Read only</td>
+    <td valign="top" class="ssChartTableBodyDesc">Returns the token that is ready to be parsed
+    by the engine. This property is only valid when when the <a href="enum-messageconstants.htm">gpMsgTokenRead</a> message is returned from the Parse
+    method.</td>
+  </tr>
+  <tr>
+    <td valign="top" nowrap class="ssChartTableBodyItem">RuleTableCount</td>
+    <td valign="top" nowrap class="ssChartTableBodyDesc">Integer (16-bit)</td>
+    <td valign="top" class="ssChartTableBodyDesc">Read only</td>
+    <td valign="top" class="ssChartTableBodyDesc">Returns the number of rules in the parser's
+    internal Rule Table.</td>
+  </tr>
+  <tr>
+    <td valign="top" nowrap class="ssChartTableBodyItem">RuleTableEntry (<em>Index</em>)</td>
+    <td valign="top" nowrap class="ssChartTableBodyDesc"><a href="object-rule.htm">Rule</a></td>
+    <td valign="top" class="ssChartTableBodyDesc">Read only</td>
+    <td valign="top" class="ssChartTableBodyDesc">Returns rule in the parser's Rule Table at
+    the specified <em>Index</em>. The <em>Index</em> will range from 0 to RuleTableCount - 1.</td>
+  </tr>
+  <tr>
+    <td valign="top" nowrap class="ssChartTableBodyItem">SymbolTableCount</td>
+    <td valign="top" nowrap class="ssChartTableBodyDesc">Integer (16-bit)</td>
+    <td valign="top" class="ssChartTableBodyDesc">Read only</td>
+    <td valign="top" class="ssChartTableBodyDesc">Returns the number of symbols in the
+    parser's internal Symbol Table.</td>
+  </tr>
+  <tr>
+    <td valign="top" nowrap class="ssChartTableBodyItem">SymbolTableEntry (<em>Index</em>)</td>
+    <td valign="top" nowrap class="ssChartTableBodyDesc"><a href="object-symbol.htm">Symbol</a></td>
+    <td valign="top" class="ssChartTableBodyDesc">Read only</td>
+    <td valign="top" class="ssChartTableBodyDesc">Returns the symbol specified by <em>Index</em>.&nbsp;The
+    <em>Index</em> will range from 0 to SymbolTableCount - 1.</td>
+  </tr>
+  <tr>
+    <td valign="top" nowrap class="ssChartTableBodyItem"><a href="property-trimreductions.htm">TrimReductions</a></td>
+    <td valign="top" nowrap class="ssChartTableBodyDesc">Boolean</td>
+    <td valign="top" class="ssChartTableBodyDesc">Read/Write</td>
+    <td valign="top" class="ssChartTableBodyDesc">Returns/sets the TrimReductions flag. When
+    this property is set to True, the parser engine will automatically trim (i.e. remove)
+    unneeded reductions from the parse tree. For more information please click <em><a href="property-trimreductions.htm">here</a></em>.</td>
+  </tr>
+  <tr>
+    <td valign="top" nowrap class="ssChartTableBodyItem">TokenCount</td>
+    <td valign="top" nowrap class="ssChartTableBodyDesc">Integer (16-bit)</td>
+    <td valign="top" class="ssChartTableBodyDesc">Read only</td>
+    <td valign="top" class="ssChartTableBodyDesc">Returns the number of tokens expected fokens
+    when a syntax error occurs.</td>
+  </tr>
+  <tr>
+    <td valign="top" nowrap class="ssChartTableBodyItem">Tokens (<em>Index</em>)</td>
+    <td valign="top" nowrap class="ssChartTableBodyDesc"><a href="object-token.htm">Token</a></td>
+    <td valign="top" class="ssChartTableBodyDesc">Read only</td>
+    <td valign="top" class="ssChartTableBodyDesc">Returns the token specified by <em>Index</em>.&nbsp;
+    The <em>Index</em> will range from 0 to TokenCount - 1.</td>
+  </tr>
+</table>
+</div>
+
+<p>&nbsp;</p>
+
+<h2>Methods</h2>
+<div align="left">
+
+<table class="ssChartTable" cellspacing="0" cellpadding="0">
+  <tr>
+    <th valign="top" nowrap class="ssChartTableColumn">Method</th>
+    <th valign="top" nowrap class="ssChartTableColumn">Returns</th>
+    <th nowrap class="ssChartTableColumn">Details</th>
+  </tr>
+  <tr>
+    <td valign="top" nowrap class="ssChartTableBodyItem">Clear</td>
+    <td valign="top" nowrap class="ssChartTableBodyDesc">(None)</td>
+    <td valign="top" class="ssChartTableBodyDesc">The GOLDParser is reset and the internal
+    tables are cleared.</td>
+  </tr>
+  <tr>
+    <td valign="top" nowrap class="ssChartTableBodyItem">CloseFile</td>
+    <td valign="top" nowrap class="ssChartTableBodyDesc">(None)</td>
+    <td valign="top" class="ssChartTableBodyDesc">The file opened with the OpenFile method is
+    closed.</td>
+  </tr>
+  <tr>
+    <td valign="top" nowrap class="ssChartTableBodyItem">LoadCompiledGrammar (<em>FileName</em>)</td>
+    <td valign="top" class="ssChartTableBodyDesc">Boolean</td>
+    <td valign="top" class="ssChartTableBodyDesc">If the Compiled Grammar Table file is
+    successfully loaded the method returns True; otherwise False. This method must be called
+    before any Parse calls are made.</td>
+  </tr>
+  <tr>
+    <td valign="top" nowrap class="ssChartTableBodyItem">GetAboutText</td>
+    <td valign="top" class="ssChartTableBodyDesc">String</td>
+    <td valign="top" class="ssChartTableBodyDesc">This method is new in version 2.2 of the
+    ActiveX Engine. The method returns a simple text string containing version information
+    about the Engine.</td>
+  </tr>
+  <tr>
+    <td valign="top" nowrap class="ssChartTableBodyItem">OpenFile (<em>FileName</em>)</td>
+    <td valign="top" class="ssChartTableBodyDesc">Boolean</td>
+    <td valign="top" class="ssChartTableBodyDesc">Opens the <em>FileName</em> for parsing. If
+    the file is successfully is open, the method returns True; otherwise False.</td>
+  </tr>
+  <tr>
+    <td valign="top" nowrap class="ssChartTableBodyItem">OpenTextString (<em>String</em>)</td>
+    <td valign="top" class="ssChartTableBodyDesc">Boolean</td>
+    <td valign="top" class="ssChartTableBodyDesc">Opens the <em>SourceString</em> for parsing.
+    If successful the method returns True; otherwise False.</td>
+  </tr>
+  <tr>
+    <td valign="top" nowrap class="ssChartTableBodyItem">Parameter (<em>Name</em>)</td>
+    <td valign="top" class="ssChartTableBodyDesc">String</td>
+    <td valign="top" class="ssChartTableBodyDesc">Returns a string containing the value of the
+    specified parameter. The <em>ParameterName</em> is the same as the <a href="../../../../doc/grammars/define-properties.htm">parameters</a> entered in
+    the grammar's description. These include: Name, Version, Author, About, Case Sensitive and
+    Start Symbol. If the name specified is invalid, this method will return an empty string.</td>
+  </tr>
+  <tr>
+    <td valign="top" nowrap class="ssChartTableBodyItem">Parse</td>
+    <td valign="top" class="ssChartTableBodyDesc"><a href="enum-messageconstants.htm">GPMessageConstants</a></td>
+    <td valign="top" class="ssChartTableBodyDesc">Executes a parse.&nbsp; When this method is
+    called, the parsing engine reads information from the source text (either a string or a
+    file) and then reports what action was taken. This ranges from a token being read and
+    recognized from the source, a parse reduction, or a type of error. </td>
+  </tr>
+  <tr>
+    <td valign="top" nowrap class="ssChartTableBodyItem">PopInputToken</td>
+    <td valign="top" class="ssChartTableBodyDesc"><a href="object-token.htm">Token</a></td>
+    <td valign="top" class="ssChartTableBodyDesc">Removes the next <em>token</em> from the
+    front of the parser's internal input queue.</td>
+  </tr>
+  <tr>
+    <td valign="top" nowrap class="ssChartTableBodyItem">PushInputToken (<em>Token</em>)</td>
+    <td valign="top" class="ssChartTableBodyDesc">(None)</td>
+    <td valign="top" class="ssChartTableBodyDesc">Pushes the <em>token</em> onto the front of
+    the GOLDParser's internal input queue. It will be the next token analyzed by the parsing
+    engine.</td>
+  </tr>
+  <tr>
+    <td valign="top" nowrap class="ssChartTableBodyItem">Reset</td>
+    <td valign="top" class="ssChartTableBodyDesc">(None)</td>
+    <td valign="top" class="ssChartTableBodyDesc">Resets the GOLDParser. The parser's internal
+    tables are not affected.</td>
+  </tr>
+  <tr>
+    <td valign="top" nowrap class="ssChartTableBodyItem"><strike>ShowAboutWindow</strike></td>
+    <td valign="top" class="ssChartTableBodyDesc">(None)</td>
+    <td valign="top" class="ssChartTableBodyDesc">Displays a simple window about the
+    GOLDParser engine.<strong> This method was removed in version 2.2</strong></td>
+  </tr>
+</table>
+</div>
+
+<p>&nbsp;</p>
+</body>
+</html>

@@ -1,0 +1,286 @@
+<html>
+
+<head>
+<meta NAME="GENERATOR" Content="Microsoft FrontPage 12.0">
+<meta http-equiv="X-UA-Compatible" content="IE=9">
+
+<link REL="STYLESHEET" HREF="../../../gold-parser-style.css">
+<title>GOLD Parsing System - Engine - C Programming Language</title>
+</head>
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%" class="ssMainContentTop">
+  <tr>
+    <td valign="top" class="ssMainTitleCell" colspan="2" height="110"><table border="0" cellspacing="0" cellpadding="0" class="ssTitleTable">
+      <tr>
+        <td class="ssTitleLogoCell" rowspan="2"><img src="../../../images/gold-logo-v4-100.png" alt="The Tower Bridge in Sacramento, California" WIDTH="100" HEIGHT="100"></td>
+        <td class="ssTitleTopicCell">Original GOLD Engine</td>
+        <td class="ssTitleGraphicCell" rowspan="2"><img src="../../../images/pic-title-graphic.png" WIDTH="200" HEIGHT="110"></td>
+      </tr>
+      <tr>
+        <td class="ssTitleDescCell">C Programming Language</td>
+      </tr>
+    </table>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" class="ssMainContentTop" colspan="2"></td>
+  </tr>
+  <tr valign="top">
+    <td valign="top" align="center" class="ssMainMenuCell" width="150"><table class="ssMenuTable" border="0" cellspacing="0">
+      <tr>
+        <td valign="bottom" class="ssMenuTitleCell" colspan="2">
+		<a href="../../../index.htm">Main</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../../images/bullets/bullet-news.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell"><a href="../../../news/index.htm">Latest News</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../../images/bullets/bullet-getting-started.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a target="_top" href="../../../getting-started/index.htm">Getting
+        Started</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell">
+		<img src="../../../images/bullets/bullet-picture.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a href="../../../builder/screenshots.htm">Screen Shots</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../../images/bullets/bullet-disk.gif" border="0" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a href="../../../download.htm" target="_top">Download</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../../images/bullets/bullet-help.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell"><a href="../../../doc/index.htm">Documentation</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../../images/bullets/bullet-contributor.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a target="_top" href="../../../contributors/index.htm">Contributors</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../../images/bullets/bullet-contact.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a target="_top" href="../../../contact.htm">Contact</a></td>
+      </tr>
+    </table>
+    <table class="ssMenuTable" border="0" cellspacing="0">
+      <tr>
+        <td valign="bottom" class="ssMenuTitleCell" colspan="2">
+		<a href="../../../about/index.htm">About GOLD</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../../images/bullets/bullet-information.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a href="../../../about/how-it-works.htm" target="_top">How
+        It Works</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../../images/bullets/bullet-information.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a href="../../../about/faq.htm" target="_top">FAQ</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../../images/bullets/bullet-information.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a target="_top" href="../../../about/why-use-gold.htm">Why
+        Use GOLD?</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../../images/bullets/bullet-information.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a href="../../../about/comparison-parsers.htm" target="_top">Comparison</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../../images/bullets/bullet-information.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a href="../../../about/revision-history.htm" target="_top">Revision History</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../../images/bullets/bullet-information.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a target="_top" href="../../../about/license.htm">Freeware
+        License</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../../images/bullets/bullet-information.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a target="_top" href="../../../about/index.htm">More ...</a></td>
+      </tr>
+    </table>
+    <div align="center"><center><table border="0" class="ssMenuTable" cellspacing="0" cellpadding="0">
+      <tr>
+        <td valign="bottom" class="ssMenuTitleCell" colspan="2">
+		<a href="../../../articles/index.htm">Articles</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../../images/bullets/bullet-article.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a target="_top" href="../../../articles/parser.htm">What
+        is a Parser?</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../../images/bullets/bullet-article.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a href="../../../articles/bnf.htm">Backus-Naur Form</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../../images/bullets/bullet-article.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a href="../../../articles/dfa.htm">DFA Lexer</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../../images/bullets/bullet-article.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a href="../../../articles/lalr.htm">LALR Parsing</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../../images/bullets/bullet-article.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a href="../../../articles/glossary.htm">Glossary</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../../images/bullets/bullet-article.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a target="_top" href="../../../articles/links.htm">Links</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../../images/bullets/bullet-article.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a target="_top" href="../../../articles/index.htm">More
+        ...</a></td>
+      </tr>
+    </table>
+    </center></div><p><br>
+    </p>
+    <p align="center">
+	<img src="../../../images/spacer-150.gif" border="0" WIDTH="150" HEIGHT="4"></td>
+    <td valign="top" class="ssMainContentCell" align="center"><div align="left"><table border="0" width="100%" cellspacing="0" cellpadding="0" class="ssHeaderTable">
+      <tr>
+        <td valign="middle" align="left" class="ssHeaderTableText">The C programming language
+        evolved at Bell Labs from a series of&nbsp; programming languages: 'CPL', 'BCPL', and then
+        'B'. As a result, C's development was a combined effort between Dennis Ritchie, Ken
+        Thompson, and Martin Richards. <p>C was designed for the creation of low-level systems
+        such as operating systems, device drivers, firmware, etc... To realize this goal, the
+        language contains the ability to perform operations directly on memory and has direct
+        access to system pointers. While this gives an enormous amount of control and flexibility,
+        it also makes C a professional programming language - not to be used by an inexperienced
+        programmer.</td>
+        <td valign="middle" align="left" class="ssHeaderTableGraphic"><a href="http://www.amazon.com/exec/obidos/ASIN/0131103628/qid=1107692811/sr=2-1/ref=pd_ka_b_2_1/103-3614921-9649454" target="_blank">
+		<img src="../../../images/book/Book-C-Programing-Language.gif" border="0" WIDTH="96" HEIGHT="128"></a></td>
+      </tr>
+    </table>
+    </div>
+    <div align="center"><center><table border="0" width="100%" cellspacing="0" cellpadding="0" class="ssActiveTable">
+      <tr>
+        <td class="ssActiveTitleCell" colspan="3">ANSI C Engine</td>
+      </tr>
+      <tr>
+        <td class="ssActiveSubTitleCell" colspan="3">by Justin Holmes</td>
+      </tr>
+      <tr>
+        <td class="ssActiveIconCell" nowrap>
+		<img src="../../../images/bullets/bullet-disk.gif" alt="" align="bottom" vspace="2" WIDTH="11" HEIGHT="11"></td>
+        <td class="ssActiveBodyCell" nowrap><a href="holmes-ansi-c-source.zip">
+		Source Code</a></td>
+        <td class="ssActiveBodyDescCell"><a href="../../../contributors/index.htm">Justin Holmes</a>
+        developed a version of the GOLD Parser Engine using ANSI C. This implementation of the
+        Engine is completely platform independent, and has been tested to compile cleanly on
+        Windows&#153; and Linux. <p>This Engine is designed to be both incredibly fast and use a
+        minimal amount of memory. This Engine doesn't automatically create a parse tree. This
+        follows the idea that parsng a large file, while building a parse tree, could consume a
+        large amount of memory, create memory fragmentation and use more cycles than necessary. </p>
+        <p>The download also includes a well-commented example program that prints the tokens and
+        rules as they are matched.</p>
+        <table border="0" cellspacing="0" cellpadding="0" class="ssAboutTable">
+          <tr>
+            <td class="ssAboutCellName">Author:</td>
+            <td class="ssAboutCellValue"><a href="../../../contributors/index.htm">Justin Holmes</a></td>
+          </tr>
+          <tr>
+            <td class="ssAboutCellName">Language:</td>
+            <td class="ssAboutCellValue">ANSI C</td>
+          </tr>
+          <tr>
+            <td class="ssAboutCellName">Version:</td>
+            <td class="ssAboutCellValue">1/2005</td>
+          </tr>
+          <tr>
+            <td class="ssAboutCellName">Size:</td>
+            <td class="ssAboutCellValue">9 KB</td>
+          </tr>
+        </table>
+        </td>
+      </tr>
+      <tr>
+        <td class="ssActiveIconCell" nowrap>
+		<img src="../../../images/bullets/bullet-disk.gif" alt="" align="bottom" vspace="2" WIDTH="11" HEIGHT="11"></td>
+        <td class="ssActiveBodyCell" nowrap><a href="paul-ansi-c-parser.zip">Modified
+        Source Code</a></td>
+        <td class="ssActiveBodyDescCell"><a href="../../../contributors/index.htm">P.H.</a>
+        released a modified version of <a href="../../../news/index.htm">Justin Holmes</a>' project.
+        Like the original it should compile with any ANSI C compiler, however this version has
+        only been compiled and tested using Microsoft VC++ 6. Building the parse tree will use
+        more memory and CPU cycles than the original project, especially if large files are
+        parsed. Where memory is limited, this project could be easily modified to output the parse
+        tree as a binary file. <p>The download includes a simple, documented ANSI C example
+        program, which will traverse and display a parse tree, given a .cgt and input file. The
+        download also includes a Microsoft Visual C++ 6 project.</p>
+        <table border="0" cellspacing="0" cellpadding="0" class="ssAboutTable">
+          <tr>
+            <td class="ssAboutCellName" valign="top">Authors:</td>
+            <td class="ssAboutCellValue" valign="top"><a href="../../../contributors/index.htm">Justin
+            Holmes,<br>
+            P.H.</a></td>
+          </tr>
+          <tr>
+            <td class="ssAboutCellName" valign="top">Language:</td>
+            <td class="ssAboutCellValue" valign="top">ANSI C</td>
+          </tr>
+          <tr>
+            <td class="ssAboutCellName" valign="top">Size:</td>
+            <td class="ssAboutCellValue" valign="top">79 KB</td>
+          </tr>
+        </table>
+        </td>
+      </tr>
+      <tr>
+        <td class="ssActiveIconCell" nowrap>
+		<img src="../../../images/bullets/bullet-disk.gif" alt="" align="bottom" vspace="2" WIDTH="11" HEIGHT="11"></td>
+        <td class="ssActiveBodyCell" nowrap><a href="hounsell-ansi-c-template.zip">Program
+        Template</a></td>
+        <td class="ssActiveBodyDescCell"><a href="../../../contributors/index.htm">Mat Hounsell</a> created a program template for the
+        ANSI C Engine.<p>The template defines functions for each rule and symbol in the grammar.
+        In addition, it defines main switch statement to call them.</td>
+      </tr>
+    </table>
+    </center></div><p>&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,310 @@
+<html>
+
+<head>
+<link REL="STYLESHEET" HREF="../gold-parser-doc-style.css">
+<title>Program Templates - LALR Table</title>
+</head>
+
+<body class="ssMainPage">
+
+<h1>LALR Table</h1>
+
+<h2>Overview</h2>
+
+<p>The LALR State Table is used by the LALR parser which analyzes the syntactic structure
+of a grammar. Essentially, it reads a series of tokens from the tokenizer (also called a
+scanner) and then determines when one of the rules are complete. </p>
+
+<p>The following tags were added in Version 2.5 of the Builder.</p>
+
+<h2>Structure</h2>
+
+<table class="ssCodeTable" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="ssCodeTableBody" valign="middle" nowrap></td>
+    <td class="ssCodeTableBody" valign="middle" nowrap><span class="ssCodeReservedSymbol">##LALR-TABLE</span></td>
+    <td class="ssCodeTableBody" valign="middle" nowrap></td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" valign="middle" nowrap></td>
+    <td class="ssCodeTableBody" valign="middle" nowrap>...</td>
+    <td class="ssCodeTableBody" valign="middle" nowrap></td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" valign="middle" nowrap>[</td>
+    <td class="ssCodeTableBody" valign="middle" nowrap><span class="ssCodeReservedSymbol">##LALR-STATES</span></td>
+    <td class="ssCodeTableBody" valign="middle" nowrap></td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" valign="middle" nowrap></td>
+    <td class="ssCodeTableBody" valign="middle" nowrap>...</td>
+    <td class="ssCodeTableBody" valign="middle" nowrap></td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" valign="middle" nowrap>[</td>
+    <td class="ssCodeTableBody" valign="middle" nowrap><span class="ssCodeReservedSymbol">##LALR-ACTIONS</span></td>
+    <td class="ssCodeTableBody" valign="middle" nowrap></td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" valign="middle" nowrap></td>
+    <td class="ssCodeTableBody" valign="middle" nowrap>...</td>
+    <td class="ssCodeTableBody" valign="middle" nowrap></td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" valign="middle" nowrap></td>
+    <td class="ssCodeTableBody" valign="middle" nowrap><span class="ssCodeReservedSymbol">##END-LALR-ACTIONS</span></td>
+    <td class="ssCodeTableBody" valign="middle" nowrap>]</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" valign="middle" nowrap></td>
+    <td class="ssCodeTableBody" valign="middle" nowrap>...</td>
+    <td class="ssCodeTableBody" valign="middle" nowrap></td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" valign="middle" nowrap></td>
+    <td class="ssCodeTableBody" valign="middle" nowrap><span class="ssCodeReservedSymbol">##END-LALR-STATES</span></td>
+    <td class="ssCodeTableBody" valign="middle" nowrap>]</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" valign="middle" nowrap></td>
+    <td class="ssCodeTableBody" valign="middle" nowrap>...</td>
+    <td class="ssCodeTableBody" valign="middle" nowrap></td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" valign="middle" nowrap></td>
+    <td class="ssCodeTableBody" valign="middle" nowrap><span class="ssCodeReservedSymbol">##END-LALR-TABLE</span></td>
+    <td class="ssCodeTableBody" valign="middle" nowrap></td>
+  </tr>
+</table>
+
+<h2>Variables</h2>
+
+<h3>LALR-TABLE Block</h3>
+
+<table width="90%" class="ssChartTable" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <th class="ssChartTableColumn">Name</th>
+    <th class="ssChartTableColumn">Description</th>
+  </tr>
+  <tr>
+    <td valign="top" nowrap class="ssChartTableBodyItem">%Count%</td>
+    <td class="ssChartTableBodyDesc">The Count variable contains the number of states in the
+    grammar's LALR State Table. This variable is useful for array declaration or setting the
+    global variables before storing each of the actual rules.</td>
+  </tr>
+  <tr>
+    <td valign="top" nowrap class="ssChartTableBodyItem">%InitialState%</td>
+    <td class="ssChartTableBodyDesc">This variable contains the numeric index of the initial
+    state in the LALR State Table.</td>
+  </tr>
+</table>
+
+<h3>LALR-STATES Block</h3>
+
+<table width="90%" class="ssChartTable" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <th class="ssChartTableColumn">Name</th>
+    <th class="ssChartTableColumn">Description</th>
+  </tr>
+  <tr>
+    <td valign="top" nowrap class="ssChartTableBodyItem">%Delimiter%</td>
+    <td class="ssChartTableBodyDesc">For each edge in the state, this variable is set to the
+    value set with the ##Delimiter tag. For the last item in the list, the value is set to a
+    number of spaces.</td>
+  </tr>
+  <tr>
+    <td valign="top" nowrap class="ssChartTableBodyItem">%ActionCount%</td>
+    <td class="ssChartTableBodyDesc">Each state contains one or more parse actions.</td>
+  </tr>
+  <tr>
+    <td valign="top" nowrap class="ssChartTableBodyItem">%Index%</td>
+    <td class="ssChartTableBodyDesc">This variable contains the index of the state in the
+    table. </td>
+  </tr>
+</table>
+
+<h3>LALR-ACTIONS Block</h3>
+
+<table width="90%" class="ssChartTable" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <th class="ssChartTableColumn">Name</th>
+    <th class="ssChartTableColumn">Description</th>
+  </tr>
+  <tr>
+    <td valign="top" nowrap class="ssChartTableBodyItem">%Action%</td>
+    <td class="ssChartTableBodyDesc">In the Compiled Grammar Table file, each action is
+    represented with a numeric constant. These are the same values that are used for the
+    Action variable. The values are displayed below.</td>
+  </tr>
+  <tr>
+    <td valign="top" nowrap class="ssChartTableBodyItem">%Action.Name%</td>
+    <td class="ssChartTableBodyDesc">This variable will contain a simple text description of
+    each action. The values are displayed below.</td>
+  </tr>
+  <tr>
+    <td valign="top" nowrap class="ssChartTableBodyItem">%Delimiter%</td>
+    <td class="ssChartTableBodyDesc">For each state in the table, this variable is set to the
+    value set with the ##Delimiter tag. For the last item in the list, the value is set to a
+    number of spaces.</td>
+  </tr>
+  <tr>
+    <td valign="top" nowrap class="ssChartTableBodyItem">%SymbolIndex%</td>
+    <td class="ssChartTableBodyDesc">Each action is linked to a symbol. This variable contains
+    the index of the symbol.</td>
+  </tr>
+  <tr>
+    <td valign="top" nowrap class="ssChartTableBodyItem">%Value%</td>
+    <td class="ssChartTableBodyDesc">Depending on the value of the Action field, the target
+    will hold different types of information. In the case of a reduce, the value will contain
+    the index of the rule to be reduced. In the case of a shift or goto, the value will
+    contain the target state.</td>
+  </tr>
+</table>
+
+<p>&nbsp;</p>
+
+<h4>Action Details</h4>
+
+<table class="ssChartTable" cellspacing="0" cellpadding="0" width="90%">
+  <tr>
+    <th class="ssChartTableColumn">Value</th>
+    <th class="ssChartTableColumn">Description</th>
+    <th class="ssChartTableColumn">Description</th>
+  </tr>
+  <tr>
+    <td valign="top" class="ssChartTableBodyItem">1</td>
+    <td valign="top" class="ssChartTableBodyDesc" nowrap>Shift</td>
+    <td class="ssChartTableBodyDesc">This action indicates the symbol is to be shifted. The
+    Target field will contain the index of the state in the LALR State table that the parsing
+    engine will advance to.</td>
+  </tr>
+  <tr>
+    <td valign="top" class="ssChartTableBodyItem">2</td>
+    <td valign="top" class="ssChartTableBodyDesc" nowrap>Reduce Rule</td>
+    <td class="ssChartTableBodyDesc">This action denotes that the parser can reduce a rule.
+    The Target field will contain the index of the rule in the Rule Table.</td>
+  </tr>
+  <tr>
+    <td valign="top" class="ssChartTableBodyItem">3</td>
+    <td valign="top" class="ssChartTableBodyDesc" nowrap>Goto</td>
+    <td class="ssChartTableBodyDesc">This action is used when a rule is reduced and the parser
+    jumps to the state that represents the shifted nonterminal. The Target field will contain
+    the index of the state in the LALR State table that the parsing engine will jump to after
+    a reduction if completed.</td>
+  </tr>
+  <tr>
+    <td valign="top" class="ssChartTableBodyItem">4</td>
+    <td valign="top" class="ssChartTableBodyDesc" nowrap>Accept</td>
+    <td class="ssChartTableBodyDesc">When the parser encounters the Accept action for a given
+    symbol, the source text is accepted as correct and complete. In this case, the Target
+    field is not needed and should be ignored.</td>
+  </tr>
+</table>
+
+<h2>Example: LALR Table</h2>
+
+<p>The following displays a template that will output the content of the LALR State Table
+using formatted text. </p>
+
+<table class="ssCodeTable" cellspacing="0" cellpadding="0" border="0">
+  <tr>
+    <td width="100%" nowrap class="ssCodeTableBody"><span class="ssCodeReservedSymbol">##LALR-TABLE</span></td>
+  </tr>
+  <tr>
+    <td width="100%" nowrap class="ssCodeTableBody"><span class="ssCodeNormal">Table Count: </span><span
+    class="ssCodeKeySymbol">%Count%</span></td>
+  </tr>
+  <tr>
+    <td width="100%" nowrap class="ssCodeTableBody"><span class="ssCodeNormal">Initial State: </span><span
+    class="ssCodeKeySymbol">%InitialState%</span></td>
+  </tr>
+  <tr>
+    <td width="100%" nowrap class="ssCodeTableBody"><span class="ssCodeReservedSymbol">##LALR-STATES</span></td>
+  </tr>
+  <tr>
+    <td width="100%" nowrap class="ssCodeTableBody">&nbsp;&nbsp; State <span
+    class="ssCodeKeySymbol">%Index%</span> </td>
+  </tr>
+  <tr>
+    <td width="100%" nowrap class="ssCodeTableBody">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Action
+    Count : <span class="ssCodeKeySymbol">%ActionCount%</span> </td>
+  </tr>
+  <tr>
+    <td width="100%" nowrap class="ssCodeTableBody">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Actions:</td>
+  </tr>
+  <tr>
+    <td width="100%" nowrap class="ssCodeTableBody"><span class="ssCodeReservedSymbol">##LALR-ACTIONS</span></td>
+  </tr>
+  <tr>
+    <td width="100%" nowrap class="ssCodeTableBody"><span class="ssCodeNormal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp; Symbol </span><span class="ssCodeKeySymbol">%SymbolIndex% %Action.Name%
+    %Value%</span></td>
+  </tr>
+  <tr>
+    <td width="100%" nowrap class="ssCodeTableBody"><span class="ssCodeReservedSymbol">##END-LALR-ACTIONS</span></td>
+  </tr>
+  <tr>
+    <td width="100%" nowrap class="ssCodeTableBody"><span class="ssCodeReservedSymbol">##END-LALR-STATES</span></td>
+  </tr>
+  <tr>
+    <td width="100%" nowrap class="ssCodeTableBody"><span class="ssCodeReservedSymbol">##END-LALR-TABLE</span></td>
+  </tr>
+</table>
+
+<p>&nbsp;</p>
+
+<p>If the &quot;Simple&quot; example grammar is used, the program template will create the
+following text for LALR State #4. The states before and after #4 were excluded for
+brevity.</p>
+
+<table class="ssCodeTable" cellspacing="0" cellpadding="0" border="0">
+  <tr>
+    <td width="100%" nowrap class="ssCodeTableBody"><span class="ssCodeNormal">Table Count: </span>59</td>
+  </tr>
+  <tr>
+    <td width="100%" nowrap class="ssCodeTableBody"><span class="ssCodeNormal">Initial State: </span>0</td>
+  </tr>
+  <tr>
+    <td width="100%" nowrap class="ssCodeTableBody">&nbsp;&nbsp; .</td>
+  </tr>
+  <tr>
+    <td width="100%" nowrap class="ssCodeTableBody">&nbsp;&nbsp; .</td>
+  </tr>
+  <tr>
+    <td width="100%" nowrap class="ssCodeTableBody">&nbsp;&nbsp; .</td>
+  </tr>
+  <tr>
+    <td width="100%" nowrap class="ssCodeTableBody">&nbsp;&nbsp; State 4</td>
+  </tr>
+  <tr>
+    <td width="100%" nowrap class="ssCodeTableBody">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Action
+    Count: 5</td>
+  </tr>
+  <tr>
+    <td width="100%" nowrap class="ssCodeTableBody">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Actions:</td>
+  </tr>
+  <tr>
+    <td width="100%" nowrap class="ssCodeTableBody">&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8 Shift 5</td>
+  </tr>
+  <tr>
+    <td width="100%" nowrap class="ssCodeTableBody">&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;25 Shift 6</td>
+  </tr>
+  <tr>
+    <td width="100%" nowrap class="ssCodeTableBody">&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;27 Shift 7</td>
+  </tr>
+  <tr>
+    <td width="100%" nowrap class="ssCodeTableBody">&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;29 Shift 8</td>
+  </tr>
+  <tr>
+    <td width="100%" nowrap class="ssCodeTableBody">&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;38 Goto 37</td>
+  </tr>
+</table>
+
+<p>&nbsp;</p>
+</body>
+</html>

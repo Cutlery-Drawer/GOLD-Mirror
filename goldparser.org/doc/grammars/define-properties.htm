@@ -1,0 +1,131 @@
+<html>
+
+<head>
+<title>Defining Parameters</title>
+<link REL="STYLESHEET" HREF="../gold-parser-doc-style.css">
+</head>
+
+<body class="ssMainPage">
+
+<h1>Setting Grammar Properties</h1>
+
+<h2>Syntax </h2>
+
+<h3>Property Definition</h3>
+
+<p><img height="108" src="images/syntax-grammar-property.png" width="459"></p>
+
+<h2>Details</h2>
+
+<p>Many attributes of a grammar cannot be specified using Backus-Naur Form statements or
+regular expressions. These attributes can range from the formal name of the grammar to how
+parse tables will be constructed by the system. As a result, the Builder must allow the
+developer a means to declare this information within the meta-language. </p>
+
+<p>The role of properties is nebulous by design. Some may set the formal name of the
+grammar, for instance, and others can have significant impact on how the system constructs
+parse tables. Property names are delimited by doubled-quotes and can be set to any of the symbols
+and literals recognized by the GOLD Meta-Language. In most cases, the value will be a
+string.</p>
+
+<p>The properties are as follows: </p>
+<div align="center"><center>
+
+<table class="ssChartTable" cellspacing="0" cellpadding="0">
+  <tr>
+    <th nowrap valign="top" class="ssChartTableColumn">Property Name</th>
+    <th nowrap valign="top" class="ssChartTableColumn">Type</th>
+    <th valign="top" class="ssChartTableColumn">Description</th>
+  </tr>
+  <tr>
+    <td nowrap valign="top" align="left" class="ssChartTableBodyItem">Name</td>
+    <td nowrap valign="top" align="left" class="ssChartTableBodyDesc">Optional</td>
+    <td valign="top" align="left" class="ssChartTableBodyDesc">The name of the grammar.</td>
+  </tr>
+  <tr>
+    <td nowrap valign="top" align="left" class="ssChartTableBodyItem">Version</td>
+    <td nowrap valign="top" align="left" class="ssChartTableBodyDesc">Optional</td>
+    <td valign="top" align="left" class="ssChartTableBodyDesc">The version of the grammar.
+    &nbsp; This can contain any alphanumeric string.</td>
+  </tr>
+  <tr>
+    <td nowrap valign="top" align="left" class="ssChartTableBodyItem">Author</td>
+    <td nowrap valign="top" align="left" class="ssChartTableBodyDesc">Optional</td>
+    <td valign="top" align="left" class="ssChartTableBodyDesc">The grammar's author.</td>
+  </tr>
+  <tr>
+    <td nowrap valign="top" align="left" class="ssChartTableBodyItem">About</td>
+    <td nowrap valign="top" align="left" class="ssChartTableBodyDesc">Optional</td>
+    <td valign="top" align="left" class="ssChartTableBodyDesc">A short description of the
+    grammar.</td>
+  </tr>
+  <tr>
+    <td nowrap valign="top" align="left" class="ssChartTableBodyItem">Case Sensitive</td>
+    <td nowrap valign="top" align="left" class="ssChartTableBodyDesc">Optional</td>
+    <td valign="top" align="left" class="ssChartTableBodyDesc">Whether the grammar is
+    considered to be case sensitive. When this parameter is set &quot;True&quot;, the GOLD
+    Builder will construct case sensitive tokenizer tables (DFA). In other words, if your
+    language contains a terminal 'if', the text 'IF', 'If', and 'iF' will cause a syntax
+    error. This parameter defaults to 'False'.</td>
+  </tr>
+    <tr>
+    <td nowrap valign="top" align="left" class="ssChartTableBodyItem">Character Mapping</td>
+    <td nowrap valign="top" align="left" class="ssChartTableBodyDesc">Optional</td>
+    <td valign="top" align="left" class="ssChartTableBodyDesc">For now, the only valid values
+    are <em>Windows-1252</em> and <em>None</em>. The system defaults to Windows-1252 -
+    which populates characters 128 to 159&nbsp;as needed. This documentation contains a <a href="character-mapping.htm">chart</a> of the characters affected.</td>
+    </tr>
+  <tr>
+    <td nowrap valign="top" align="left" class="ssChartTableBodyItem">Auto Whitespace</td>
+    <td nowrap valign="top" align="left" class="ssChartTableBodyDesc">Optional</td>
+    <td valign="top" align="left" class="ssChartTableBodyDesc">In the previous version of the
+    GOLD Parser, the whitespace terminal was always created when omitted in the grammar.
+    Unfortunately, not all grammars make use of whitespace. This parameter is set to 'True' by
+    default, but can be changed to 'False'. When 'False', the system will <strong><u>not</u></strong>
+    automatically create a whitespace terminal unless it is manually defined.</td>
+  </tr>
+  <tr>
+    <td nowrap valign="top" align="left" class="ssChartTableBodyItem">Virtual Terminals</td>
+    <td nowrap valign="top" align="left" class="ssChartTableBodyDesc">Optional</td>
+    <td valign="top" align="left" class="ssChartTableBodyDesc"><p>Using this property, the developer can specify
+    a series of terminal names. The system will enter these terminals into the symbol table,
+    but they will not be entered into the Deterministic Finite Automata. As a result, the
+    terminals will not be recognized by the lexer, but can, instead, be created by a
+    specialized version of the Engine or by the developer. This can help developers parse
+    languages which are not context free - such as Python.
+	<p><strong style="font-weight: normal">This feature was added
+    in Version 2.2 of the Builder. In Version 5, you can set a terminal to 
+	&quot;Virtual&quot;, but assigning its <a href="terminal-attributes.htm">attributes</a>.</strong></td>
+  </tr>
+  <tr>
+    <td nowrap valign="top" align="left" class="ssChartTableBodyItem">Start Symbol</td>
+    <td nowrap valign="top" align="left" class="ssChartTableBodyDesc"><strong><font color="#800000">Required</font></strong></td>
+    <td valign="top" align="left" class="ssChartTableBodyDesc">The starting symbol in the
+    grammar. When LALR parse tables are constructed by the GOLD Builder, an
+    &quot;accepted&quot; grammar will reduce to this nonterminal.</td>
+  </tr>
+</table>
+</center></div>
+
+<h2>Example</h2>
+
+<table class="ssCodeTable">
+  <tr>
+    <td class="ssCodeTableBody" nowrap><code>&quot;Name&quot;&nbsp;&nbsp;&nbsp; = 'My
+    Programming Language'<br>
+    &quot;Version&quot; = '1.0 beta'<br>
+    &quot;Author&quot;&nbsp; = 'John Q. Public'<br>
+    <br>
+    &quot;About&quot;&nbsp;&nbsp; = 'This is a test declaration.'<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | 'You can use multiple lines by
+    using the &quot;pipe&quot; symbol'<br>
+    <br>
+    &quot;Case Sensitive&quot; = 'False'<br>
+    &quot;Start Symbol&quot; = &lt;Statement&gt; </code></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</body>
+</html>

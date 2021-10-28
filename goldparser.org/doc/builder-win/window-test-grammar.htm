@@ -1,0 +1,60 @@
+<html>
+
+<head>
+<link REL="STYLESHEET" HREF="../gold-parser-doc-style.css">
+<title>Test Grammar Window</title>
+</head>
+
+<body class="ssMainPage">
+
+<h1>Test Grammar Window</h1>
+
+<h2>Overview</h2>
+
+<p>One of key features of the Builder Application is the Grammar Test Window. After the
+grammar has been successfully compiled by the Builder, the developer can check how
+Deterministic Finite Automata and LALR algorithms will analyze any number of test cases. </p>
+
+<p>To test the behavior of the algorithms, a local embedded implementation of the Visual
+Basic 6 Engine is used. Although different implementations of the Engine exist, the
+behavior of the LALR and DFA algorithms is constant. Regardless of whether an Engine is
+written for Visual Basic, C++ or Java, the parse tables will create the same number of
+reductions and will accept or reject the same information. As a result, the specific
+details on how the Visual Basic 6 Engine was implemented, will have no effect on testing. </p>
+
+<h2>Details</h2>
+
+<p>The Grammar Test Window contains three separate &quot;tabs&quot;. The first tab allows 
+the developer to enter or load a test string. The controls on the Test Window are 
+similar to those you will find on your DVD (or VCR)
+player.</p>
+
+<p>
+<img src="images/ss-test-controls.png" alt="Test controls" WIDTH="189" HEIGHT="54"></p>
+
+<p>You start the test, by clicking on the &quot;Start&quot; button. At this point, you can
+then click either the &quot;Step&quot; button to parse the test string and pause each time
+a token is read. This allows you to watch how the test string is interpreted by your
+grammar step-by-step. The &quot;Parse All&quot; button will parse the rest of the test
+string and will not stop until either an error occurs or the test string is accepted. The
+&quot;Stop&quot; button can be used at any time to to quit the test.</p>
+
+<h2>Parse Actions Tab</h2>
+
+<p align="left">The first tab contains a list of the parse actions performed by the LALR
+Parsing Engine.</p>
+
+<p align="left">
+<img src="images/ss-test-actions.png" alt="Parse actions" WIDTH="596" HEIGHT="400"></p>
+
+<h2>Parse Tree Tab</h2>
+
+<p>If the test string is successfully parsed, the GOLD Builder draws a parse tree for the
+user to review. This tree can be saved to formatted text.</p>
+
+<p align="left">
+<img src="images/ss-test-tree.png" alt="Test Tree" WIDTH="596" HEIGHT="400"></p>
+
+<p>&nbsp;</p>
+</body>
+</html>

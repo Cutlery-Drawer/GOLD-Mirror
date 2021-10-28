@@ -1,0 +1,42 @@
+<html>
+
+<head>
+<title>Builder Overview</title>
+<link REL="STYLESHEET" HREF="../gold-parser-doc-style.css">
+<base target="_self">
+</head>
+
+<body class="ssMainPage">
+
+<h1>GOLD Parser Builder Documentation</h1>
+
+<h3><strong>Command Line Version<br>
+Version 5 and Later</strong></h3>
+
+<p>&nbsp;</p>
+
+<table cellpadding="3">
+  <tr>
+    <td valign="top" class="ssColumn">The Builder is the main component of the GOLD Parsing
+    System. The main duty of the Builder is to read a source grammar written in the GOLD
+    Meta-Language, produce the LALR and DFA parse tables, and, finally, save this information
+    to Compiled Grammar Table file. <p>This is a command line version of the Windows 32-bit
+    application. The three major features of the Builder Application: Compiled Grammar Table
+    file generation, Skeleton Program Creation and Grammar Testing, were implemented using
+    separate executables. <ul>
+      <li><a href="goldbuild.htm"><strong>goldbuild</strong></a><br>
+        Analyzes a grammar and creates the EGT. CGT or XML file</li>
+        <li><a href="goldprog.htm"><strong>goldprog</strong></a><br>Creates a skeleton program using a template and 
+		EGT (or CGT) file</li>
+		<li><strong><a href="goldtest.htm">goldtest</a></strong><br>Tests a grammar 
+		using 1 (or more) test files and saves the resulting parse information.</li>
+		<li><strong><a href="goldwebpage.htm">goldwebpage</a></strong><br>
+		Creates a useful webpage for a EGT or CGT file.</li>
+		<li><a href="yacctogold.htm"><strong>yacctogold</strong></a><br>Translates a YACC Grammar to a GOLD Grammar</li>
+    </ul>
+    </td>
+    <td valign="top" class="ssColumn"><img src="images/flow-builder.gif" WIDTH="83" HEIGHT="286"></td>
+  </tr>
+</table>
+</body>
+</html>

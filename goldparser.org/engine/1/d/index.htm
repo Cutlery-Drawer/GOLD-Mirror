@@ -1,0 +1,339 @@
+<html>
+
+<head>
+<meta NAME="GENERATOR" Content="Microsoft FrontPage 12.0">
+<meta http-equiv="X-UA-Compatible" content="IE=9">
+
+<link REL="STYLESHEET" HREF="../../../gold-parser-style.css">
+<title>GOLD Parsing System - Engine - D Programming Language</title>
+</head>
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%" class="ssMainContentTop">
+  <tr>
+    <td valign="top" class="ssMainTitleCell" colspan="2" height="110"><table border="0" cellspacing="0" cellpadding="0" class="ssTitleTable">
+      <tr>
+        <td class="ssTitleLogoCell" rowspan="2"><img src="../../../images/gold-logo-v4-100.png" alt="The Tower Bridge in Sacramento, California" WIDTH="100" HEIGHT="100"></td>
+        <td class="ssTitleTopicCell">Original GOLD Engine</td>
+        <td class="ssTitleGraphicCell" rowspan="2"><img src="../../../images/pic-title-graphic.png" WIDTH="200" HEIGHT="110"></td>
+      </tr>
+      <tr>
+        <td class="ssTitleDescCell">D Programming Language</td>
+      </tr>
+    </table>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" class="ssMainContentTop" colspan="2"></td>
+  </tr>
+  <tr valign="top">
+    <td valign="top" align="center" class="ssMainMenuCell" width="150"><table class="ssMenuTable" border="0" cellspacing="0">
+      <tr>
+        <td valign="bottom" class="ssMenuTitleCell" colspan="2">
+		<a href="../../../index.htm">Main</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../../images/bullets/bullet-news.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell"><a href="../../../news/index.htm">Latest News</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../../images/bullets/bullet-getting-started.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a target="_top" href="../../../getting-started/index.htm">Getting
+        Started</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell">
+		<img src="../../../images/bullets/bullet-picture.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a href="../../../builder/screenshots.htm">Screen Shots</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../../images/bullets/bullet-disk.gif" border="0" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a href="../../../download.htm" target="_top">Download</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../../images/bullets/bullet-help.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell"><a href="../../../doc/index.htm">Documentation</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../../images/bullets/bullet-contributor.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a target="_top" href="../../../contributors/index.htm">Contributors</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../../images/bullets/bullet-contact.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a target="_top" href="../../../contact.htm">Contact</a></td>
+      </tr>
+    </table>
+    <table class="ssMenuTable" border="0" cellspacing="0">
+      <tr>
+        <td valign="bottom" class="ssMenuTitleCell" colspan="2">
+		<a href="../../../about/index.htm">About GOLD</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../../images/bullets/bullet-information.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a href="../../../about/how-it-works.htm" target="_top">How
+        It Works</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../../images/bullets/bullet-information.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a href="../../../about/faq.htm" target="_top">FAQ</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../../images/bullets/bullet-information.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a target="_top" href="../../../about/why-use-gold.htm">Why
+        Use GOLD?</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../../images/bullets/bullet-information.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a href="../../../about/comparison-parsers.htm" target="_top">Comparison</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../../images/bullets/bullet-information.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a href="../../../about/revision-history.htm" target="_top">Revision History</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../../images/bullets/bullet-information.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a target="_top" href="../../../about/license.htm">Freeware
+        License</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../../images/bullets/bullet-information.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a target="_top" href="../../../about/index.htm">More ...</a></td>
+      </tr>
+    </table>
+    <div align="center"><center><table border="0" class="ssMenuTable" cellspacing="0" cellpadding="0">
+      <tr>
+        <td valign="bottom" class="ssMenuTitleCell" colspan="2">
+		<a href="../../../articles/index.htm">Articles</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../../images/bullets/bullet-article.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a target="_top" href="../../../articles/parser.htm">What
+        is a Parser?</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../../images/bullets/bullet-article.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a href="../../../articles/bnf.htm">Backus-Naur Form</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../../images/bullets/bullet-article.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a href="../../../articles/dfa.htm">DFA Lexer</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../../images/bullets/bullet-article.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a href="../../../articles/lalr.htm">LALR Parsing</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../../images/bullets/bullet-article.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a href="../../../articles/glossary.htm">Glossary</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../../images/bullets/bullet-article.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a target="_top" href="../../../articles/links.htm">Links</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../../images/bullets/bullet-article.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a target="_top" href="../../../articles/index.htm">More
+        ...</a></td>
+      </tr>
+    </table>
+    </center></div><p><br>
+    </p>
+    <p align="center">
+	<img src="../../../images/spacer-150.gif" border="0" WIDTH="150" HEIGHT="4"></td>
+    <td valign="top" class="ssMainContentCell" align="center"><div align="left"><table border="0" width="100%" cellspacing="0" cellpadding="0" class="ssHeaderTable">
+      <tr>
+        <td valign="middle" align="left" class="ssHeaderTableText">
+		<p><em>
+		From the website:</em> D is a
+        systems programming language. Its focus is on combining the power and high performance of
+        C and C++ with the programmer productivity of modern languages like Ruby and Python.
+        Special attention is given to the needs of quality assurance, documentation, management,
+        portability and reliability.</td>
+        <td valign="middle" align="left" class="ssHeaderTableGraphic">
+		<em>
+		<img alt="D Programming Language" height="100" src="../../../images/logos/logo-d.png" width="100" style="float: none"></em></td>
+      </tr>
+    </table>
+    </div><table border="0" width="100%" cellspacing="0" cellpadding="0" class="ssActiveTable">
+      <tr>
+        <td class="ssActiveTitleCell" colspan="3">Goldie Engine</td>
+      </tr>
+      <tr>
+        <td class="ssActiveSubTitleCell" colspan="3">
+		by Nick Sabalausky
+		  </td>
+      </tr>
+      <tr>
+        <td class="ssActiveIconCell" nowrap>
+		<img src="../../../images/bullets/bullet-website.gif" align="baseline" border="0" vspace="1" WIDTH="11" HEIGHT="11" style="margin: 2px 0px"></td>
+        <td class="ssActiveBodyCell" nowrap><a href="http://www.dsource.org/projects/goldie">Download</a></td>
+        <td class="ssActiveBodyDescCell">
+		<a href="../../../contributors/index.htm">
+			Nick Sabalausky</a> released a new engine for the D Programming 
+		Language. Goldie (pronounced &quot;goal D&quot;) works on both Windows and Linux. 
+		It should also work in Mac-OS X and FreeBSD. The engine features, the 
+		following:</p>
+		<ul>
+			<li>StaticLang: Creates new &quot;static-style&quot; languages for 
+			enhanced compile-time error checking. A preview of this was seen in<br>
+			Bill Baxter's Nov 2009 NWCPP D presentation (
+			<a href="http://www.nwcpp.org/old/Meetings/2009/11.html" target="_blank">
+			http://www.nwcpp.org/old/<wbr>Meetings/2009/11.html</a>). Languages can be embedded directly into your app using the 
+			this tool (don't have to load a CGT file at run-time, although 
+			you still can) .</li>
+			<li>JsonViewer: Not officially part of Goldie, but an 
+			enhanced version of JsonViewer is included that adds a special Parse 
+			Tree Mode for inspecting the relationship between a source and a 
+			treerepresenting the source (such as the parse tree).</li>
+			<li>GenDocs: Simple HTML preprocessor intended for 
+			generating documentation.</li>
+			<li>Complete documentation has been created.</li>
+			<li>Major improvements to API for dealing with parsing errors and 
+			greatly improved handling of Unicode</li>
+		</ul>
+		<table border="0" cellspacing="0" cellpadding="2" class="ssAboutTable">
+          <tr>
+            <td class="ssAboutCellName">Author:</td>
+            <td class="ssAboutCellValue"><a href="../../../contributors/index.htm">
+			Nick Sabalausky</a></td>
+          </tr>
+          <tr>
+            <td class="ssAboutCellName">Homepage:</td>
+            <td class="ssAboutCellValue">
+			<a href="http://www.dsource.org/projects/goldie" target="_blank">
+			http://www.dsource.org/<wbr>projects/goldie</a></td>
+          </tr>
+          <tr>
+            <td class="ssAboutCellName">Language:</td>
+            <td class="ssAboutCellValue"><a target="_blank" href="http://www.digitalmars.com/d/">DigitalMars
+            D</a></td>
+          </tr>
+          <tr>
+            <td class="ssAboutCellName">License:</td>
+            <td class="ssAboutCellValue">zlib/libpng</td>
+          </tr>
+          <tr>
+            <td class="ssAboutCellName">Version:</td>
+            <td class="ssAboutCellValue">0.3</td>
+          </tr>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td class="ssActiveIconCell" nowrap><img src="../../../images/bullets/bullet-help.gif" align="absmiddle" vspace="2" WIDTH="11" HEIGHT="11"></td>
+        <td class="ssActiveBodyCell" nowrap><a href="http://www.semitwist.com/goldiedocs/current/Docs/">Documentation</a></td>
+        <td class="ssActiveBodyDescCell"><a href="../../../contributors/index.htm">
+			Nick Sabalausky</a> provided complete documentation for Goldie. 
+		These include documentation on how to use the Engine, installation 
+		instructions, and requirements.</td>
+      </tr>
+    </table>
+    <div align="center"><center><table border="0" width="100%" cellspacing="0" cellpadding="0" class="ssActiveTable">
+      <tr>
+        <td class="ssActiveTitleCell" colspan="3">Piepkorn Engine</td>
+      </tr>
+      <tr>
+        <td class="ssActiveSubTitleCell" colspan="3">by Matthias Piepkorn</td>
+      </tr>
+      <tr>
+        <td class="ssActiveIconCell" nowrap>
+		<img src="../../../images/bullets/bullet-disk.gif" alt="" align="bottom" vspace="2" WIDTH="11" HEIGHT="11">&nbsp;</td>
+        <td class="ssActiveBodyCell" nowrap valign="top"><a href="piepkorn/piepkorn-d-source-v1.0.zip">Source
+        Code</a></td>
+        <td class="ssActiveBodyDescCell"><a href="../../../contributors/index.htm">Matthias Piepkorn</a>
+        created a version of the Engine for the D Programming Language. This programming language
+        was designed to combine the efficiently of C with modern object orientation programming
+        concepts.<table border="0" cellspacing="0" cellpadding="0" class="ssAboutTable">
+          <tr>
+            <td class="ssAboutCellName">Author:</td>
+            <td class="ssAboutCellValue"><a href="../../../contributors/index.htm">Matthias Piepkorn</a></td>
+          </tr>
+          <tr>
+            <td class="ssAboutCellName">Language:</td>
+            <td class="ssAboutCellValue"><a target="_blank" href="http://www.digitalmars.com/d/">DigitalMars
+            D</a></td>
+          </tr>
+          <tr>
+            <td class="ssAboutCellName">Version:</td>
+            <td class="ssAboutCellValue">1.0</td>
+          </tr>
+          <tr>
+            <td class="ssAboutCellName">Size:</td>
+            <td class="ssAboutCellValue">15 KB</td>
+          </tr>
+        </table>
+        </td>
+      </tr>
+      <tr>
+        <td class="ssActiveIconCell" nowrap>
+		<img src="../../../images/bullets/bullet-disk.gif" alt="" align="bottom" vspace="2" WIDTH="11" HEIGHT="11">&nbsp;</td>
+        <td class="ssActiveBodyCell" nowrap valign="top"><a href="piepkorn/d-program_templates.zip">Program
+        Templates</a></td>
+        <td class="ssActiveBodyDescCell"><a href="../../../contributors/index.htm">Matthias Piepkorn</a>
+        aslo created a number of program templates for his D Engine. These templates will
+        automatically generate a ready-to-use skeleton program.<table border="0" cellspacing="0" cellpadding="0" class="ssAboutTable">
+          <tr>
+            <td class="ssAboutCellName">Authors:</td>
+            <td class="ssAboutCellValue"><a href="../../../contributors/index.htm">Matthias Piepkorn</a></td>
+            <td class="ssAboutCellValue"></td>
+          </tr>
+          <tr>
+            <td class="ssAboutCellName">Language:</td>
+            <td class="ssAboutCellValue"><a href="http://www.digitalmars.com/d/" target="_blank">DigitalMars
+            D</a></td>
+            <td class="ssAboutCellValue"></td>
+          </tr>
+          <tr>
+            <td class="ssAboutCellName">Size:</td>
+            <td class="ssAboutCellValue">4 KB</td>
+            <td class="ssAboutCellValue"></td>
+          </tr>
+        </table>
+        </td>
+      </tr>
+    </table>
+    </center></div><p>&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,185 @@
+<html>
+
+<head>
+<title>Defining Sets</title>
+<link REL="STYLESHEET" HREF="../gold-parser-doc-style.css">
+</head>
+
+<body class="ssMainPage">
+
+<h1>Defining Sets</h1>
+
+<h2>Syntax</h2>
+
+<h3>Set Definition</h3>
+
+<p><img height="161" src="images/syntax-set-define.png" width="481"></p>
+<h3>Set Item</h3>
+<p><img height="220" src="images/syntax-set-item.png" width="385"></p>
+<h2>Details</h2>
+
+<h3>Basics</h3>
+<p>Literal sets of characters are delimited using the square brackets '[' and ']' and
+pre-defined sets are delimited by the braces '{' and '}'. For instance, the text
+&quot;[abcde]&quot; denotes a set of characters consisting of the first five letters of
+the alphabet; while the text &quot;{abc}&quot; refers to a set named &quot;abc&quot;.</p>
+
+<p>Sets can then be declared by adding and subtracting previously declared sets and
+literal sets.&nbsp; The GOLD Builder provides a collection of <a href="predefined-sets.htm">pre-defined
+sets</a> that contain characters often used to define terminals.</p>
+
+<h3>Character Constants and Set Ranges</h3>
+
+<p>Each character in the Basic Multilingual Plane of the Unicode Character Set is
+represented by a 16-bit integer. This value is known as a &quot;code point&quot; in
+Unicode terminology. The characters from 0xD800 to 0xDBFF and from 0xFFF0 to 0xFFFF are
+reserved by Unicode for encoding. As a result, these values cannot be used.</p>
+
+<p>The developer can specify any character using either its decimal or hexadecimal code
+point. Decimal values are denoted by a number-sign prefix (#) and hexadecimal values are
+denoted by an ampersand (&amp;).</p>
+
+<p>Set ranges can be specified by using a
+&quot;..&quot; between two values. Both the start and end values can be in either decimal
+or hexadecimal.</p>
+
+<table width="90%" class="ssChartTable" cellspacing="0" cellpadding="0" border="0">
+  <tr>
+    <th nowrap valign="top" class="ssChartTableColumn">Set Name</th>
+    <th valign="top" class="ssChartTableColumn">Description</th>
+  </tr>
+  <tr>
+    <td nowrap valign="top" align="left" class="ssChartTableBodyItem">{#<strong><em>n</em></strong>}</td>
+    <td valign="top" class="ssChartTableBodyDesc">Using this notation, you can specify any
+    character - in particular, those not accessible via the keyboard.&nbsp; For instance,
+    {#169} specifies the copyright character ©. The value of, <strong><em>n</em></strong> can
+    be any number from 1 to 55295 or from 56320 to 65519.&nbsp; </td>
+  </tr>
+  <tr>
+    <td nowrap valign="top" align="left" class="ssChartTableBodyItem">{&amp;<strong><em>n</em></strong>}</td>
+    <td valign="top" class="ssChartTableBodyDesc">This is the hexadecimal notation for a
+    single character.&nbsp; The value of, <strong><em>n</em></strong> can be any number from
+    &amp;1 to &amp;D7FF or from &amp;DC00 to &amp;FFEF.</td>
+  </tr>
+  <tr>
+    <td nowrap valign="top" align="left" class="ssChartTableBodyItem">{#<strong><em>n</em></strong>
+    .. #<strong><em>m</em></strong>}</td>
+    <td valign="top" class="ssChartTableBodyDesc">Using this notation, you can specify a set
+    containing the characters from n to m. The number-sign denotes a decimal value.</td>
+  </tr>
+  <tr>
+    <td nowrap valign="top" align="left" class="ssChartTableBodyItem">{&amp;<strong><em>n</em></strong>
+    .. &amp;<strong><em>m</em></strong>}</td>
+    <td valign="top" class="ssChartTableBodyDesc">Set ranges can also be defined using
+    hexadecimal values.</td>
+  </tr>
+</table>
+
+<h2>Examples</h2>
+<h3>Basic</h3>
+
+<table class="ssChartTable" cellspacing="0" cellpadding="0">
+  <tr>
+    <th nowrap class="ssChartTableColumn">Declaration</th>
+    <th nowrap class="ssChartTableColumn">Resulting Set</th>
+  </tr>
+  <tr>
+    <td nowrap valign="top" align="left" class="ssChartTableBodyItem" style="height: 24px">{Bracket} = [']']</td>
+    <td nowrap valign="top" align="left" class="ssChartTableBodyItem" style="height: 24px">]</td>
+  </tr>
+  <tr>
+    <td nowrap valign="top" align="left" class="ssChartTableBodyItem">{Quote} = ['']</td>
+    <td nowrap valign="top" align="left" class="ssChartTableBodyItem">'</td>
+  </tr>
+  <tr>
+    <td nowrap valign="top" align="left" class="ssChartTableBodyItem">{Vowels} = [aeiou]</td>
+    <td nowrap valign="top" align="left" class="ssChartTableBodyItem">aeiou</td>
+  </tr>
+  <tr>
+    <td nowrap valign="top" align="left" class="ssChartTableBodyItem">{Vowels 2} = {Vowels} +
+    [y]</td>
+    <td nowrap valign="top" align="left" class="ssChartTableBodyItem">aeiouy</td>
+  </tr>
+  <tr>
+    <td nowrap valign="top" align="left" class="ssChartTableBodyItem">{Set 1} = [abc]</td>
+    <td nowrap valign="top" align="left" class="ssChartTableBodyItem">abc</td>
+  </tr>
+  <tr>
+    <td nowrap valign="top" align="left" class="ssChartTableBodyItem">{Set 2} = {Set 1} + [12]
+    - [c]</td>
+    <td nowrap valign="top" align="left" class="ssChartTableBodyItem">ab12</td>
+  </tr>
+  <tr>
+    <td nowrap valign="top" align="left" class="ssChartTableBodyItem">{Set 3} = {Set 2} +
+    [0123456789]</td>
+    <td nowrap valign="top" align="left" class="ssChartTableBodyItem">ab0123456789</td>
+  </tr>
+</table>
+
+<h3>Set Ranges</h3>
+
+<table class="ssChartTable">
+  <tr>
+    <th nowrap valign="top" align="center" class="ssChartTableColumn">Declaration</th>
+    <th valign="top" align="center" class="ssChartTableColumn">Characters </th>
+    <th valign="top" align="center" class="ssChartTableColumn">Comments</th>
+  </tr>
+  <tr>
+    <td nowrap valign="top" align="left" class="ssChartTableBodyItem">Example1 = {#65}</td>
+    <td valign="top" align="left" class="ssChartTableBodyItem">A</td>
+    <td valign="top" align="left" class="ssChartTableBodyDesc">This example specifies the
+    character with the Unicode codepoint of 65 - the letter 'A'.</td>
+  </tr>
+  <tr>
+    <td nowrap valign="top" align="left" class="ssChartTableBodyItem">Example1 = {&amp;41}</td>
+    <td valign="top" align="left" class="ssChartTableBodyItem">A</td>
+    <td valign="top" align="left" class="ssChartTableBodyDesc">Hexadecimal value for 'A'.</td>
+  </tr>
+  <tr>
+    <td nowrap valign="top" align="left" class="ssChartTableBodyItem">Example3 = {#65 .. #70}</td>
+    <td valign="top" align="left" class="ssChartTableBodyItem">ABCDEF</td>
+    <td valign="top" align="left" class="ssChartTableBodyDesc">This set range defines a set
+    from from the letter 'A' (#65) to 'F' (#70).</td>
+  </tr>
+  <tr>
+    <td nowrap valign="top" align="left" class="ssChartTableBodyItem">Example4 = {&amp;41 ..
+    &amp;46}</td>
+    <td valign="top" align="left" class="ssChartTableBodyItem">ABCDEF</td>
+    <td valign="top" align="left" class="ssChartTableBodyDesc">This is the same set range
+    using the hexadecimal values.</td>
+  </tr>
+  <tr>
+    <td nowrap valign="top" align="left" class="ssChartTableBodyItem">Example5 = {#65 ..
+    &amp;46}</td>
+    <td valign="top" align="left" class="ssChartTableBodyItem">ABCDEF</td>
+    <td valign="top" align="left" class="ssChartTableBodyDesc">Both decimal and hexadecimal
+    notation can be mixed. This, however, can be confusing and it is not recommended.</td>
+  </tr>
+</table>
+
+<h3>Additional Examples</h3>
+
+<p>The following declares a set named &quot;Hex Char&quot; containing the characters that
+are valid in a hexadecimal number.</p>
+
+<table class="ssCodeTable" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td nowrap valign="top" align="right" class="ssCodeTableBody">{Hex Char} = {Digit} +
+    [ABCDEF]</td>
+  </tr>
+</table>
+
+<p>The following declares a set containing the characters that can be placed inside a
+normal &quot;string&quot;. In this case, the double quote is the delimiting character
+(which it is in most programming languages).</p>
+
+<table class="ssCodeTable" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td nowrap valign="top" align="right" class="ssCodeTableBody">{String Char} = {Printable}
+    - [&quot;]</td>
+  </tr>
+</table>
+
+<p>&nbsp;</p>
+</body>
+</html>

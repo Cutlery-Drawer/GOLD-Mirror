@@ -1,0 +1,130 @@
+<html>
+
+<head>
+<title>Parser Engine Code Skeleton: Visual Basic 6</title>
+<link REL="STYLESHEET" HREF="gold-engine-doc-style.css">
+</head>
+
+<body class="ssMainPage">
+
+<h1>Parser Engine Code Skeleton: Visual Basic 6</h1>
+
+<p>&nbsp;</p>
+
+<p>The following contains the essential Visual Basic 6 code needed to interact with the
+GOLDParser object. This documentation also contains the code for: 
+
+<ul>
+  <li><a href="engine-skeleton-cpp.htm">C++</a> and</li>
+  <li><a href="engine-skeleton-vb-net.htm">Visual Basic .NET</a></li>
+</ul>
+
+<p>&nbsp;</p>
+<div align="center"><center>
+
+<table width="90%" " class="ssCodeTable">
+  <tr>
+    <td width="100%" nowrap class="ssCodeTableBody"><code><font color="#008000">'Visual Basic
+    6 source code<br>
+    </font><br>
+    <font color="#000080">Dim</font> Parser <font color="#000080">As New</font> GOLDParser<br>
+    <font color="#000080">Dim</font> Response <font color="#000080">As</font>
+    GPMessageConstants<br>
+    <font color="#000080">Dim</font> Done <font color="#000080">As Boolean</font><br>
+    <br>
+    Parser.LoadCompiledGrammar &quot;grammar.cgt&quot;<br>
+    Parser.OpenFile &quot;Program.txt&quot;<br>
+    Done = <font color="#000080">False</font><br>
+    <br>
+    <font color="#000080">Do Until</font> Done<br>
+    &nbsp;&nbsp; Response = Parser.Parse()<br>
+    <br>
+    &nbsp;&nbsp; <font color="#000080">Select Case </font>Response<br>
+    &nbsp;<font color="#000080">&nbsp;&nbsp; </font>&nbsp;<font color="#000080"> Case</font>
+    gpMsgLexicalError<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<font color="#000080">&nbsp;&nbsp; </font>&nbsp; <font color="#008000">'Place code here to handle a illegal or unrecognized token<br>
+    </font><font color="#000080">&nbsp;&nbsp; </font><font color="#008000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    'To recover, pop the token from the stack: Parser.PopInputToken</font><br>
+    <br>
+    <font color="#000080">&nbsp;&nbsp; </font>&nbsp;&nbsp; <font color="#000080">Case</font>
+    gpMsgSyntaxError<br>
+    <font color="#000080">&nbsp;&nbsp; </font><font color="#008000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    'This is a syntax error: the source has produced a token that was<br>
+    </font><font color="#000080">&nbsp;&nbsp; </font><font color="#008000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    'not expected by the LALR State Machine. The expected tokens are stored<br>
+    </font><font color="#000080">&nbsp;&nbsp; </font><font color="#008000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    'into the Tokens() list. To recover, push one of the<br>
+    </font><font color="#000080">&nbsp;&nbsp; </font><font color="#008000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    'expected tokens onto the parser's input queue (the first in this case):<br>
+    <br>
+    </font><font color="#000080">&nbsp;&nbsp; </font><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    Parser.PushInputToken Parser.Tokens(0)</font><br>
+    <font color="#008000"><br>
+    </font><font color="#000080">&nbsp;&nbsp; </font><font color="#008000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    'You should limit the number of times this type of recovery can take <br>
+    </font><font color="#000080">&nbsp;&nbsp; </font><font color="#008000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    'place.</font><br>
+    <br>
+    <font color="#000080">&nbsp;&nbsp; </font>&nbsp;&nbsp; <font color="#000080">Case</font>
+    gpMsgReduction<br>
+    <font color="#000080">&nbsp;&nbsp; </font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <font color="#008000">'This message is returned when a rule was reduced by the parse engine.<br>
+    </font><font color="#000080">&nbsp;&nbsp; </font><font color="#008000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    'The CurrentReduction property is assigned a Reduction object<br>
+    </font><font color="#000080">&nbsp;&nbsp; </font><font color="#008000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    'containing the rule and its related tokens. You can reassign this<br>
+    </font><font color="#000080">&nbsp;&nbsp; </font><font color="#008000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    'property to your own customized class. If this is not the case,<br>
+    </font><font color="#000080">&nbsp;&nbsp; </font><font color="#008000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    'this message can be ignored and the Reduction object will be used<br>
+    </font><font color="#000080">&nbsp;&nbsp; </font><font color="#008000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    'to store the parse tree.<br>
+    </font><br>
+    &nbsp;&nbsp;&nbsp;<font color="#000080">&nbsp;&nbsp; </font>&nbsp;&nbsp; <font color="#000080">Select Case</font> Parser.CurrentReduction.ParentRule.TableIndex<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000080">&nbsp;&nbsp; </font>&nbsp;&nbsp;
+    <font color="#800000">...</font><br>
+    <font color="#000080">&nbsp;&nbsp; </font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <font color="#000080">End Select</font><br>
+    <br>
+    &nbsp;&nbsp;&nbsp;<font color="#000080">&nbsp;&nbsp; </font>&nbsp;&nbsp; <font color="#000080">Set</font> Parser.CurrentReduction = <font color="#008000">'Object you
+    created to store the rule</font><br>
+    <br>
+    <font color="#000080">&nbsp;&nbsp; &nbsp;&nbsp; Case</font> gpMsgAccept<br>
+    <font color="#000080">&nbsp;&nbsp; </font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <font color="#008000">'The program was accepted by the parsing engine.</font><br>
+    &nbsp;&nbsp;&nbsp;<font color="#000080">&nbsp;&nbsp; </font>&nbsp;&nbsp; Done = <font color="#000080">True</font><br>
+    <br>
+    <font color="#000080">&nbsp;&nbsp; &nbsp;&nbsp; Case</font> gpMsgTokenRead<br>
+    &nbsp;&nbsp;&nbsp;<font color="#000080">&nbsp;&nbsp; </font>&nbsp;&nbsp; <font color="#008000">'A token was read by the parser. The Token Object can be accessed through<br>
+    </font><font color="#000080">&nbsp;&nbsp; </font><font color="#008000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    'the CurrentToken() property:&nbsp; Parser.CurrentToken</font><br>
+    <br>
+    &nbsp;&nbsp;<font color="#000080">&nbsp;&nbsp; </font> <font color="#000080">Case</font>
+    gpMsgCommentError<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<font color="#000080">&nbsp;&nbsp; </font>&nbsp; <font color="#008000">'The end of the input was reached while reading a comment.<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000080">&nbsp;&nbsp; </font><font color="#008000">&nbsp; 'This is caused by a comment that was not terminated.</font><br>
+    <br>
+    <font color="#000080">&nbsp;&nbsp; &nbsp;&nbsp; Case</font> gpMsgInternalError<br>
+    &nbsp;&nbsp;&nbsp;<font color="#000080">&nbsp;&nbsp; </font>&nbsp;&nbsp; <font color="#008000">'Something horrid happened inside the parser. You cannot recover.</font><br>
+    <font color="#000080">&nbsp;&nbsp; </font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Done = True<br>
+    <br>
+    <font color="#000080">&nbsp;&nbsp; </font>&nbsp;&nbsp; <font color="#000080">Case</font>
+    gpMsgNotLoadedError<br>
+    &nbsp;&nbsp;&nbsp;<font color="#000080">&nbsp;&nbsp; </font>&nbsp;&nbsp; <font color="#008000">'Load the Compiled Grammar Table file first.</font><br>
+    <font color="#000080">&nbsp;&nbsp; </font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Done = <font color="#000080">True</font><br>
+    <br>
+    <font color="#000080">&nbsp;&nbsp; &nbsp;&nbsp; Case</font> gpMsgCommentBlockRead<br>
+    &nbsp;&nbsp;&nbsp;<font color="#000080">&nbsp;&nbsp; </font>&nbsp;&nbsp; <font color="#008000">'A block comment was read by the parser. The content of the comment<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font><font color="#000080">&nbsp;&nbsp; </font><font color="#008000">'is stored in the CurrentComment() property</font><br>
+    <br>
+    <font color="#000080">&nbsp;&nbsp; &nbsp;&nbsp; Case</font> gpMsgCommentLineRead<br>
+    &nbsp;&nbsp;&nbsp;<font color="#000080">&nbsp;&nbsp; </font>&nbsp;&nbsp; <font color="#008000">'A line comment was read by the parser. The content of the comment<br>
+    </font><font color="#000080">&nbsp;&nbsp; </font><font color="#008000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    'is stored in the CurrentComment() property</font><br>
+    <br>
+    &nbsp;&nbsp; <font color="#000080">End Select</font><br>
+    <br>
+    <font color="#000080">Loop</font><br>
+    </code></td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

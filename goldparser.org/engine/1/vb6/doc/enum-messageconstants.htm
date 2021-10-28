@@ -1,0 +1,95 @@
+<html>
+
+<head>
+<title>GOLD Engine Messages</title>
+<link REL="STYLESHEET" HREF="gold-engine-doc-style.css">
+</head>
+
+<body class="ssMainPage">
+
+<h1>Parse Message Constants</h1>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<table class="ssChartTable" cellspacing="0" cellpadding="0">
+  <tr>
+    <th valign="top" nowrap class="ssChartTableColumn">Message</th>
+    <th valign="top" nowrap class="ssChartTableColumn">Numeric Value</th>
+    <th nowrap class="ssChartTableColumn">Details</th>
+  </tr>
+  <tr>
+    <td valign="top" class="ssChartTableBodyItem">gpMsgTokenRead </td>
+    <td valign="top" class="ssChartTableBodyDesc">1</td>
+    <td valign="top" class="ssChartTableBodyDesc">Each time a token is read, this message is
+    generated.</td>
+  </tr>
+  <tr>
+    <td valign="top" class="ssChartTableBodyItem">gpMsgReduction</td>
+    <td valign="top" class="ssChartTableBodyDesc">2</td>
+    <td valign="top" class="ssChartTableBodyDesc">When the engine is able to reduce a rule,
+    this message is returned. The rule that was reduced is set in the GOLDParser's ReduceRule
+    property. The tokens that are reduced and correspond the rule's definition are stored in
+    the Tokens() property.</td>
+  </tr>
+  <tr>
+    <td valign="top" class="ssChartTableBodyItem">gpMsgAccept</td>
+    <td valign="top" class="ssChartTableBodyDesc">3</td>
+    <td valign="top" class="ssChartTableBodyDesc">The engine will returns this message when
+    the source text has been accepted as both complete and correct. In other words, the source
+    text was successfully analyzed.</td>
+  </tr>
+  <tr>
+    <td valign="top" class="ssChartTableBodyItem">gpMsgNotLoadedError</td>
+    <td valign="top" class="ssChartTableBodyDesc">4</td>
+    <td valign="top" class="ssChartTableBodyDesc">Before any parsing can take place, a
+    Compiled Grammar Table file must be loaded.</td>
+  </tr>
+  <tr>
+    <td valign="top" class="ssChartTableBodyItem">gpMsgLexicalError</td>
+    <td valign="top" class="ssChartTableBodyDesc">5</td>
+    <td valign="top" class="ssChartTableBodyDesc">The tokenizer will generate this message
+    when it is unable to recognize a series of characters as a valid token. To recover, pop
+    the invalid token from the input queue.</td>
+  </tr>
+  <tr>
+    <td valign="top" class="ssChartTableBodyItem">gpMsgSyntaxError </td>
+    <td valign="top" class="ssChartTableBodyDesc">6</td>
+    <td valign="top" class="ssChartTableBodyDesc">Often the parser will read a token that is
+    not expected in the grammar. When this happens, the Tokens() property is filled with
+    tokens the parsing engine expected to read. To recover: push one of the expected tokens on
+    the input queue.</td>
+  </tr>
+  <tr>
+    <td valign="top" class="ssChartTableBodyItem">gpMsgCommentError</td>
+    <td valign="top" class="ssChartTableBodyDesc">7</td>
+    <td valign="top" class="ssChartTableBodyDesc">The parser reached the end of the file while
+    reading a comment. This is caused when the source text contains a &quot;run-away&quot;
+    comment, or in other words, a block comment that lacks the delimiter.</td>
+  </tr>
+  <tr>
+    <td valign="top" class="ssChartTableBodyItem">gpMsgInternalError</td>
+    <td valign="top" class="ssChartTableBodyDesc">8</td>
+    <td valign="top" class="ssChartTableBodyDesc">Something is wrong, very wrong.</td>
+  </tr>
+  <tr>
+    <td valign="top" class="ssChartTableBodyItem">gpMsgCommentBlockRead</td>
+    <td valign="top" class="ssChartTableBodyDesc">9</td>
+    <td valign="top" class="ssChartTableBodyDesc">Added in version 2.4. <p>This message is
+    returned anytime a block comment is read by the system. When the system is reading a block
+    comment, line comments are&nbsp; completely ignored. The content of the block comment is
+    stored in the CurrentComment( ) method.</td>
+  </tr>
+  <tr>
+    <td valign="top" class="ssChartTableBodyItem">gpMsgCommentLineRead</td>
+    <td valign="top" class="ssChartTableBodyDesc">10</td>
+    <td valign="top" class="ssChartTableBodyDesc">Added in version 2.4.<p>Each time the system
+    reads a line comment, this message is returned. The content of the line comment is stored
+    in the CurrentComment( ) method.</td>
+  </tr>
+</table>
+
+<p>&nbsp;</p>
+</body>
+</html>

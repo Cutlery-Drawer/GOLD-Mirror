@@ -1,0 +1,58 @@
+<html>
+
+<head>
+<title>File Content: Rules</title>
+<link REL="STYLESHEET" HREF="../gold-parser-doc-style.css">
+</head>
+
+<body class="ssMainPage">
+
+<h1>Production Record</h1>
+
+<h2>Format</h2>
+
+<p><img height="154" src="images/record-production.png" width="363"></p>
+
+<p>Each record describing a rule in the Rule Table is preceded by a byte field containing
+the value 82 - the ASCII code for 'R'. The file will contain one of these records for each
+rule in the grammar. The <a href="record-table-counts.htm">Table Count</a> record,
+which precedes any rule records, will contain the total number of rules.</p>
+
+<h2>Fields</h2>
+<div align="center"><center>
+
+<table class="ssChartTable" cellspacing="0" cellpadding="0">
+  <tr>
+    <th class="ssChartTableColumn">Item</th>
+    <th class="ssChartTableColumn">Type</th>
+    <th class="ssChartTableColumn">Description</th>
+  </tr>
+  <tr>
+    <td valign="top" nowrap class="ssChartTableBodyItem">Index</td>
+    <td valign="top" class="ssChartTableBodyDesc">Integer</td>
+    <td class="ssChartTableBodyDesc">This parameter holds the index of the rule in the Rule
+    Table. The resulting rule should be stored at this Index.</td>
+  </tr>
+  <tr>
+    <td valign="top" nowrap class="ssChartTableBodyItem">Nonterminal</td>
+    <td valign="top" class="ssChartTableBodyDesc">Integer</td>
+    <td class="ssChartTableBodyDesc">Each rule derives a single nonterminal symbol. This field
+    contains the index of the symbol in the <a href="record-symbol.htm">Symbol Table</a>.</td>
+  </tr>
+  <tr>
+    <td valign="top" nowrap class="ssChartTableBodyItem" style="font-style: italic">
+	Reserved</td>
+    <td valign="top" class="ssChartTableBodyDesc">Empty</td>
+    <td class="ssChartTableBodyDesc">This field is reserved for future use.</td>
+  </tr>
+  <tr>
+    <td valign="top" nowrap class="ssChartTableBodyItem">Symbol <strong><em>0</em> ... <em>n</em></strong></td>
+    <td valign="top" class="ssChartTableBodyDesc">Integer</td>
+    <td class="ssChartTableBodyDesc">The remaining entries in the record will contain a series
+    of indexes to symbols in the Symbol Table. These constitute the symbols, both terminals
+    and nonterminals, that define the rule. There can be 0 or more total symbols.</td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

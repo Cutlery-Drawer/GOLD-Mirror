@@ -1,0 +1,77 @@
+<html>
+
+<head>
+<title>Group Attributes</title>
+<link REL="STYLESHEET" HREF="../gold-parser-doc-style.css">
+</head>
+
+<body class="ssMainPage">
+
+<h1>Group Attributes</h1>
+
+<h2 align="left">Overview</h2>
+    <table border="0" cellspacing="0" cellpadding="0" class="ssChartTable">
+      <tr>
+        <td width="100%" class="ssChartTableHeader" colspan="2">Group Attributes</td>
+      </tr>
+      <tr>
+        <td class="ssChartTableColumn" nowrap>Attribute</td>
+        <td class="ssChartTableColumn">Valid Values</td>
+      </tr>
+      <tr>
+        <td class="ssChartTableBodyItem" nowrap>
+		<span class="ssCodeText" style="font-weight: normal">Nesting</span></td>
+        <td class="ssChartTableBodyItem" nowrap>
+		All / None / Self / { ... }</td>
+      </tr>
+      <tr>
+        <td class="ssChartTableBodyItem" nowrap>
+		Advance</td>
+        <td class="ssChartTableBodyItem" nowrap>
+		<span class="ssCodeText" style="font-weight: normal">Token</span><span style="font-weight: normal"> 
+		/ 
+		</span> <span class="ssCodeText" style="font-weight: normal">
+		Character</span></td>
+      </tr>
+      <tr>
+        <td class="ssChartTableBodyItem" nowrap>
+		<span class="ssCodeText" style="font-weight: normal">Ending</span></td>
+        <td class="ssChartTableBodyItem" nowrap>
+		<span class="ssCodeText" style="font-weight: normal">Open</span><span style="font-weight: normal"> 
+		/ </span> <span class="ssCodeText" style="font-weight: normal">Closed</span></td>
+      </tr>
+      </table>
+   
+	<h2>Details</h2>
+<h3>Nesting</h3>
+<p>Any group can allow groups to be nested with it. </p>
+<p>This sets what groups can be nested 
+		within it. The user can also specify a set of group names using a 
+		braced-list.&nbsp; This defaults to None.</p>
+<h3>Advance</h3>
+<p>This sets whether the lexical group 
+		will advance on each token or character. The default is Character.</p>
+<h3>Ending</h3>
+<p>This attribute determines if the group 
+		is open-ended or closed. If the group is closed, the end token is 
+		consumed when the group is complete. Otherwise, it is left in the queue. 
+		Block groups default to 'closed'. Line groups default to 'open' to leave 
+		the newline for languages that need it as part of their syntax.</p>
+   
+	<h2>Examples</h2>
+<h3>Example 1</h3>
+<p>The following example declares Comment Start and Comment End. The group is 
+set to Unnested and Character. </p>
+    <table border="0" cellspacing="0" cellpadding="0" class="ssCodeTable">
+      <tr>
+        <td width="100%" class="ssCodeTableBody">Comment Start&nbsp;&nbsp; = '*/'<br>
+        Comment End&nbsp;&nbsp;&nbsp;&nbsp; = '/*'<br><br>Comment Block @= { Nesting = 
+		All, Advance = Character }</td>
+      </tr>
+    </table>
+    <p><br></p>
+   
+	<p>&nbsp;</p>
+       
+		</body>
+</html>

@@ -1,0 +1,74 @@
+<html>
+
+<head>
+<title>File Content: Parameters</title>
+<link REL="STYLESHEET" HREF="../gold-parser-doc-style.css">
+</head>
+
+<body class="ssMainPage">
+
+<h1>File Content: Parameters</h1>
+
+<h2>Structure</h2>
+
+<p><img src="images/diagram-cgt-parameters.gif" alt="cgt-parameters.gif (1723 bytes)" WIDTH="438" HEIGHT="73"></p>
+
+<p>The Parameter record only occurs once in the Compiled Grammar Table file. It contains
+information about the grammar as well as attributes that affect how the grammar functions.
+The record is preceded by a byte field contains the value 80, the ASCII code for the
+letter 'P'.</p>
+
+<h2>Fields</h2>
+<div align="center"><center>
+
+<table class="ssChartTable" cellspacing="0" cellpadding="0">
+  <tr>
+    <th class="ssChartTableColumn">Name</th>
+    <th class="ssChartTableColumn">Type</th>
+    <th class="ssChartTableColumn">Description</th>
+  </tr>
+  <tr>
+    <td valign="top" nowrap class="ssChartTableBodyItem">Name</td>
+    <td valign="top" class="ssChartTableBodyDesc">String</td>
+    <td class="ssChartTableBodyDesc">This parameter contains the name of the grammar. </td>
+  </tr>
+  <tr>
+    <td valign="top" nowrap class="ssChartTableBodyItem">Version</td>
+    <td valign="top" class="ssChartTableBodyDesc">String</td>
+    <td class="ssChartTableBodyDesc">This field contains the version of the grammar. Note that
+    this field is a string, not an integer.</td>
+  </tr>
+  <tr>
+    <td valign="top" nowrap class="ssChartTableBodyItem">Author</td>
+    <td valign="top" class="ssChartTableBodyDesc">String</td>
+    <td class="ssChartTableBodyDesc">This is not a necessary field, but credit to the author
+    should be included in any completed work.</td>
+  </tr>
+  <tr>
+    <td valign="top" nowrap class="ssChartTableBodyItem">About</td>
+    <td valign="top" class="ssChartTableBodyDesc">String</td>
+    <td class="ssChartTableBodyDesc">This is a general-purpose field the designer can use to
+    specify some notes about the grammar. Like, the name, version and author, this field does
+    not affect the actual parsing algorithms.</td>
+  </tr>
+  <tr>
+    <td valign="top" nowrap class="ssChartTableBodyItem">Case Sensitive?</td>
+    <td valign="top" class="ssChartTableBodyDesc">Boolean</td>
+    <td class="ssChartTableBodyDesc">In version 1.1 of the Builder, this was an important
+    field - if the value is false, the entries in the <a href="cgt-content-char-set.htm">Character
+    Set Table</a> will not contain uppercase letters. In version 2.0 and later of the GOLD
+    Parser Builder, both upper and lowercase characters are stored in the <a href="cgt-content-char-set.htm">Character Set Tables</a>. As a result, this file is merely
+    informative.</td>
+  </tr>
+  <tr>
+    <td valign="top" nowrap class="ssChartTableBodyItem">Start Symbol</td>
+    <td valign="top" class="ssChartTableBodyDesc">Integer</td>
+    <td class="ssChartTableBodyDesc">This field contains the index of the grammar's start
+    symbol in the <a href="cgt-content-symbol.htm">Symbol Table</a>. The start symbol is
+    always a nonterminal which, when shifted by the <a href="../about/lalr.htm">LALR</a>
+    parser, indicates the source text is valid and complete.</td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

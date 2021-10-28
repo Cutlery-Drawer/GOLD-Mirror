@@ -1,0 +1,89 @@
+<html>
+
+<head>
+<link REL="STYLESHEET" HREF="../gold-parser-doc-style.css">
+<title>Program: GOLD Builder</title>
+</head>
+
+<body class="ssMainPage">
+
+<h1>GOLD Builder</h1>
+
+<h2>Format</h2>
+
+<table class="ssCodeTable" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="ssCodeTableBody" valign="bottom" nowrap><span class="ssCodeReservedSymbol">goldbuild</span><em>
+    </em>[options] Grammar [Table-file] [Log-File]</td>
+  </tr>
+</table>
+
+<h2>Overview</h2>
+
+<p>The Builder is the main component of the GOLD Parsing System. The main duty of the
+Builder is to read a source grammar written in the GOLD Meta-Language, produce the LALR
+and DFA parse tables, and, finally, save this information to Compiled Grammar Table file. </p>
+
+<h2>Details</h2>
+
+<table width="100%" class="ssChartTable" cellspacing="0" cellpadding="0" border="0">
+  <tr>
+    <td valign="top" class="ssChartTableColumn" nowrap>Field</td>
+    <td valign="top" class="ssChartTableColumn" nowrap>Values</td>
+    <td class="ssChartTableColumn" valign="top">Description</td>
+  </tr>
+  <tr>
+    <td valign="top" class="ssChartTableBodyItem" nowrap rowspan="3">Options</td>
+    <td valign="top" class="ssChartTableBodyItem" nowrap>-details, +details</td>
+    <td class="ssChartTableBodyDesc" valign="top">If this flag is set true, the log file will
+    contain details about how the Grammar file was interpreted. This option defaults to true.</td>
+  </tr>
+  <tr>
+    <td valign="top" class="ssChartTableBodyItem" nowrap>-verbose, +verbose</td>
+    <td class="ssChartTableBodyDesc" valign="top">If this flag is set to true, 
+	the program will output progress text to the screen as well as error 
+	messages. If set to false, no output will be generated. It defaults to true.</td>
+  </tr>
+  <tr>
+    <td valign="top" class="ssChartTableBodyItem" nowrap>-v1, +v1</td>
+    <td class="ssChartTableBodyDesc" valign="top">&nbsp;</td>
+  </tr>
+  <tr>
+    <td valign="top" class="ssChartTableBodyItem" nowrap>Grammar</td>
+    <td valign="top" class="ssChartTableBodyItem" nowrap></td>
+    <td class="ssChartTableBodyDesc" valign="top">Required. The grammar file. </td>
+  </tr>
+  <tr>
+    <td valign="top" class="ssChartTableBodyItem" nowrap>Table File</td>
+    <td valign="top" class="ssChartTableBodyItem" nowrap></td>
+    <td class="ssChartTableBodyDesc" valign="top">Optional. If this field is left blank, the
+    program will automatically create a filename using the grammar's filename. The
+    new filename will contain the same base, but will have the .egt extension. For example, if
+    the grammar filename is &quot;test.grm&quot;, the file &quot;test.cgt&quot; will be
+    created.<br><br>You can also the format saved by the application: CGT 
+	(version 1), EGT (version 5), or XML. Depending on the file extension you 
+	use, goldbuild will use create the appropriate file. XML files will default 
+	to version 5, You can force goldbuild to save in version 1.0 by using the 
+	+v1 optional flag.</td>
+  </tr>
+  <tr>
+    <td valign="top" class="ssChartTableBodyItem" nowrap>Log File</td>
+    <td valign="top" class="ssChartTableBodyItem" nowrap></td>
+    <td class="ssChartTableBodyDesc" valign="top">Optional. The goldbuild 
+	program will automatically create a log file </td>
+  </tr>
+</table>
+
+<p>&nbsp;</p>
+<table cellpadding="4" cellspacing="0">
+	<tr>
+		<td valign="top"><b>Note:</b></td>
+		<td valign="top">If you prefer, you can use the common
+		<span class="CodeInline">/</span> character for designating options. The 
+		slash will be interpreted as a <span class="CodeInline">+</span>.&nbsp; 
+		So, <span class="CodeInline">+verbose</span> can be specified as
+		<span class="CodeInline">/verbose</span>.</td>
+	</tr>
+</table>
+</body>
+</html>

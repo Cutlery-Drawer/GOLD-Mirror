@@ -1,0 +1,695 @@
+<html>
+
+<head>
+<link REL="STYLESHEET" HREF="../gold-parser-doc-style.css">
+<title>Character Sets</title>
+</head>
+
+<body class="ssMainPage">
+
+<h1>Pre-Defined Character Sets</h1>
+
+<p>&nbsp;The GOLD Builder has a collection of useful pre-defined sets at your disposal. These
+include the sets that are often used for defining terminals as well as characters not
+accessible via the keyboard.</p>
+
+<h2>Constants</h2>
+
+<table class="ssChartTable" cellspacing="0" cellpadding="0" border="0">
+  <tr>
+    <th nowrap valign="top" class="ssChartTableColumn" style="width: 93px">Name</th>
+    <th nowrap valign="top" class="ssChartTableColumn" style="width: 93px">
+	Codepoint</th>
+    <th valign="top" class="ssChartTableColumn">Description</th>
+  </tr>
+  <tr>
+    <td nowrap class="ssChartTableBodyItem" style="width: 93px">{HT}</td>
+    <td nowrap class="ssChartTableBodyItem" style="width: 93px">
+	&amp;09&nbsp;</td>
+    <td valign="top" class="ssChartTableBodyDesc">Horizontal Tab character.</td>
+  </tr>
+  <tr>
+    <td nowrap class="ssChartTableBodyItem" style="width: 93px">{LF}</td>
+    <td nowrap class="ssChartTableBodyItem" style="width: 93px">
+	&amp;10</td>
+    <td valign="top" class="ssChartTableBodyDesc">Line Feed character. </td>
+  </tr>
+  <tr>
+    <td nowrap class="ssChartTableBodyItem" style="width: 93px">{VT}</td>
+    <td nowrap class="ssChartTableBodyItem" style="width: 93px">
+	&amp;11</td>
+    <td valign="top" class="ssChartTableBodyDesc">Vertical Tab character. This character
+    is rarely used.</td>
+  </tr>
+  <tr>
+    <td nowrap class="ssChartTableBodyItem" style="width: 93px; height: 24px;">{FF}</td>
+    <td nowrap class="ssChartTableBodyItem" style="width: 93px; height: 24px;">
+	&amp;12</td>
+    <td valign="top" class="ssChartTableBodyDesc" style="height: 24px">Form Feed character. This character is
+    also known as &quot;New Page&quot;.</td>
+  </tr>
+  <tr>
+    <td nowrap class="ssChartTableBodyItem" style="width: 93px">{CR}</td>
+    <td nowrap class="ssChartTableBodyItem" style="width: 93px">
+	&amp;13</td>
+    <td valign="top" class="ssChartTableBodyDesc">Carriage Return character {#13}.</td>
+  </tr>
+  <tr>
+    <td nowrap class="ssChartTableBodyItem" style="width: 93px">{Space}</td>
+    <td nowrap class="ssChartTableBodyItem" style="width: 93px">
+	&amp;20</td>
+    <td valign="top" class="ssChartTableBodyDesc">Space character. Technically, this set
+    is not needed since a &quot;space&quot; can be expressed by using single quotes: ' '. The
+    set was added to allow the developer to more explicitly indicate the character and add
+    readability.</td>
+  </tr>
+  <tr>
+    <td nowrap class="ssChartTableBodyItem" style="width: 93px">{NBSP}</td>
+    <td nowrap class="ssChartTableBodyItem" style="width: 93px">
+	&amp;A0</td>
+    <td valign="top" class="ssChartTableBodyDesc">No-Break Space character. The
+    No-Break Space character is used to represent a space where a line break is not allowed.
+    It is often used in source code for indentation. </td>
+  </tr>
+  <tr>
+    <td nowrap class="ssChartTableBodyItem" style="width: 93px">
+	{LS}</td>
+    <td nowrap class="ssChartTableBodyItem" style="width: 93px">
+	&amp;2028</td>
+    <td valign="top" class="ssChartTableBodyDesc">Unicode Line Separator</td>
+  </tr>
+  <tr>
+    <td nowrap class="ssChartTableBodyItem" style="width: 93px">
+	{PS}</td>
+    <td nowrap class="ssChartTableBodyItem" style="width: 93px">
+	&amp;2029</td>
+    <td valign="top" class="ssChartTableBodyDesc">Unicode Paragraph Separator</td>
+  </tr>
+</table>
+
+<h2>Common Character Sets</h2>
+
+<p>Please see the <a href="predefined-set-chart.htm">Pre-Defined Character Set Chart</a>
+for pictures of these characters.</p>
+
+<table class="ssChartTable" cellspacing="0" cellpadding="0">
+  <tr>
+    <th nowrap valign="top" class="ssChartTableColumn">Name</th>
+    <th nowrap valign="top" class="ssChartTableColumn">Codepoints</th>
+    <th valign="top" class="ssChartTableColumn">Description</th>
+  </tr>
+  <tr>
+    <td nowrap class="ssChartTableBodyItem">{Number}</td>
+    	<td class="ssChartTableBodyItem">&amp;30 .. &amp;39</td>
+    <td valign="top" class="ssChartTableBodyDesc">0123456789</td>
+  </tr>
+  <tr>
+    <td nowrap class="ssChartTableBodyItem">{Digit}</td>
+    	<td class="ssChartTableBodyItem">&amp;30 .. &amp;39</td>
+    <td valign="top" class="ssChartTableBodyDesc">0123456789<br>
+    This set is maintained to support older grammars. The term &quot;digit&quot; is
+    technically inaccurate and this set will eventually be removed, but not for a long time.
+    Please use the {Number} set.</td>
+  </tr>
+  <tr>
+    <td nowrap class="ssChartTableBodyItem">{Letter}</td>
+      <td class="ssChartTableBodyItem">&amp;41 .. &amp;5A, &amp;61 .. &amp;7A</td>
+    <td valign="top" class="ssChartTableBodyDesc">abcdefghijklmnopqrstuvwxyz 
+	ABCDEFGHIJKLMNOPQRSTUVWXYZ</td>
+  </tr>
+  <tr>
+    <td nowrap class="ssChartTableBodyItem">{AlphaNumeric}</td>
+    	<td class="ssChartTableBodyItem">&amp;30 .. &amp;39, &amp;41 .. &amp;5A, &amp;61 .. &amp;7A</td>
+    <td valign="top" class="ssChartTableBodyDesc">This set includes all the characters in
+    {Letter} and {Number}</td>
+  </tr>
+  <tr>
+    <td nowrap class="ssChartTableBodyItem">{Printable}</td>
+    	<td class="ssChartTableBodyItem">&amp;20 .. &amp;7E, &amp;A0</td>
+    <td valign="top" class="ssChartTableBodyDesc">This set includes all standard characters
+    that can be printed onscreen. This includes the characters from&nbsp; #32 to #127
+    and&nbsp; #160 (No-Break Space). The No-Break Space character was included since it is
+    often used in source code.</td>
+  </tr>
+  <tr>
+    <td nowrap class="ssChartTableBodyItem">{Letter 
+	Extended}</td>
+    	<td class="ssChartTableBodyItem">&amp;C0 .. &amp;D6, &amp;D8 .. &amp;F6, &amp;F8 .. &amp;FF</td>
+    <td valign="top" class="ssChartTableBodyDesc">This set includes all the 
+	letters which are part of the extended characters in the first 256 
+	characters (ANSI).</td>
+  </tr>
+  <tr>
+    <td nowrap class="ssChartTableBodyItem">{Printable Extended}</td>
+    	<td class="ssChartTableBodyItem">&amp;A1 .. &amp;FF</td>
+    <td valign="top" class="ssChartTableBodyDesc">This set includes all the printable
+    characters above #127. Although rarely used in programming languages, they could be used,
+    for instance, as valid characters in a string literal.</td>
+  </tr>
+  <tr>
+    <td nowrap class="ssChartTableBodyItem">{Whitespace}</td>
+    <td nowrap class="ssChartTableBodyItem">&amp;09 .. 
+	&amp;0D, %20, &amp;A0</td>
+    <td valign="top" class="ssChartTableBodyDesc">This set includes all characters that are
+    normally considered whitespace and ignored by the parser. The set consists of the Space,
+    Horizontal&nbsp; Tab, Line Feed, Vertical Tab, Form Feed, Carriage Return and No-Break
+    Space. </td>
+  </tr>
+</table>
+
+	<h2>Useful</h2>
+<table class="ssChartTable">
+	<tr>
+	<td class="ssChartTableColumn">Name</td><td class="ssChartTableColumn">Codepoints</td>
+	</tr>
+	<tr>
+		<td class="ssChartTableBodyItem">{All Latin}</td><td class="ssChartTableBodyItem">&amp;41 .. &amp;5A, &amp;61 .. &amp;7A, &amp;AA, &amp;B5, &amp;BA, &amp;C0 .. &amp;D6, &amp;D8 .. &amp;F6, &amp;F8 .. &amp;024F, &amp;1E00 .. &amp;1EFF, &amp;2C60 .. &amp;2C7F, &amp;A720 .. &amp;A7FF</td>
+	</tr>
+<tr>
+	<td class="ssChartTableBodyItem" style="height: 24px">{All Letters}</td>
+	<td class="ssChartTableBodyItem" style="height: 24px">This is too large to 
+	display here. </td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem" style="height: 24px">{All Printable}</td>
+	<td class="ssChartTableBodyItem" style="height: 24px">&amp;20 .. &amp;7F, &amp;A0 .. &amp;200A, &amp;2010 .. &amp;2027, &amp;202F .. &amp;205F, &amp;2065 .. &amp;2069, &amp;2070 .. &amp;D7FF, &amp;E000 .. &amp;FEFE, &amp;FF00 .. &amp;FFEF</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{All Space}</td><td class="ssChartTableBodyItem">&amp;20, &amp;A0, &amp;1680, &amp;180E, &amp;2000 .. &amp;200A, &amp;202F, &amp;205F, &amp;3000</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{All Newline}</td><td class="ssChartTableBodyItem">&amp;0A, &amp;0D, &amp;2028, &amp;2029</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{All Whitespace}</td><td class="ssChartTableBodyItem">&amp;09 .. &amp;0D, &amp;20, &amp;85, &amp;A0, &amp;1680, &amp;180E, &amp;2000 .. &amp;200A, &amp;2028, &amp;2029, &amp;202F, &amp;205F, &amp;3000</td>
+</tr>
+</table>
+
+
+	<h2>Unicode Blocks</h2>
+
+<p>Unicode is divided into different distinct sections for many of the world's languages.
+The GOLD Meta-Language contains a number of predefined sets based on the Unicode standard.</p>
+
+<p>For more information please visit: <a href="http://www.unicode.org">www.unicode.org</a>.</p>
+<table cellpadding="4" cellspacing="0" style="border-style: solid; border-width: 1px" class="ssChartTable">
+<tr class="ssChartTableColumn">
+	<td class="ssChartTableColumn">Name</td><td class="ssChartTableColumn">Codepoints</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Basic Latin}</td><td class="ssChartTableBodyItem">&amp;00 .. &amp;7F</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Latin-1 Supplement}</td><td class="ssChartTableBodyItem">&amp;80 .. &amp;FF</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Latin Extended-A}</td><td class="ssChartTableBodyItem">&amp;0100 .. &amp;017F</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Latin Extended-B}</td><td class="ssChartTableBodyItem">&amp;0180 .. &amp;024F</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{IPA Extensions}</td><td class="ssChartTableBodyItem">&amp;0250 .. &amp;02AF</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Spacing Modifier Letters}</td><td class="ssChartTableBodyItem">&amp;02B0 .. &amp;02FF</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Combining Diacritical Marks}</td><td class="ssChartTableBodyItem">&amp;0300 .. &amp;036F</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Greek and Coptic}</td><td class="ssChartTableBodyItem">&amp;0370 .. &amp;03FF</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Cyrillic}</td><td class="ssChartTableBodyItem">&amp;0400 .. &amp;04FF</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Cyrillic Supplement}</td><td class="ssChartTableBodyItem">&amp;0500 .. &amp;052F</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Armenian}</td><td class="ssChartTableBodyItem">&amp;0530 .. &amp;058F</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Hebrew}</td><td class="ssChartTableBodyItem">&amp;0590 .. &amp;05FF</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Arabic}</td><td class="ssChartTableBodyItem">&amp;0600 .. &amp;06FF</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Syriac}</td><td class="ssChartTableBodyItem">&amp;0700 .. &amp;074F</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Arabic Supplement}</td><td class="ssChartTableBodyItem">&amp;0750 .. &amp;077F</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Thaana}</td><td class="ssChartTableBodyItem">&amp;0780 .. &amp;07BF</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{NKo}</td><td class="ssChartTableBodyItem">&amp;07C0 .. &amp;07FF</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Samaritan}</td><td class="ssChartTableBodyItem">&amp;0800 .. &amp;083F</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Devanagari}</td><td class="ssChartTableBodyItem">&amp;0900 .. &amp;097F</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Bengali}</td><td class="ssChartTableBodyItem">&amp;0980 .. &amp;09FF</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Gurmukhi}</td><td class="ssChartTableBodyItem">&amp;0A00 .. &amp;0A7F</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Gujarati}</td><td class="ssChartTableBodyItem">&amp;0A80 .. &amp;0AFF</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Oriya}</td><td class="ssChartTableBodyItem">&amp;0B00 .. &amp;0B7F</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Tamil}</td><td class="ssChartTableBodyItem">&amp;0B80 .. &amp;0BFF</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Telugu}</td><td class="ssChartTableBodyItem">&amp;0C00 .. &amp;0C7F</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Kannada}</td><td class="ssChartTableBodyItem">&amp;0C80 .. &amp;0CFF</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Malayalam}</td><td class="ssChartTableBodyItem">&amp;0D00 .. &amp;0D7F</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Sinhala}</td><td class="ssChartTableBodyItem">&amp;0D80 .. &amp;0DFF</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Thai}</td><td class="ssChartTableBodyItem">&amp;0E00 .. &amp;0E7F</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Lao}</td><td class="ssChartTableBodyItem">&amp;0E80 .. &amp;0EFF</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Tibetan}</td><td class="ssChartTableBodyItem">&amp;0F00 .. &amp;0FFF</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Myanmar}</td><td class="ssChartTableBodyItem">&amp;1000 .. &amp;109F</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Georgian}</td><td class="ssChartTableBodyItem">&amp;10A0 .. &amp;10FF</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Hangul Jamo}</td><td class="ssChartTableBodyItem">&amp;1100 .. &amp;11FF</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Ethiopic}</td><td class="ssChartTableBodyItem">&amp;1200 .. &amp;137F</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Ethiopic Supplement}</td><td class="ssChartTableBodyItem">&amp;1380 .. &amp;139F</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Cherokee}</td><td class="ssChartTableBodyItem">&amp;13A0 .. &amp;13FF</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Unified Canadian Aboriginal Syllabics}</td><td class="ssChartTableBodyItem">&amp;1400 .. &amp;167F</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Ogham}</td><td class="ssChartTableBodyItem">&amp;1680 .. &amp;169F</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Runic}</td><td class="ssChartTableBodyItem">&amp;16A0 .. &amp;16FF</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Tagalog}</td><td class="ssChartTableBodyItem">&amp;1700 .. &amp;171F</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Hanunoo}</td><td class="ssChartTableBodyItem">&amp;1720 .. &amp;173F</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Buhid}</td><td class="ssChartTableBodyItem">&amp;1740 .. &amp;175F</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Tagbanwa}</td><td class="ssChartTableBodyItem">&amp;1760 .. &amp;177F</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Khmer}</td><td class="ssChartTableBodyItem">&amp;1780 .. &amp;17FF</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Mongolian}</td><td class="ssChartTableBodyItem">&amp;1800 .. &amp;18AF</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Unified Canadian Aboriginal Syllabics Extended}</td><td class="ssChartTableBodyItem">&amp;18B0 .. &amp;18FF</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Limbu}</td><td class="ssChartTableBodyItem">&amp;1900 .. &amp;194F</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Tai Le}</td><td class="ssChartTableBodyItem">&amp;1950 .. &amp;197F</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{New Tai Lue}</td><td class="ssChartTableBodyItem">&amp;1980 .. &amp;19DF</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Khmer Symbols}</td><td class="ssChartTableBodyItem">&amp;19E0 .. &amp;19FF</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Buginese}</td><td class="ssChartTableBodyItem">&amp;1A00 .. &amp;1A1F</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Tai Tham}</td><td class="ssChartTableBodyItem">&amp;1A20 .. &amp;1AAF</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Balinese}</td><td class="ssChartTableBodyItem">&amp;1B00 .. &amp;1B7F</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Sundanese}</td><td class="ssChartTableBodyItem">&amp;1B80 .. &amp;1BBF</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Lepcha}</td><td class="ssChartTableBodyItem">&amp;1C00 .. &amp;1C4F</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Ol Chiki}</td><td class="ssChartTableBodyItem">&amp;1C50 .. &amp;1C7F</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Vedic Extensions}</td><td class="ssChartTableBodyItem">&amp;1CD0 .. &amp;1CFF</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Phonetic Extensions}</td><td class="ssChartTableBodyItem">&amp;1D00 .. &amp;1D7F</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Phonetic Extensions Supplement}</td><td class="ssChartTableBodyItem">&amp;1D80 .. &amp;1DBF</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Combining Diacritical Marks Supplement}</td><td class="ssChartTableBodyItem">&amp;1DC0 .. &amp;1DFF</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Latin Extended Additional}</td><td class="ssChartTableBodyItem">&amp;1E00 .. &amp;1EFF</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Greek Extended}</td><td class="ssChartTableBodyItem">&amp;1F00 .. &amp;1FFF</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{General Punctuation}</td><td class="ssChartTableBodyItem">&amp;2000 .. &amp;206F</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Superscripts and Subscripts}</td><td class="ssChartTableBodyItem">&amp;2070 .. &amp;209F</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Currency Symbols}</td><td class="ssChartTableBodyItem">&amp;20A0 .. &amp;20CF</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Combining Diacritical Marks for Symbols}</td><td class="ssChartTableBodyItem">&amp;20D0 .. &amp;20FF</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Letterlike Symbols}</td><td class="ssChartTableBodyItem">&amp;2100 .. &amp;214F</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Number Forms}</td><td class="ssChartTableBodyItem">&amp;2150 .. &amp;218F</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Arrows}</td><td class="ssChartTableBodyItem">&amp;2190 .. &amp;21FF</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Mathematical Operators}</td><td class="ssChartTableBodyItem">&amp;2200 .. &amp;22FF</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Miscellaneous Technical}</td><td class="ssChartTableBodyItem">&amp;2300 .. &amp;23FF</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Control Pictures}</td><td class="ssChartTableBodyItem">&amp;2400 .. &amp;243F</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Optical Character Recognition}</td><td class="ssChartTableBodyItem">&amp;2440 .. &amp;245F</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Enclosed Alphanumerics}</td><td class="ssChartTableBodyItem">&amp;2460 .. &amp;24FF</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Box Drawing}</td><td class="ssChartTableBodyItem">&amp;2500 .. &amp;257F</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Block Elements}</td><td class="ssChartTableBodyItem">&amp;2580 .. &amp;259F</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Geometric Shapes}</td><td class="ssChartTableBodyItem">&amp;25A0 .. &amp;25FF</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Miscellaneous Symbols}</td><td class="ssChartTableBodyItem">&amp;2600 .. &amp;26FF</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Dingbats}</td><td class="ssChartTableBodyItem">&amp;2700 .. &amp;27BF</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Miscellaneous Mathematical Symbols-A}</td><td class="ssChartTableBodyItem">&amp;27C0 .. &amp;27EF</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Supplemental Arrows-A}</td><td class="ssChartTableBodyItem">&amp;27F0 .. &amp;27FF</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Braille Patterns}</td><td class="ssChartTableBodyItem">&amp;2800 .. &amp;28FF</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Supplemental Arrows-B}</td><td class="ssChartTableBodyItem">&amp;2900 .. &amp;297F</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Miscellaneous Mathematical Symbols-B}</td><td class="ssChartTableBodyItem">&amp;2980 .. &amp;29FF</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Supplemental Mathematical Operators}</td><td class="ssChartTableBodyItem">&amp;2A00 .. &amp;2AFF</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Miscellaneous Symbols and Arrows}</td><td class="ssChartTableBodyItem">&amp;2B00 .. &amp;2BFF</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Glagolitic}</td><td class="ssChartTableBodyItem">&amp;2C00 .. &amp;2C5F</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Latin Extended-C}</td><td class="ssChartTableBodyItem">&amp;2C60 .. &amp;2C7F</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Coptic}</td><td class="ssChartTableBodyItem">&amp;2C80 .. &amp;2CFF</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Georgian Supplement}</td><td class="ssChartTableBodyItem">&amp;2D00 .. &amp;2D2F</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Tifinagh}</td><td class="ssChartTableBodyItem">&amp;2D30 .. &amp;2D7F</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Ethiopic Extended}</td><td class="ssChartTableBodyItem">&amp;2D80 .. &amp;2DDF</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Cyrillic Extended-A}</td><td class="ssChartTableBodyItem">&amp;2DE0 .. &amp;2DFF</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Supplemental Punctuation}</td><td class="ssChartTableBodyItem">&amp;2E00 .. &amp;2E7F</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{CJK Radicals Supplement}</td><td class="ssChartTableBodyItem">&amp;2E80 .. &amp;2EFF</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Kangxi Radicals}</td><td class="ssChartTableBodyItem">&amp;2F00 .. &amp;2FDF</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Ideographic Description Characters}</td><td class="ssChartTableBodyItem">&amp;2FF0 .. &amp;2FFF</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{CJK Symbols and Punctuation}</td><td class="ssChartTableBodyItem">&amp;3000 .. &amp;303F</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Hiragana}</td><td class="ssChartTableBodyItem">&amp;3040 .. &amp;309F</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Katakana}</td><td class="ssChartTableBodyItem">&amp;30A0 .. &amp;30FF</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Bopomofo}</td><td class="ssChartTableBodyItem">&amp;3100 .. &amp;312F</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Hangul Compatibility Jamo}</td><td class="ssChartTableBodyItem">&amp;3130 .. &amp;318F</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Kanbun}</td><td class="ssChartTableBodyItem">&amp;3190 .. &amp;319F</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Bopomofo Extended}</td><td class="ssChartTableBodyItem">&amp;31A0 .. &amp;31BF</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{CJK Strokes}</td><td class="ssChartTableBodyItem">&amp;31C0 .. &amp;31EF</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Katakana Phonetic Extensions}</td><td class="ssChartTableBodyItem">&amp;31F0 .. &amp;31FF</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Enclosed CJK Letters and Months}</td><td class="ssChartTableBodyItem">&amp;3200 .. &amp;32FF</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{CJK Compatibility}</td><td class="ssChartTableBodyItem">&amp;3300 .. &amp;33FF</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{CJK Unified Ideographs Extension A}</td><td class="ssChartTableBodyItem">&amp;3400 .. &amp;4DBF</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Yijing Hexagram Symbols}</td><td class="ssChartTableBodyItem">&amp;4DC0 .. &amp;4DFF</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{CJK Unified Ideographs}</td><td class="ssChartTableBodyItem">&amp;4E00 .. &amp;9FFF</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Yi Syllables}</td><td class="ssChartTableBodyItem">&amp;A000 .. &amp;A48F</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Yi Radicals}</td><td class="ssChartTableBodyItem">&amp;A490 .. &amp;A4CF</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Lisu}</td><td class="ssChartTableBodyItem">&amp;A4D0 .. &amp;A4FF</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Vai}</td><td class="ssChartTableBodyItem">&amp;A500 .. &amp;A63F</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Cyrillic Extended-B}</td><td class="ssChartTableBodyItem">&amp;A640 .. &amp;A69F</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Bamum}</td><td class="ssChartTableBodyItem">&amp;A6A0 .. &amp;A6FF</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Modifier Tone Letters}</td><td class="ssChartTableBodyItem">&amp;A700 .. &amp;A71F</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Latin Extended-D}</td><td class="ssChartTableBodyItem">&amp;A720 .. &amp;A7FF</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Syloti Nagri}</td><td class="ssChartTableBodyItem">&amp;A800 .. &amp;A82F</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Common Indic Number Forms}</td><td class="ssChartTableBodyItem">&amp;A830 .. &amp;A83F</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Phags-pa}</td><td class="ssChartTableBodyItem">&amp;A840 .. &amp;A87F</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Saurashtra}</td><td class="ssChartTableBodyItem">&amp;A880 .. &amp;A8DF</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Devanagari Extended}</td><td class="ssChartTableBodyItem">&amp;A8E0 .. &amp;A8FF</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Kayah Li}</td><td class="ssChartTableBodyItem">&amp;A900 .. &amp;A92F</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Rejang}</td><td class="ssChartTableBodyItem">&amp;A930 .. &amp;A95F</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Hangul Jamo Extended-A}</td><td class="ssChartTableBodyItem">&amp;A960 .. &amp;A97F</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Javanese}</td><td class="ssChartTableBodyItem">&amp;A980 .. &amp;A9DF</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Cham}</td><td class="ssChartTableBodyItem">&amp;AA00 .. &amp;AA5F</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Myanmar Extended-A}</td><td class="ssChartTableBodyItem">&amp;AA60 .. &amp;AA7F</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Tai Viet}</td><td class="ssChartTableBodyItem">&amp;AA80 .. &amp;AADF</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Meetei Mayek}</td><td class="ssChartTableBodyItem">&amp;ABC0 .. &amp;ABFF</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Hangul Syllables}</td><td class="ssChartTableBodyItem">&amp;AC00 .. &amp;D7AF</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Hangul Jamo Extended-B}</td><td class="ssChartTableBodyItem">&amp;D7B0 .. &amp;D7FF</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Private Use Area}</td><td class="ssChartTableBodyItem">&amp;E000 .. &amp;F8FF</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{CJK Compatibility Ideographs}</td><td class="ssChartTableBodyItem">&amp;F900 .. &amp;FAFF</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Alphabetic Presentation Forms}</td><td class="ssChartTableBodyItem">&amp;FB00 .. &amp;FB4F</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Arabic Presentation Forms-A}</td><td class="ssChartTableBodyItem">&amp;FB50 .. &amp;FDFF</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Variation Selectors}</td><td class="ssChartTableBodyItem">&amp;FE00 .. &amp;FE0F</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Vertical Forms}</td><td class="ssChartTableBodyItem">&amp;FE10 .. &amp;FE1F</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Combining Half Marks}</td><td class="ssChartTableBodyItem">&amp;FE20 .. &amp;FE2F</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{CJK Compatibility Forms}</td><td class="ssChartTableBodyItem">&amp;FE30 .. &amp;FE4F</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Small Form Variants}</td><td class="ssChartTableBodyItem">&amp;FE50 .. &amp;FE6F</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Arabic Presentation Forms-B}</td><td class="ssChartTableBodyItem">&amp;FE70 .. &amp;FEFF</td>
+</tr>
+<tr>
+	<td class="ssChartTableBodyItem">{Halfwidth and Fullwidth Forms}</td><td class="ssChartTableBodyItem">&amp;FF00 .. &amp;FFEF</td>
+</tr>
+</table>
+
+
+<h2>Miscellaneous Character Sets</h2>
+
+<table class="ssChartTable">
+  <tr>
+    <th nowrap valign="top" class="ssChartTableColumn">Name</th>
+    <th valign="top" class="ssChartTableColumn">Codepoints</th>
+    <th valign="top" class="ssChartTableColumn">Description</th>
+  </tr>
+  <tr>
+    <td nowrap class="ssChartTableBodyItem" style="white-space: nowrap">{All Valid}</td>
+    <td class="ssChartTableBodyItem">&amp;01 .. &amp;D7FF, &amp;E000 .. &amp;FFEF</td>
+    <td valign="top" class="ssChartTableBodyDesc">The {All Valid} character set contains every
+    valid character in the Basic Multilingual Plane of the Unicode Character Set. This
+    includes the characters from &amp;1 to &amp;D7FF and&nbsp; &amp;DC00 to &amp;FFEF. <p>Please
+    note that this set also includes whitespace and control characters that are rarely used in
+    programming languages.&nbsp; It is only available in versions 2.6 and later of the
+    Builder.</td>
+  </tr>
+  <tr>
+    <td nowrap class="ssChartTableBodyItem" style="white-space: nowrap">{ANSI Mapped}</td>
+      <td class="ssChartTableBodyItem">&amp;0152, &amp;0153, &amp;0160, &amp;0161, &amp;0178, &amp;017D, &amp;017E, &amp;0192, &amp;02C6, &amp;02DC, &amp;2013, &amp;2014, &amp;2018 .. &amp;201A, &amp;201C .. &amp;201E, &amp;2020 .. &amp;2022, &amp;2026, &amp;2030, &amp;2039, &amp;203A, &amp;20AC, &amp;2122</td>
+    <td valign="top" class="ssChartTableBodyDesc">This set contains the characters between 128
+    and 159 that have different values in Unicode. The set is only available in versions 2.0.6
+    and later of the Builder.</td>
+  </tr>
+  <tr>
+    <td nowrap class="ssChartTableBodyItem" style="white-space: nowrap">{ANSI Printable} </td>
+      <td class="ssChartTableBodyItem">&amp;20 .. &amp;7E, &amp;A0 .. &amp;FF</td>
+    <td valign="top" class="ssChartTableBodyDesc">This set contains all printable characters
+    available in ANSI. Essentially, this is a union of {Printable}, {Printable Extended} and
+    {ANSI Mapped}.&nbsp; The set is only available in versions 2.0.6 and later of the Builder.</td>
+  </tr>
+    <tr>
+    <td nowrap class="ssChartTableBodyItem" style="height: 23px; white-space: nowrap;">{Control Codes} </td>
+    	<td class="ssChartTableBodyItem">&amp;00 .. &amp;1F, &amp;7F .. &amp;9F</td>
+    <td valign="top" class="ssChartTableBodyDesc">This set includes the characters from 1 to
+    31 and from 127 to 159.&nbsp; It is only available in versions 2.6 and later of the
+    Builder.</td>
+    </tr>
+	<tr>
+    <td nowrap class="ssChartTableBodyItem" style="width: 93px; white-space: nowrap;">{Euro Sign}</td>
+    	<td class="ssChartTableBodyItem">&amp;20AC</td>
+    <td class="ssChartTableBodyDesc">
+	The Euro Currency Sign. </td>
+    </tr>
+    <tr>
+    <td nowrap class="ssChartTableBodyItem" style="width: 93px; white-space: nowrap;">{Formatting}</td>
+    <td class="ssChartTableBodyItem">&amp;200B .. &amp;200F, &amp;202A .. &amp;202E, &amp;2060 .. &amp;2064, &amp;206A .. &amp;206F, &amp;FEFF, &amp;FFF9 .. &amp;FFFB</td>
+    <td class="ssChartTableBodyDesc">
+	Unicode formatting characters.</td>
+    </tr>
+  </table>
+
+<p>&nbsp;</p>
+</body>
+</html>

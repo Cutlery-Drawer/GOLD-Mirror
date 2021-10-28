@@ -1,0 +1,109 @@
+<html>
+
+<head>
+<title>File Content: Symbols</title>
+<link REL="STYLESHEET" HREF="../gold-parser-doc-style.css">
+</head>
+
+<body class="ssMainPage">
+
+<h1>Symbol Record</h1>
+
+<h2>Structure</h2>
+
+<p><img height="83" src="images/record-symbol.png" width="257"></p>
+
+<p>Each record describing a symbol in the Symbol Table is preceded by a byte containing
+the value 83 - the ASCII value of &quot;S&quot;. The file will contain one of these
+records for each symbol in the grammar. The <a href="record-table-counts.htm">Table
+Count</a> record, which precedes any symbol records, will contain the total number of
+symbols.</p>
+
+<h2>Fields</h2>
+
+<table class="ssChartTable" cellspacing="0" cellpadding="0">
+  <tr>
+    <th class="ssChartTableColumn">Item</th>
+    <th class="ssChartTableColumn">Type</th>
+    <th class="ssChartTableColumn">Description</th>
+  </tr>
+  <tr>
+    <td valign="top" class="ssChartTableBodyItem">Index</td>
+    <td valign="top" class="ssChartTableBodyDesc">Integer</td>
+    <td class="ssChartTableBodyDesc">This parameter holds the index of the symbol in the
+    Symbol Table. The symbol should be stored directly at this Index.</td>
+  </tr>
+  <tr>
+    <td valign="top" class="ssChartTableBodyItem">Name</td>
+    <td valign="top" class="ssChartTableBodyDesc">String</td>
+    <td class="ssChartTableBodyDesc">The name of the symbol is stored as a Unicode string.</td>
+  </tr>
+  <tr>
+    <td valign="top" class="ssChartTableBodyItem">Kind</td>
+    <td valign="top" class="ssChartTableBodyDesc">Integer</td>
+    <td class="ssChartTableBodyDesc">This number denotes the kind (or type) of the
+    symbol.&nbsp; The description of each constant is described below:</td>
+  </tr>
+</table>
+
+<h2>Symbol 'Type' Constants</h2>
+
+<table class="ssChartTable" cellspacing="0" cellpadding="0">
+  <tr>
+    <th class="ssChartTableColumn">Value</th>
+    <th class="ssChartTableColumn">Name</th>
+    <th class="ssChartTableColumn">Description</th>
+  </tr>
+  <tr>
+    <td valign="top" class="ssChartTableBodyItem">0</td>
+    <td valign="top" class="ssChartTableBodyDesc">Nonterminal</td>
+    <td valign="top" class="ssChartTableBodyDesc">Normal Nonterminal</td>
+  </tr>
+  <tr>
+    <td valign="top" class="ssChartTableBodyItem">1</td>
+    <td valign="top" class="ssChartTableBodyDesc">Terminal</td>
+    <td valign="top" class="ssChartTableBodyDesc">Normal Terminal</td>
+  </tr>
+  <tr>
+    <td valign="top" class="ssChartTableBodyItem">2</td>
+    <td valign="top" class="ssChartTableBodyDesc">Noise</td>
+    <td valign="top" class="ssChartTableBodyDesc">Noise terminal. These are 
+	ignored by the parser. Comments and whitespace are considered 'noise'.</td>
+  </tr>
+  <tr>
+    <td valign="top" class="ssChartTableBodyItem">3</td>
+    <td valign="top" class="ssChartTableBodyDesc">End of File </td>
+    <td valign="top" class="ssChartTableBodyDesc">End Character - End of File. 
+	This symbol is used to represent the end of the file or the end of the 
+	source input.</td>
+  </tr>
+  <tr>
+    <td valign="top" class="ssChartTableBodyItem">4</td>
+    <td valign="top" class="ssChartTableBodyDesc">Group Start</td>
+    <td valign="top" class="ssChartTableBodyDesc">Lexical group start.</td>
+  </tr>
+  <tr>
+    <td valign="top" class="ssChartTableBodyItem">5</td>
+    <td valign="top" class="ssChartTableBodyDesc">Ground End </td>
+    <td valign="top" class="ssChartTableBodyDesc">Lexical group end. Groups can 
+	end with normal terminals as well.</td>
+  </tr>
+  <tr>
+    <td valign="top" class="ssChartTableBodyItem">6</td>
+    <td valign="top" class="ssChartTableBodyDesc" style="font-style: italic">
+	Decremented</td>
+    <td valign="top" class="ssChartTableBodyDesc">This was used in the CGT file 
+	format. It is not used in EGT.</td>
+  </tr>
+  <tr>
+    <td valign="top" class="ssChartTableBodyItem">7</td>
+    <td valign="top" class="ssChartTableBodyDesc">Error</td>
+    <td valign="top" class="ssChartTableBodyDesc">Error Terminal. If the parser encounters an
+    error reading a token, this kind of symbol can used to differentiate it from other
+    terminal types.</td>
+  </tr>
+</table>
+
+<p>&nbsp;</p>
+</body>
+</html>

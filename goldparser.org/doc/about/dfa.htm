@@ -1,0 +1,62 @@
+<html>
+
+<head>
+<title>About Determistic Finite Automata</title>
+<link REL="STYLESHEET" HREF="../../gold-parser-doc-style.css">
+</head>
+
+<body class="ssMainPage">
+
+<h1>Deterministic Finite Automata (DFA)</h1>
+
+<p>&nbsp;</p>
+
+<p>A Deterministic Finite Automata (DFA) is a type of graph used to recognize patterns.
+Normally when you think of a &quot;graph&quot; you imagine a plotted mathematical function
+or graphical representation of data. In computer science terms, a &quot;graph&quot; is
+simply a collection of linked nodes. In the case of a DFA, the name itself accurately
+describes its properties: 
+
+<ul>
+  <li>It is <em>deterministic</em> meaning that from any given node there is one and <u>only</u>
+    one path for any given input. In other words, there is no ambiguity in traversing nodes.</li>
+  <li>The graph is <em>finite</em>; meaning there are a fixed and known number of nodes
+    (called &quot;states&quot;) and branches.</li>
+  <li>And, finally, the graph is an <em>automaton</em>. The transition from state to state is
+    completely determined by the input. The algorithm&nbsp; merely follows the correct branch
+    based on the input.&nbsp; </li>
+</ul>
+
+<p>Most parser engines, including this one, use a DFA to implement the tokenizer. This
+part of the engine scans the input and determines when and if a series of characters can
+be recognized as a token. </p>
+
+<p><img src="images/diagram-dfa.gif" alt="Simple Deterministic Finite Automata that recognizes common identifiers and numbers." align="right" hspace="5" vspace="5" WIDTH="295" HEIGHT="260">The figure to the right is a simple Deterministic
+Finite Automata that recognizes common identifiers and numbers. For instance, assume that
+the input contains the text &quot;gold&quot;. From State 1 (the initial state), the DFA
+moves to State 2 when the &quot;g&quot; is read. For the next three characters,
+&quot;o&quot;, &quot;l&quot; and &quot;d&quot;, the DFA continues to loop to State 2.</p>
+
+<p>By design, the tokenizer attempts to match the longest series of characters possible
+before accepting a token. For example: if the tokenizer is reading the characters
+&quot;count&quot; from the source, it can match the first character &quot;c&quot; as an
+identifier. It would not be prudent for the tokenizer to report five separate identifiers:
+&quot;c&quot;, &quot;o&quot;, &quot;u&quot;, &quot;n&quot; and &quot;t&quot;.</p>
+
+<p>Each time a token is identified, it is passed to the <a href="lalr.htm">LALR</a> parse
+engine and the tokenizer restarts at the initial state.</p>
+
+<p>&nbsp;</p>
+
+<p>For more information, please refer to the following: 
+
+<ul>
+  <li><strong><em>Modern Compiler Implementation</em></strong>, Andrew W. Appel, Cambridge
+    University Press, 40 West 20th Street, New York City, New York 10011-4211</li>
+  <li><strong><em>Crafting a Compiler</em></strong>, Charles N. Fischer &amp; Richard J.
+    LeBlanc Jr.,&nbsp; The Benjamin/Cummings Publishing Company Inc., 2727 Sand Hill Road,
+    Menlo Park, California 94025</li>
+  <li>... or just search for &quot;Deterministic Finite Automata&quot; on the Internet.</li>
+</ul>
+</body>
+</html>

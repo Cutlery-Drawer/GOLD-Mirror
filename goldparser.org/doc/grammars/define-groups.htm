@@ -1,0 +1,229 @@
+<html>
+
+<head>
+<title>Defining Sets</title>
+<link REL="STYLESHEET" HREF="../gold-parser-doc-style.css">
+</head>
+
+<body class="ssMainPage">
+
+<h1>Defining Lexical Groups</h1>
+
+<h2>Syntax</h2>
+<p><img height="44" src="images/syntax-group.png" width="460"></p>
+
+<h2>Details</h2>
+
+	<wbr>
+    <p>In GOLD, lexical groups are used for situations where a number of 
+	recognized tokens should be organized into a single &quot;group&quot;. This mechanism 
+	is most commonly used to handle line and block comments. However, it is not 
+	limited to &quot;noise&quot;, but can be used for any content.</p>
+
+<h2>Comment Groups </h2>
+
+	<wbr>
+
+<p>One of the key principles in programming languages is the ability to incorporate
+comments and other documentation directly to the source code. Whether it is FORTRAN, COBOL
+or C++, the ability exists, but in varying forms. Essentially, there are three different types of comments used in programming
+languages: those that tell the compiler to ignore the remaining text in the current line
+of code and those used to denote the start and end of a multi-line comment.&nbsp; </p>
+
+<p>To accommodate the intricacies of comments, the GOLD Parser Builder provides 
+for this special class of terminals called &quot;groups&quot;. These allow you to create 
+comments with little typing.</p>
+<h3>Block Comments</h3>
+		<p align="left">Any time a symbol is defined ending 
+		with&nbsp; <span class="ssCodeText">Start</span>,&nbsp;
+		<span class="ssCodeText">End</span>, and <span class="ssCodeText">Line</span> 
+		, a lexical group will be created. Each group acts as a container for 
+		data - such as block comments or any other group the user may need. Once 
+		a group is read, the system will treat it as a single token. This is the 
+		group's &quot;container&quot;.</p>
+	<p align="left">All groups have a start and end symbol. In the case of the 
+	following definition, both are quite obvious.</p>
+    <table border="0" cellspacing="0" cellpadding="0" class="ssCodeTable">
+      <tr>
+        <td width="100%" class="ssCodeTableBody">
+		Comment <span style="padding: 0">Start = '/*'<br>Comment End&nbsp;&nbsp; = '*/'</span></td>
+      </tr>
+    </table>
+	<p align="left">This will create a normal &quot;block&quot; group with the start 
+	symbol <span class="ssCodeText">'/*'</span> and end symbol
+	<span class="ssCodeText">'*/'</span>. For this block, the system will create 
+	a group called &quot;Comment Block&quot;. The start and end definitions actually refer 
+	symbol names as opposed to regular expressions. This allows for the same 
+	symbol to be used to end multiple blocks. </p>
+	<h3>Line Comments</h3>
+		<p align="left">Many programming languages have constructs, such as line 
+		comments, that read an entire line and end at the newline. The same 
+		group mechanism is used for block comments and line comments. However, a 
+		few things happen &quot;behind the scenes&quot; to make this possible. The 
+		following definition creates a line comment:</p>
+    <table border="0" cellspacing="0" cellpadding="0" class="ssCodeTable">
+      <tr>
+        <td width="100%" class="ssCodeTableBody">
+		<span style="padding: 0">Comment Line&nbsp; = '//'</span></td>
+      </tr>
+    </table>
+    		<p align="left">Like the block comment above, this definition has a 
+			start and ending symbol. The difference here is that the start 
+			symbol is <span class="ssCodeText">'//'</span> and end symbol is 
+			implied to be the newline. GOLD will automatically define 'newline' 
+			if it is needed and adjust the definition for &quot;whitespace&quot; as 
+			needed. The following is the logic used:</p>
+		<ul>
+			<li>If there is already a 'Newline' terminal defined, the system will use it<li>
+			Otherwise, Newline will be declared automatically<li>The whitespace 
+			terminal will be created from any unused whitespace characters 
+	</ul>
+	<h3>Real-World Examples</h3>
+<p>Below is a comparison of comment terminals in several common programming languages.
+Blanks fields denote the programming language lacks a terminal of that type. For instance,
+Visual Basic does not provide block comments.</p>
+
+<table class="ssChartTable" cellspacing="0" cellpadding="0" border="0">
+  <tr>
+    <th nowrap valign="top" class="ssChartTableColumn">Programming Language</th>
+    <th valign="top" nowrap class="ssChartTableColumn">Line Comment</th>
+    <th valign="top" nowrap class="ssChartTableColumn">Comment Start</th>
+    <th valign="top" nowrap class="ssChartTableColumn">Comment End</th>
+  </tr>
+  <tr>
+    <td nowrap valign="top" align="left" class="ssChartTableBodyItem">Ada</td>
+    <td valign="top" align="center" class="ssChartTableBodyItem">--</td>
+    <td valign="top" align="center" class="ssChartTableBodyItem"></td>
+    <td valign="top" align="center" class="ssChartTableBodyItem"></td>
+  </tr>
+  <tr>
+    <td nowrap valign="top" align="left" class="ssChartTableBodyItem">BASIC</td>
+    <td valign="top" align="center" class="ssChartTableBodyItem">REM</td>
+    <td valign="top" align="center" class="ssChartTableBodyItem"></td>
+    <td valign="top" align="center" class="ssChartTableBodyItem"></td>
+  </tr>
+  <tr>
+    <td nowrap valign="top" align="left" class="ssChartTableBodyItem" style="white-space: nowrap">C / C++</td>
+    <td valign="top" align="center" class="ssChartTableBodyItem">//</td>
+    <td valign="top" align="center" class="ssChartTableBodyItem">/*</td>
+    <td valign="top" align="center" class="ssChartTableBodyItem">*/</td>
+  </tr>
+  <tr>
+    <td nowrap valign="top" align="left" class="ssChartTableBodyItem" style="white-space: nowrap">COBOL</td>
+    <td valign="top" align="center" class="ssChartTableBodyItem">*</td>
+    <td valign="top" align="center" class="ssChartTableBodyItem"></td>
+    <td valign="top" align="center" class="ssChartTableBodyItem"></td>
+  </tr>
+  <tr>
+    <td nowrap valign="top" align="left" class="ssChartTableBodyItem" style="white-space: nowrap">Delphi</td>
+    <td valign="top" align="center" class="ssChartTableBodyItem"></td>
+    <td valign="top" align="center" class="ssChartTableBodyItem">{</td>
+    <td valign="top" align="center" class="ssChartTableBodyItem">}</td>
+  </tr>
+  <tr>
+    <td nowrap valign="top" align="left" class="ssChartTableBodyItem" style="white-space: nowrap">LISP</td>
+    <td valign="top" align="center" class="ssChartTableBodyItem">;</td>
+    <td valign="top" align="center" class="ssChartTableBodyItem"></td>
+    <td valign="top" align="center" class="ssChartTableBodyItem"></td>
+  </tr>
+  <tr>
+    <td nowrap valign="top" align="left" class="ssChartTableBodyItem" style="white-space: nowrap">FORTRAN 90</td>
+    <td valign="top" align="center" class="ssChartTableBodyItem">!</td>
+    <td valign="top" align="center" class="ssChartTableBodyItem"></td>
+    <td valign="top" align="center" class="ssChartTableBodyItem"></td>
+  </tr>
+  <tr>
+    <td nowrap valign="top" align="left" class="ssChartTableBodyItem" style="white-space: nowrap">Java</td>
+    <td valign="top" align="center" class="ssChartTableBodyItem">//</td>
+    <td valign="top" align="center" class="ssChartTableBodyItem">/*</td>
+    <td valign="top" align="center" class="ssChartTableBodyItem">*/</td>
+  </tr>
+  <tr>
+    <td nowrap valign="top" align="left" class="ssChartTableBodyItem" style="white-space: nowrap">Perl</td>
+    <td valign="top" align="center" class="ssChartTableBodyItem">#</td>
+    <td valign="top" align="center" class="ssChartTableBodyItem"></td>
+    <td valign="top" align="center" class="ssChartTableBodyItem"></td>
+  </tr>
+  <tr>
+    <td nowrap valign="top" align="left" class="ssChartTableBodyItem" style="white-space: nowrap">Prolog</td>
+    <td valign="top" align="center" class="ssChartTableBodyItem">%</td>
+    <td valign="top" align="center" class="ssChartTableBodyItem">/*</td>
+    <td valign="top" align="center" class="ssChartTableBodyItem">*/</td>
+  </tr>
+  <tr>
+    <td nowrap valign="top" align="left" class="ssChartTableBodyItem" style="white-space: nowrap">SQL</td>
+    <td valign="top" align="center" class="ssChartTableBodyItem">--</td>
+    <td valign="top" align="center" class="ssChartTableBodyItem">/*</td>
+    <td valign="top" align="center" class="ssChartTableBodyItem">*/</td>
+  </tr>
+  <tr>
+    <td nowrap valign="top" align="left" class="ssChartTableBodyItem" style="white-space: nowrap">Visual Basic</td>
+    <td valign="top" align="center" class="ssChartTableBodyItem">'</td>
+    <td valign="top" align="center" class="ssChartTableBodyItem"></td>
+    <td valign="top" align="center" class="ssChartTableBodyItem"></td>
+  </tr>
+  <tr>
+    <td nowrap valign="top" align="left" class="ssChartTableBodyItem" style="white-space: nowrap">GOLD Meta-Language</td>
+    <td valign="top" align="center" class="ssChartTableBodyItem">!</td>
+    <td valign="top" align="center" class="ssChartTableBodyItem">!*</td>
+    <td valign="top" align="center" class="ssChartTableBodyItem">*!</td>
+  </tr>
+</table>
+
+<h2>Other Groups</h2>
+
+	<wbr>
+    <p>Comments are not the only type of group available to developers. When a 
+	comment group is created, the container &quot;comment&quot; is automatically declared 
+	to be &quot;noise&quot; and will be ignored. This should be no surprise. Comments are 
+	generally discarded by parsers. However, you can create multiple groups - 
+	which can also be ignored or used directly in your grammar. The following 
+	chart shows what is created from group definitions. There are some
+	<a href="example-group.htm">examples</a> available of when, and how, you can use 
+	them.</p>
+	<p>GOLD uses the first part of the definition, the 'name' to create the 
+	group name and container. Note: line-based groups and block-groups, of the 
+	same name, share the same container.</p>
+    <table border="0" cellspacing="0" cellpadding="0" class="ssChartTable">
+      <tr>
+        <td width="100%" class="ssChartTableHeader" colspan="3">Groups</td>
+      </tr>
+      <tr>
+        <td class="ssChartTableColumn" nowrap>Definition</td>
+        <td class="ssChartTableColumn">Generated Group Name</td>
+        <td class="ssChartTableColumn">Generated Container</td>
+      </tr>
+      		  <tr>
+        <td class="ssChartTableBodyItem" nowrap style="white-space: nowrap">
+		<span class="ssAttention" style="font-style: italic">name</span> Start</td>
+        <td class="ssChartTableBodyItem" nowrap rowspan="2" style="vertical-align: middle; white-space: nowrap;">
+		<span class="ssAttention" style="font-style: italic">name</span><span class="ssCodeText" style="font-weight: normal">
+		Block</span></td>
+        <td class="ssChartTableBodyItem" nowrap rowspan="3" style="vertical-align: middle">
+		<span class="ssAttention" style="font-style: italic">name</span></td>
+        </tr>
+      		  <tr>
+        <td class="ssChartTableBodyItem" nowrap style="white-space: nowrap">
+		<span class="ssAttention" style="font-style: italic">name</span> End</td>
+        </tr>
+      <tr>
+        <td class="ssChartTableBodyItem" nowrap style="white-space: nowrap">
+		<span class="ssAttention" style="font-style: italic">name</span> Line</td>
+        <td class="ssChartTableBodyItem" nowrap style="white-space: nowrap">
+		<span class="ssCodeText" style="font-weight: normal">
+		<span class="ssAttention" style="font-style: italic">name</span> Line</span></td>
+      </tr>
+      </table>
+   
+    <h2 align="left">See Also</h2>
+<ul>
+	<li>
+	 <a href="group-attributes.htm">Group Attributes</a>
+	</li>
+	<li>
+	 <a href="example-group.htm">Example Groups</a> 
+	</li>
+</ul>
+       
+		</body>
+</html>

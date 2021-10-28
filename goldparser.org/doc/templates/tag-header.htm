@@ -1,0 +1,212 @@
+<html>
+
+<head>
+<link REL="STYLESHEET" HREF="../gold-parser-doc-style.css">
+<title>Program Templates - Header Tags</title>
+</head>
+
+<body class="ssMainPage">
+
+<h1>Header Tags</h1>
+
+<h2>Overview</h2>
+
+<p>There are a number of preprocessor fields in each template which contain information
+about the target programming language, Engine name, author and instructions on how to
+create identifier names. The order of each field is unimportant, but all should be located
+at the start of the template file. When the GOLD Parser Builder reads through the program
+templates in the templates subfolder, it only checks the first 50 or so lines</p>
+
+<p>Most of the fields are informative and have to effect on how the skeleton program is
+created. However, the fields that related to the format of the identifiers are important.</p>
+
+<h2>Structure</h2>
+
+<table class="ssCodeTable" cellspacing="0" border="0" cellpadding="0">
+  <tr>
+    <td nowrap class="ssCodeTableBody">[</td>
+    <td nowrap class="ssCodeTableBody"><span id="ssCodeReservedSymbol"
+    class="ssCodeReservedSymbol">##TEMPLATE-NAME</span> </td>
+    <td nowrap class="ssCodeTableBody"><em>Template-Name</em></td>
+    <td nowrap class="ssCodeTableBody">]</td>
+  </tr>
+  <tr>
+    <td nowrap class="ssCodeTableBody">[</td>
+    <td nowrap class="ssCodeTableBody"><span class="ssCodeReservedSymbol">##LANGUAGE</span> </td>
+    <td nowrap class="ssCodeTableBody"><em>ProgName</em></td>
+    <td nowrap class="ssCodeTableBody">]</td>
+  </tr>
+  <tr>
+    <td nowrap class="ssCodeTableBody">[</td>
+    <td nowrap class="ssCodeTableBody"><span class="ssCodeReservedSymbol">##ENGINE-NAME</span>
+    </td>
+    <td nowrap class="ssCodeTableBody"><em>Engine-Name</em></td>
+    <td nowrap class="ssCodeTableBody">]</td>
+  </tr>
+  <tr>
+    <td nowrap class="ssCodeTableBody">[</td>
+    <td nowrap class="ssCodeTableBody"><span class="ssCodeReservedSymbol">##AUTHOR </span></td>
+    <td nowrap class="ssCodeTableBody"><em>Author-Name</em></td>
+    <td nowrap class="ssCodeTableBody">]</td>
+  </tr>
+  <tr>
+    <td nowrap class="ssCodeTableBody">[</td>
+    <td nowrap class="ssCodeTableBody"><span class="ssCodeReservedSymbol">##FILE-EXTENSION</span></td>
+    <td nowrap class="ssCodeTableBody"><em>Extension</em></td>
+    <td nowrap class="ssCodeTableBody">]</td>
+  </tr>
+  <tr>
+    <td nowrap class="ssCodeTableBody"><br>
+    </td>
+    <td nowrap class="ssCodeTableBody"><br>
+    </td>
+    <td nowrap class="ssCodeTableBody"><br>
+    </td>
+    <td nowrap class="ssCodeTableBody"><br>
+    </td>
+  </tr>
+  <tr>
+    <td nowrap class="ssCodeTableBody">[</td>
+    <td nowrap class="ssCodeTableBody"><span class="ssCodeReservedSymbol">##NOTES</span></td>
+    <td nowrap class="ssCodeTableBody"></td>
+    <td nowrap class="ssCodeTableBody"></td>
+  </tr>
+  <tr>
+    <td nowrap class="ssCodeTableBody"></td>
+    <td nowrap class="ssCodeTableBody">...</td>
+    <td nowrap class="ssCodeTableBody"></td>
+    <td nowrap class="ssCodeTableBody"></td>
+  </tr>
+  <tr>
+    <td nowrap class="ssCodeTableBody"></td>
+    <td nowrap class="ssCodeTableBody"><span class="ssCodeReservedSymbol">##END-NOTES</span></td>
+    <td nowrap class="ssCodeTableBody"></td>
+    <td nowrap class="ssCodeTableBody">]</td>
+  </tr>
+</table>
+
+<h2>Field Descriptions</h2>
+
+<table width="90%" class="ssChartTable" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <th class="ssChartTableColumn">Name</th>
+    <th class="ssChartTableColumn">Description</th>
+  </tr>
+  <tr>
+    <td valign="top" nowrap class="ssChartTableBodyItem">##TEMPLATE-NAME </td>
+    <td class="ssChartTableBodyDesc">This field sets the formal name for the template. The
+    name of the programming language and engine can be part of the template name as well as
+    features of the template itself, but this is entirely up to the developer.</td>
+  </tr>
+  <tr>
+    <td valign="top" nowrap class="ssChartTableBodyItem">##LANGUAGE </td>
+    <td class="ssChartTableBodyDesc">This field contains the name of the template's
+    programming language. The field is merely informative.</td>
+  </tr>
+  <tr>
+    <td valign="top" nowrap class="ssChartTableBodyItem">##ENGINE-NAME</td>
+    <td class="ssChartTableBodyDesc">This field designates the name of the GOLD Parser Engine
+    that the template is designed to use. Currently the field is merely informative, but in
+    the future it may be used categorize templates.</td>
+  </tr>
+  <tr>
+    <td valign="top" nowrap class="ssChartTableBodyItem">##AUTHOR</td>
+    <td class="ssChartTableBodyDesc">This field designates the name of the template's author.
+    It is merely informative.</td>
+  </tr>
+  <tr>
+    <td valign="top" nowrap class="ssChartTableBodyItem">##FILE-EXTENSION</td>
+    <td class="ssChartTableBodyDesc">When a skeleton program is created, the file will saved
+    with this extension.</td>
+  </tr>
+  <tr>
+    <td valign="top" nowrap class="ssChartTableBodyItem">##NOTES</td>
+    <td class="ssChartTableBodyDesc">The notes tag allows the developer to describe the
+    template in detail and add any information that can help the user. Normally, the NOTES tag
+    is used in block form - since the description can be quite lengthy.</td>
+  </tr>
+  <tr>
+    <td valign="top" nowrap class="ssChartTableBodyItem">##ID-CASE </td>
+    <td class="ssChartTableBodyDesc">When the GOLD Parser Builder creates identifiers for each
+    constant, the system can put each in either ProperCase or Uppercase. This value should be
+    set to the standard conventions used in the target language. Lowercase will be supported
+    in the next version.</td>
+  </tr>
+  <tr>
+    <td valign="top" nowrap class="ssChartTableBodyItem">##ID-SEPARATOR </td>
+    <td class="ssChartTableBodyDesc">For readability, many programming languages allow the use
+    of characters, such as underscores and dashes, to be used in identifiers. The value of
+    this field will used in the constant names.</td>
+  </tr>
+  <tr>
+    <td valign="top" nowrap class="ssChartTableBodyItem">##ID-SYMBOL-PREFIX</td>
+    <td class="ssChartTableBodyDesc">The value of this field will be added to the front each
+    generated symbol constant.</td>
+  </tr>
+  <tr>
+    <td valign="top" nowrap class="ssChartTableBodyItem">##ID-RULE-PREFIX</td>
+    <td class="ssChartTableBodyDesc">The value of this field will be added to the front each
+    generated rule constant.</td>
+  </tr>
+  <tr>
+    <td valign="top" nowrap class="ssChartTableBodyItem">##DELIMITER</td>
+    <td class="ssChartTableBodyDesc">This parameter sets the value of the Delimiter variable.
+    This variable is used in the construction of rule and symbol lists.</td>
+  </tr>
+</table>
+
+<h2>Example</h2>
+
+<table class="ssCodeTable" cellspacing="0" border="0" cellpadding="0">
+  <tr>
+    <td width="100%" nowrap class="ssCodeTableBody"><span id="ssCodeReservedSymbol"
+    class="ssCodeReservedSymbol">##TEMPLATE-NAME</span> 'Visual Basic - ActiveX DLL'</td>
+  </tr>
+  <tr>
+    <td width="100%" nowrap class="ssCodeTableBody"><span class="ssCodeReservedSymbol">##LANGUAGE</span>
+    'Visual Basic'</td>
+  </tr>
+  <tr>
+    <td width="100%" nowrap class="ssCodeTableBody"><span class="ssCodeReservedSymbol">##ENGINE-NAME</span>
+    'ActiveX DLL'</td>
+  </tr>
+  <tr>
+    <td width="100%" nowrap class="ssCodeTableBody"><span class="ssCodeReservedSymbol">##AUTHOR</span>
+    'Devin Cook' </td>
+  </tr>
+  <tr>
+    <td width="100%" nowrap class="ssCodeTableBody"><span class="ssCodeReservedSymbol">##FILE-EXTENSION</span>
+    'bas'</td>
+  </tr>
+  <tr>
+    <td width="100%" nowrap class="ssCodeTableBody"><span class="ssCodeReservedSymbol">##NOTES</span></td>
+  </tr>
+  <tr>
+    <td width="100%" nowrap class="ssCodeTableBody">This template creates a Visual Basic
+    program for use with the ActiveX DLL<br>
+    The code will work with both Visual Basic 5 and 6.</td>
+  </tr>
+  <tr>
+    <td width="100%" nowrap class="ssCodeTableBody"><span class="ssCodeReservedSymbol">##END-NOTES</span></td>
+  </tr>
+  <tr>
+    <td width="100%" nowrap class="ssCodeTableBody"><span class="ssCodeReservedSymbol">##ID-CASE</span>
+    Propercase</td>
+  </tr>
+  <tr>
+    <td width="100%" nowrap class="ssCodeTableBody"><span class="ssCodeReservedSymbol">##ID-SEPARATOR</span>
+    '_'</td>
+  </tr>
+  <tr>
+    <td width="100%" nowrap class="ssCodeTableBody"><span class="ssCodeReservedSymbol">##ID-SYMBOL-PREFIX</span>
+    'Symbol'</td>
+  </tr>
+  <tr>
+    <td width="100%" nowrap class="ssCodeTableBody"><span class="ssCodeReservedSymbol">##ID-RULE-PREFIX</span>
+    'Rule'</td>
+  </tr>
+</table>
+
+<p>&nbsp;</p>
+</body>
+</html>

@@ -1,0 +1,343 @@
+<html>
+
+<head>
+<meta NAME="GENERATOR" Content="Microsoft FrontPage 12.0">
+<meta http-equiv="X-UA-Compatible" content="IE=9">
+
+<link REL="STYLESHEET" HREF="../../../../gold-parser-style.css">
+<title>GOLD Parsing System - Engine - Klimstra C# Engine</title>
+</head>
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%" class="ssMainContentTop">
+  <tr>
+    <td valign="top" class="ssMainTitleCell" colspan="2" height="110"><table border="0" cellspacing="0" cellpadding="0" class="ssTitleTable">
+      <tr>
+        <td class="ssTitleLogoCell" rowspan="2"><img src="../../../../images/gold-logo-v4-100.png" alt="The Tower Bridge in Sacramento, California" WIDTH="100" HEIGHT="100"></td>
+        <td class="ssTitleTopicCell">Original GOLD Engine </td>
+        <td class="ssTitleGraphicCell" rowspan="2"><img src="../../../../images/pic-title-graphic.png" WIDTH="200" HEIGHT="110"></td>
+      </tr>
+      <tr>
+        <td class="ssTitleDescCell">Klimstra C# Engine</td>
+      </tr>
+    </table>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" class="ssMainContentTop" colspan="2"></td>
+  </tr>
+  <tr valign="top">
+    <td valign="top" align="center" class="ssMainMenuCell" width="150"><table class="ssMenuTable" border="0" cellspacing="0">
+      <tr>
+        <td valign="bottom" class="ssMenuTitleCell" colspan="2">
+		<a href="../../../../index.htm">Main</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../../../images/bullets/bullet-news.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a href="../../../../news/index.htm">Latest News</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../../../images/bullets/bullet-getting-started.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a target="_top" href="../../../../getting-started/index.htm">Getting
+        Started</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell">
+		<img src="../../../../images/bullets/bullet-picture.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a href="../../../../builder/screenshots.htm">Screen Shots</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../../../images/bullets/bullet-disk.gif" border="0" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a href="../../../../download.htm" target="_top">Download</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../../../images/bullets/bullet-help.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a href="../../../../doc/index.htm">Documentation</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../../../images/bullets/bullet-contributor.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a target="_top" href="../../../../contributors/index.htm">Contributors</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../../../images/bullets/bullet-contact.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a target="_top" href="../../../../contact.htm">Contact</a></td>
+      </tr>
+    </table>
+    <table class="ssMenuTable" border="0" cellspacing="0">
+      <tr>
+        <td valign="bottom" class="ssMenuTitleCell" colspan="2">
+		<a href="../../../../about/index.htm">About GOLD</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../../../images/bullets/bullet-information.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a href="../../../../about/how-it-works.htm" target="_top">How
+        It Works</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../../../images/bullets/bullet-information.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a href="../../../../about/faq.htm" target="_top">FAQ</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../../../images/bullets/bullet-information.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a target="_top" href="../../../../about/why-use-gold.htm">Why
+        Use GOLD?</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../../../images/bullets/bullet-information.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a href="../../../../about/comparison-parsers.htm" target="_top">Comparison</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../../../images/bullets/bullet-information.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a href="../../../../about/revision-history.htm" target="_top">Revision History</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../../../images/bullets/bullet-information.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a target="_top" href="../../../../about/license.htm">Freeware
+        License</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../../../images/bullets/bullet-information.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a target="_top" href="../../../../about/index.htm">More ...</a></td>
+      </tr>
+    </table>
+    <div align="center"><center><table border="0" class="ssMenuTable" cellspacing="0" cellpadding="0">
+      <tr>
+        <td valign="bottom" class="ssMenuTitleCell" colspan="2">
+		<a href="../../../../articles/index.htm">Articles</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../../../images/bullets/bullet-article.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a target="_top" href="../../../../articles/parser.htm">What
+        is a Parser?</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../../../images/bullets/bullet-article.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a href="../../../../articles/bnf.htm">Backus-Naur Form</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../../../images/bullets/bullet-article.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a href="../../../../articles/dfa.htm">DFA Lexer</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../../../images/bullets/bullet-article.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a href="../../../../articles/lalr.htm">LALR Parsing</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../../../images/bullets/bullet-article.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a href="../../../../articles/glossary.htm">Glossary</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../../../images/bullets/bullet-article.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a target="_top" href="../../../../articles/links.htm">Links</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../../../images/bullets/bullet-article.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a target="_top" href="../../../../articles/index.htm">More
+        ...</a></td>
+      </tr>
+    </table>
+    </center></div><p><br>
+    </p>
+    <p align="center">
+	<img src="../../../../images/spacer-150.gif" border="0" WIDTH="150" HEIGHT="4"></td>
+    <td valign="top" class="ssMainContentCell" align="center"><p>&nbsp;</p>
+	<table border="0" width="100%" cellspacing="0" cellpadding="0" class="ssActiveTable">
+      <tr>
+        <td class="ssActiveTitleCell" colspan="3">Plug-in and Documentation</td>
+      </tr>
+      <tr>
+        <td class="ssActiveIconCell" nowrap>
+		<img src="../../../../images/bullets/bullet-disk.gif" alt="" align="bottom" vspace="2" WIDTH="11" HEIGHT="11"></td>
+        <td class="ssActiveBodyCell" nowrap>
+		<a href="klimstra-engine-netmodule-1.1.zip">.NET Module</a></td>
+        <td class="ssActiveBodyDescCell">This version of the Engine was implemented on Microsoft's
+        new .NET&reg; Platform. Developers using C#&reg;,&nbsp; Visual Basic .NET&reg;, J#&reg; or any of the
+        .NET compliant programming languages can use this component to develop interpreters,
+        translators and compilers.<table border="0" cellspacing="0" cellpadding="0" class="ssAboutTable">
+          <tr>
+            <td class="ssAboutCellName">Author:</td>
+            <td class="ssAboutCellValue"><a href="../../../../contributors/index.htm">Marcus Klimstra</a></td>
+          </tr>
+          <tr>
+            <td class="ssAboutCellName">Version:</td>
+            <td class="ssAboutCellValue">1.1 Beta</td>
+          </tr>
+          <tr>
+            <td class="ssAboutCellName">Size:</td>
+            <td class="ssAboutCellValue">10 KB</td>
+          </tr>
+        </table>
+        </td>
+      </tr>
+      <tr>
+        <td class="ssActiveIconCell" nowrap>
+		<img src="../../../../images/bullets/bullet-disk.gif" alt="" align="bottom" vspace="2" WIDTH="11" HEIGHT="11"></td>
+        <td class="ssActiveBodyCell" nowrap><a href="doc/index.html">Documentation</a></td>
+        <td class="ssActiveBodyDescCell">Documentation is available for this implementation of the
+        Engine.</td>
+      </tr>
+      <tr>
+        <td class="ssActiveIconCell" nowrap><img src="../../../../images/bullets/bullet-help.gif" align="absmiddle" vspace="2" WIDTH="11" HEIGHT="11"></td>
+        <td class="ssActiveBodyCell" nowrap>
+		<a href="battcher-gold-parser-engine.zip">DLL</a> </td>
+        <td class="ssActiveBodyDescCell">Max Battcher recompiled the .NET Module code into a
+        standard DLL. This should allow easy development in Visual Studio and other related IDEs.<table border="0" cellspacing="0" cellpadding="0" class="ssAboutTable">
+          <tr>
+            <td class="ssAboutCellName">Author:</td>
+            <td class="ssAboutCellValue"><a href="http://www.worldmaker.net/">Max Battcher</a></td>
+          </tr>
+          <tr>
+            <td class="ssAboutCellName">Size:</td>
+            <td class="ssAboutCellValue">10 KB</td>
+          </tr>
+        </table>
+        </td>
+      </tr>
+      <tr>
+        <td class="ssActiveIconCell" nowrap>
+		<img src="../../../../images/bullets/bullet-disk.gif" alt="" align="bottom" vspace="2" WIDTH="11" HEIGHT="11"></td>
+        <td class="ssActiveBodyCell" nowrap><a href="moore-modified-klimstra-engine.zip">Modified Engine</a></td>
+        <td class="ssActiveBodyDescCell">Adrian Moore modified Marcus Klimstra's Engine so that
+        the Compiled Grammar Table file can be an embedded resource in the assembly's manifest. As
+        a result, the Reduction, LookAheadReader, GrammarReader and GoldParser objects were
+        modified.<table border="0" cellspacing="0" cellpadding="0" class="ssAboutTable">
+          <tr>
+            <td class="ssAboutCellName">Author:</td>
+            <td class="ssAboutCellValue"><a href="../../../../contributors/index.htm">Adrian Moore</a></td>
+          </tr>
+          <tr>
+            <td class="ssAboutCellName">Size:</td>
+            <td class="ssAboutCellValue">19 KB</td>
+          </tr>
+        </table>
+        </td>
+      </tr>
+      </table>
+    <div align="center"><center><table border="0" width="100%" cellspacing="0" cellpadding="0" class="ssActiveTable">
+      <tr>
+        <td class="ssActiveTitleCell" colspan="3">Source Code and Projects</td>
+      </tr>
+      <tr>
+        <td class="ssActiveIconCell" nowrap>
+		<img src="../../../../images/bullets/bullet-disk.gif" alt="" align="bottom" vspace="2" WIDTH="11" HEIGHT="11"></td>
+        <td class="ssActiveBodyCell" nowrap><a href="klimstra-engine-source.zip">C# Source</a></td>
+        <td class="ssActiveBodyDescCell">Marcus Klimstra has translated the 
+		Visual Basic 5 source to Microsoft C#&reg;. The ZIP file contains all the C# 
+		code used to create the .NET Module that you can download above. In addition, the source code includes the example Parse Tree
+        project.<table border="0" cellspacing="0" cellpadding="0" class="ssAboutTable">
+          <tr>
+            <td class="ssAboutCellName">Author:</td>
+            <td class="ssAboutCellValue"><a href="../../../../contributors/index.htm">Marcus Klimstra</a></td>
+          </tr>
+          <tr>
+            <td class="ssAboutCellName">Language:</td>
+            <td class="ssAboutCellValue">1.1 Beta</td>
+          </tr>
+          <tr>
+            <td class="ssAboutCellName">Version:</td>
+            <td class="ssAboutCellValue">Microsoft C#</td>
+          </tr>
+          <tr>
+            <td class="ssAboutCellName">Size:</td>
+            <td class="ssAboutCellValue">30 KB</td>
+          </tr>
+        </table>
+        </td>
+      </tr>
+      <tr>
+        <td class="ssActiveIconCell" nowrap>
+		<img src="../../../../images/bullets/bullet-disk.gif" alt="" align="bottom" vspace="2" WIDTH="11" HEIGHT="11"></td>
+        <td class="ssActiveBodyCell" nowrap><a href="klimstra-project-tree.zip">Project:<br>
+        Parse Tree</a></td>
+        <td class="ssActiveBodyDescCell">This is a simple project which loads a Compiled Grammar
+        Table file and draws a parse tree for a given input string. An example grammar
+        called&nbsp; &quot;Simple&quot;&nbsp; is included. This download includes the .NET Module.<table border="0" cellspacing="0" cellpadding="0" class="ssAboutTable">
+          <tr>
+            <td class="ssAboutCellName">Author:</td>
+            <td class="ssAboutCellValue"><a href="../../../../contributors/index.htm">Marcus Klimstra</a></td>
+          </tr>
+          <tr>
+            <td class="ssAboutCellName">Language:</td>
+            <td class="ssAboutCellValue">Microsoft C#</td>
+          </tr>
+          <tr>
+            <td class="ssAboutCellName">Version:</td>
+            <td class="ssAboutCellValue">1.1 Beta</td>
+          </tr>
+          <tr>
+            <td class="ssAboutCellName">Size:</td>
+            <td class="ssAboutCellValue">14 KB</td>
+          </tr>
+        </table>
+        </td>
+      </tr>
+      <tr>
+        <td class="ssActiveIconCell" nowrap>
+		<img src="../../../../images/bullets/bullet-disk.gif" alt="" align="bottom" vspace="2" WIDTH="11" HEIGHT="11"></td>
+        <td class="ssActiveBodyCell" nowrap><a href="moore-simple-interpreter.zip">Simple Interpreter<br>
+        Project</a> <br>
+        <a href="../../delphi/van-der-geer/ibrahim-van-der-geer-modifications.zip"><small>(Visual
+        Basic .NET)</small></a></td>
+        <td class="ssActiveBodyDescCell">Adrian Moore created an interpreter for the Simple
+        grammar using his modified version of Marcus Klimsta's C# Engine. The actual project is
+        written in Visual Basic .NET<table border="0" cellspacing="0" cellpadding="0" class="ssAboutTable">
+          <tr>
+            <td class="ssAboutCellName">Author:</td>
+            <td class="ssAboutCellValue"><a href="../../../../contributors/index.htm">Adrian Moore</a></td>
+          </tr>
+          <tr>
+            <td class="ssAboutCellName">Size:</td>
+            <td class="ssAboutCellValue">47 KB</td>
+          </tr>
+        </table>
+        </td>
+      </tr>
+    </table>
+    </center></div><p>&nbsp;</p>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,248 @@
+<html>
+
+<head>
+<title>Defining Rules</title>
+<link REL="STYLESHEET" HREF="../gold-parser-doc-style.css">
+<style type="text/css">
+
+.ssCodeText    {font-family: "Courier New", Courier, monospace; font-weight: bold;}
+</style>
+</head>
+
+<body class="ssMainPage">
+
+<h1>Defining Rules</h1>
+
+<h2>Syntax</h2>
+
+<h3>Rule Definition</h3>
+
+<p><img height="113" src="images/syntax-rule-define.png" width="491"></p>
+<h3>Handle</h3>
+<p><img height="213" src="images/syntax-handle.png" width="310"></p>
+
+<h2>Details</h2>
+
+    <h3>Overview</h3>
+<p>The majority of the grammar, that you will write, will be used to specify the 
+syntactic structure of the language. When an input string is parsed (such as the 
+user's program), it is stored into a tree structure that follows the syntactic 
+structure of the language. There are several ways to specifying the structure of 
+a grammar and different parsing systems use different notations and formats.</p>
+<p>Regardless of the parser, practically all use a variation of a notation known 
+as Backus-Naur Form (or BNF for short). GOLD uses BNF to describe the syntax of 
+the grammar and attempts to stay close to the original notation.</p>
+<h3>Terminals and Nonterminals </h3>
+<p>Backus-Naur Form consists of two different types of symbols: terminals and 
+nonterminals. Terminals represent that pieces of text that makes a valid input 
+string (such as a user's program). When an input string is parsed, terminals 
+will be the &quot;leaves&quot; of the parse tree. Nonterminals represent other syntactic 
+structures defined in the grammar. These will be the nodes in the parse tree.</p>
+<p>Terminals are left without special formatting or are delimited by single 
+quotes. Examples include: <span class="CodeInline">if</span>, 
+<span class="CodeInline">while</span>, <span class="CodeInline">'='</span> and 
+<span class="CodeInline">identifier</span>. Typically, nonterminals are delimited by angle-brackets. Examples include 
+<span class="CodeInline">&lt;statement&gt;</span> and <span class="CodeInline">&lt;exp&gt;</span>. Both terminals and
+    nonterminals are referred to generically as &quot;symbols&quot;. </p>
+<img height="88" src="images/production.gif" width="417"><br><br>When text is read by the Builder, all characters delimited by single quotes are
+    analyzed as literal strings. Any text delimited by single quotes is
+    considered to be <u>exactly</u> as printed. This allows you to specify characters that
+    would normally be limited by the notation. For instance, when defining a 
+	<a href="define-rules.htm" style="text-decoration: underline">rule</a>, angle brackets are used to delimit nonterminals. By
+    typing <span class="CodeInline">'&lt;'</span> and <span class="CodeInline">
+'&gt;'</span>,
+    you can specify these two characters without worrying about the system misinterpreting
+    them. A single quote character can be specified by typing two single quotes ''.&nbsp;
+	<h3 align="left">Productions </h3>
+	  <p>The syntax of the grammar is defined using a series of &quot;productions&quot;. 
+	  These consist of a single nonterminal called the &quot;head&quot;. The head is 
+	  defined to consist of multiple symbols making up the production's 
+	  &quot;handle&quot;.</p>
+<p>&nbsp;For instance, the following production defines a generic If-Statement 
+syntax. The symbols <span class="CodeInline">'if'</span>, <span class="CodeInline">
+'then'</span>, and <span class="CodeInline">'end'</span> are terminals. The 
+symbols
+<span class="CodeInline">&lt;Expression&gt;</span> and
+<span class="CodeInline">&lt;Statements&gt;</span> are nonterminals. The first 
+nonterminal, before the <span class="CodeInline">::=</span>&nbsp;symbol, is the 
+&quot;head&quot;. All the terminals/nonterminals after the <span class="CodeInline">::=</span>&nbsp;is 
+called a &quot;handle&quot;.&nbsp; The &quot;head&quot; and &quot;handle&quot;, together, are called a 
+&quot;production&quot;.</p>
+
+<table class="ssCodeTable" cellspacing="0" cellpadding="0">
+  <tr>
+    <td nowrap valign="top" align="right" class="ssCodeTableBody">&lt;Statement&gt; </td>
+    <td nowrap valign="top" align="right" class="ssCodeTableBody">::= </td>
+    <td nowrap valign="top" align="right" class="ssCodeTableBody">if 
+	&lt;Expression&gt; then &lt;Statements&gt; end</td>
+  </tr>
+</table>
+
+<p>The production above basically defines that a <span class="CodeInline">
+&lt;Statement&gt;</span> as an
+<span class="CodeInline">'if'</span> terminal, an <span class="CodeInline">
+&lt;Expression&gt;</span> 
+defined elsewhere, a <span class="CodeInline">'then'</span> terminal,&nbsp;
+<span class="CodeInline">&lt;Statements&gt;</span> defined elsewhere, and, finally, an <span class="CodeInline">
+'end'</span> terminal.&nbsp;</p>
+<h3>Rules</h3>
+<p>If you are declaring a series of productions that derive the same nonterminal (they 
+have the same head), you can use pipe characters <span class="CodeInline">'|'</span> 
+to create a series of different handles. The pipe symbol basically means &quot;or&quot;. 
+So, in the example below, <span class="CodeInline">&lt;Statement&gt;</span> is defined 
+using three different handles. It can be equivalent to any of these. </p>
+
+<table class="ssCodeTable" cellspacing="0" cellpadding="0">
+  <tr>
+    <td nowrap valign="top" align="left" class="ssCodeTableBody">&lt;Statement&gt; ::= 
+	if &lt;Expression&gt; then &lt;Statements&gt; end<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;while &lt;Expression&gt; do &lt;Statements&gt; end<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp; for Id = &lt;Range&gt; do &lt;Statements&gt; end</td>
+  </tr>
+</table>
+
+<p>Internally, the notation above will create three different productions:</p>
+
+<table class="ssCodeTable" cellspacing="0" cellpadding="0">
+  <tr>
+    <td nowrap valign="top" class="ssCodeTableBody">&lt;Statement&gt; </td>
+    <td nowrap valign="top" class="ssCodeTableBody">::= </td>
+    <td nowrap valign="top" class="ssCodeTableBody">if 
+	&lt;Expression&gt; then &lt;Statements&gt; end</td>
+  </tr>
+  <tr>
+    <td nowrap valign="top" class="ssCodeTableBody">&lt;Statement&gt; </td>
+    <td nowrap valign="top" class="ssCodeTableBody">::=</td>
+    <td nowrap valign="top" class="ssCodeTableBody">while 
+	&lt;Expression&gt; do &lt;Statements&gt; end</td>
+  </tr>
+  <tr>
+    <td nowrap valign="top" class="ssCodeTableBody">&lt;Statement&gt; </td>
+    <td nowrap valign="top" class="ssCodeTableBody">::=</td>
+    <td nowrap valign="top" class="ssCodeTableBody">for Id = 
+	&lt;Range&gt; do &lt;Statements&gt; end</td>
+  </tr>
+</table>
+
+<p>However, to prevent typos, GOLD only permits the single definition. In GOLD terminology, a series of related productions, with the same head, is 
+called a &quot;Rule&quot;.</p>
+	<h3 align="left">Nullable Rules</h3>
+	  <p>A rule can also be declared as &quot;nullable&quot;. This basically means that 
+	  the nonterminal, that the rule represents, can contain zero terminals. For 
+	  all intents and purposes, the nonterminal an be seen as optional. In 
+	  grammars, nullable rules are often used for optional clauses (on 
+	  statements) or creating lists that contain
+	  <span style="text-decoration: underline">zero</span> or more items.</p>
+<p>A null production (and hence a nullable rule), is declared by simply creating 
+a production that contains no symbols.</p>
+
+<table class="ssCodeTable" cellspacing="0" cellpadding="0">
+  <tr>
+    <td nowrap valign="top" align="left" class="ssCodeTableBody">&lt;Optional 
+	Keyword&gt; ::= Keyword<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+	|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td>
+  </tr>
+</table>
+
+<p>The second handle in the definition contains no symbols. The rule is 
+therefore nullable. GOLD version 5 also permits an alternative notation. The 
+text <span class="CodeInline">&lt;&gt;</span>, used by itself, will declare a null 
+production.</p>
+
+<table class="ssCodeTable" cellspacing="0" cellpadding="0">
+  <tr>
+    <td nowrap valign="top" align="left" class="ssCodeTableBody">&lt;Optional 
+	Keyword&gt; ::= Keyword<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+	|&nbsp; <span class="ssCodeAttention">&lt;&gt;</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td>
+  </tr>
+</table>
+
+		<h3>Summary</h3>
+    <ul>
+        <li>A rule consists of one or more productions.</li>
+        <li>The production starts with a single nonterminal, which is the name of the rule being
+          defined</li>
+        <li>This nonterminal is followed by a <span class="ssCodeText"><strong>::=</strong> </span>
+		symbol which means “as defined as”. </li>
+        <li>The symbol is followed by a series of terminals and nonterminals.</li>
+      </ul>
+
+<h2>&nbsp;Examples</h2>
+
+<h3>Fall-Through Logic</h3>
+      <p>The following defines a rule called <span class="CodeInline">&lt;Value&gt;</span> 
+	  which can contain either an Identifier terminal or the contents of another 
+	  rule called <span class="CodeInline">&lt;Literal&gt;</span></p>
+      <table border="0" class="ssCodeTable" cellspacing="0" cellpadding="0">
+		  <tr>
+			  <td width="100%" class="ssCodeTableBody" nowrap>&lt;Value&gt; ::= Identifier 
+			  <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;
+            &lt;Literal&gt;<br><br>&lt;Literal&gt; ::= Number<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp; String 
+			  </td>
+		  </tr>
+</table>
+      <p>The <span class="CodeInline">&lt;Literal&gt; </span>can contain either a&nbsp; 
+	  <span class="CodeInline">Number</span> or <span class="CodeInline">String</span> terminal. As a result of this definition, a 
+	  <span class="CodeInline">&lt;Value&gt;</span> can contain an 
+	  <span class="CodeInline">Identifier</span>, <span class="CodeInline">Number</span> or
+	  <span class="CodeInline">String</span> .</p>
+
+<h3>Nullable Clause</h3>
+      <p>The three clauses in the C-style For Statement are optional. The <span class="CodeInline">
+	  &lt;Opt Exp&gt;</span> rule defines an optional expression.</p>
+        <table border="0" class="ssCodeTable" cellspacing="0" cellpadding="0">
+          <tr>
+            <td width="100%" class="ssCodeTableBody" nowrap>&lt;For Statement&gt; ::= 
+			for '(' <span class="ssCodeAttention">&lt;Opt Exp&gt;</span> ';'
+			<span class="ssCodeAttention">&lt;Opt Exp&gt;</span> ';'
+			<span class="ssCodeAttention">&lt;Opt Exp&gt;</span> ')' &lt;Statements&gt; <br><br>
+            &lt;Opt Exp&gt; ::= &lt;Expression&gt; <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp; </td>
+          </tr>
+        </table>
+      <h3>Lists</h3>
+<p>The following two rules define a comma delimited list of Identifiers.</p>
+
+<table class="ssCodeTable" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td nowrap valign="top" align="left" class="ssCodeTableBody">&lt;List&gt; ::= &lt;List&gt;
+    ',' Identifier<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Identifier</td>
+  </tr>
+</table>
+
+<h3>Operator Precedence</h3>
+
+<p>Operator precedence is an important aspect of most programming languages. The following
+rules define the common arithmetic operators.</p>
+
+<table class="ssCodeTable" cellspacing="0" cellpadding="0">
+  <tr>
+    <td nowrap valign="top" align="left" class="ssCodeTableBody">&lt;Expression&gt; ::=
+    &lt;Expression&gt; '+' &lt;Mult Exp&gt; <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |
+    &lt;Expression&gt; '-' &lt;Mult Exp&gt; <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |
+    &lt;Mult Exp&gt; <p>&lt;Mult Exp&gt;&nbsp;&nbsp; ::= &lt;Mult Exp&gt; '*' &lt;Negate
+    Exp&gt; <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |
+    &lt;Mult Exp&gt; '/' &lt;Negate Exp&gt;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |
+    &lt;Negate Exp&gt; </p>
+    <p>&lt;Negate Exp&gt; ::= '-' &lt;Value&gt; <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |
+    &lt;Value&gt; </p>
+    <p>&lt;Value&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ::= ID <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |
+    Integer <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | '('
+    &lt;Expression&gt; ')'</td>
+  </tr>
+</table>
+<h2>See Also</h2>
+<ul>
+	<li><a href="example-lists.htm">List Examples</a></li>
+	<li><a href="example-if-then-else.htm">Hanging-Else Example</a></li>
+</ul>
+<p>&nbsp;</p>
+</body>
+</html>

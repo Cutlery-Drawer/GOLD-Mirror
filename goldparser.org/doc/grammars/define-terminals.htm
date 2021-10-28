@@ -1,0 +1,181 @@
+<html>
+
+<head>
+<title>Defining Terminals</title>
+<link REL="STYLESHEET" HREF="../gold-parser-doc-style.css">
+<style type="text/css">
+
+.ssCodeText    {font-family: "Courier New", Courier, monospace; font-weight: bold;}
+
+</style>
+</head>
+
+<body class="ssMainPage">
+
+<h1>Defining Terminals</h1>
+
+<h2>Syntax</h2>
+
+<h3>Terminal Definition</h3>
+
+<p><img height="113" src="images/syntax-terminal-define.png" width="481"></p>
+
+<h3>Expression</h3>
+
+<p><img height="66" src="images/syntax-expression.png" width="193"></p>
+<h3>Expression Item</h3>
+<p><img height="171" src="images/syntax-expression-item.png" width="380"></p>
+
+<h2>Regular Expressions</h2>
+
+<p>The notation is rather simple, yet versatile enough to express any terminal needed.
+Basically, regular expressions consist of a series of characters that define the pattern
+of the terminal.</p>
+
+<p>Literal sets of characters are delimited using the square brackets '[' and ']' and <a href="define-sets.htm">defined sets</a> are delimited by the braces '{' and '}'. For
+instance, the text &quot;[abcde]&quot; denotes a set of characters consisting of the first
+five letters of the alphabet; while the text &quot;{abc}&quot; refers to a set named
+&quot;abc&quot;. Neither of these are part of the &quot;pure&quot; notation for regular
+expressions, but are widely used in other parser generators such as Lex/Yacc.</p>
+
+<p>Sub-expressions are delimited by normal parenthesis '(' and ')'. The pipe character '|'
+is used to denote alternate expressions. </p>
+
+<p>Either a set, a sub expression, or a single character can be followed by any of the
+following three symbols:</p>
+<div align="center"><center>
+
+<table class="ssListTable" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="32" align="center" class="ssListItemCell"><strong><code>*</code></strong></td>
+    <td class="ssListItemCell">Kleene Closure. This symbol denotes 0 or more or the specified
+    character(s)</td>
+  </tr>
+  <tr>
+    <td width="32" align="center" class="ssListItemCell"><strong><code>+</code></strong></td>
+    <td class="ssListItemCell">One or more. This symbol denotes 1 or more of the specified
+    character(s) </td>
+  </tr>
+  <tr>
+    <td width="32" align="center" class="ssListItemCell"><strong><code>?</code></strong></td>
+    <td class="ssListItemCell">Optional. This symbol denotes 0 or 1 of the specified
+    character(s) </td>
+  </tr>
+</table>
+</center></div>
+
+<p>For example, the regular expression <code><font color="#000080">ab*</font></code>
+translates to &quot;an <em>a</em> followed by zero or more <em>b</em>'s&quot; and <font color="#000080"><code>[abc]+</code></font> translates to &quot;an series of one or more <em>a</em>'s,
+<em>b</em>'s <u>or</u> <em>c</em>'s&quot;.</p>
+
+<table>
+  <tr>
+    <td valign="top"><strong>Note:</strong> </td>
+    <td>When text is read by the Builder, all characters delimited by single quotes are
+    analyzed as literal strings. In other words, any text delimited by single quotes is
+    considered to be <u>exactly</u> as printed. This allows you to specify characters that
+    would normally be limited by the notation. For instance, when defining a <a href="define-rules.htm">rule</a>, angle brackets are used to delimit nonterminals. By
+    typing <strong>'</strong>&lt;<strong>'</strong> and <strong>'</strong>&gt;<strong>'</strong>,
+    you can specify these two characters without worrying about the system misinterpreting
+    them. A single quote character can be specified by typing a double single quote ''. <p>In
+    the case of regular expressions, single quotes allow you to specify the following
+    characters: ? * + ( ) { } [ ]</td>
+  </tr>
+</table>
+
+<h2>Special Terminals</h2>
+
+<h3>Whitespace</h3>
+<p>In practically all programming languages, the parser recognizes (and usually ignores)
+the spaces, new lines, and other meaningless characters that exist between tokens. For
+instance, in the code:</p>
+
+<table class="ssCodeTable">
+  <tr>
+    <td width="100%" nowrap class="ssCodeTableBody"><font color="#000080"><code>If&nbsp; Done
+    Then<br>
+    &nbsp;&nbsp; Counter = 1;<br>
+    End If</code></font></td>
+  </tr>
+</table>
+
+<p>The fact that there are two spaces between the 'If' and 'Done', a new line after
+'Then', and multiple space before 'Counter' is irrelevant. </p>
+
+<p>From the parser's point of view (in particular the Deterministic Finite Automata that
+it uses) these whitespace characters are recognized as a special terminal which <em>can</em>
+be discarded. In GOLD, this terminal is simply called the Whitespace terminal and can be
+defined to whatever is needed. If the Whitespace Terminal is not defined explicitly in the
+grammar, it will be implicitly declared as one or more of the characters in the <a href="predefined-sets.htm">pre-defined</a> Whitespace set:&nbsp; <code><font color="#000080">{Whitespace}+</font>.</code> </p>
+
+<p>Normally, you would not need to worry about the Whitespace terminal unless you are
+designing a language where the end of a line is significant. This is the case with Visual
+Basic, BASIC and many, many others. The proper declaration can be seen in an <a href="example-line-based.htm">example</a>.</p>
+<h3>Comment</h3>
+<p>Block and line comments are common in programming languages. The Comment 
+Terminal is often generated as a container for <a href="define-groups.htm">group</a>. 
+Since comments are considered whitespace, GOLD will set the Comment Terminal to 
+&quot;noise&quot; if it is created.</p>
+<h2>Examples</h2>
+
+<table class="ssChartTable" cellspacing="0" cellpadding="0">
+  <tr>
+    <th nowrap valign="top" align="center" class="ssChartTableColumn">Declaration</th>
+    <th valign="top" align="center" class="ssChartTableColumn">Valid strings</th>
+  </tr>
+  <tr>
+    <td nowrap valign="top" align="left" class="ssChartTableBodyItem" style="white-space: nowrap"><code><font color="#000080">Example1</font> = <font color="#000080">a b c*</font></code></td>
+    <td valign="top" align="left" class="ssChartTableBodyItem"><code>ab, abc, abcc, abccc,
+    abcccc, ...</code></td>
+  </tr>
+  <tr>
+    <td nowrap valign="top" align="left" class="ssChartTableBodyItem" style="white-space: nowrap"><code><font color="#000080">Example2</font> = <font color="#000080">a b? c</font></code></td>
+    <td valign="top" align="left" class="ssChartTableBodyItem"><code>abc, ac</code></td>
+  </tr>
+  <tr>
+    <td nowrap valign="top" align="left" class="ssChartTableBodyItem" style="white-space: nowrap"><code><font color="#000080">Example3 </font>= <font color="#000080">a|b|c</font></code></td>
+    <td valign="top" align="left" class="ssChartTableBodyItem"><code>a, b, c </code></td>
+  </tr>
+  <tr>
+    <td nowrap valign="top" align="left" class="ssChartTableBodyItem" style="white-space: nowrap"><code><font color="#000080">Example4</font> = <font color="#000080">a[12]*b</font></code></td>
+    <td valign="top" align="left" class="ssChartTableBodyItem"><code>ab, a1b, a2b, a12b, a21b,
+    a22b, a111b, ...</code></td>
+  </tr>
+  <tr>
+    <td nowrap valign="top" align="left" class="ssChartTableBodyItem" style="white-space: nowrap"><code><font color="#000080">Example5</font> = <font color="#000080">'*'+</font></code></td>
+    <td valign="top" align="left" class="ssChartTableBodyItem"><code>*, **, ***, ****, ...</code></td>
+  </tr>
+  <tr>
+    <td nowrap valign="top" align="left" class="ssChartTableBodyItem" style="white-space: nowrap"><code><font color="#000080">Example6</font> = <font color="#000080">{Letter}+</font></code></td>
+    <td valign="top" align="left" class="ssChartTableBodyItem"><code>cat, dog, Sacramento, ...</code></td>
+  </tr>
+  <tr>
+    <td nowrap valign="top" align="left" class="ssChartTableBodyItem" style="white-space: nowrap"><code><font color="#000080">Identifier</font> = <font color="#000080">{Letter}{AlphaNumeric}*</font></code></td>
+    <td valign="top" align="left" class="ssChartTableBodyItem"><code>e4, Param4b, Color2,
+    temp, ...</code></td>
+  </tr>
+  <tr>
+    <td nowrap valign="top" align="left" class="ssChartTableBodyItem" style="white-space: nowrap"><code><font color="#000080">ListFunction</font> = <font color="#000080">c[ad]+r</font></code></td>
+    <td valign="top" align="left" class="ssChartTableBodyItem"><code>car, cdr, caar, cadr,
+    cdar, cddr, caaar, ...</code></td>
+  </tr>
+  <tr>
+    <td nowrap valign="top" align="left" class="ssChartTableBodyItem" style="white-space: nowrap"><code><font color="#000080">ListFunction</font> = <font color="#000080">c(a|d)+r</font></code></td>
+    <td valign="top" align="left" class="ssChartTableBodyItem">The same as the above using a
+    different, yet equivalent, regular expression.</td>
+  </tr>
+  <tr>
+    <td nowrap valign="top" align="left" class="ssChartTableBodyItem" style="white-space: nowrap"><code><font color="#000080">NewLine</font> = <font color="#000080">{CR}{LF}|{CR}</font></code></td>
+    <td valign="top" align="left" class="ssChartTableBodyItem">Windows and DOS use {CR}{LF}
+    for newlines, UNIX simply uses {CR}. This definition will detect both.</td>
+  </tr>
+</table>
+
+	<h2 align="left">See Also</h2>
+<ul>
+	<li>
+	 <a href="terminal-attributes.htm">Terminal Attributes</a>
+	</li>
+</ul>
+</body>
+</html>

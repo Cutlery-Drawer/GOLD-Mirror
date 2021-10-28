@@ -1,0 +1,393 @@
+<html>
+
+<head>
+<meta NAME="GENERATOR" Content="Microsoft FrontPage 12.0">
+<meta http-equiv="X-UA-Compatible" content="IE=9">
+
+<link REL="STYLESHEET" HREF="../../../gold-parser-style.css">
+<title>GOLD Parsing System - Engine - Delphi Programming Language</title>
+</head>
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%" class="ssMainContentTop">
+  <tr>
+    <td valign="top" class="ssMainTitleCell" colspan="2" height="110"><table border="0" cellspacing="0" cellpadding="0" class="ssTitleTable">
+      <tr>
+        <td class="ssTitleLogoCell" rowspan="2"><img src="../../../images/gold-logo-v4-100.png" alt="The Tower Bridge in Sacramento, California" WIDTH="100" HEIGHT="100"></td>
+        <td class="ssTitleTopicCell">Original GOLD Engine</td>
+        <td class="ssTitleGraphicCell" rowspan="2"><img src="../../../images/pic-title-graphic.png" WIDTH="200" HEIGHT="110"></td>
+      </tr>
+      <tr>
+        <td class="ssTitleDescCell">Delphi Programming Language</td>
+      </tr>
+    </table>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" class="ssMainContentTop" colspan="2"></td>
+  </tr>
+  <tr valign="top">
+    <td valign="top" align="center" class="ssMainMenuCell" width="150"><table class="ssMenuTable" border="0" cellspacing="0">
+      <tr>
+        <td valign="bottom" class="ssMenuTitleCell" colspan="2">
+		<a href="../../../index.htm">Main</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../../images/bullets/bullet-news.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell"><a href="../../../news/index.htm">Latest News</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../../images/bullets/bullet-getting-started.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a target="_top" href="../../../getting-started/index.htm">Getting
+        Started</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell">
+		<img src="../../../images/bullets/bullet-picture.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a href="../../../builder/screenshots.htm">Screen Shots</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../../images/bullets/bullet-disk.gif" border="0" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a href="../../../download.htm" target="_top">Download</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../../images/bullets/bullet-help.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell"><a href="../../../doc/index.htm">Documentation</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../../images/bullets/bullet-contributor.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a target="_top" href="../../../contributors/index.htm">Contributors</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../../images/bullets/bullet-contact.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a target="_top" href="../../../contact.htm">Contact</a></td>
+      </tr>
+    </table>
+    <table class="ssMenuTable" border="0" cellspacing="0">
+      <tr>
+        <td valign="bottom" class="ssMenuTitleCell" colspan="2">
+		<a href="../../../about/index.htm">About GOLD</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../../images/bullets/bullet-information.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a href="../../../about/how-it-works.htm" target="_top">How
+        It Works</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../../images/bullets/bullet-information.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a href="../../../about/faq.htm" target="_top">FAQ</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../../images/bullets/bullet-information.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a target="_top" href="../../../about/why-use-gold.htm">Why
+        Use GOLD?</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../../images/bullets/bullet-information.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a href="../../../about/comparison-parsers.htm" target="_top">Comparison</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../../images/bullets/bullet-information.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a href="../../../about/revision-history.htm" target="_top">Revision History</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../../images/bullets/bullet-information.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a target="_top" href="../../../about/license.htm">Freeware
+        License</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../../images/bullets/bullet-information.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a target="_top" href="../../../about/index.htm">More ...</a></td>
+      </tr>
+    </table>
+    <div align="center"><center><table border="0" class="ssMenuTable" cellspacing="0" cellpadding="0">
+      <tr>
+        <td valign="bottom" class="ssMenuTitleCell" colspan="2">
+		<a href="../../../articles/index.htm">Articles</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../../images/bullets/bullet-article.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a target="_top" href="../../../articles/parser.htm">What
+        is a Parser?</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../../images/bullets/bullet-article.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a href="../../../articles/bnf.htm">Backus-Naur Form</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../../images/bullets/bullet-article.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a href="../../../articles/dfa.htm">DFA Lexer</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../../images/bullets/bullet-article.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a href="../../../articles/lalr.htm">LALR Parsing</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../../images/bullets/bullet-article.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a href="../../../articles/glossary.htm">Glossary</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../../images/bullets/bullet-article.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a target="_top" href="../../../articles/links.htm">Links</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../../images/bullets/bullet-article.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a target="_top" href="../../../articles/index.htm">More
+        ...</a></td>
+      </tr>
+    </table>
+    </center></div><p><br>
+    </p>
+    <p align="center">
+	<img src="../../../images/spacer-150.gif" border="0" WIDTH="150" HEIGHT="4"></td>
+    <td valign="top" class="ssMainContentCell" align="center"><div align="left"><table border="0" width="100%" cellspacing="0" cellpadding="0" class="ssHeaderTable">
+      <tr>
+        <td align="left" class="ssHeaderTableText">
+		The Delphi Programming Language
+        evolved from the Pascal Programming Language with the guidance of the Borland Corporation.
+        Control over Delphi later shifted to the Embarcadero Corporation.<p><img src="../../../images/inline-link.gif" hspace="5" align="absmiddle" WIDTH="5" HEIGHT="9"><a href="http://www.embarcadero.com/products/delphi" target="_blank">Delphi Programming Language Homepage</a></p>
+        <p>Delphi contains a large number of class-library and language 
+		improvements over Pascal. The latest version of Delphi works with Microsoft's .NET Platform. As a result, modules
+        developed in other .NET languages will work with Delphi.</td>
+        <td align="left" class="ssHeaderTableGraphic">
+		<img alt="Delphi Logo" height="100" src="../../../images/logos/logo-delphi.png" width="100" style="float: none"></td>
+        <td valign="top" class="ssHeaderTableSide"><div align="right"><table border="0" cellspacing="0" cellpadding="0" class="ssSideTable" width="100%">
+          <tr>
+            <td nowrap class="ssSideTitleCell">Quick Menu</td>
+          </tr>
+          <tr>
+            <td nowrap class="ssSideBodyCell"><a href="#Engine-Delphi-Rai">Alexandre Rai
+            Engine</a></td>
+          </tr>
+          <tr>
+            <td nowrap class="ssSideBodyCell"><a href="#Engine-Delphi-var-der-Geer">Martin
+            van der Geer Engine</a></td>
+          </tr>
+        </table>
+        </div></td>
+      </tr>
+    </table>
+    </div>
+    <div align="center"><center><table border="0" width="100%" cellspacing="0" cellpadding="0" class="ssActiveTable">
+      <tr>
+        <td class="ssActiveTitleCell" colspan="3">Rai Delphi Engine</td>
+      </tr>
+      <tr>
+        <td class="ssActiveSubTitleCell" colspan="3">by Alexandre Rai</td>
+      </tr>
+      <tr>
+        <td class="ssActiveIconCell" nowrap>
+		<img src="../../../images/bullets/bullet-disk.gif" alt="" align="bottom" vspace="2" WIDTH="11" HEIGHT="11"></td>
+        <td class="ssActiveBodyCell" nowrap><a href="rai/rai-delphi-source-d5.zip">Delphi
+        5 Source</a></td>
+        <td class="ssActiveBodyDescCell">Alexandre Rai, implemented the GOLD Parser Engine using
+        Borland's popular Delphi Programming Language. In this version, most of the functions and
+        classes have been reimplemented and the code is designed to be easier to use.<table border="0" cellspacing="0" cellpadding="0" class="ssAboutTable">
+          <tr>
+            <td class="ssAboutCellName">Author:</td>
+            <td class="ssAboutCellValue"><a href="../../../contributors/index.htm">Alexandre Rai</a></td>
+          </tr>
+          <tr>
+            <td class="ssAboutCellName">Language:</td>
+            <td class="ssAboutCellValue">Borland Delphi 5</td>
+          </tr>
+          <tr>
+            <td class="ssAboutCellName">Version:</td>
+            <td class="ssAboutCellValue">1.0</td>
+          </tr>
+          <tr>
+            <td class="ssAboutCellName">Size:</td>
+            <td class="ssAboutCellValue">29 KB</td>
+          </tr>
+        </table>
+        </td>
+      </tr>
+      <tr>
+        <td class="ssActiveIconCell" nowrap>
+		<img src="../../../images/bullets/bullet-disk.gif" alt="" align="bottom" vspace="2" WIDTH="11" HEIGHT="11"></td>
+        <td class="ssActiveBodyCell" nowrap><a href="rai/rai-delphi-source-d3.zip">Delphi
+        3 Source</a></td>
+        <td class="ssActiveBodyDescCell">Alexandre Rai also created a version of the source code
+        using Delphi 3.<table border="0" cellspacing="0" cellpadding="0" class="ssAboutTable">
+          <tr>
+            <td class="ssAboutCellName">Author:</td>
+            <td class="ssAboutCellValue"><a href="../../../contributors/index.htm">Alexandre Rai</a></td>
+          </tr>
+          <tr>
+            <td class="ssAboutCellName">Language:</td>
+            <td class="ssAboutCellValue">Borland Delphi 3</td>
+          </tr>
+          <tr>
+            <td class="ssAboutCellName">Version:</td>
+            <td class="ssAboutCellValue">1.0</td>
+          </tr>
+          <tr>
+            <td class="ssAboutCellName">Size:</td>
+            <td class="ssAboutCellValue">29 KB</td>
+          </tr>
+        </table>
+        </td>
+      </tr>
+      <tr>
+        <td class="ssActiveIconCell" nowrap>
+		<img src="../../../images/bullets/bullet-disk.gif" alt="" align="bottom" vspace="2" WIDTH="11" HEIGHT="11"></td>
+        <td class="ssActiveBodyCell" nowrap><a href="rai/rai-delphi-project-tree-D5.zip">Project:<br>
+        Parse Tree</a></td>
+        <td class="ssActiveBodyDescCell">This project displays a parse tree in text format.<table border="0" cellspacing="0" cellpadding="0" class="ssAboutTable">
+          <tr>
+            <td class="ssAboutCellName">Author:</td>
+            <td class="ssAboutCellValue"><a href="../../../contributors/index.htm">Alexandre Rai</a></td>
+          </tr>
+          <tr>
+            <td class="ssAboutCellName">Language:</td>
+            <td class="ssAboutCellValue">Borland Delphi</td>
+          </tr>
+          <tr>
+            <td class="ssAboutCellName">Version:</td>
+            <td class="ssAboutCellValue">Alpha</td>
+          </tr>
+          <tr>
+            <td class="ssAboutCellName">Size:</td>
+            <td class="ssAboutCellValue">76 KB</td>
+          </tr>
+        </table>
+        </td>
+      </tr>
+    </table>
+    </center></div>
+    <p><a name="Engine-Delphi-var-der-Geer"></a></p>
+    <div align="center"><center><table border="0" width="100%" cellspacing="0" cellpadding="0" class="ssActiveTable">
+      <tr>
+        <td class="ssActiveTitleCell" colspan="3">van der Geer Delphi Engine</td>
+      </tr>
+      <tr>
+        <td class="ssActiveSubTitleCell" colspan="3">by Martin van der Geer</td>
+      </tr>
+      <tr>
+        <td class="ssActiveIconCell" nowrap>
+		<img src="../../../images/bullets/bullet-disk.gif" alt="" align="bottom" vspace="2" WIDTH="11" HEIGHT="11"></td>
+        <td class="ssActiveBodyCell" nowrap><a href="van-der-geer/van-der-geer-delphi-src-v0.2.zip">Delphi Source</a></td>
+        <td class="ssActiveBodyDescCell">Martin van der Geer has ported the Visual Basic 5 source
+        to the popular Delphi® Programming Language. The ZIP file contains all the Delphi source
+        code as well as a Parse Tree sample project.<table border="0" cellspacing="0" cellpadding="0" class="ssAboutTable">
+          <tr>
+            <td class="ssAboutCellName">Author:</td>
+            <td class="ssAboutCellValue"><a href="../../../contributors/index.htm">Martin van der Geer</a></td>
+          </tr>
+          <tr>
+            <td class="ssAboutCellName">Language:</td>
+            <td class="ssAboutCellValue">Borland Delphi</td>
+          </tr>
+          <tr>
+            <td class="ssAboutCellName">Version:</td>
+            <td class="ssAboutCellValue">0.2 Alpha</td>
+          </tr>
+          <tr>
+            <td class="ssAboutCellName">Size:</td>
+            <td class="ssAboutCellValue">76 KB</td>
+          </tr>
+        </table>
+        </td>
+      </tr>
+      <tr>
+        <td class="ssActiveIconCell" nowrap>
+		<img src="../../../images/bullets/bullet-disk.gif" alt="" align="bottom" vspace="2" WIDTH="11" HEIGHT="11"></td>
+        <td class="ssActiveBodyCell" nowrap><a href="van-der-geer/ibrahim-van-der-geer-modifications.zip">Delphi Source<br>
+        <small>(Modified)</small></a></td>
+        <td class="ssActiveBodyDescCell">This is modified version of the Delphi source code
+        written by&nbsp; <a href="mailto:Beany@cloud.demon.nl">Martin van der Geer</a>. All
+        modified versions have been marked with //IBRAHIM.<table border="0" cellspacing="0" cellpadding="0" class="ssAboutTable">
+          <tr>
+            <td class="ssAboutCellName">Author:</td>
+            <td class="ssAboutCellValue"><a href="../../../contributors/index.htm">Ibrahim Khachab</a></td>
+          </tr>
+          <tr>
+            <td class="ssAboutCellName">Language:</td>
+            <td class="ssAboutCellValue">Borland Delphi</td>
+          </tr>
+          <tr>
+            <td class="ssAboutCellName">Version:</td>
+            <td class="ssAboutCellValue">Modified version of <a href="../../../contributors/index.htm">Martin
+            van der Geer</a>'s source code</td>
+          </tr>
+          <tr>
+            <td class="ssAboutCellName">Size:</td>
+            <td class="ssAboutCellValue">76 KB</td>
+          </tr>
+        </table>
+        </td>
+      </tr>
+      <tr>
+        <td class="ssActiveIconCell" nowrap>
+		<img src="../../../images/bullets/bullet-disk.gif" alt="" align="bottom" vspace="2" WIDTH="11" HEIGHT="11"></td>
+        <td class="ssActiveBodyCell" nowrap><a href="van-der-geer/van-der-geer-delphi-project-tree.zip">Project:<br>
+        Parse Tree</a></td>
+        <td class="ssActiveBodyDescCell">This is a simple project which loads a Compiled Grammar
+        Table file and draws a parse tree for a given input string. An example grammar
+        called&nbsp; &quot;Simple&quot;&nbsp; is included. The ZIP file contains all the Delphi
+        GOLD Parser Engine source code and a compiled exe.<table border="0" cellspacing="0" cellpadding="0" class="ssAboutTable">
+          <tr>
+            <td class="ssAboutCellName">Author:</td>
+            <td class="ssAboutCellValue"><a href="../../../contributors/index.htm">Martin van der Geer</a></td>
+          </tr>
+          <tr>
+            <td class="ssAboutCellName">Language:</td>
+            <td class="ssAboutCellValue">Borland Delphi</td>
+          </tr>
+          <tr>
+            <td class="ssAboutCellName">Version:</td>
+            <td class="ssAboutCellValue">Alpha</td>
+          </tr>
+          <tr>
+            <td class="ssAboutCellName">Size:</td>
+            <td class="ssAboutCellValue">76 KB</td>
+          </tr>
+        </table>
+        </td>
+      </tr>
+    </table>
+    </center></div><p>&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

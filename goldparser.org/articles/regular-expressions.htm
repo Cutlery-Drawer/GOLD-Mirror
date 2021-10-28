@@ -1,0 +1,273 @@
+<html>
+
+<head>
+<meta NAME="GENERATOR" Content="Microsoft FrontPage 12.0">
+<meta http-equiv="X-UA-Compatible" content="IE=9">
+
+<link REL="STYLESHEET" HREF="../gold-parser-style.css">
+<title>GOLD Parsing System - Regular Expressions</title>
+</head>
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%" class="ssMainContentTop">
+  <tr>
+    <td valign="top" class="ssMainTitleCell" colspan="2" height="110"><table border="0" cellspacing="0" cellpadding="0" class="ssTitleTable">
+      <tr>
+        <td class="ssTitleLogoCell" rowspan="2"><img src="../images/gold-logo-v4-100.png" alt="The Tower Bridge in Sacramento, California" WIDTH="100" HEIGHT="100"></td>
+        <td class="ssTitleTopicCell" nowrap>Parsing Concepts</td>
+        <td class="ssTitleGraphicCell" rowspan="2"><img src="../images/pic-title-graphic.png" WIDTH="200" HEIGHT="110"></td>
+      </tr>
+      <tr>
+        <td class="ssTitleDescCell">Regular Expressions</td>
+      </tr>
+    </table>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" class="ssMainContentTop" colspan="2"></td>
+  </tr>
+  <tr valign="top">
+    <td valign="top" align="center" class="ssMainMenuCell" width="150"><table class="ssMenuTable" border="0" cellspacing="0">
+      <tr>
+        <td valign="bottom" class="ssMenuTitleCell" colspan="2">
+		<a href="../index.htm">Main</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../images/bullets/bullet-news.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell"><a href="../news/index.htm">Latest News</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../images/bullets/bullet-getting-started.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a target="_top" href="../getting-started/index.htm">Getting
+        Started</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell">
+		<img src="../images/bullets/bullet-picture.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a href="../builder/screenshots.htm">Screen Shots</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../images/bullets/bullet-disk.gif" border="0" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a href="../download.htm" target="_top">Download</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../images/bullets/bullet-help.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell"><a href="../doc/index.htm">Documentation</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../images/bullets/bullet-contributor.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a target="_top" href="../contributors/index.htm">Contributors</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../images/bullets/bullet-contact.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a target="_top" href="../contact.htm">Contact</a></td>
+      </tr>
+    </table>
+    <table class="ssMenuTable" border="0" cellspacing="0">
+      <tr>
+        <td valign="bottom" class="ssMenuTitleCell" colspan="2">
+		<a href="../about/index.htm">About GOLD</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../images/bullets/bullet-information.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a href="../about/how-it-works.htm" target="_top">How
+        It Works</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../images/bullets/bullet-information.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a href="../about/faq.htm" target="_top">FAQ</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../images/bullets/bullet-information.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a target="_top" href="../about/why-use-gold.htm">Why
+        Use GOLD?</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../images/bullets/bullet-information.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a href="../about/comparison-parsers.htm" target="_top">Comparison</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../images/bullets/bullet-information.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a href="../about/revision-history.htm" target="_top">Revision History</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../images/bullets/bullet-information.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a target="_top" href="../about/license.htm">Freeware
+        License</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../images/bullets/bullet-information.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a target="_top" href="../about/index.htm">More ...</a></td>
+      </tr>
+    </table>
+    <div align="center"><center><table border="0" class="ssMenuTable" cellspacing="0" cellpadding="0">
+      <tr>
+        <td valign="bottom" class="ssMenuTitleCell" colspan="2">
+		<a href="index.htm">Articles</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../images/bullets/bullet-article.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a target="_top" href="parser.htm">What
+        is a Parser?</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../images/bullets/bullet-article.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell"><a href="bnf.htm">Backus-Naur Form</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../images/bullets/bullet-article.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell"><a href="dfa.htm">DFA Lexer</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../images/bullets/bullet-article.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell"><a href="lalr.htm">LALR Parsing</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../images/bullets/bullet-article.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell"><a href="glossary.htm">Glossary</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../images/bullets/bullet-article.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a target="_top" href="links.htm">Links</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../images/bullets/bullet-article.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a target="_top" href="index.htm">More
+        ...</a></td>
+      </tr>
+    </table>
+    </center></div><p><br>
+    </p>
+    <p align="center">
+	<img src="../images/spacer-150.gif" border="0" WIDTH="150" HEIGHT="4"></td>
+    <td valign="top" class="ssMainContentCell" align="center"><h1>Regular Expressions</h1>
+    <p>A Regular Expression is a simple, yet powerful, notation that is used to represent
+    simple patterns. They are used extensively in programming language theory. In particular,
+    Regular Expressions are used to describe the &quot;terminals&quot; of a programming
+    language. The term &quot;terminal&quot; refers to the reserved words, symbols, literals,
+    identifiers, etc... which are the basic components of a programming language. </p>
+    <p>When a program is analyzed, the text is chopped into different logical units by the
+    tokenizer. The tokenizer produces a number of &quot;tokens&quot; which contain the same
+    information as the original program. Of course, the tokenizer has the ability to ignore
+    information such as comments. While terminals are used to represent the classification of
+    information, tokens contain the actual information. Essentially, the category of token is
+    its associated terminal. </p>
+    <p>Regular expressions are used to describe these kind of patterns. The notation consists
+    of expressions constructed from a series of characters. Sub-expressions are delimited by
+    using parenthesis '(' and ')'. The vertical-bar character '|' is used to denote alternate
+    expressions. Any of these items, can be followed by a special character that specifies the
+    number that can appear in sequence.</p>
+      <table cellspacing="0" cellpadding="3" border="0" class="ssCodeTable">
+          <tr>
+          <td width="32" valign="middle" align="center" class="ssCodeTableColumn">
+		  Symbol</td>
+          <td valign="middle" class="ssCodeTableColumn">Meaning</td>
+          </tr>
+        <tr>
+          <td width="32" valign="middle" align="center" class="ssCodeTableBody"><img src="../images/asterisk-16x16.gif" WIDTH="16" HEIGHT="16"></td>
+          <td valign="middle" class="ssCodeTableBodyDesc">Kleene Closure. This symbol denotes 0 or more
+          or the specified character(s)</td>
+        </tr>
+        <tr>
+          <td width="32" valign="middle" align="center" class="ssCodeTableBody"><img src="../images/plus-16x16.gif" WIDTH="16" HEIGHT="16"></td>
+          <td valign="middle" class="ssCodeTableBodyDesc">One or more. This symbol denotes 1 or more of
+          the specified character(s) </td>
+        </tr>
+        <tr>
+          <td width="32" valign="middle" align="center" class="ssCodeTableBody"><img src="../images/question-16x16.gif" WIDTH="16" HEIGHT="16"></td>
+          <td valign="middle" class="ssCodeTableBodyDesc">Optional. This symbol denotes 0 or 1 of the
+          specified character(s) </td>
+        </tr>
+      </table>
+    <p>Many scanner (lexer) generators and parsing systems have expanded the notation to
+    include set literals and sometimes named sets. In the case of Lex, literal sets of
+    characters are delimited using the square brackets '[' and ']' and named sets are
+    delimited by the braces '{' and '}'. For instance, the text &quot;[abcde]&quot; denotes a
+    set of characters consisting of the first five letters of the alphabet while the text
+    &quot;{abc}&quot; refers to a set named &quot;abc&quot;. This type of notation permits a
+    short-cut notation for regular expressions. The expression (a|b|c)+ can be defined as
+    [abc]+ . </p>
+    <h1>Examples</h1>
+     <table cellspacing="0" cellpadding="0" border="0" class="ssCodeTable">
+         <tr>
+          <td width="32" valign="middle" align="center" class="ssCodeTableColumn">
+		  Defintion</td>
+          <td valign="middle" class="ssCodeTableColumn">Possible Terminals</td>
+         </tr>
+      <tr>
+        <td nowrap valign="top" align="left" class="ssCodeTableBody">Example1 = abc*</td>
+        <td valign="top" align="left" class="ssCodeTableBody" style="white-space: normal">ab, abc, abcc, abccc, abcccc, ...</td>
+      </tr>
+      <tr>
+        <td nowrap valign="top" align="left" class="ssCodeTableBody">Example2 = ab?c</td>
+        <td valign="top" align="left" class="ssCodeTableBody" style="white-space: normal">abc, ac</td>
+      </tr>
+      <tr>
+        <td nowrap valign="top" align="left" class="ssCodeTableBody">Example3 = a|b|c</td>
+        <td valign="top" align="left" class="ssCodeTableBody" style="white-space: normal">a, b, c </td>
+      </tr>
+      <tr>
+        <td nowrap valign="top" align="left" class="ssCodeTableBody">Example4 = a[12]*b</td>
+        <td valign="top" align="left" class="ssCodeTableBody" style="white-space: normal">ab, a1b, a2b, a12b, a21b, a22b,
+        a111b, ...</td>
+      </tr>
+      <tr>
+        <td nowrap valign="top" align="left" class="ssCodeTableBody">Example5 = '*'+</td>
+        <td valign="top" align="left" class="ssCodeTableBody" style="white-space: normal">*, **, ***, ****, ...</td>
+      </tr>
+      <tr>
+        <td nowrap valign="top" align="left" class="ssCodeTableBody">Example6 = {Letter}+</td>
+        <td valign="top" align="left" class="ssCodeTableBody" style="white-space: normal">cat, dog, Sacramento, ...</td>
+      </tr>
+      <tr>
+        <td nowrap valign="top" align="left" class="ssCodeTableBody">ListFunction = c[ad]+r</td>
+        <td valign="top" align="left" class="ssCodeTableBody" style="white-space: normal">car, cdr, caar, cadr, cdar, cddr,
+        caaar, ...</td>
+      </tr>
+      <tr>
+        <td nowrap valign="top" align="left" class="ssCodeTableBody">ListFunction = c(a|d)+r</td>
+        <td valign="top" align="left" class="ssCodeTableBody" style="white-space: normal">The same as the above using a
+        different, yet equivalent, regular expression.</td>
+      </tr>
+    </table>
+    <p>&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

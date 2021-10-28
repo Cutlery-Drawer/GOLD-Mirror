@@ -1,0 +1,61 @@
+<html>
+
+<head>
+<title>Example: Lists</title>
+<link REL="STYLESHEET" HREF="../gold-parser-doc-style.css">
+</head>
+
+<body class="ssMainPage">
+
+<h1>Example: Lists</h1>
+
+<h2>Comma Delimited</h2>
+
+<p>The following declaration defines a list of identifiers where commas are used to
+separate list items. The last item in the list will not be followed by a comma. This
+definition does not allow the list to be completely empty.</p>
+
+<table class="ssCodeTable">
+  <tr>
+    <td width="100%" nowrap class="ssCodeTableBody">Identifier = {Letter}{Alphanumeric}*<p>&lt;List&gt;
+    ::= &lt;List&gt; ',' &lt;List Item&gt;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp; &lt;List Item&gt;</p>
+    <p>&lt;List Item&gt; ::= Identifier</td>
+  </tr>
+</table>
+
+<h2>Statement List</h2>
+
+<p>The following declaration defines a list of &quot;Statements&quot; where each
+&lt;Statement&gt; will be followed by a semicolon. Unlike the example above, the last item
+in the list will be followed by the symbol. However, since the &lt;List&gt; rule is
+nullable (the blank line), the list can be completely empty.</p>
+
+<table class="ssCodeTable">
+  <tr>
+    <td width="100%" nowrap class="ssCodeTableBody">Identifier = {Letter}{Alphanumeric}*<p>&lt;List&gt;
+    ::= &lt;List&gt; &lt;Statement&gt; ';' <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| </p>
+    <p>&lt;Statement&gt; ::= print '(' Identifier ')' <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | read '('
+    Identifier ')'&nbsp; </td>
+  </tr>
+</table>
+
+<h2>Statement List (1 or more members)</h2>
+
+<p>This is a declaration identical to the example above, except the list must contain at <em>least</em>
+one item.</p>
+
+<table class="ssCodeTable">
+  <tr>
+    <td width="100%" nowrap class="ssCodeTableBody">Identifier = {Letter}{Alphanumeric}*<p>&lt;List&gt;
+    ::= &lt;List&gt; &lt;Statement&gt; ';' <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | &lt;Statement&gt; ';' </p>
+    <p>&lt;Statement&gt; ::= print '(' Identifier ')'<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | read '('
+    Identifier ')'</td>
+  </tr>
+</table>
+</body>
+</html>

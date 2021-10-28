@@ -1,0 +1,118 @@
+<html>
+
+<head>
+<link REL="STYLESHEET" HREF="../gold-parser-doc-style.css">
+<title>Program: Create Skeleton Program</title>
+</head>
+
+<body class="ssMainPage">
+
+<h1>Create Webpage</h1>
+
+<h2>Format</h2>
+
+<table class="ssCodeTable" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="ssCodeTableBody" valign="bottom" nowrap>
+	<span class="ssCodeReservedSymbol">goldwebpage</span> Table-file 
+	Color-Scheme-File [Target-File] [Options]</td>
+  </tr>
+</table>
+
+<h2>Overview</h2>
+
+<p>This program will create a webpage based on the content of Enhanced Grammar 
+Table file (or CGT) and automatically generate a webpage. It is not as 
+functional as the utility in the Windows application. Much of the meta-data that 
+is used to create a list of reserved words and LALR lookahead data are not saved 
+in the table file.</p>
+
+<h2>Details</h2>
+
+<table width="100%" class="ssChartTable" cellspacing="0" cellpadding="0" border="0">
+  <tr>
+    <td valign="top" class="ssChartTableColumn" nowrap>Field</td>
+    <td valign="top" class="ssChartTableColumn" nowrap>Values</td>
+    <td class="ssChartTableColumn" valign="top">Description</td>
+  </tr>
+  <tr>
+    <td valign="top" class="ssChartTableBodyItem" nowrap>Table-File</td>
+    <td valign="top" class="ssChartTableBodyItem" nowrap>&nbsp;</td>
+    <td class="ssChartTableBodyDesc" valign="top">Required. This can be either a 
+	CGT or EGT file.</td>
+  </tr>
+  <tr>
+    <td valign="top" class="ssChartTableBodyItem" nowrap>Color-Scheme-File</td>
+    <td valign="top" class="ssChartTableBodyItem" nowrap>&nbsp;</td>
+    <td class="ssChartTableBodyDesc" valign="top">Required. Color schemes are 
+	stored in .ini files. </td>
+  </tr>
+    <tr>
+    <td valign="top" class="ssChartTableBodyItem" nowrap>Target-File</td>
+    <td valign="top" class="ssChartTableBodyItem" nowrap>&nbsp;</td>
+    <td class="ssChartTableBodyDesc" valign="top">Optional. If this field is left blank, the
+    program will automatically create a filename using the EGT filename. The new
+    filename will contain the same base, but will have the extension .htm. For 
+	example, test.egt will create test.htm.</td>
+    </tr>
+    <tr>
+    <td valign="top" class="ssChartTableBodyItem" nowrap>Options</td>
+    <td valign="top" class="ssChartTableBodyItem" nowrap>+groups,<br>-groups</td>
+    <td class="ssChartTableBodyDesc" valign="top">If this flag is set to true, 
+	the program will output progress text to the screen as well as error 
+	messages. If set to false, no output will be generated. It defaults to true.</td>
+    </tr>
+	<tr>
+    <td valign="top" class="ssChartTableBodyItem" nowrap style="height: 25px"></td>
+    <td valign="top" class="ssChartTableBodyItem" nowrap style="height: 25px">
+	+syntax,<br>-syntax</td>
+    <td class="ssChartTableBodyDesc" valign="top" style="height: 25px">Output 
+	the syntax of the language. Defaults to true.</td>
+    </tr>
+	<tr>
+    <td valign="top" class="ssChartTableBodyItem" nowrap>&nbsp;</td>
+    <td valign="top" class="ssChartTableBodyItem" nowrap>+bnf,<br>-bnf</td>
+    <td class="ssChartTableBodyDesc" valign="top">If the syntax is outputted, 
+	this flag will control whether it will be displayed in Backus-Naur Form 
+	(like in the grammars) or italics (if false). Defaults to false.</td>
+    </tr>
+	<tr>
+    <td valign="top" class="ssChartTableBodyItem" nowrap>&nbsp;</td>
+    <td valign="top" class="ssChartTableBodyItem" nowrap>+indent,<br>-indent</td>
+    <td class="ssChartTableBodyDesc" valign="top">If the syntax is outputted, 
+	this flag will control whether will have a uniform indentation. Defaults to 
+	true.</td>
+    </tr>
+	<tr>
+    <td valign="top" class="ssChartTableBodyItem" nowrap>&nbsp;</td>
+    <td valign="top" class="ssChartTableBodyItem" nowrap>+tables,<br>-tables</td>
+    <td class="ssChartTableBodyDesc" valign="top">Output the basic tables as: 
+	Symbols, Groups, Productions.... Defaults to false.</td>
+    </tr>
+	<tr>
+    <td valign="top" class="ssChartTableBodyItem" nowrap>&nbsp;</td>
+    <td valign="top" class="ssChartTableBodyItem" nowrap>+dfa,<br>-dfa</td>
+    <td class="ssChartTableBodyDesc" valign="top">Output the DFA States. 
+	Defaults to false.</td>
+    </tr>
+	<tr>
+    <td valign="top" class="ssChartTableBodyItem" nowrap>&nbsp;</td>
+    <td valign="top" class="ssChartTableBodyItem" nowrap>+lalr,<br>-lalr</td>
+    <td class="ssChartTableBodyDesc" valign="top">Output the LALR States. 
+	Defaults to false.</td>
+    </tr>
+</table>
+
+<p>&nbsp;</p>
+<table cellpadding="4" cellspacing="0">
+	<tr>
+		<td valign="top"><b>Note:</b></td>
+		<td valign="top">If you prefer, you can use the common
+		<span class="CodeInline">/</span> character for designating options. The 
+		slash will be interpreted as a <span class="CodeInline">+</span>.&nbsp; 
+		So, <span class="CodeInline">+syntax</span> can be specified as
+		<span class="CodeInline">/syntax</span>.</td>
+	</tr>
+</table>
+</body>
+</html>

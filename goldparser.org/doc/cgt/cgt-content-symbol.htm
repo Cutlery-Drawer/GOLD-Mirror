@@ -1,0 +1,106 @@
+<html>
+
+<head>
+<title>File Content: Symbols</title>
+<link REL="STYLESHEET" HREF="../gold-parser-doc-style.css">
+</head>
+
+<body class="ssMainPage">
+
+<h1>File Content: Symbols</h1>
+
+<h2>Structure</h2>
+
+<p><img src="images/diagram-cgt-symbol.gif" WIDTH="239" HEIGHT="72"></p>
+
+<p>Each record describing a symbol in the Symbol Table is preceded by a byte containing
+the value 83 - the ASCII value of &quot;S&quot;. The file will contain one of these
+records for each symbol in the grammar. The <a href="cgt-content-table-counts.htm">Table
+Count</a> record, which precedes any symbol records, will contain the total number of
+symbols.</p>
+
+<h2>Fields</h2>
+
+<table class="ssChartTable" cellspacing="0" cellpadding="0">
+  <tr>
+    <th class="ssChartTableColumn">Item</th>
+    <th class="ssChartTableColumn">Type</th>
+    <th class="ssChartTableColumn">Description</th>
+  </tr>
+  <tr>
+    <td valign="top" class="ssChartTableBodyItem">Index</td>
+    <td valign="top" class="ssChartTableBodyDesc">Integer</td>
+    <td class="ssChartTableBodyDesc">This parameter holds the index of the symbol in the
+    Symbol Table. The symbol should be stored directly at this Index.</td>
+  </tr>
+  <tr>
+    <td valign="top" class="ssChartTableBodyItem">Name</td>
+    <td valign="top" class="ssChartTableBodyDesc">String</td>
+    <td class="ssChartTableBodyDesc">The name of the symbol is stored as a Unicode string.</td>
+  </tr>
+  <tr>
+    <td valign="top" class="ssChartTableBodyItem">Kind</td>
+    <td valign="top" class="ssChartTableBodyDesc">Integer</td>
+    <td class="ssChartTableBodyDesc">This number denotes the kind (or type) of the
+    symbol.&nbsp; The description of each constant is described below:</td>
+  </tr>
+</table>
+
+<h2>Symbol 'Kind' Constants</h2>
+<div align="center"><center>
+
+<table class="ssChartTable" cellspacing="0" cellpadding="0">
+  <tr>
+    <th class="ssChartTableColumn">Value</th>
+    <th class="ssChartTableColumn">Name</th>
+    <th class="ssChartTableColumn">Description</th>
+  </tr>
+  <tr>
+    <td valign="top" class="ssChartTableBodyItem">0</td>
+    <td valign="top" class="ssChartTableBodyDesc">SymbolTypeNonterminal</td>
+    <td valign="top" class="ssChartTableBodyDesc">Normal Nonterminal</td>
+  </tr>
+  <tr>
+    <td valign="top" class="ssChartTableBodyItem">1</td>
+    <td valign="top" class="ssChartTableBodyDesc">SymbolTypeTerminal</td>
+    <td valign="top" class="ssChartTableBodyDesc">Normal Terminal</td>
+  </tr>
+  <tr>
+    <td valign="top" class="ssChartTableBodyItem">2</td>
+    <td valign="top" class="ssChartTableBodyDesc">SymbolTypeWhitespace</td>
+    <td valign="top" class="ssChartTableBodyDesc">Whitespace Terminal</td>
+  </tr>
+  <tr>
+    <td valign="top" class="ssChartTableBodyItem">3</td>
+    <td valign="top" class="ssChartTableBodyDesc">SymbolTypeEnd</td>
+    <td valign="top" class="ssChartTableBodyDesc">End Character - End of File. This symbol is
+    used to represent the end of the file or the end of the source input.</td>
+  </tr>
+  <tr>
+    <td valign="top" class="ssChartTableBodyItem">4</td>
+    <td valign="top" class="ssChartTableBodyDesc">SymbolTypeCommentStart</td>
+    <td valign="top" class="ssChartTableBodyDesc">Start of a block quote</td>
+  </tr>
+  <tr>
+    <td valign="top" class="ssChartTableBodyItem">5</td>
+    <td valign="top" class="ssChartTableBodyDesc">SymbolTypeCommentEnd </td>
+    <td valign="top" class="ssChartTableBodyDesc">End of a block quote</td>
+  </tr>
+  <tr>
+    <td valign="top" class="ssChartTableBodyItem">6</td>
+    <td valign="top" class="ssChartTableBodyDesc">SymbolTypeCommentLine</td>
+    <td valign="top" class="ssChartTableBodyDesc">Line Comment Terminal</td>
+  </tr>
+  <tr>
+    <td valign="top" class="ssChartTableBodyItem">7</td>
+    <td valign="top" class="ssChartTableBodyDesc">SymbolTypeError</td>
+    <td valign="top" class="ssChartTableBodyDesc">Error Terminal. If the parser encounters an
+    error reading a token, this kind of symbol can used to differentiate it from other
+    terminal types.</td>
+  </tr>
+</table>
+</center></div>
+
+<p>&nbsp;</p>
+</body>
+</html>

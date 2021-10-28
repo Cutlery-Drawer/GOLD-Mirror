@@ -1,0 +1,266 @@
+<html>
+
+<head>
+<meta NAME="GENERATOR" Content="Microsoft FrontPage 12.0">
+<meta http-equiv="X-UA-Compatible" content="IE=9">
+
+<link REL="STYLESHEET" HREF="../../../gold-parser-style.css">
+<title>GOLD Parsing System - Engine - C# Programming Language</title>
+</head>
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%" class="ssMainContentTop">
+  <tr>
+    <td valign="top" class="ssMainTitleCell" colspan="2" height="110"><table border="0" cellspacing="0" cellpadding="0" class="ssTitleTable">
+      <tr>
+        <td class="ssTitleLogoCell" rowspan="2"><img src="../../../images/gold-logo-v4-100.png" alt="The Tower Bridge in Sacramento, California" WIDTH="100" HEIGHT="100"></td>
+        <td class="ssTitleTopicCell">Original GOLD Engine </td>
+        <td class="ssTitleGraphicCell" rowspan="2"><img src="../../../images/pic-title-graphic.png" WIDTH="200" HEIGHT="110"></td>
+      </tr>
+      <tr>
+        <td class="ssTitleDescCell">.NET Programming Languages</td>
+      </tr>
+    </table>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" class="ssMainContentTop" colspan="2" style="height: 16px"></td>
+  </tr>
+  <tr valign="top">
+    <td valign="top" align="center" class="ssMainMenuCell" width="150"><table class="ssMenuTable" border="0" cellspacing="0">
+      <tr>
+        <td valign="bottom" class="ssMenuTitleCell" colspan="2">
+		<a href="../../../index.htm">Main</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../../images/bullets/bullet-news.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell"><a href="../../../news/index.htm">Latest News</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../../images/bullets/bullet-getting-started.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a target="_top" href="../../../getting-started/index.htm">Getting
+        Started</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell">
+		<img src="../../../images/bullets/bullet-picture.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a href="../../../builder/screenshots.htm">Screen Shots</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../../images/bullets/bullet-disk.gif" border="0" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a href="../../../download.htm" target="_top">Download</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../../images/bullets/bullet-help.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell"><a href="../../../doc/index.htm">Documentation</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../../images/bullets/bullet-contributor.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a target="_top" href="../../../contributors/index.htm">Contributors</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../../images/bullets/bullet-contact.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a target="_top" href="../../../contact.htm">Contact</a></td>
+      </tr>
+    </table>
+    <table class="ssMenuTable" border="0" cellspacing="0">
+      <tr>
+        <td valign="bottom" class="ssMenuTitleCell" colspan="2">
+		<a href="../../../about/index.htm">About GOLD</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../../images/bullets/bullet-information.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a href="../../../about/how-it-works.htm" target="_top">How
+        It Works</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../../images/bullets/bullet-information.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a href="../../../about/faq.htm" target="_top">FAQ</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../../images/bullets/bullet-information.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a target="_top" href="../../../about/why-use-gold.htm">Why
+        Use GOLD?</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../../images/bullets/bullet-information.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a href="../../../about/comparison-parsers.htm" target="_top">Comparison</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../../images/bullets/bullet-information.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a href="../../../about/revision-history.htm" target="_top">Revision History</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../../images/bullets/bullet-information.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a target="_top" href="../../../about/license.htm">Freeware
+        License</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../../images/bullets/bullet-information.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a target="_top" href="../../../about/index.htm">More ...</a></td>
+      </tr>
+    </table>
+    <div align="center"><center><table border="0" class="ssMenuTable" cellspacing="0" cellpadding="0">
+      <tr>
+        <td valign="bottom" class="ssMenuTitleCell" colspan="2">
+		<a href="../../../articles/index.htm">Articles</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../../images/bullets/bullet-article.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a target="_top" href="../../../articles/parser.htm">What
+        is a Parser?</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../../images/bullets/bullet-article.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a href="../../../articles/bnf.htm">Backus-Naur Form</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../../images/bullets/bullet-article.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a href="../../../articles/dfa.htm">DFA Lexer</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../../images/bullets/bullet-article.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a href="../../../articles/lalr.htm">LALR Parsing</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../../images/bullets/bullet-article.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a href="../../../articles/glossary.htm">Glossary</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../../images/bullets/bullet-article.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a target="_top" href="../../../articles/links.htm">Links</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../../../images/bullets/bullet-article.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a target="_top" href="../../../articles/index.htm">More
+        ...</a></td>
+      </tr>
+    </table>
+    </center></div><p><br>
+    </p>
+    <p align="center">
+	<img src="../../../images/spacer-150.gif" border="0" WIDTH="150" HEIGHT="4"></td>
+    <td valign="top" class="ssMainContentCell" align="center"><div align="left"><table border="0" width="100%" cellspacing="0" cellpadding="0" class="ssHeaderTable">
+      <tr>
+        <td valign="top" class="ssHeaderTableText">
+		.NET is a 
+		technology developed by the <a href="http://www.microsoft.com">Microsoft 
+		Corporation</a> for cross-language interoperability. The .NET Languages are 
+		not directly compiled, but, instead, translated to an intermediary 
+		language called MSIL (<u>M</u>icro<u>s</u>oft <u>I</u>ntermediate <u>L</u>anguage).&nbsp; 
+		In turn, MSIL concisely describes the program's data types, access 
+		rights, and logic to the Common Language Runtime (CLR).<p>In short, the 
+		.NET Framework allows components developed in different programming 
+		languages to be used together.</p>
+        <p><img src="../../../images/inline-link.gif" hspace="5" align="absmiddle" WIDTH="5" HEIGHT="9"><a target="_blank" href="http://www.microsoft.com/net/">Microsoft 
+		.NET Homepage</a></td>
+        <td valign="top" class="ssHeaderTableGraphic">
+		<img alt="Microsoft .NET" height="55" src="../../../images/logos/logo-dot-net.png" style="float: none" width="100"></td>
+      </tr>
+    </table>
+    </div>
+	<h1>.NET Engines</h1>
+	<p>There are a currently five different engines available to use in your 
+	project.</p>
+	<ul>
+		<li><a href="von-wyss/index.htm">BSN Engine</a></li>
+		<li><a href="van-loenhout/index.htm">Calitha Engine</a></li>
+		<li><a href="klimstra/index.htm">Klimstra Engine</a></li>
+		<li><a href="morozov/index.htm">Morozov Engine</a></li>
+		<li><a href="klimstra/index.htm">Wilbanks Engine</a><br></li>
+	</ul>
+	<h1>Template Support</h1>
+	<p>Many of the .NET engines contain program templates that can create a nice 
+	skeleton program. You don't need a program template to create a project, but 
+	it does make things a tad easier.</p>
+    <p><a name="Engine-CSharp-Morozov"></a>
+	<table cellpadding="0" cellspacing="0" class="ssActiveTable" style="width: 100%">
+		<tr>
+			<td class="ssActiveTitleCell" colspan="4">Templates</td>
+		</tr>
+		<tr>
+			<td class="ssActiveColumnCell">&nbsp;</td>
+			<td style="width: 20%" class="ssActiveColumnCell">C#</td>
+			<td style="width: 20%" class="ssActiveColumnCell">Visual Basic .NET</td>
+			<td style="width: 20%" class="ssActiveColumnCell">F#</td>
+		</tr>
+		<tr>
+			<td class="ssActiveBodyCell"><a href="von-wyss/index.htm">BSN Engine</a></td>
+			<td colspan="3" class="ssActiveBodyCell">Uses an alternative approach</td>
+			</tr>
+		<tr>
+			<td class="ssActiveBodyCell"><a href="van-loenhout/index.htm">Calitha Engine</a></td>
+			<td style="width: 20%" class="ssActiveBodyCell">
+			<img src="../../../images/pic-yes-16x16.gif" WIDTH="16" HEIGHT="16"></td>
+			<td style="width: 20%" class="ssActiveBodyCell">&nbsp;</td>
+			<td style="width: 20%" class="ssActiveBodyCell">
+			<img src="../../../images/pic-yes-16x16.gif" WIDTH="16" HEIGHT="16"></td>
+		</tr>
+		<tr>
+			<td class="ssActiveBodyCell"><a href="klimstra/index.htm">Klimstra Engine</a></td>
+			<td style="width: 20%" class="ssActiveBodyCell">&nbsp;</td>
+			<td style="width: 20%" class="ssActiveBodyCell">
+			<img src="../../../images/pic-yes-16x16.gif" WIDTH="16" HEIGHT="16">&nbsp;</td>
+			<td style="width: 20%" class="ssActiveBodyCell">&nbsp;</td>
+		</tr>
+		<tr>
+			<td class="ssActiveBodyCell"><a href="morozov/index.htm">Morozov Engine</a></td>
+			<td style="width: 20%" class="ssActiveBodyCell">
+			<img src="../../../images/pic-yes-16x16.gif" WIDTH="16" HEIGHT="16"></td>
+			<td style="width: 20%" class="ssActiveBodyCell">&nbsp;</td>
+			<td style="width: 20%" class="ssActiveBodyCell">&nbsp;</td>
+		</tr>
+		<tr>
+			<td class="ssActiveBodyCell"><a href="klimstra/index.htm">Wilbanks Engine</a></td>
+			<td style="width: 20%" class="ssActiveBodyCell">&nbsp;</td>
+			<td style="width: 20%" class="ssActiveBodyCell">&nbsp;</td>
+			<td style="width: 20%" class="ssActiveBodyCell">&nbsp;</td>
+		</tr>
+		</table>
+	</p>
+	<p>&nbsp;</p>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,278 @@
+<html>
+
+<head>
+<title>Block Comments</title>
+<link REL="STYLESHEET" HREF="../gold-parser-doc-style.css">
+<style type="text/css">
+
+.ssCodeText    {font-family: "Courier New", Courier, monospace; font-weight: bold;}
+
+
+.ssCodeHighlight
+{
+  background-color: #FFB0B0;
+  color: #A00000;
+}
+
+
+</style>
+</head>
+
+<body class="ssMainPage">
+
+<h1>Block Comments</h1>
+
+	<h2>Overview</h2>
+	<p>The block comments used by programming language have two major 
+	properties that affect how data is read and interpreted. These properties 
+	are defined by the programming language spec and may not be immediately 
+	visible by inspecting the language's syntax.</p>
+	<p>First, the most obvious feature of block comment is whether the language 
+	permits them to be nested. When a block comment allows nesting, each 
+	embedded block comment is read as a whole. Otherwise, the block comment will 
+	end when the first, and only, end symbol is encountered.</p>
+	<p>The second property of block comments involves how data will be 
+	interpreted inside the comment.&nbsp; The text can be looked as a series of 
+	meaningless characters or the as series of tokens. This can affect how text, 
+	embedded in terminals such as string literals, will be interpreted by the 
+	lexer.</p>
+	<table cellpadding="8" cellspacing="0">
+		<tr>
+			<td valign="top">
+    		<table border="0" cellspacing="0" cellpadding="0" class="ssCodeTable">
+      		    <tr>
+        		    <td width="100%" class="ssCodeTableBody">
+				    <span style="padding: 0">printf(&quot;Comment below&quot;);<br>
+		<br></span>
+					/*<br>&nbsp;&nbsp; printf(&quot;*/ Test /*&quot;);<br>
+					&nbsp;&nbsp; / * Nested comment */<br>
+					*/<br>printf(&quot;Done&quot;);</td>
+      </tr>
+    </table>
+    		</td>
+			<td>
+			<p>For the following examples, the sample code to the left will be 
+			used.&nbsp;&nbsp; </p>
+			<p>Even though this appears to be C code, please don't instinctively 
+			apply the behavior of C comments. The syntax (and function names) is 
+			based on C since it will be familiar to most programmers. For those 
+			not familiar with C, the symbol <span class="ssCodeText">/*</span> 
+			is used to create a block comment. The symbol <span class="ssCodeText">
+			*/</span>  is used to end it.</p>
+			<p>Notice that the printf function contains a string literal 
+			containing these two symbols. The different group attributes will 
+			have a profound effect on how the text will be parsed.</p>
+			</td>
+		</tr>
+		</table>
+			<h2>Examples</h2>
+	<table cellpadding="8" cellspacing="0">
+		<tr>
+			<td valign="top">
+
+    <table border="0" cellspacing="0" cellpadding="0" class="ssCodeTable">
+      <tr>
+        <td class="ssCodeTableHeader" width="100%">Character Unnested</td>
+      </tr>
+      <tr>
+        <td width="100%" class="ssCodeTableBody">
+		<span style="padding: 0">printf(&quot;Comment below&quot;);<br>
+		<br><span class="ssCodeHighlight">/*<br>&nbsp;&nbsp; printf(&quot;*/</span>
+		Test <span class="ssCodeHighlight">/*&quot;);</span><br>
+		<span class="ssCodeHighlight">&nbsp;&nbsp; /* Nested comment */</span><br>
+		*/<br>printf(&quot;Done&quot;);</td>
+      </tr>
+    </table>
+    		</td>
+			<td valign="top">
+			<p>With the text untokenized,&nbsp; the lexer will advance one 
+			character at a time within a group. As a result, the embedded <span class="ssCodeText">
+			*/</span> 
+			within the string literal, will end the group.&nbsp; The following
+			<span class="ssCodeText">/*</span> will start&nbsp; a second lexical 
+			group. </p>
+			<p>Since the group is unnested, the next&nbsp;
+			<span class="ssCodeText">/*</span> will not create an embedded 
+			group. As a result, the <span class="ssCodeText">*/</span> at the 
+			end of line will end the group. </p>
+			</td>
+		</tr>
+		<tr>
+			<td valign="top">
+    		<table border="0" cellspacing="0" cellpadding="0" class="ssCodeTable">
+      <tr>
+        <td class="ssCodeTableHeader" width="100%">Character Nested</td>
+      </tr>
+      <tr>
+        <td width="100%" class="ssCodeTableBody">
+		printf(&quot;Comment below&quot;);<br>
+		<br><span class="ssCodeHighlight">/*</span><br>
+		<span class="ssCodeHighlight">&nbsp;&nbsp; printf(&quot;*/</span> Test
+		<span class="ssCodeHighlight">/*&quot;);</span><br>
+		<span class="ssCodeHighlight">&nbsp;&nbsp; /* Nested comment */</span><br>
+		<span class="ssCodeHighlight">*/</span><br>printf(&quot;Done&quot;);</td>
+      </tr>
+    </table>
+    		</td>
+			<td valign="top">
+			<p>With the text untokenized,&nbsp; the lexer will advance one 
+			character at a time within a group. As a result, the embedded <span class="ssCodeText">
+			*/</span> within the string literal will end the group.&nbsp; The 
+			following <span class="ssCodeText">/*</span> will start&nbsp; a 
+			second lexical group.</p>
+			<p>&nbsp;Since the group is nested, the following
+			<span class="ssCodeText">/*</span>&nbsp; will start another, 
+			embedded, group. This causes a new record to be pushed on the 
+			group-stack. The <span class="ssCodeText">*/</span>&nbsp; at the end 
+			of the line ends the embedded group and returns to the main one. The
+			<span class="ssCodeText">*/</span> on the next line ends the entire 
+			group. </p>
+			</td>
+		</tr>
+		<tr>
+			<td valign="top">
+    		<table border="0" cellspacing="0" cellpadding="0" class="ssCodeTable">
+      <tr>
+        <td class="ssCodeTableHeader" width="100%">Token Unnested</td>
+      </tr>
+      <tr>
+        <td width="100%" class="ssCodeTableBody">
+		printf(&quot;Comment below&quot;);<br>
+		<br><span class="ssCodeHighlight">/*</span><br>
+		<span class="ssCodeHighlight">&nbsp;&nbsp; printf(&quot;*/ Test /*&quot;);</span><br>
+		<span class="ssCodeHighlight">&nbsp;&nbsp; /* Nested comment */</span><br>
+		*/<br>printf(&quot;Done&quot;);</td>
+      </tr>
+    </table>
+    		</td>
+			<td valign="top">
+			<p>With the text tokenized,&nbsp; the lexer advances on each 
+			recognizable token. As a result, the embedded string literal is read 
+			all at a time. The embedded&nbsp; <span class="ssCodeText">/*</span> 
+			and&nbsp; <span class="ssCodeText">*/</span>&nbsp; are part of the 
+			string literal And do not start or end a group. </p>
+			<p>Since the group is unnested, the next&nbsp;
+			<span class="ssCodeText">/*</span> will not create an embedded 
+			group. As a result, the <span class="ssCodeText">*/</span> at the 
+			end of line will end the entire group. </p>
+			</td>
+		</tr>
+		<tr>
+			<td valign="top">
+    		<table border="0" cellspacing="0" cellpadding="0" class="ssCodeTable">
+      <tr>
+        <td class="ssCodeTableHeader" width="100%">Token<br>&nbsp;Nested</td>
+      </tr>
+      <tr>
+        <td width="100%" class="ssCodeTableBody">
+		printf(&quot;Comment below&quot;);<br>
+		<br><span class="ssCodeHighlight">/*</span><br>
+		<span class="ssCodeHighlight">&nbsp;&nbsp; printf(&quot;*/ Test /*&quot;);</span><br>
+		<span class="ssCodeHighlight">&nbsp;&nbsp; /* Nested comment */</span><br>
+		<span class="ssCodeHighlight">*/</span><br>printf(&quot;Done&quot;);</td>
+      </tr>
+    </table>
+    		</td>
+			<td valign="top">
+			<p>With the text tokenized,&nbsp; the lexer will advance one 
+			character at a time within a group. As a result, the embedded <span class="ssCodeText">
+			*/</span> 
+			within the string literal will end the group.&nbsp; The following
+			<span class="ssCodeText">/*</span> will start&nbsp; a second lexical 
+			group.</p>
+			<p>Since the group is nested, the following <span class="ssCodeText">
+			/*</span>&nbsp; will start another, embedded, group. This causes a 
+			new record to be pushed on the group-stack. The <span class="ssCodeText">
+			*/</span>&nbsp; at the end of the line ends the embedded group and 
+			returns to the main one. The <span class="ssCodeText">*/</span> on 
+			the next line ends the entire group.&nbsp; </p>
+			<p>In this case, no syntax error will occur.</p>
+			</td>
+		</tr>
+	</table>
+	<h2>Summary </h2>
+	<p>Here are the four tables again for a side-by-side view.</p>
+	<table cellpadding="0" cellspacing="0">
+		<tr>
+			<td>
+    <table border="0" cellspacing="0" cellpadding="0" class="ssCodeTable">
+      <tr>
+        <td class="ssCodeTableHeader" width="100%">Case 1<br>Character 
+		Unnested</td>
+      </tr>
+      <tr>
+        <td width="100%" class="ssCodeTableBody">
+		<span style="padding: 0">printf(&quot;Comment below&quot;);<br>
+		<br><span class="ssCodeHighlight">/*</span><br></span>
+		<span class="ssCodeHighlight"><span style="padding: 0">&nbsp;&nbsp; printf(&quot;*/</span></span> 
+		Test <span class="ssCodeHighlight">/*&quot;);</span><br>
+		<span class="ssCodeHighlight">&nbsp;&nbsp; / * Nested comment */</span><br>
+		*/<br>printf(&quot;Done&quot;);</td>
+      </tr>
+    </table>
+    		</td>
+			<td style="width: 32">
+    		&nbsp;</td>
+			<td>
+    <table border="0" cellspacing="0" cellpadding="0" class="ssCodeTable">
+      <tr>
+        <td class="ssCodeTableHeader" width="100%">Case 2<br>Token Unnested</td>
+      </tr>
+      <tr>
+        <td width="100%" class="ssCodeTableBody">
+		printf(&quot;Comment below&quot;);<br>
+		<br><span class="ssCodeHighlight">/*</span><br>
+		<span class="ssCodeHighlight">&nbsp;&nbsp; printf(&quot;*/ Test /*&quot;);</span><br>
+		<span class="ssCodeHighlight">&nbsp;&nbsp; /* Nested comment */</span><br>
+		*/<br>printf(&quot;Done&quot;);</td>
+      </tr>
+    </table>
+    		</td>
+		</tr>
+		<tr>
+			<td style="height: 32">
+    		&nbsp;</td>
+			<td style="width: 32; height: 32">
+    		&nbsp;</td>
+			<td style="height: 32">
+    		&nbsp;</td>
+		</tr>
+		<tr>
+			<td>
+    <table border="0" cellspacing="0" cellpadding="0" class="ssCodeTable">
+      <tr>
+        <td class="ssCodeTableHeader" width="100%">Case 3<br>Character Nested</td>
+      </tr>
+      <tr>
+        <td width="100%" class="ssCodeTableBody">
+		printf(&quot;Comment below&quot;);<br>
+		<br><span class="ssCodeHighlight">/*</span><br>
+		<span class="ssCodeHighlight">&nbsp;&nbsp; printf(&quot;*/</span> Test
+		<span class="ssCodeHighlight">/*&quot;);</span><br>
+		<span class="ssCodeHighlight">&nbsp;&nbsp; /* Nested comment */</span><br>
+		<span class="ssCodeHighlight">*/</span><br>printf(&quot;Done&quot;);</td>
+      </tr>
+    </table>
+    		</td>
+			<td style="width: 32">
+    		&nbsp;</td>
+			<td>
+    <table border="0" cellspacing="0" cellpadding="0" class="ssCodeTable">
+      <tr>
+        <td class="ssCodeTableHeader" width="100%">Case 4<br>Token Nested</td>
+      </tr>
+      <tr>
+        <td width="100%" class="ssCodeTableBody">
+		printf(&quot;Comment below&quot;);<br>
+		<br><span class="ssCodeHighlight">/*</span><br>
+		<span class="ssCodeHighlight">&nbsp;&nbsp; printf(&quot;*/ Test /*&quot;);</span><br>
+		<span class="ssCodeHighlight">&nbsp;&nbsp; /* Nested comment */</span><br>
+		<span class="ssCodeHighlight">*/</span><br>printf(&quot;Done&quot;);</td>
+      </tr>
+    </table>
+    		</td>
+		</tr>
+	</table>
+	
+	</body>
+</html>

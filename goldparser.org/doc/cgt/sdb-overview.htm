@@ -1,0 +1,63 @@
+<html>
+
+<head>
+<title>File Structure Overview</title>
+<link REL="STYLESHEET" HREF="../gold-parser-doc-style.css">
+</head>
+
+<body class="ssMainPage">
+
+<h1>File Structure Overview</h1>
+
+<h2>Introduction</h2>
+
+<p>First, it is important to differentiate between the file's <em>format</em> and the
+file's <em>content</em>. When a document is saved to a file (for instance, a Microsoft
+Word file) it can be later retrieved and the work continued. This is possible since the
+application knows how information is stored and can, therefore, read its contents
+reliably. On the other hand, the actual <em>content</em> of the document can differ
+greatly from one file to the next (i.e. a report on Sacramento to an essay on parsing
+techniques).</p>
+
+<p>This section describes the file format used. This documentation also contains a
+description of the Compiled Grammar Table file's <a href="cgt-content-overview.htm">content</a>.</p>
+
+<h2>Data Structures</h2>
+
+<p>The file format is rather simple:</p>
+
+<p><img src="images/diagram-sdb-header.gif" alt="pic-sdb-header.gif (1084 bytes)" WIDTH="425" HEIGHT="41"></p>
+
+<p>The first data structure in the file is the File Header which contains a
+null-terminated <a href="../about/unicode.htm">Unicode</a> string. This string contains
+the the name and version of the type of information stored in the files records. In the
+case of a Compiled Grammar Table file, the file will contain the text:</p>
+
+<p><font size="4"><strong><code>GOLD Parser Tables/1.0</code></strong></font></p>
+
+<p>Since this string is stored in <a href="../about/unicode.htm">Unicode</a> format, there
+are two bytes per each character give a total size of&nbsp; (22+1)*2 = 46 bytes. The
+header should be read as any normal Unicode string, since its size could change depending
+its contents.</p>
+
+<p>Following the Unicode string that consists the Header, the file will contain one or
+more <a href="sdb-multitype-record.htm">records</a>. </p>
+
+<h2>Design Considerations</h2>
+
+<p>The file format used to save the Compiled Grammar Tables was based on following
+principles: 
+
+<ol>
+  <li>The file will normally be written to only once (when created) then then only read from
+    sequentially</li>
+  <li>The amount of information saved to the file will not be enormous, so data storage
+    overhead is not an issue.</li>
+  <li>The format should be easy to implement on numerous platforms. In other words, to be very
+    simple structurally.</li>
+  <li>The file structure should allow data structures to be added or expanded as needed in the
+    future.</li>
+  <li>The file structure should allow addition types of records to be added, if needed.</li>
+</ol>
+</body>
+</html>

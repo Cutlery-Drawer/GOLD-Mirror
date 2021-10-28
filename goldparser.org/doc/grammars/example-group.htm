@@ -1,0 +1,134 @@
+<html>
+
+<head>
+<title>Example:Groups</title>
+<link REL="STYLESHEET" HREF="../gold-parser-doc-style.css">
+<base target="_self">
+<style type="text/css">
+
+.ssCodeText    {font-family: "Courier New", Courier, monospace; font-weight: bold;}
+</style>
+</head>
+
+<body class="ssMainPage">
+
+<h1>Example: Groups</h1>
+
+<h2>Non-Noise Groups</h2>
+	<p>The group approach is designed to allow the developer to create any 
+	number of groups. The most common, naturally, will be the block comment. 
+	However, there will be situations where the developer will want to create a 
+	group that will be recognized by the parser as a regular terminal.</p>
+	<p>The terminals 'Comment' and 'Whitespace' are automatically defined as 
+	whitespace, and, therefore, ignored. However, these are the only two. Any 
+	other groups will create regular terminals. For instance, a developer might 
+	want to create a language that allows a variable to be assigned a string 
+	literal or HTML code.</p>
+	<p>So, if the developer wants to create a HTML block in code, they can 
+	specify:</p>
+    <table border="0" cellspacing="0" cellpadding="0" class="ssCodeTable">
+      <tr>
+        <td width="100%" class="ssCodeTableBody">
+		<span style="padding: 0">HTML Start = '&lt;html&gt;'<br>HTML End&nbsp;&nbsp; = '&lt;/html&gt;'</span></td>
+      </tr>
+    </table>
+    		<p>This will create the HTML Start and HTML End symbols in the 
+			table. The system will create the HTML terminal. This HTML terminal 
+			can be used directly in grammar. So, in the grammar, the developer 
+			can specify the following definitions:</p>
+    <table border="0" cellspacing="0" cellpadding="0" class="ssCodeTable">
+      <tr>
+        <td width="100%" class="ssCodeTableBody">
+		<span style="padding: 0">&lt;Assign&gt;&nbsp; ::= Identifier '=' &lt;Value&gt;<br>
+		<br>&lt;Value&gt;&nbsp;&nbsp; ::= StringLiteral<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp; <span class="ssCodeHighlight">
+		HTML</span></span></td>
+      </tr>
+    </table>
+    		<p>In this case, the HTML terminal would probably not be tokenized - 
+			since the terminal syntax of the grammar probably differs greatly 
+			from HTML. So, the group can be defined as 'unnested' and 
+			'character' 
+			using the attributes. Note: this is not &quot;set in stone&quot;, the 
+			developer could want to use different attributes.</p>
+    <table border="0" cellspacing="0" cellpadding="0" class="ssCodeTable">
+      <tr>
+        <td width="100%" class="ssCodeTableBody">
+		<span style="padding: 0">HTML Block @= { Nesting = None, 
+		Advance = Character }</span></td>
+      </tr>
+    </table>
+    		<p>The grammar could accept&nbsp; the following text:</p>
+    <table border="0" cellspacing="0" cellpadding="0" class="ssCodeTable">
+      <tr>
+        <td width="100%" class="ssCodeTableBody">
+		<span style="padding: 0">name = &quot;String Literal&quot;<br><br>page =<br>&lt;html&gt;<br>
+		&nbsp;&nbsp; &lt;head&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp; &lt;title&gt;Some page&lt;/title&gt;<br>&nbsp;&nbsp; &lt;/head&gt;<br>&nbsp;&nbsp; &lt;/body&gt;<br>
+		&nbsp;&nbsp;&nbsp;&nbsp; This is a tad easier than concatenating a series of strings!<br>
+		<span>&nbsp;&nbsp; &lt;/body&gt;</span><br>&lt;/html&gt;</span></td>
+      </tr>
+    </table>
+    		<wbr>
+	
+	<wbr>
+	<h2><a name="RealExamples"></a>Real-World Examples</h2>
+	<h3>ANSI-C (and its children)</h3>
+		<p>ANSI C comments are pretty basic. They cannot be nested, and only 
+		advance a character at a time (untokenized).This format is used by all 
+		successors of ANSI-C such as C++, Java and C#.&nbsp; Strangely, line 
+		comments are not part of the ANSI-C language definition. But, rarely, 
+		has a compiler not recognized them.</p>
+    <table border="0" cellspacing="0" cellpadding="0" class="ssCodeTable">
+      <tr>
+        <td width="100%" class="ssCodeTableBody">Comment Block @= { Nesting = 
+		All, Advance = Character 
+		}<br><br>Comment Start&nbsp;&nbsp; = '*/'<br>
+        Comment End&nbsp;&nbsp;&nbsp;&nbsp; = '/*'<br>Comment Line&nbsp;&nbsp;&nbsp; = '//'</td>
+      </tr>
+    </table>
+	<h3>Pascal</h3>
+		<p>The Pascal Programming Language has two different block comments. The 
+		original version of the language used <span class="ssCodeText">(*</span> 
+		to start a comment and <span class="ssCodeText">*)</span> to end one. 
+		Later, the curly brackets <span class="ssCodeText">{</span> and
+		<span class="ssCodeText">}</span> were added. Both are valid in Pascal 
+		programs. In addition, the two are synonymous, meaning a comment can 
+		start with <span class="ssCodeText">(*</span> and end with
+		<span class="ssCodeText">}</span> and vice versa</p>
+		<p>In this case, the single comment group can be defined. The regular 
+		expressions can be defined so Comment Start and Comment End can accept 
+		either notation. Normally, Pascal comments cannot be nested, but this 
+		varies by compiler. Group definitions specify a terminal name, so extra 
+		definitions are necessary.</p>
+    <table border="0" cellspacing="0" cellpadding="0" class="ssCodeTable">
+      <tr>
+        <td width="100%" class="ssCodeTableBody">CommentBlock&nbsp; @= 
+		{ Nesting = All, Advance = Character }<br><br>StartTerminal &nbsp;= '{' | '(*'<br>EndTerminal&nbsp;&nbsp;&nbsp; 
+		= '}' | '*)'<br><br>Comment Start&nbsp; = StartTerminal<br>
+        Comment End&nbsp;&nbsp;&nbsp;&nbsp;= EndTerminal </td>
+      </tr>
+    </table>
+    		<p>If the developer wants the start and end of the comment to 
+			&quot;match&quot;, they can define a second group. Only 'Comment' and 
+			'Whitespace' are flagged as being whitespace, but any terminal can 
+			be set to whitespace by assigning its attributes. In the follow 
+			example, the grammar defines 'Comment2'. The name is really up to 
+			the developer. They could have just as easily used 'CommentAlt', 'OtherFormat', 
+			etc...</p>
+		<p>To set this group to noise, the developer uses 'noise' in the attributes. As a 
+		result, both Comment and Comment2 will be ignored by the parser. The 
+		developer could also manually add the 'noise' attribute to &quot;Comment Attributes&quot;, but is not necessary.</p>
+    <table border="0" cellspacing="0" cellpadding="0" class="ssCodeTable">
+      <tr>
+        <td width="100%" class="ssCodeTableBody">Comment Block&nbsp; @= { 
+		Nesting = All, Advance = Character }<br>Comment2 Block @= { Nesting = 
+		All, Advance = Character }<br><br>Comment2 @= <span class="ssCodeHighlight">
+		{
+		Type = Noise }</span><br><br>Comment Start&nbsp;&nbsp; = '{'<br>
+        Comment End&nbsp;&nbsp;&nbsp;&nbsp; = '}'<br>
+        <br>
+        Comment2 Start&nbsp; = '(*'<br>
+        Comment2 End&nbsp; &nbsp; = '*)'</td>
+      </tr>
+    </table>
+	</body>
+</html>

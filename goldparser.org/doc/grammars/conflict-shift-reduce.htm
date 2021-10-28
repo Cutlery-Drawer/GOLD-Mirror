@@ -1,0 +1,57 @@
+<html>
+
+<head>
+<link REL="STYLESHEET" HREF="../gold-parser-doc-style.css">
+<base target="_self">
+<title>Shift-Reduce Conflict</title>
+</head>
+
+<body class="ssMainPage">
+
+<h1>Shift-Reduce Conflict</h1>
+
+<h2>Overview</h2>
+
+<p>The Shift-Reduce Conflict is the most common type of conflict found in grammars. It is
+caused when the grammar allows a rule to be reduced&nbsp; for particular token, but, at
+the same time, allowing another rule to be shifted for that same token. As a result, the
+grammar is ambiguous since a program can be interpreted more than one way. This error is
+often caused by recursive grammar definitions where the system cannot determine when one
+rule is complete and another is just started. </p>
+
+<h2>The Lookahead Set</h2>
+
+<p>The Lookahead Set is used by the LALR construction algorithm to determine when to
+&quot;reduce&quot; a rule. When a configuration is complete - (e.g. the cursor is past the
+last symbol), the LALR algorithm reduces the rule for each token in the set. This
+information is stored as a series of &quot;reduce&quot; actions in the LALR state. </p>
+
+<p>When a token is read by the LALR algorithm, it looks up token in the current state and
+then performs the associated action. If an entry exists with a &quot;shift&quot; action,
+the system will push the token on an internal stack and jump to the specified state. If a
+&quot;reduce&quot; action is found, the associated rule is reduced and passed to the
+developer. If the token is not found in the state, a syntax error occurs. </p>
+
+<p>Naturally, there can only be one action for any given state. For example, if a
+programming language contains a terminal for the reserved word &quot;while&quot;, only one
+entry for &quot;while&quot; can exist in the state. A shift-reduce action, therefore, is
+caused when the system does not know if to &quot;shift&quot; or &quot;reduce&quot; for a
+given token.</p>
+
+<p>For more information, please consult a book on compiler theory.</p>
+
+<h2>Solutions</h2>
+
+<p>Versions 2.4 and later of the GOLD Parser Builder automatically fixes Shift-Reduce
+Conflicts by not &quot;reducing&quot; when it would cause a conflict. This is the same
+behavior of the YACC compiler-compiler. It is best to closely check these states to
+determine if the &quot;shift&quot; is the action wanted.</p>
+
+<p>The error is commonly caused by ambiguous grammars. This may not be the fault of the
+language being defined. Modifying the grammar can ultimately resolve the conflict. For an
+example of how to resolve Shift-Reduce conflicts, please see the <a
+href="example-if-then-else.htm">If Statement Example Page</a>.</p>
+
+<p>&nbsp;</p>
+</body>
+</html>

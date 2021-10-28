@@ -1,0 +1,101 @@
+<html>
+
+<head>
+<title>File Content: DFA States</title>
+<link REL="STYLESHEET" HREF="../gold-parser-doc-style.css">
+</head>
+
+<body class="ssMainPage">
+
+<h1>File Content: DFA States</h1>
+
+<h2>Structure</h2>
+
+<p><img src="images/diagram-cgt-dfa-states.gif" alt="cgt-dfa-states.gif (2267 bytes)" WIDTH="543" HEIGHT="121"></p>
+
+<p>Each record describing a state in the DFA State Table is preceded by a byte field
+containing the value 68 - the ASCII code for &quot;D&quot;. The file will contain one of
+these records for each state in the table. The <a href="cgt-content-table-counts.htm">Table
+Count</a> record, which precedes any DFA records, will contain the total number of &nbsp;
+states.</p>
+
+<p>The record contains information about the state itself: where it is located in the <a href="../about/dfa.htm">DFA</a> State table and what symbols can be accepted (if any).
+Following this, there is a series of fields which describe each edge of the states. A <a href="../about/dfa.htm">DFA</a> state can contain 0 or more edges, or links, to other
+states in the Table. These are organized in groups of 3 and will constitute the rest of
+the record.</p>
+
+<h2>Initial Fields</h2>
+<div align="center"><center>
+
+<table class="ssChartTable" cellspacing="0" cellpadding="0">
+  <tr>
+    <th class="ssChartTableColumn">Item</th>
+    <th class="ssChartTableColumn">Type</th>
+    <th class="ssChartTableColumn">Description</th>
+  </tr>
+  <tr>
+    <td valign="top" nowrap class="ssChartTableBodyItem">Index</td>
+    <td valign="top" class="ssChartTableBodyDesc">Integer</td>
+    <td class="ssChartTableBodyDesc">This parameter holds the index of the DFA state in the
+    DFA State Table.</td>
+  </tr>
+  <tr>
+    <td valign="top" nowrap class="ssChartTableBodyItem">Accept State?</td>
+    <td valign="top" class="ssChartTableBodyDesc">Boolean</td>
+    <td class="ssChartTableBodyDesc">Each DFA state can accept one of the grammar's terminal
+    symbols. If the state accepts a terminal symbol, the value will be set to True and the
+    Accept Index parameter will contain the symbol's index.</td>
+  </tr>
+  <tr>
+    <td valign="top" nowrap class="ssChartTableBodyItem">Accept Index</td>
+    <td valign="top" class="ssChartTableBodyDesc">Integer</td>
+    <td class="ssChartTableBodyDesc">If the state accepts a terminal symbol, this field will
+    contain the symbol's index in the <a href="cgt-content-symbol.htm">Symbol Table</a>.
+    Otherwise, the value in this field should be ignored.</td>
+  </tr>
+  <tr>
+    <td valign="top" nowrap class="ssChartTableBodyItem">(Reserved)</td>
+    <td valign="top" class="ssChartTableBodyDesc">Empty</td>
+    <td class="ssChartTableBodyDesc">This field is reserved for future use.</td>
+  </tr>
+  <tr>
+    <td valign="top" nowrap class="ssChartTableBodyItem">Edge <strong><em>0</em></strong>...<strong><em>n</em></strong></td>
+    <td valign="top" class="ssChartTableBodyDesc"></td>
+    <td class="ssChartTableBodyDesc">Described below.</td>
+  </tr>
+</table>
+</center></div>
+
+<p>&nbsp;</p>
+
+<h2>Edge <em>0</em>...<em>n</em></h2>
+<div align="center"><center>
+
+<table class="ssChartTable" cellspacing="0" cellpadding="0">
+  <tr>
+    <th class="ssChartTableColumn">Value</th>
+    <th class="ssChartTableColumn">Type</th>
+    <th class="ssChartTableColumn">Description</th>
+  </tr>
+  <tr>
+    <td valign="top" nowrap class="ssChartTableBodyItem">Character Set Index</td>
+    <td valign="top" class="ssChartTableBodyDesc">Integer</td>
+    <td class="ssChartTableBodyDesc">Each edge contains a series of characters that are used
+    to determine whether the Deterministic Finite Automata will follow it. The actual set of
+    valid characters is not stored in this field, but, rather, an index in the <a href="cgt-content-char-set.htm">Character Set Table</a>.</td>
+  </tr>
+  <tr>
+    <td valign="top" nowrap class="ssChartTableBodyItem">Target Index</td>
+    <td valign="top" class="ssChartTableBodyDesc">Integer</td>
+    <td class="ssChartTableBodyDesc">Each edge is linked to state in the DFA Table. This field
+    contains the index of that state.</td>
+  </tr>
+  <tr>
+    <td valign="top" nowrap class="ssChartTableBodyItem">(Reserved)</td>
+    <td valign="top" class="ssChartTableBodyDesc">Empty</td>
+    <td class="ssChartTableBodyDesc">This field is reserved for future use.</td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

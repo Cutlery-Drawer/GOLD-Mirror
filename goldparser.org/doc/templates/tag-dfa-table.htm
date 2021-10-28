@@ -1,0 +1,256 @@
+<html>
+
+<head>
+<link REL="STYLESHEET" HREF="../gold-parser-doc-style.css">
+<title>Program Templates - DFA Table</title>
+</head>
+
+<body class="ssMainPage">
+
+<h1>DFA Table</h1>
+
+<h2>Overview</h2>
+
+<p>Most parser engines, including the GOLD Parser, use a Determistic Finite Automata (DFA)
+to implement the tokenizer. This part of the engine scans the input and determines when
+and if a series of characters can be recognized as a token. </p>
+
+<p>The following tags were added in Version 2.5 of the Builder.</p>
+
+<h2>Structure</h2>
+
+<table class="ssCodeTable" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="ssCodeTableBody" valign="middle" nowrap></td>
+    <td class="ssCodeTableBody" valign="middle" nowrap><span class="ssCodeReservedSymbol">##DFA-TABLE</span></td>
+    <td class="ssCodeTableBody" valign="middle" nowrap></td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" valign="middle" nowrap></td>
+    <td class="ssCodeTableBody" valign="middle" nowrap>...</td>
+    <td class="ssCodeTableBody" valign="middle" nowrap></td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" valign="middle" nowrap>[</td>
+    <td class="ssCodeTableBody" valign="middle" nowrap><span class="ssCodeReservedSymbol">##DFA-STATES</span></td>
+    <td class="ssCodeTableBody" valign="middle" nowrap></td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" valign="middle" nowrap></td>
+    <td class="ssCodeTableBody" valign="middle" nowrap>...</td>
+    <td class="ssCodeTableBody" valign="middle" nowrap></td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" valign="middle" nowrap>[</td>
+    <td class="ssCodeTableBody" valign="middle" nowrap><span class="ssCodeReservedSymbol">##DFA-EDGES</span></td>
+    <td class="ssCodeTableBody" valign="middle" nowrap></td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" valign="middle" nowrap></td>
+    <td class="ssCodeTableBody" valign="middle" nowrap>...</td>
+    <td class="ssCodeTableBody" valign="middle" nowrap></td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" valign="middle" nowrap></td>
+    <td class="ssCodeTableBody" valign="middle" nowrap><span class="ssCodeReservedSymbol">##END-DFA-EDGES</span></td>
+    <td class="ssCodeTableBody" valign="middle" nowrap>]</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" valign="middle" nowrap></td>
+    <td class="ssCodeTableBody" valign="middle" nowrap>...</td>
+    <td class="ssCodeTableBody" valign="middle" nowrap></td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" valign="middle" nowrap></td>
+    <td class="ssCodeTableBody" valign="middle" nowrap><span class="ssCodeReservedSymbol">##END-DFA-STATES</span></td>
+    <td class="ssCodeTableBody" valign="middle" nowrap>]</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" valign="middle" nowrap></td>
+    <td class="ssCodeTableBody" valign="middle" nowrap>...</td>
+    <td class="ssCodeTableBody" valign="middle" nowrap></td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" valign="middle" nowrap></td>
+    <td class="ssCodeTableBody" valign="middle" nowrap><span class="ssCodeReservedSymbol">##END-DFA-TABLE</span></td>
+    <td class="ssCodeTableBody" valign="middle" nowrap></td>
+  </tr>
+</table>
+
+<h2>Variables</h2>
+
+<h3>DFA-TABLE Block</h3>
+
+<table width="90%" class="ssChartTable" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <th class="ssChartTableColumn">Name</th>
+    <th class="ssChartTableColumn">Description</th>
+  </tr>
+  <tr>
+    <td valign="top" nowrap class="ssChartTableBodyItem">%Count%</td>
+    <td class="ssChartTableBodyDesc">The Count variable contains the number of states in the
+    grammar's DFA State Table. This variable is useful for array declaration or setting the
+    global variables before storing each of the actual rules.</td>
+  </tr>
+  <tr>
+    <td valign="top" nowrap class="ssChartTableBodyItem">%InitialState%</td>
+    <td class="ssChartTableBodyDesc">This variable contains the numeric index of the initial
+    state in the DFA State Table.</td>
+  </tr>
+</table>
+
+<h3>DFA-STATES Block</h3>
+
+<table width="90%" class="ssChartTable" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <th class="ssChartTableColumn">Name</th>
+    <th class="ssChartTableColumn">Description</th>
+  </tr>
+  <tr>
+    <td valign="top" nowrap class="ssChartTableBodyItem">%Delimiter%</td>
+    <td class="ssChartTableBodyDesc">For each state in the table, this variable is set to the
+    value set with the ##Delimiter tag.&nbsp; For the last item in the list, the value is set
+    to a number of spaces.</td>
+  </tr>
+  <tr>
+    <td valign="top" nowrap class="ssChartTableBodyItem">%AcceptIndex%</td>
+    <td class="ssChartTableBodyDesc">If the state can accept a symbol, this varible will
+    contain the symbol's index. If the state cannot accept a symbol, the value will be -1.</td>
+  </tr>
+  <tr>
+    <td valign="top" nowrap class="ssChartTableBodyItem">%EdgeCount%</td>
+    <td class="ssChartTableBodyDesc">Each state contains zero or more state transition edges.</td>
+  </tr>
+  <tr>
+    <td valign="top" nowrap class="ssChartTableBodyItem">%Index%</td>
+    <td class="ssChartTableBodyDesc">This variable contains the index of the state in the
+    table. </td>
+  </tr>
+</table>
+
+<h3>DFA-EDGES Block</h3>
+
+<table width="90%" class="ssChartTable" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <th class="ssChartTableColumn">Name</th>
+    <th class="ssChartTableColumn">Description</th>
+  </tr>
+  <tr>
+    <td valign="top" nowrap class="ssChartTableBodyItem">%Delimiter%</td>
+    <td class="ssChartTableBodyDesc">For each edge in the state, this variable is set to the
+    value set with the ##Delimiter tag. For the last item in the list, the value is set to a
+    number of spaces.</td>
+  </tr>
+  <tr>
+    <td valign="top" nowrap class="ssChartTableBodyItem">%CharSetIndex%</td>
+    <td class="ssChartTableBodyDesc">This variable contains the index of the symbol in the
+    grammar's Symbol Table.</td>
+  </tr>
+  <tr>
+    <td valign="top" nowrap class="ssChartTableBodyItem">%Target%</td>
+    <td class="ssChartTableBodyDesc">This variable contains the target state for the edge.</td>
+  </tr>
+</table>
+
+<h2>Example</h2>
+
+<p>The following displays a template that will output the content of the DFA Table using
+formatted text. </p>
+
+<table class="ssCodeTable" cellspacing="0" cellpadding="0" border="0">
+  <tr>
+    <td width="100%" nowrap class="ssCodeTableBody"><span class="ssCodeReservedSymbol">##DFA-TABLE</span></td>
+  </tr>
+  <tr>
+    <td width="100%" nowrap class="ssCodeTableBody"><span class="ssCodeNormal">Table Count: </span><span
+    class="ssCodeKeySymbol">%Count%</span></td>
+  </tr>
+  <tr>
+    <td width="100%" nowrap class="ssCodeTableBody"><span class="ssCodeNormal">Initial State: </span><span
+    class="ssCodeKeySymbol">%InitialState%</span></td>
+  </tr>
+  <tr>
+    <td width="100%" nowrap class="ssCodeTableBody"><span class="ssCodeReservedSymbol">##DFA-STATES</span></td>
+  </tr>
+  <tr>
+    <td width="100%" nowrap class="ssCodeTableBody">&nbsp;&nbsp; State <span
+    class="ssCodeKeySymbol">%Index%</span> </td>
+  </tr>
+  <tr>
+    <td width="100%" nowrap class="ssCodeTableBody">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Accept: <span
+    class="ssCodeKeySymbol">%AcceptIndex%</span> </td>
+  </tr>
+  <tr>
+    <td width="100%" nowrap class="ssCodeTableBody">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Edge Count:
+    <span class="ssCodeKeySymbol">%EdgeCount%</span> </td>
+  </tr>
+  <tr>
+    <td width="100%" nowrap class="ssCodeTableBody">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Edges:</td>
+  </tr>
+  <tr>
+    <td width="100%" nowrap class="ssCodeTableBody"><span class="ssCodeReservedSymbol">##DFA-EDGES</span></td>
+  </tr>
+  <tr>
+    <td width="100%" nowrap class="ssCodeTableBody"><span class="ssCodeNormal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span><span class="ssCodeKeySymbol">%CharSetIndex%</span> goto <span
+    class="ssCodeKeySymbol">%Target%</span></td>
+  </tr>
+  <tr>
+    <td width="100%" nowrap class="ssCodeTableBody"><span class="ssCodeReservedSymbol">##END-DFA-EDGES</span></td>
+  </tr>
+  <tr>
+    <td width="100%" nowrap class="ssCodeTableBody"><span class="ssCodeReservedSymbol">##END-DFA-STATES</span></td>
+  </tr>
+  <tr>
+    <td width="100%" nowrap class="ssCodeTableBody"><span class="ssCodeReservedSymbol">##END-DFA-TABLE</span></td>
+  </tr>
+</table>
+
+<p>&nbsp;</p>
+
+<p>If the &quot;Simple&quot; example grammar is used, the program template will create the
+following text for DFA State #14. The states before and after #14 were excluded for
+brevity.</p>
+
+<table class="ssCodeTable" cellspacing="0" cellpadding="0" border="0">
+  <tr>
+    <td width="100%" nowrap class="ssCodeTableBody"><span class="ssCodeNormal">Table Count: </span>65</td>
+  </tr>
+  <tr>
+    <td width="100%" nowrap class="ssCodeTableBody"><span class="ssCodeNormal">Initial State: </span>0</td>
+  </tr>
+  <tr>
+    <td width="100%" nowrap class="ssCodeTableBody">&nbsp;&nbsp; .</td>
+  </tr>
+  <tr>
+    <td width="100%" nowrap class="ssCodeTableBody">&nbsp;&nbsp; .</td>
+  </tr>
+  <tr>
+    <td width="100%" nowrap class="ssCodeTableBody">&nbsp;&nbsp; .</td>
+  </tr>
+  <tr>
+    <td width="100%" nowrap class="ssCodeTableBody">&nbsp;&nbsp; State 14</td>
+  </tr>
+  <tr>
+    <td width="100%" nowrap class="ssCodeTableBody">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Accept: 27 </td>
+  </tr>
+  <tr>
+    <td width="100%" nowrap class="ssCodeTableBody">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Edge Count:
+    2 </td>
+  </tr>
+  <tr>
+    <td width="100%" nowrap class="ssCodeTableBody">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Edges:</td>
+  </tr>
+  <tr>
+    <td width="100%" nowrap class="ssCodeTableBody">&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 24 goto 19</td>
+  </tr>
+  <tr>
+    <td width="100%" nowrap class="ssCodeTableBody">&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 10 goto 18</td>
+  </tr>
+</table>
+
+<p>&nbsp;</p>
+</body>
+</html>

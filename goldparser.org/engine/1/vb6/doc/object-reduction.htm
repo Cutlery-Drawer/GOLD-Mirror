@@ -1,0 +1,90 @@
+<html>
+
+<head>
+<link REL="STYLESHEET" HREF="gold-engine-doc-style.css">
+<title>Reduction Object</title>
+</head>
+
+<body class="ssMainPage">
+
+<h1>Reduction Object</h1>
+
+<p>&nbsp;</p>
+
+<h2>Description</h2>
+
+<p>When the parsing engine has read enough tokens to conclude a <a href="object-rule.htm">rule</a>
+in the grammar is complete, it is 'reduced' and passed to the developer. Basically a
+'reduction'&nbsp; will contain the tokens which correspond to the symbols of the rule.
+Tokens can represent actual data read from the file (a.k.a. terminals), but also may
+contain objects as well. Since a reduction contains the terminals of a rule as well as the
+nonterminals (reductions made earlier), the parser engine creates a 'parse tree' &nbsp;
+which contains a break down of the source text along the grammar's rules.</p>
+
+<p>Essentially, when a reduction takes place, the <a href="object-goldparser.htm">GOLDParser</a>
+object will respond with the gpMsgReduce message, create a new Reduction object, and then
+store it in the CurrentReduction property. This property can be read and then reassigned
+to another object if you decide to create your own objects. However, this is not required
+since the parse tree will be created using the produced Reduction.</p>
+
+<p>The Reduction object is designed to be general purpose - able to store any rule, but at
+a cost. Since it is general purpose, there is additional overhead required that would not
+be needed in a specialized object. Invariably there will be numerous instances of the
+Reduction object, so it was was designed to use as little memory as possible while
+maintaining basic functionality.</p>
+
+<p>&nbsp;</p>
+
+<h2>Properties</h2>
+
+<table width="100%" class="ssChartTable" cellspacing="0" cellpadding="0">
+  <tr>
+    <th valign="top" class="ssChartTableColumn">Property</th>
+    <th valign="top" nowrap class="ssChartTableColumn">Data Type</th>
+    <th valign="top" class="ssChartTableColumn">Access</th>
+    <th valign="top" class="ssChartTableColumn">Description</th>
+  </tr>
+  <tr>
+    <td valign="top" class="ssChartTableBodyItem" nowrap>ParentRule</td>
+    <td valign="top" nowrap class="ssChartTableBodyDesc"><a href="object-rule.htm">Rule</a></td>
+    <td valign="top" nowrap class="ssChartTableBodyDesc">Read only</td>
+    <td valign="top" class="ssChartTableBodyDesc">Returns the reference of&nbsp; the rule in
+    the GOLDParser object's Rule Table that the Reduction represents.</td>
+  </tr>
+  <tr>
+    <td valign="top" class="ssChartTableBodyItem" nowrap>TokenCount</td>
+    <td valign="top" nowrap class="ssChartTableBodyDesc">Integer (16-bit)</td>
+    <td valign="top" nowrap class="ssChartTableBodyDesc">Read only</td>
+    <td valign="top" class="ssChartTableBodyDesc">Returns the number of tokens that consist
+    the body of the Reduction. This will always be equal to the number of symbols in the
+    ParentRule.</td>
+  </tr>
+  <tr>
+    <td valign="top" class="ssChartTableBodyItem" nowrap>Tokens (<em>Index</em>)</td>
+    <td valign="top" nowrap class="ssChartTableBodyDesc"><a href="object-token.htm">Token</a></td>
+    <td valign="top" nowrap class="ssChartTableBodyDesc">Read only</td>
+    <td valign="top" class="ssChartTableBodyDesc">Returns one of the tokens that consist the
+    body of the reduction. The index of the token ranges from 0 to TokenCount -1</td>
+  </tr>
+  <tr>
+    <td valign="top" class="ssChartTableBodyItem" nowrap>Tag</td>
+    <td valign="top" nowrap class="ssChartTableBodyDesc">Integer (16-bit)</td>
+    <td valign="top" nowrap class="ssChartTableBodyDesc">Read/Write</td>
+    <td valign="top" class="ssChartTableBodyDesc">This is a general purpose field that can be
+    used at the developer's leisure. </td>
+  </tr>
+</table>
+
+<p>&nbsp;</p>
+
+<h2>Methods</h2>
+
+<table class="ssChartTable" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" class="ssChartTableBodyItem">This object does not contain any methods.</td>
+  </tr>
+</table>
+
+<p>&nbsp;</p>
+</body>
+</html>

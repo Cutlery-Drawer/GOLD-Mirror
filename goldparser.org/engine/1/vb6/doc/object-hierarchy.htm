@@ -1,0 +1,30 @@
+<html>
+
+<head>
+<link REL="STYLESHEET" HREF="gold-engine-doc-style.css">
+<title>Object Hierarchy</title>
+</head>
+
+<body class="ssMainPage">
+
+<h1>Object Hierarchy</h1>
+
+<p>&nbsp;</p>
+
+<p>The Visual Basic 6 implementation of the Engine contains five different objects which
+are used to represent information stored in the Compiled Grammar Table file and
+information created at parse time. The main functionality of the parser is performed by
+the GOLDParser Object. This object contains both the Rule Table and Symbol Table. To
+represent this information, the Symbol and Rule Objects were created. </p>
+
+<p>During parse time, the GOLDParser Object will create instances of Reduction and Token
+Objects. The Reduction Object contains a series of tokens and is associated with the
+reduced rule. Each Token is associated with the corresponding symbol in the reduced rule.</p>
+
+<p>&nbsp;</p>
+
+<p align="center"><img src="images/object-hierarchy.gif" WIDTH="411" HEIGHT="435"></p>
+
+<p>&nbsp;</p>
+</body>
+</html>

@@ -1,0 +1,272 @@
+<html>
+
+<head>
+<title>Grammar Changes in Version 5.0</title>
+<link REL="STYLESHEET" HREF="../gold-parser-doc-style.css">
+<style type="text/css">
+
+.ssCodeText    {font-family: "Courier New", Courier, monospace; font-weight: bold;}
+</style>
+</head>
+
+<body class="ssMainPage">
+
+<h1>Grammar Changes in Version 5.0</h1>
+
+	<wbr>
+	<h2>Overview</h2>
+	<p>Grammars are <span style="text-decoration: underline">almost</span> completely backwards compatible. 
+	The only changes include:</p>
+<ul>
+	<li>Lexical &quot;groups&quot; were added to the system. </li>
+	<li>Group and terminal attributes can be changed. A new syntax was created 
+	for this feature.</li>
+</ul>
+<h2>Groups</h2>
+<h3>Overview</h3>
+<p>The only change change will 
+	be how the terminal definitions ending with&nbsp;
+	<span class="ssCodeText">Start</span>,&nbsp; <span class="ssCodeText">End</span>, 
+	and <span class="ssCodeText">Line</span> will be treated &quot;behind the 
+	scenes'. In practically all cases, there will be no issues with the grammar.</p>
+	<p>Currently, if the developer wants to declare a line comment, or the start 
+	and end terminals for a block comment, they type definitions such as 
+	follows:</p>
+    <table border="0" cellspacing="0" cellpadding="0" class="ssCodeTable">
+      <tr>
+        <td width="100%" class="ssCodeTableBody">
+		Comment <span style="padding: 0">Start = '/*'<br>Comment End&nbsp;&nbsp; = '*/'<br><br>
+		Comment Line&nbsp; = '//'</span></td>
+      </tr>
+    </table>
+    	<p align="left">This, in Version 1.0, created the terminals Comment 
+		Start, Comment End, and Comment Line in the symbol table. Each was set 
+		to a matching symbol &quot;type&quot; so the parser could handle them differently 
+		than normal terminals. The new approach uses the same format, but 
+		creates different symbols.&nbsp; However, group definitions specify a 
+		terminal name rather than a regular expression. Unless older grammars 
+		used regular expressions to define comments, there should be no problems</p>
+	<h3>Block Groups </h3>
+		<p align="left">In the new design, any time a symbol is defined ending 
+		with&nbsp; <span class="ssCodeText">Start</span>,&nbsp;
+		<span class="ssCodeText">End</span>, and <span class="ssCodeText">Line</span> 
+		, a lexical group will be created. Each group acts as a container for 
+		data - such as block comments or any other group the user may need. Once 
+		a group is read, the system will treat it as a single token. This is the 
+		group's &quot;container&quot;.</p>
+	<p align="left">All groups have a start and end symbol. In the case of the 
+	following definition, both are quite obvious.</p>
+    <table border="0" cellspacing="0" cellpadding="0" class="ssCodeTable">
+      <tr>
+        <td width="100%" class="ssCodeTableBody">
+		Comment <span style="padding: 0">Start = '/*'<br>Comment End&nbsp;&nbsp; = '*/'</span></td>
+      </tr>
+    </table>
+	<p align="left">This will create a normal &quot;block&quot; group with the start 
+	symbol <span class="ssCodeText">'/*'</span> and end symbol
+	<span class="ssCodeText">'*/'</span>. For this block, the system will create 
+	a group called &quot;Comment Block&quot;. The start and end definitions actually refer 
+	symbol names as opposed to regular expressions. This allows for the same 
+	symbol to be used to end multiple blocks. </p>
+	<h3>Line Groups </h3>
+		<p align="left">Many programming languages have constructs, such as line 
+		comments, that read an entire line and end at the newline. The same 
+		group mechanism is used for block comments and line comments. However, a 
+		few things happen &quot;behind the scenes&quot; to make this possible. The 
+		following definition creates a line comment:</p>
+    <table border="0" cellspacing="0" cellpadding="0" class="ssCodeTable">
+      <tr>
+        <td width="100%" class="ssCodeTableBody">
+		<span style="padding: 0">Comment Line&nbsp; = '//'</span></td>
+      </tr>
+    </table>
+    		<p align="left">Like the block comment above, this definition has a 
+			start and ending symbol. The difference here is that the start 
+			symbol is <span class="ssCodeText">'//'</span> and end symbol is 
+			implied to be the newline. GOLD will automatically define 'newline' 
+			if it is needed and adjust the definition for &quot;whitespace&quot; as 
+			needed. The following is the logic used:</p>
+		<ul>
+			<li>If there is already a 'Newline' defined, the system will use it<li>
+			Otherwise, Newline will be declared automatically<li>The whitespace 
+			terminal will be created from any unused whitespace characters 
+	</ul>
+	<h3>Multiple groups </h3>
+	<p>Comments are not the only type of group available to developers. When a 
+	comment group is created, the container &quot;comment&quot; is automatically declared 
+	to be &quot;noise&quot; and will be ignored. This should be no surprise. Comments are 
+	generally discarded by parsers. However, you can create multiple groups - 
+	which can also be ignored or used directly in your grammar. The following 
+	chart shows what is created from group definitions. There are some
+	<a href="../../5.0/examples.htm">examples</a> available of when, and how, you can use 
+	them.</p>
+	<p>GOLD uses the first part of the definition, the 'name' to create the 
+	group name and container. Note: line-based groups and block-groups, of the 
+	same name, share the same container.</p>
+    <table border="0" cellspacing="0" cellpadding="0" class="ssChartTable">
+      <tr>
+        <td width="100%" class="ssChartTableHeader" colspan="3">Groups</td>
+      </tr>
+      <tr>
+        <td class="ssChartTableColumn" nowrap>Definition</td>
+        <td class="ssChartTableColumn">Generated Group Name</td>
+        <td class="ssChartTableColumn">Generated Container</td>
+      </tr>
+      		  <tr>
+        <td class="ssChartTableBodyItem" nowrap>
+		<span class="ssAttention" style="font-style: italic">name</span> Start</td>
+        <td class="ssChartTableBodyItem" nowrap rowspan="2" style="vertical-align: middle">
+		<span class="ssAttention" style="font-style: italic">name</span><span class="ssCodeText" style="font-weight: normal">
+		Block</span></td>
+        <td class="ssChartTableBodyItem" nowrap rowspan="3" style="vertical-align: middle">
+		<span class="ssAttention" style="font-style: italic">name</span></td>
+        </tr>
+      		  <tr>
+        <td class="ssChartTableBodyItem" nowrap>
+		<span class="ssAttention" style="font-style: italic">name</span> End</td>
+        </tr>
+      <tr>
+        <td class="ssChartTableBodyItem" nowrap>
+		<span class="ssAttention" style="font-style: italic">name</span> Line</td>
+        <td class="ssChartTableBodyItem" nowrap>
+		<span class="ssCodeText" style="font-weight: normal">
+		<span class="ssAttention" style="font-style: italic">name</span> Line</span></td>
+      </tr>
+      </table>
+   
+		<h2>Setting Attributes</h2>
+	<h3>Syntax</h3>
+	<p>GOLD 5.0 allows you to control the attributes of symbols and groups. 
+	These attributes control how a symbol is treated and how groups will behave. 
+	The syntax of an attribute definition is as follows:</p>
+    <table border="0" cellspacing="0" cellpadding="0" class="ssCodeTable">
+      <tr>
+        <td width="100%" class="ssCodeTableBody">
+		<span style="padding: 0">
+		<span class="ssAttention" style="font-style: italic">object</span> @= { 
+		... }</span></td>
+      </tr>
+    </table>
+    	<p align="left">The second part of the definition contains a set of 
+		attribute-value items. These consist of the attribute name, andequals 
+		sign, and the value. If the name of the attribute is omitted, GOLD can 
+		determine its name based on the value. </p>
+	<h3 align="left">Symbol Attributes</h3>
+    <table border="0" cellspacing="0" cellpadding="0" class="ssChartTable">
+      <tr>
+        <td width="100%" class="ssChartTableHeader" colspan="3">Symbol 
+		Attributes</td>
+      </tr>
+      <tr>
+        <td class="ssChartTableColumn" nowrap>Attribute</td>
+        <td class="ssChartTableColumn">Valid Values</td>
+        <td class="ssChartTableColumn">Description</td>
+      </tr>
+      		  <tr>
+        <td class="ssChartTableBodyItem" nowrap>Type</td>
+        <td class="ssChartTableBodyItem" nowrap>
+		<span class="ssCodeText" style="font-weight: normal">
+		Content</span> / <span class="ssCodeText" style="font-weight: normal">
+		Noise</span></td>
+        <td class="ssChartTableBodyDesc">This controls how the symbol is viewed 
+		by the parser and if it is merely considered noise or an essential part 
+		of the grammar.&nbsp; Noise symbols are ignored by the parser. Normally, 
+		the symbols 'Whitespace' and 'Comment' are automatically defined as 
+		'noise'. Any other terminal defaults to 'Content'. </td>
+        </tr>
+      <tr>
+        <td class="ssChartTableBodyItem" nowrap>
+		Source</td>
+        <td class="ssChartTableBodyItem" nowrap>
+		<span class="ssCodeText" style="font-weight: normal">Lexer</span> 
+		/ <span class="ssCodeText" style="font-weight: normal">Virtual</span></td>
+        <td class="ssChartTableBodyDesc">This controls whether GOLD will 
+		generate DFA states to recognize the terminal. In other words, will 
+		symbol be created by the lexer. In practically all cases, this will be 
+		the case. However, in rare circumstances, the developer may want to 
+		create the terminal manually at runtime. The alternative value, virtual, 
+		will enter the symbol into the Symbol Table, but will not create any DFA 
+		states. This is redundant with the old &quot;Virtual Terminals&quot; parameter. 
+		Both can be used.</td>
+      </tr>
+      </table>
+   
+    <p>&nbsp;The following example sets the &quot;source&quot; attribute of Indent to 
+	&quot;virtual&quot;. </p>
+    <table border="0" cellspacing="0" cellpadding="0" class="ssCodeTable">
+      <tr>
+        <td width="100%" class="ssCodeTableBody">Indent @= { Source = Virtual }</td>
+      </tr>
+    </table>
+   
+		<p>The following example creates a noise terminal called me. It consists 
+		of two dash and 1 or more letters. Since it is set to &quot;noise&quot;, it will 
+		be viewed as the same as whitespace and ignored.</p>
+    <table border="0" cellspacing="0" cellpadding="0" class="ssCodeTable">
+      <tr>
+        <td width="100%" class="ssCodeTableBody">IgnoreMe&nbsp; = '--' {Letter}+<br>
+		<br>IgnoreMe @= { Type = Noise }</td>
+      </tr>
+    </table>
+    <h3 align="left">Group Attributes</h3>
+    <table border="0" cellspacing="0" cellpadding="0" class="ssChartTable">
+      <tr>
+        <td width="100%" class="ssChartTableHeader" colspan="3">Group Attributes</td>
+      </tr>
+      <tr>
+        <td class="ssChartTableColumn" nowrap>Attribute</td>
+        <td class="ssChartTableColumn">Valid Values</td>
+        <td class="ssChartTableColumn">Description</td>
+      </tr>
+      <tr>
+        <td class="ssChartTableBodyItem" nowrap>
+		<span class="ssCodeText" style="font-weight: normal">Nesting</span></td>
+        <td class="ssChartTableBodyItem" nowrap>
+		All / None / Self / { ... }</td>
+        <td class="ssChartTableBodyDesc">This sets what groups can be nested 
+		within it. The user can also specify a set of group names using a 
+		braced-list.&nbsp; This defaults to None. </td>
+      </tr>
+      <tr>
+        <td class="ssChartTableBodyItem" nowrap>
+		Advance</td>
+        <td class="ssChartTableBodyItem" nowrap>
+		<span class="ssCodeText" style="font-weight: normal">Token</span><span style="font-weight: normal"> 
+		/ 
+		</span> <span class="ssCodeText" style="font-weight: normal">
+		Character</span></td>
+        <td class="ssChartTableBodyDesc">This sets whether the lexical group 
+		will advance on each token or character. The default is Character.</td>
+      </tr>
+      <tr>
+        <td class="ssChartTableBodyItem" nowrap>
+		<span class="ssCodeText" style="font-weight: normal">Ending</span></td>
+        <td class="ssChartTableBodyItem" nowrap>
+		<span class="ssCodeText" style="font-weight: normal">Open</span><span style="font-weight: normal"> 
+		/ </span> <span class="ssCodeText" style="font-weight: normal">Closed</span></td>
+        <td class="ssChartTableBodyDesc">This attribute determines if the group 
+		is open-ended or closed. If the group is closed, the end token is 
+		consumed when the group is complete. Otherwise, it is left in the queue. 
+		Block groups default to 'closed'. Line groups default to 'open' to leave 
+		the newline for languages that need it as part of their syntax.</td>
+      </tr>
+      </table>
+   
+	<p>&nbsp;The following example declares Comment Start and Comment End. The group 
+	is set to Unnested and Character. </p>
+    <table border="0" cellspacing="0" cellpadding="0" class="ssCodeTable">
+      <tr>
+        <td width="100%" class="ssCodeTableBody">Comment Block @= { Nesting = 
+		All, Advance = Character }<br><br>Comment Start&nbsp;&nbsp; = '*/'<br>
+        Comment End&nbsp;&nbsp;&nbsp;&nbsp; = '/*'</td>
+      </tr>
+    </table>
+    <p>&nbsp;</p>
+    <wbr>
+	<wbr>
+	<wbr>
+	
+	<wbr>
+					
+		</body>
+</html>

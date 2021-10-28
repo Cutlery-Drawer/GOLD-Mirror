@@ -1,0 +1,80 @@
+<html>
+
+<head>
+<title>Rule Object</title>
+<link REL="STYLESHEET" HREF="gold-engine-doc-style.css">
+</head>
+
+<body class="ssMainPage">
+
+<h1>Rule Object</h1>
+
+<p>&nbsp;</p>
+
+<h2>Description</h2>
+
+<p>Each rule consists of a series of symbols, both terminals and nonterminals, and the
+single nonterminal that the rule defines. Rules are not creatable during runtime but are
+instead accessed through the <a href="object-goldparser.htm">GOLDParser</a> object's
+RuleTable property.</p>
+
+<p>&nbsp;</p>
+
+<h2>Properties</h2>
+
+<table width="100%" class="ssChartTable" cellspacing="0" cellpadding="0">
+  <tr>
+    <th valign="top" class="ssChartTableColumn">Property</th>
+    <th valign="top" nowrap class="ssChartTableColumn">Data Type</th>
+    <th valign="top" class="ssChartTableColumn">Access</th>
+    <th valign="top" class="ssChartTableColumn">Description</th>
+  </tr>
+  <tr>
+    <td valign="top" class="ssChartTableBodyItem">RuleNonterminal</td>
+    <td valign="top" nowrap class="ssChartTableBodyDesc"><a href="object-symbol.htm">Symbol</a></td>
+    <td valign="top" nowrap class="ssChartTableBodyDesc">Read only</td>
+    <td valign="top" class="ssChartTableBodyDesc">Returns the head symbol of the rule.</td>
+  </tr>
+  <tr>
+    <td valign="top" class="ssChartTableBodyItem">SymbolCount</td>
+    <td valign="top" nowrap class="ssChartTableBodyDesc">Integer (16-bit)</td>
+    <td valign="top" nowrap class="ssChartTableBodyDesc">Read only</td>
+    <td valign="top" class="ssChartTableBodyDesc">Returns the number of symbols that consist
+    the body (right-hand-side) of the rule.</td>
+  </tr>
+  <tr>
+    <td valign="top" class="ssChartTableBodyItem">Symbols (<em>Index</em>)</td>
+    <td valign="top" nowrap class="ssChartTableBodyDesc"><a href="object-symbol.htm">Symbol</a></td>
+    <td valign="top" nowrap class="ssChartTableBodyDesc">Read only</td>
+    <td valign="top" class="ssChartTableBodyDesc">Returns one of the symbols that consist the
+    body of the rule. The index of the symbol ranges from 0 to SymbolCount -1</td>
+  </tr>
+  <tr>
+    <td valign="top" class="ssChartTableBodyItem">TableIndex</td>
+    <td valign="top" nowrap class="ssChartTableBodyDesc">Integer (16-bit)</td>
+    <td valign="top" nowrap class="ssChartTableBodyDesc">Read only</td>
+    <td valign="top" class="ssChartTableBodyDesc">Returns the index of the rule in the
+    GOLDParser object's Rule Table.</td>
+  </tr>
+  <tr>
+    <td valign="top" class="ssChartTableBodyItem">Text</td>
+    <td valign="top" nowrap class="ssChartTableBodyDesc">String</td>
+    <td valign="top" nowrap class="ssChartTableBodyDesc">Read only</td>
+    <td valign="top" class="ssChartTableBodyDesc">Returns the Backus-Naur representation of
+    the rule.</td>
+  </tr>
+</table>
+
+<p>&nbsp;</p>
+
+<h2>Methods</h2>
+
+<table class="ssChartTable" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" class="ssChartTableBodyItem">This object does not contain any methods.</td>
+  </tr>
+</table>
+
+<p>&nbsp;</p>
+</body>
+</html>

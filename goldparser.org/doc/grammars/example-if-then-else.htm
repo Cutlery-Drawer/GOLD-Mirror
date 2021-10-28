@@ -1,0 +1,171 @@
+<html>
+
+<head>
+<title>Example: If-Then-Else Statement</title>
+<link REL="STYLESHEET" HREF="../gold-parser-doc-style.css">
+<base target="_self">
+</head>
+
+<body class="ssMainPage">
+
+<h1>Example: If-Then-Else Statement</h1>
+
+<h2>The Hanging-Else Problem</h2>
+
+<p>The following is a very simple grammar with a complex problem:</p>
+
+<table class="ssCodeTable" cellpadding="0" border="0" cellspacing="0">
+  <tr>
+    <td width="100%" nowrap class="ssCodeTableBody">Id =
+    {Letter}{AlphaNumeric}*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </td>
+  </tr>
+  <tr>
+    <td width="100%" nowrap class="ssCodeTableBody">&lt;Statement&gt; ::= <span
+    class="ssCodeEmphasis">if Id then &lt;Statement&gt;</span></td>
+  </tr>
+  <tr>
+    <td width="100%" nowrap class="ssCodeTableBody">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    | <span class="ssCodeEmphasis">if Id then &lt;Statement&gt; else &lt;Statement&gt;</span></td>
+  </tr>
+  <tr>
+    <td width="100%" nowrap class="ssCodeTableBody">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    | Id ':=' Id</td>
+  </tr>
+</table>
+
+<p>When this grammar is analyzed by the GOLD Parser Builder (or any other generator for
+that matter), a problem arises in the LALR(1) parse tables. Invariably, a <em>shift-reduce</em>
+error occurs when the parser reaches the &quot;else&quot; option on the If-Then statement.</p>
+
+<p>This type of error is caused by ambiguity in the grammar itself; in the case of the
+above grammar, the parser does not know where it can reduce a rule or must push a token
+onto the parse stack. Technical issues aside, it is important to understand why this
+grammar is ambiguous.</p>
+
+<p>The ambiguity of the grammar can be seen with a very simple piece of&nbsp; source code:</p>
+
+<table class="ssCodeTable" width="80%">
+  <tr>
+    <td width="100%" nowrap class="ssCodeTableBody"><span class="ssCodeEmphasis">if</span>
+    Enrolled then <span class="ssCodeEmphasis">if</span> Studied then Grade:=A <span
+    class="ssCodeAttention">else</span> Grade:=B</td>
+  </tr>
+</table>
+
+<p>The sample source code could be interpreted two distinct ways by the grammar. The first
+interpretation would bind the &quot;else&quot; to the first &quot;if&quot;. </p>
+
+<table class="ssCodeTable" width="80%">
+  <tr>
+    <td width="100%" nowrap class="ssCodeTableBody"><span class="ssCodeEmphasis">if Enrolled
+    then</span> if Studied then Grade:=A <span class="ssCodeEmphasis">else Grade:=B</span></td>
+  </tr>
+</table>
+
+<p>The second interpretation would bind the &quot;else&quot; to the second 'if&quot;
+statement:</p>
+
+<table class="ssCodeTable" width="80%">
+  <tr>
+    <td width="100%" nowrap class="ssCodeTableBody">if Enrolled then <span
+    class="ssCodeEmphasis">if Studied then Grade:=A else Grade:=B</span></td>
+  </tr>
+</table>
+
+<p>Fortunately, there are two approaches you can take to resolve the problem.</p>
+
+<h2>Hanging-Else Solution #1: Modify the Grammar</h2>
+
+<p>This approach modifies the grammar such that the scope of the &quot;if&quot; statement
+is explicitly stated. Another terminal is added to the end of each &quot;if&quot;
+statement, in this case an &quot;end&quot;. A number of programming languages use this
+approach; the most notable are: Visual Basic and Ada.</p>
+
+<table width="80%" class="ssCodeTable" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" nowrap class="ssCodeTableBody">Id = {Letter}{AlphaNumeric}*</td>
+  </tr>
+  <tr>
+    <td width="100%" nowrap class="ssCodeTableBody"><br>
+    </td>
+  </tr>
+  <tr>
+    <td width="100%" nowrap class="ssCodeTableBody">&lt;Statement&gt; ::= <span
+    class="ssCodeEmphasis">if Id then &lt;Statement&gt; end</span></td>
+  </tr>
+  <tr>
+    <td width="100%" nowrap class="ssCodeTableBody">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    | <span class="ssCodeEmphasis">if Id then &lt;Statement&gt; else &lt;Statement&gt; end</span></td>
+  </tr>
+  <tr>
+    <td width="100%" nowrap class="ssCodeTableBody">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    | Id ':=' Id</td>
+  </tr>
+</table>
+
+<p>As seen below, the ambiguity of the original grammar has been resolved.</p>
+
+<table width="80%" class="ssCodeTable" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" nowrap class="ssCodeTableBody"><span class="ssCodeEmphasis">if Enrolled
+    then</span> if Studied then Grade:=A end <span class="ssCodeEmphasis">else Grade:=B end</span></td>
+  </tr>
+  <tr>
+    <td width="100%" nowrap class="ssCodeTableBody">if Enrolled then <span
+    class="ssCodeEmphasis">if Studied then Grade:=A else Grade:=B end</span> end</td>
+  </tr>
+</table>
+
+<h2>Hanging-Else Solution #2: Restrict the &quot;Else&quot;</h2>
+
+<p>This solution resolves the hanging-else problem by restricting the &quot;if-then&quot;
+statement to remove ambiguity. Two levels of statements are declared with the second,
+&quot;restricted&quot;, group only used in the &quot;then&quot; clause of a
+&quot;if-then-else&quot; statement. The &quot;restricted&quot; group is completely
+identical the the first with one exception: only the &quot;if-then-else&quot; variant of
+the if statement is allowed.</p>
+
+<p>In other words, no &quot;if&quot; statements without &quot;else&quot; clauses can
+appear inside the &quot;then&quot; part of an &quot;if-then-else&quot; statement. Using
+this solution, the &quot;else&quot; will bind to the last &quot;If&quot; statement, and
+still allows chaining. This is the case with the C/C++ programming language family.</p>
+
+<table width="80%" class="ssCodeTable" cellspacing="0">
+  <tr>
+    <td width="100%" nowrap class="ssCodeTableBody">Id = {Letter}{AlphaNumeric}*</td>
+  </tr>
+  <tr>
+    <td width="100%" nowrap class="ssCodeTableBody"><br>
+    </td>
+  </tr>
+  <tr>
+    <td width="100%" nowrap class="ssCodeTableBody">&lt;Statement&gt; ::= <span
+    class="ssCodeEmphasis">if Id then &lt;Statement&gt;</span></td>
+  </tr>
+  <tr>
+    <td width="100%" nowrap class="ssCodeTableBody">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    | <span class="ssCodeEmphasis">if Id then &lt;Then Stm&gt; else &lt;Statement&gt;</span></td>
+  </tr>
+  <tr>
+    <td width="100%" nowrap class="ssCodeTableBody">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    | Id ':=' Id</td>
+  </tr>
+  <tr>
+    <td width="100%" nowrap class="ssCodeTableBody"><br>
+    </td>
+  </tr>
+  <tr>
+    <td width="100%" nowrap class="ssCodeTableBody">&lt;Then Stm&gt;&nbsp; ::= <span
+    class="ssCodeEmphasis">if Id then &lt;Then Stm&gt; else &lt;Then Stm&gt;</span></td>
+  </tr>
+  <tr>
+    <td width="100%" nowrap class="ssCodeTableBody">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    | Id ':=' Id</td>
+  </tr>
+</table>
+
+<p>Unfortunately, this adds a number of rules, but it is ultimately the price you pay for
+such a grammar. </p>
+</body>
+</html>

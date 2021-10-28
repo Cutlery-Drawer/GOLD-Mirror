@@ -1,0 +1,320 @@
+/* The Style Sheet for the GOLD Parser Documentation */
+/* By Devin Cook                                     */
+
+A:visited, A:active, A:link 
+{
+  text-decoration: none;
+  color: #000080;
+}
+
+A:hover 
+{
+  color: #4040C0; 
+  text-decoration: underline;
+}
+
+H1
+{
+  font-family: Arial;
+  font-size: 18pt;
+  font-weight: bold;
+  border: 1px solid #104030; /* #606060; */
+  background-color: #306050; /* #406040; */   
+  color: #FFFFC0;              
+  padding: 8px;
+}
+
+H2
+{
+  font-family: Arial;
+  font-size: 16pt;
+  border-bottom: 1px solid #C0C0C0;
+}
+
+H3
+{
+  font-family: Arial;
+  font-size: 12pt;
+  font-weight: bold;
+}
+
+
+BODY 
+{
+  font-family: Arial;
+  font-size: 10pt;
+  color: #101010;
+  margin: 8px; 
+  background-color: #F0F0F0;
+}
+
+TABLE
+{  
+  font-family: Arial;
+  font-size: 10pt;
+ /* border-collapse: collapse; */
+}
+
+LI {padding: 5px;}
+
+BLOCKQUOTE 
+{
+   margin-right: 0px;
+   margin-top: 0px;
+   margin-bottom: 0px;
+   margin-left: 32px;
+}
+
+/* ------------------------------------------------------- */
+.ssMenuPage
+{  
+  background-color: #E8E8E8;
+}
+
+.ssMainPage
+{  
+  background-color: #FFFFFF;
+  margin-left: 24px;
+}
+
+
+/* -------------------------------------------------- */
+/* Tables that will be used for menu information      */
+/* -------------------------------------------------- */
+
+.ssMainMenuPage {
+  background-color: #E8E8E8;
+}
+
+
+.ssMenuTable 
+{
+  border: 1px solid #404040;
+  width: 130px;
+}
+
+.ssMenuTableHeader
+{
+  font-family: Arial;
+  font-size: 8pt;
+  font-weight: bold;
+  text-align: center;
+  background-color: #306050;
+  color: #FFFFC0;
+  padding: 3px;
+}
+
+.ssMenuTableBody
+{
+  font-family: Arial;
+  font-size: 8pt;
+  padding: 1px;
+  background-color: #FCFCFC;
+  color: #202020;
+  padding: 2px;
+  border-top: 1px solid #E0E0E0;
+}
+
+/* ------------------------------------------------------- */
+/* Display                                                 */
+/* ------------------------------------------------------- */
+
+
+.ssTitleTopicCell
+{  
+  height: 55px;
+  font-family: Arial;
+  font-size: 20pt;
+  color: #101010;
+  font-weight: bold;
+}
+
+.ssTitleDescCell
+{
+  height: 55px;
+  font-family: Arial;
+  font-size: 14pt;
+  color: #101010;
+}
+
+/*  --------------------------------------------------  */
+/*  Tables that will be used to display code            */
+/*  --------------------------------------------------  */
+.ssCodeTable {
+  border: 1px solid #606060;
+}
+
+.ssCodeTableHeader 
+{
+  font-family: Arial;
+  font-size: 10pt;
+  background-color: #385038;
+  color: #FFFFC0;
+  border: none;
+  padding: 4px;
+}
+
+.ssCodeTableBody
+{
+  font-family: "Courier New", Courier;
+  font-size: 9pt;
+  background-color:  #FBFBFB; 
+  color: #101010;
+  padding-top: 2px;  
+  padding-bottom: 2px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.ssCodeTableBodyLines   /* Line Numbers */
+{
+  text-align: right;
+  font-family: Courier;
+  font-size: 9pt;
+  background-color: #E0E0E0;
+  color: #101010;
+  border-right: 1px solid #909090;
+  padding: 4px;  
+}
+
+.ssCodeReservedSymbol
+{
+  color: #0000A0;
+  font-weight: bold;
+}
+
+.ssCodeKeySymbol
+{
+  color: #005000;
+  font-weight: bold;
+}
+
+.ssCodeNewLine
+{
+  color: #505050;
+  font-style: italic; 
+}
+
+.ssCodeComment
+{
+  color: #005050;
+  font-weight: normal;
+  font-style: italic;
+
+  font-family: "Arial";
+  font-size: 9pt;
+}
+
+.ssCodeVariable
+{
+  color: #000080;
+  font-weight: bold;
+  /* font-style: italic; */
+}
+
+.ssCodeConstant
+{
+  color: #600000;
+  font-weight: bold;
+  /* font-style: italic; */
+}
+
+/*  ------- Highlight and mark the text ------  */
+.ssCodeEmphasis 
+{
+  color: #0000A0;
+  background-color: #F8F8FF;
+  border: 1px solid #A0A0E0;  
+}
+
+
+.ssCodeAttention 
+{
+  color: #A00000;
+  background-color: #FFF8FF;
+  border: 1px solid #E0A0A0; 
+}
+
+
+/*  --------------------------------------------------  */
+/*  Tables that will be used to display formatted data  */
+/*  --------------------------------------------------  */
+.ssChartTable 
+{
+  border: 1px solid #404040;
+  border-collapse: collapse;
+}
+
+.ssChartTableHeader 
+{
+  text-align: center;
+  font-family: Arial;
+  font-size: 10pt;
+  font-weight: bold;
+  background-color:  #306050; /* #406040; */
+  color: #FFFFC0;
+  border: 1px solid #202020;
+  padding: 4px;
+}
+
+.ssChartTableColumn
+{
+  text-align: center;
+  font-family: Arial;
+  font-size: 8pt;
+  background-color: #D8D8D8; 
+  color: #101010;
+  border: 1px solid #202020;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.ssChartTableBodyItem
+{
+  font-family: "Courier New", Courier;
+  font-size: 9pt;
+  background-color: #F8F8F8;
+  color: #202020;
+  border: 1px solid #202020;
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.ssChartTableBodyDesc 
+{
+  font-family: Arial;
+  font-size: 8pt;
+  background-color: #F8F8F8;
+  color: #202020;
+  border: 1px solid #202020;
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+
+
+/* ------------------- Lists ------------------- */
+.ssListItemCell 
+{
+  font-family: Arial;
+  vertical-align: top;
+  font-size: 10pt;
+  color: #202020;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-right: 10px;  
+  border-top: 1px solid #C0C0C0;
+  border-bottom: 1px solid #C0C0C0;
+}
+
+.ssListTable 
+{
+  border: none;
+  border-collapse:collapse;
+}

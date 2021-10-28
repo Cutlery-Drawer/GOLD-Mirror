@@ -1,0 +1,122 @@
+<html>
+
+<head>
+<link REL="STYLESHEET" HREF="gold-engine-doc-style.css">
+<title>TrimReductions Property</title>
+</head>
+
+<body class="ssMainPage">
+
+<h1>TrimReductions Property</h1>
+
+<p>&nbsp;</p>
+
+<h2>Applies To</h2>
+
+<p><a href="object-goldparser.htm">GOLDParser Object</a></p>
+
+<p>&nbsp;</p>
+
+<h2>History</h2>
+
+<p>This feature was added in version 1.0 Beta 20 of the GOLD Parser Engine.</p>
+
+<p>&nbsp;</p>
+
+<h2>Description</h2>
+
+<p>The TrimReductions property is used to indicate whether the GOLD Engine will
+automatically remove unneeded reductions from the parse tree. </p>
+
+<p>Although each rule is necessary to define the grammar, not all rules contain terminal
+symbols.&nbsp; As a result, when the system creates a reduction for that rule, it does not
+contain any of the actual data being parsed. In some cases, this reduction is not needed
+in the parse tree since it only represents a single point on a branch.&nbsp; In
+particular, reductions which contain a single nonterminal can be eliminated from the tree
+without changing its meaning.</p>
+
+<p>When the TrimReductions property is set to True, those rules with the following format
+will be automatically trimmed from the parse tree.</p>
+
+<table border="0" class="ssCodeTable" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" class="ssCodeTableBody">&lt;Rule Name&gt; ::= &lt;Single Nonterminal&gt;</td>
+  </tr>
+</table>
+
+<p>&nbsp;</p>
+
+<p>The behavior of the TrimReductions property can best be demonstrated with a simple
+example. For this example, the following grammar will be used:</p>
+
+<table class="ssCodeTable" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td nowrap class="ssCodeTableBody">&quot;Start Symbol&quot; = &lt;Expression&gt;<br>
+    <br>
+    ID = {Letter}{AlphaNumeric}*<br>
+    <br>
+    &lt;Expression&gt; ::= &lt;Mult Exp&gt; '+' &lt;Expression&gt;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |
+    &lt;Mult Exp&gt; '-' &lt;Expression&gt;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |
+    &lt;Mult Exp&gt; <br>
+    <br>
+    &lt;Mult Exp&gt;&nbsp;&nbsp; ::= &lt;Negate Exp&gt; '*' &lt;Mult Exp&gt; <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |
+    &lt;Negate Exp&gt; '/' &lt;Mult Exp&gt; <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |
+    &lt;Negate Exp&gt; <br>
+    <br>
+    &lt;Negate Exp&gt; ::= '-' &lt;Value&gt; <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |
+    &lt;Value&gt; <br>
+    <br>
+    &lt;Value&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ::= ID <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | '('
+    &lt;Expression&gt; ')'</td>
+  </tr>
+</table>
+
+<p>This grammar defines the operator precedence used in most programming languages for
+arithmetic.&nbsp; </p>
+
+<p>&nbsp;</p>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="5">
+  <tr>
+    <td valign="top">If the source text<br>
+    <br>
+    <table class="ssCodeTable" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td nowrap class="ssCodeTableBody">a + b * c</td>
+      </tr>
+    </table>
+    <p>is parsed by the system with the TrimReductions property set to False, the parser will
+    produce the following parse tree. The tree represents the source text broken down
+    precisely using the grammar's rules. </p>
+    <p>For many grammars, such as those with a large number of operator precedence levels, the
+    parse tree can quickly become complex.</p>
+    <p>&nbsp;</td>
+    <td align="right" width="375" valign="top"><img src="images/diagram-parse-no-trim.gif" alt="parse-no-trim.gif (4697 bytes)" WIDTH="357" HEIGHT="261"></td>
+  </tr>
+  <tr>
+    <td valign="top">With the TrimReductions property set to True, the system will eliminate
+    reductions where the rule contains a single nonterminal.<p>In the chart on the right, the
+    highlighted reductions will be trimmed from the parse tree. </p>
+    <p>This is performed 'behind-the-scene' and is invisible to the developer. The
+    gpMsgReduction message will not generated for these trimmed reductions.</p>
+    <p>&nbsp;</td>
+    <td align="right" width="375" valign="top"><img src="images/diagram-parse-to-be-trimmed.gif" alt="parse-to-be-trimmed.gif (5486 bytes)" WIDTH="357" HEIGHT="261"></td>
+  </tr>
+  <tr>
+    <td valign="top">The resulting parse tree will contain far fewer reductions, but will not
+    match the grammar verbatim. <p>For instance, the &lt;Mult Exp&gt; rule contains the
+    nonterminals &lt;Negate Exp&gt; and &lt;Mult Exp&gt;, but the reduction itself contains
+    two &lt;Value&gt; rules instead. </p>
+    <p>Depending on how you plan to write your compiler or interpreter, it is important to
+    keep this in mind.</td>
+    <td align="right" width="375" valign="top"><img src="images/diagram-parse-after-trim.gif" alt="parse-after-trim.gif (2881 bytes)" WIDTH="357" HEIGHT="169"></td>
+  </tr>
+</table>
+</body>
+</html>

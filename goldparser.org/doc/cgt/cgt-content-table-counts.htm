@@ -1,0 +1,58 @@
+<html>
+
+<head>
+<title>File Content: Table Counts</title>
+<link REL="STYLESHEET" HREF="../gold-parser-doc-style.css">
+</head>
+
+<body class="ssMainPage">
+
+<h1>File Content: Table Counts</h1>
+
+<h2>Structure</h2>
+
+<p><img src="images/diagram-cgt-table-counts.gif" alt="cgt-table-counts.gif (1693 bytes)" WIDTH="373" HEIGHT="70"></p>
+
+<p>This is a single record that will stored before any records containing information
+about symbols, sets, rules or state table information. The first field of the record
+contains a byte with the value 84 - the ASCII&nbsp; code for the letter 'T'</p>
+
+<h2>Fields</h2>
+
+<p>Each value contains the total number of objects for each of the listed tables. All
+indexing starts at 0 and ranges from 0 to the count - 1.</p>
+
+<table class="ssChartTable" cellspacing="0" cellpadding="0">
+  <tr>
+    <th class="ssChartTableColumn">Item</th>
+    <th class="ssChartTableColumn">Type</th>
+    <th class="ssChartTableColumn">Description</th>
+  </tr>
+  <tr>
+    <td class="ssChartTableBodyItem">Symbol Table</td>
+    <td class="ssChartTableBodyDesc">Integer</td>
+    <td class="ssChartTableBodyDesc">The number of symbols in the language.</td>
+  </tr>
+  <tr>
+    <td class="ssChartTableBodyItem">Character Set Table</td>
+    <td class="ssChartTableBodyDesc">Integer</td>
+    <td class="ssChartTableBodyDesc">The number of character sets used by the DFA state table.</td>
+  </tr>
+  <tr>
+    <td class="ssChartTableBodyItem">Rule Table</td>
+    <td class="ssChartTableBodyDesc">Integer</td>
+    <td class="ssChartTableBodyDesc">The number of rules in the language.</td>
+  </tr>
+  <tr>
+    <td class="ssChartTableBodyItem">DFA Table</td>
+    <td class="ssChartTableBodyDesc">Integer</td>
+    <td class="ssChartTableBodyDesc">The number of Deterministic Finite Automata states.</td>
+  </tr>
+  <tr>
+    <td class="ssChartTableBodyItem">LALR Table</td>
+    <td class="ssChartTableBodyDesc">Integer</td>
+    <td class="ssChartTableBodyDesc">The number of LALR States.</td>
+  </tr>
+</table>
+</body>
+</html>

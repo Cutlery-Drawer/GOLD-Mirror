@@ -1,0 +1,49 @@
+<html>
+
+<head>
+<title>File Content: Character Set Table</title>
+<link REL="STYLESHEET" HREF="../gold-parser-doc-style.css">
+</head>
+
+<body class="ssMainPage">
+
+<h1>File Content: Character Set Table</h1>
+
+<h2>Structure</h2>
+
+<p>
+<img height="147" src="images/record-char-set.png" width="491" style="width: 490px"></p>
+
+<p>Each record describing a member in the Character Set Table is preceded by a 
+byte field containing the value 99 - the ASCII value of &quot;c&quot;. This table is used by the DFA
+State Table to store the valid characters for each edge in the DFA state machine. The file
+will contain one of these records for each character set used in the table. The <a href="record-table-counts.htm">Table Count</a> record, which precedes any character
+set records, will contain the total number of entries.</p>
+
+<h2>Fields</h2>
+<div align="center"><center>
+
+<table class="ssChartTable" cellspacing="0" cellpadding="0">
+  <tr>
+    <th class="ssChartTableColumn" height="23">Name</th>
+    <th class="ssChartTableColumn" height="23">Type</th>
+    <th class="ssChartTableColumn" height="23">Description</th>
+  </tr>
+  <tr>
+    <td valign="top" class="ssChartTableBodyItem">Index</td>
+    <td valign="top" class="ssChartTableBodyItem">Integer</td>
+    <td class="ssChartTableBodyDesc" valign="top">This field contains the index of the
+    character set in the Character Set Table. The character set should be stored into the
+    table at this value.</td>
+  </tr>
+  <tr>
+    <td valign="top" class="ssChartTableBodyItem">Characters</td>
+    <td valign="top" class="ssChartTableBodyItem">String</td>
+    <td class="ssChartTableBodyDesc" valign="top">This field contains a string representing
+    containing the character set. The characters are sorted by their Unicode code-points. This
+    means, a binary search can be used to look if a character exists in the set. </td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

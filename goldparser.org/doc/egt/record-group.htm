@@ -1,0 +1,145 @@
+<html>
+
+<head>
+<title>File Content: Parameters</title>
+<link REL="STYLESHEET" HREF="../gold-parser-doc-style.css">
+</head>
+
+<body class="ssMainPage">
+
+<h1>Group Record</h1>
+
+<h2>Format</h2>
+
+<p>
+<img height="156" src="images/record-group.png" width="683" style="width: 746px"></p>
+
+<p>Group records occur after all the <a href="record-symbol.htm">Symbol Records</a>. 
+The record is preceded by a byte field that contains the value 103, the ASCII code for the
+letter 'g'. </p>
+
+<h2>Fields</h2>
+<h3>Initial Fields</h3>
+
+<table class="ssChartTable" cellspacing="0" cellpadding="0">
+  <tr>
+    <th class="ssChartTableColumn">Name</th>
+    <th class="ssChartTableColumn">Type</th>
+    <th class="ssChartTableColumn">Description</th>
+  </tr>
+  <tr>
+    <td valign="top" nowrap class="ssChartTableBodyItem">Index</td>
+    <td valign="top" class="ssChartTableBodyDesc">Integer</td>
+    <td class="ssChartTableBodyDesc">The table index of the group in the Group 
+	Table. The values are zero-indexed.</td>
+  </tr>
+  <tr>
+    <td valign="top" nowrap class="ssChartTableBodyItem">Name</td>
+    <td valign="top" class="ssChartTableBodyDesc">String</td>
+    <td class="ssChartTableBodyDesc">The name of the group.</td>
+  </tr>
+    <tr>
+    <td valign="top" nowrap class="ssChartTableBodyItem">Container Index</td>
+    <td valign="top" class="ssChartTableBodyDesc">Integer</td>
+    <td class="ssChartTableBodyDesc">Index in the Symbol Table of the group's 
+	container symbol</td>
+    </tr>
+	<tr>
+    <td valign="top" nowrap class="ssChartTableBodyItem">Start Index</td>
+    <td valign="top" class="ssChartTableBodyDesc">Integer</td>
+    <td class="ssChartTableBodyDesc">Index in the Symbol Table of the group's 
+	start symbol</td>
+    </tr>
+	<tr>
+    <td valign="top" nowrap class="ssChartTableBodyItem">End Index</td>
+    <td valign="top" class="ssChartTableBodyDesc">Integer</td>
+    <td class="ssChartTableBodyDesc">Index in the Symbol Table of the group's 
+	end symbol</td>
+    </tr>
+	<tr>
+    <td valign="top" nowrap class="ssChartTableBodyItem">Advance Mode</td>
+    <td valign="top" class="ssChartTableBodyDesc">Integer</td>
+    <td class="ssChartTableBodyDesc">Contains a constant indicating how the 
+	group will advance. See below.</td>
+    </tr>
+	<tr>
+    <td valign="top" nowrap class="ssChartTableBodyItem">Ending Mode</td>
+    <td valign="top" class="ssChartTableBodyDesc">Integer</td>
+    <td class="ssChartTableBodyDesc">Contains a constant indicating how the 
+	group will handle the end symbol. See below.</td>
+    </tr>
+  <tr>
+    <td valign="top" nowrap class="ssChartTableBodyItem" style="font-style: italic">
+	Reserved</td>
+    <td valign="top" class="ssChartTableBodyDesc">Empty</td>
+    <td class="ssChartTableBodyDesc">Reserved for future use.</td>
+  </tr>
+  <tr>
+    <td valign="top" nowrap class="ssChartTableBodyItem">Nesting 1 .. n</td>
+    <td valign="top" class="ssChartTableBodyDesc">&nbsp;</td>
+    <td class="ssChartTableBodyDesc">Described Below.</td>
+  </tr>
+  </table>
+<h3>Nesting</h3>
+<p>The end of the record contains zero or more group indexes. These are allowed 
+to be nested within the current group</p>
+
+<table class="ssChartTable" cellspacing="0" cellpadding="0">
+  <tr>
+    <th class="ssChartTableColumn">Name</th>
+    <th class="ssChartTableColumn">Type</th>
+    <th class="ssChartTableColumn">Description</th>
+  </tr>
+  <tr>
+    <td valign="top" nowrap class="ssChartTableBodyItem">Index</td>
+    <td valign="top" class="ssChartTableBodyDesc">Integer</td>
+    <td class="ssChartTableBodyDesc">The table index of the group in the Group 
+	Table. The values are zero-indexed.</td>
+  </tr>
+  </table>
+<h3>Advance Mode</h3>
+
+<table class="ssChartTable" cellspacing="0" cellpadding="0">
+  <tr>
+    <th class="ssChartTableColumn">Index</th>
+    <th class="ssChartTableColumn" style="white-space: nowrap">Property Name</th>
+    <th class="ssChartTableColumn">Description</th>
+  </tr>
+  <tr>
+    <td valign="top" nowrap class="ssChartTableBodyItem">0</td>
+    <td valign="top" class="ssChartTableBodyDesc" style="white-space: nowrap">
+	Token</td>
+    <td class="ssChartTableBodyDesc">The group will advance a token at a time.</td>
+  </tr>
+  <tr>
+    <td valign="top" nowrap class="ssChartTableBodyItem">1</td>
+    <td valign="top" class="ssChartTableBodyDesc" style="white-space: nowrap">
+	Character</td>
+    <td class="ssChartTableBodyDesc">The group will advance by just one 
+	character at a time.</td>
+  </tr>
+  </table>
+<h3>Ending Mode</h3>
+
+<table class="ssChartTable" cellspacing="0" cellpadding="0">
+  <tr>
+    <th class="ssChartTableColumn">Index</th>
+    <th class="ssChartTableColumn" style="white-space: nowrap">Property Name</th>
+    <th class="ssChartTableColumn">Description</th>
+  </tr>
+  <tr>
+    <td valign="top" nowrap class="ssChartTableBodyItem">0</td>
+    <td valign="top" class="ssChartTableBodyDesc" style="white-space: nowrap">
+	Open</td>
+    <td class="ssChartTableBodyDesc">The ending symbol will be left on the input 
+	queue.</td>
+  </tr>
+  <tr>
+    <td valign="top" nowrap class="ssChartTableBodyItem">1</td>
+    <td valign="top" class="ssChartTableBodyDesc" style="white-space: nowrap">
+	Closed</td>
+    <td class="ssChartTableBodyDesc">The ending symbol will be consumed. </td>
+  </tr>
+  </table>
+</body>
+</html>

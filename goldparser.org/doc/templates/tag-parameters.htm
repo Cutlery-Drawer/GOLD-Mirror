@@ -1,0 +1,230 @@
+<html>
+
+<head>
+<link REL="STYLESHEET" HREF="../gold-parser-doc-style.css">
+<title>Program Templates - Parameters</title>
+</head>
+
+<body class="ssMainPage">
+
+<h1>Parameters</h1>
+
+<h2>Overview</h2>
+
+<p>The Parameters Block can be used to embed different fields about the grammar into the
+skeleton program. All the &quot;Parameters&quot; that are stored in the Compiled Grammar
+Table file, are assessable. The block also contains a number of variables about the
+generated file. Unlike the other blocks, this block is not a loop.</p>
+
+<p>This block was added in Version 2.5 of the Builder.</p>
+
+<h2>Structure</h2>
+
+<table class="ssCodeTable" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="ssCodeTableBody" valign="middle" nowrap><span class="ssCodeReservedSymbol">##PARAMETERS</span></td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" valign="middle" nowrap>...</td>
+  </tr>
+  <tr>
+    <td class="ssCodeTableBody" valign="middle" nowrap><span class="ssCodeReservedSymbol">##END-PARAMETERS</span></td>
+  </tr>
+</table>
+
+<h2>Variables</h2>
+
+<h3>Grammar Parameters</h3>
+
+<table width="90%" class="ssChartTable" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <th class="ssChartTableColumn">Name</th>
+    <th class="ssChartTableColumn">Description</th>
+  </tr>
+  <tr>
+    <td valign="top" nowrap class="ssChartTableBodyItem">%About%</td>
+    <td class="ssChartTableBodyDesc">This variable contains the content of the
+    &quot;About&quot; parameter. This is a general-purpose field the designer can use to
+    specify some notes about the grammar. </td>
+  </tr>
+  <tr>
+    <td valign="top" nowrap class="ssChartTableBodyItem">%About.XML%</td>
+    <td class="ssChartTableBodyDesc">This variable contains the XML encoding of %About%.</td>
+  </tr>
+  <tr>
+    <td valign="top" nowrap class="ssChartTableBodyItem">%Author%</td>
+    <td class="ssChartTableBodyDesc">This variable contains the author of the programming
+    language and/or grammar.</td>
+  </tr>
+  <tr>
+    <td valign="top" nowrap class="ssChartTableBodyItem">%Author.XML%</td>
+    <td class="ssChartTableBodyDesc">This variable contains the XML encoding of %Author%.</td>
+  </tr>
+  <tr>
+    <td valign="top" nowrap class="ssChartTableBodyItem">%CaseSensitive%</td>
+    <td class="ssChartTableBodyDesc">This variable contains either True or False - depending
+    on whether the grammar is case sensitive. The field is merely informative and has no
+    effect on the grammar.</td>
+  </tr>
+  <tr>
+    <td valign="top" nowrap class="ssChartTableBodyItem">%Name%</td>
+    <td class="ssChartTableBodyDesc">This variable contains the name of the grammar.</td>
+  </tr>
+  <tr>
+    <td valign="top" nowrap class="ssChartTableBodyItem">%Name.XML%</td>
+    <td class="ssChartTableBodyDesc">This variable contains the XML encoding of %Name%.</td>
+  </tr>
+  <tr>
+    <td valign="top" nowrap class="ssChartTableBodyItem">%StartSymbol%</td>
+    <td class="ssChartTableBodyDesc">The variable contains index of the grammar's start
+    symbol.</td>
+  </tr>
+  <tr>
+    <td valign="top" nowrap class="ssChartTableBodyItem">%Version%</td>
+    <td class="ssChartTableBodyDesc">This field contains the version of the grammar. Note that
+    this field is a string, not an integer.</td>
+  </tr>
+  <tr>
+    <td valign="top" nowrap class="ssChartTableBodyItem">%Version.XML%</td>
+    <td class="ssChartTableBodyDesc">This variable contains the XML encoding of %Version%.</td>
+  </tr>
+</table>
+
+<h3>Generated File Information</h3>
+
+<table width="90%" class="ssChartTable" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <th class="ssChartTableColumn">Name</th>
+    <th class="ssChartTableColumn">Description</th>
+  </tr>
+  <tr>
+    <td valign="top" nowrap class="ssChartTableBodyItem">%OutputFile%</td>
+    <td class="ssChartTableBodyDesc">The value of the %Output-File% variable contains the name
+    of the generated file. The value also contains the file's extension.</td>
+  </tr>
+  <tr>
+    <td valign="top" nowrap class="ssChartTableBodyItem">%OutputFileBase%</td>
+    <td class="ssChartTableBodyDesc">This variable contains the name of the generated file
+    without the extension.</td>
+  </tr>
+  <tr>
+    <td valign="top" nowrap class="ssChartTableBodyItem">%OutputFilePath%</td>
+    <td class="ssChartTableBodyDesc">This variable contains the both name and path of the
+    generated file.</td>
+  </tr>
+  <tr>
+    <td valign="top" nowrap class="ssChartTableBodyItem">%OutputPath%</td>
+    <td class="ssChartTableBodyDesc">This variable contains the folder of the generated file.</td>
+  </tr>
+</table>
+
+<h2>Example</h2>
+
+<p>The following displays a template that will output the parameter and file information
+for the grammar. </p>
+
+<table class="ssCodeTable" cellspacing="0" cellpadding="0" border="0">
+  <tr>
+    <td width="100%" nowrap class="ssCodeTableBody"><span class="ssCodeReservedSymbol">##PARAMETERS</span></td>
+  </tr>
+  <tr>
+    <td width="100%" nowrap class="ssCodeTableBody">Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    : <span class="ssCodeKeySymbol">%Name%</span></td>
+  </tr>
+  <tr>
+    <td width="100%" nowrap class="ssCodeTableBody">Version&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp; : <span class="ssCodeKeySymbol">%Version%</span></td>
+  </tr>
+  <tr>
+    <td width="100%" nowrap class="ssCodeTableBody">Author
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <span class="ssCodeKeySymbol">%Author%</span></td>
+  </tr>
+  <tr>
+    <td width="100%" nowrap class="ssCodeTableBody">About
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:<span class="ssCodeKeySymbol">
+    %About%</span></td>
+  </tr>
+  <tr>
+    <td width="100%" nowrap class="ssCodeTableBody">Case Sensitive&nbsp;&nbsp;: <span
+    class="ssCodeKeySymbol">%CaseSensitive%</span></td>
+  </tr>
+  <tr>
+    <td width="100%" nowrap class="ssCodeTableBody">Start Symbol&nbsp;&nbsp;&nbsp;&nbsp;: <span
+    class="ssCodeKeySymbol">%StartSymbol%</span></td>
+  </tr>
+  <tr>
+    <td width="100%" nowrap class="ssCodeTableBody"><br>
+    </td>
+  </tr>
+  <tr>
+    <td width="100%" nowrap class="ssCodeTableBody">Output File Path : <span
+    class="ssCodeKeySymbol">%OutputFilePath%</span></td>
+  </tr>
+  <tr>
+    <td width="100%" nowrap class="ssCodeTableBody">Output Path
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <span class="ssCodeKeySymbol">%OutputPath%</span></td>
+  </tr>
+  <tr>
+    <td width="100%" nowrap class="ssCodeTableBody">Output File&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    : <span class="ssCodeKeySymbol">%OutputFile%</span></td>
+  </tr>
+  <tr>
+    <td width="100%" nowrap class="ssCodeTableBody">Output File Base : <span
+    class="ssCodeKeySymbol">%OutputFileBase%</span></td>
+  </tr>
+  <tr>
+    <td width="100%" nowrap class="ssCodeTableBody"><span class="ssCodeReservedSymbol">##END-PARAMETERS</span></td>
+  </tr>
+</table>
+
+<p>&nbsp;</p>
+
+<p>If the &quot;Simple&quot; example grammar is used, the program template will create the
+following text:</p>
+
+<table class="ssCodeTable" cellspacing="0" cellpadding="0" border="0">
+  <tr>
+    <td width="100%" nowrap class="ssCodeTableBody">Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    : Simple</td>
+  </tr>
+  <tr>
+    <td width="100%" nowrap class="ssCodeTableBody">Version&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    : 2.1</td>
+  </tr>
+  <tr>
+    <td width="100%" nowrap class="ssCodeTableBody">Author&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    : Devin Cook</td>
+  </tr>
+  <tr>
+    <td width="100%" nowrap class="ssCodeTableBody">About&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    : This is a very simple grammar designed for use in examples</td>
+  </tr>
+  <tr>
+    <td width="100%" nowrap class="ssCodeTableBody">Case Sensitive : False</td>
+  </tr>
+  <tr>
+    <td width="100%" nowrap class="ssCodeTableBody">Start Symbol&nbsp;&nbsp; : 37</td>
+  </tr>
+  <tr>
+    <td width="100%" nowrap class="ssCodeTableBody"><br>
+    </td>
+  </tr>
+  <tr>
+    <td width="100%" nowrap class="ssCodeTableBody">Output File Path : C:\Grammars\Simple.txt</td>
+  </tr>
+  <tr>
+    <td width="100%" nowrap class="ssCodeTableBody">Output Path&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    : C:\Grammars\</td>
+  </tr>
+  <tr>
+    <td width="100%" nowrap class="ssCodeTableBody">Output File&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    : Simple.txt</td>
+  </tr>
+  <tr>
+    <td width="100%" nowrap class="ssCodeTableBody">Output File Base : Simple</td>
+  </tr>
+</table>
+
+<p>&nbsp;</p>
+</body>
+</html>

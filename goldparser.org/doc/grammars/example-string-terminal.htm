@@ -1,0 +1,54 @@
+<html>
+
+<head>
+<title>Example: String Terminal</title>
+<link REL="STYLESHEET" HREF="../gold-parser-doc-style.css">
+</head>
+
+<body class="ssMainPage">
+
+<h1>Example: String Terminal</h1>
+
+<p>&nbsp;</p>
+
+<p>The following example declares the string terminal commonly used in programming
+languages. It is declared as a series of zero or more printable characters (not including
+the double-quotes used for delimiters).</p>
+
+<table class="ssCodeTable">
+  <tr>
+    <td nowrap class="ssCodeTableBody">{String Char} = {Printable} - [&quot;]<br>
+    <br>
+    String = '&quot;'{String Char}*'&quot;'<br>
+    <br>
+    &lt;Literal&gt; ::= Identifier<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | String</td>
+  </tr>
+</table>
+
+<p>However, this definition does not allow the programmer to specify the double-quote
+character. Two distinct approaches are used in modern programming languages. The first
+approach is to use another structure or constant to represent the double-quote. The second
+approach is the use of an &quot;override&quot; character that allows the double-quote to
+be placed directly in the string. The latter approach is used in the C/C++ programming
+language family.</p>
+
+<p>The following contains a much more complex definition for strings, but implements the
+second approach mentioned above. The backslash character '\' now acts as an override and
+can be used to represent the double-quote character. Essentially, the string terminal is
+now a series of any printable character (not including the double-quote and backslash) <u>and</u>
+any printable character preceded by the backslash. </p>
+
+<table class="ssCodeTable">
+  <tr>
+    <td width="100%" nowrap class="ssCodeTableBody">{String Char} = {Printable} - [&quot;\]<br>
+    <br>
+    String = '&quot;' <strong>(</strong>{String Char} <strong>|</strong> '\'{Printable}<strong>)*</strong>
+    '&quot;'<br>
+    <br>
+    &lt;Literal&gt; ::= Identifier<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | String</td>
+  </tr>
+</table>
+</body>
+</html>

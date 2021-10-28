@@ -1,0 +1,33 @@
+<html>
+
+<head>
+<title>File Structure: Records</title>
+<link REL="STYLESHEET" HREF="../gold-parser-doc-style.css">
+</head>
+
+<body class="ssMainPage">
+
+<h1>File Structure: Records</h1>
+
+<p>&nbsp;</p>
+
+<p>Each logical record starts with a byte containing the value 77. This is the ASCII code
+for the letter &quot;M&quot;, which, in turn, stands for <u>m</u>ultitype. So far, this is
+the only type of record stored in the file; however, it is possible, in the future, to add
+more types such as pictures, sounds, additional parse information, and other files. </p>
+
+<p>Following the first byte, there is a two byte unsigned integer that contains the total
+number of entries in the record. The number is stored in <a href="../about/byte-ordering.htm">Little Endian</a> format, which means the least
+significant byte is stored first. This is the format used on the Intel family of
+processors and is the standard used by most file formats. Also, please note, this value is
+<u>not</u> the number of bytes to follow, but instead the number of different data types
+are stored. You should implement a simple &quot;for-loop&quot; to read the entries from
+the file.</p>
+
+<p align="center"><img src="images/diagram-sdb-structure.gif" alt="pic-sdb-structure.gif (5319 bytes)" WIDTH="510" HEIGHT="370"></p>
+
+<p>Each multitype row can contain any assortment of Boolean, Byte, Empty, Integer, and
+String <a href="sdb-entry-overview.htm">entries</a>. In future implementations of this
+file format, more entry types can be created.</p>
+</body>
+</html>

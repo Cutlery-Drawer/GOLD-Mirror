@@ -1,0 +1,70 @@
+<html dir="LTR">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" />
+    <meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5" />
+    <title>LALRParser.OnParseError Event</title>
+    <xml>
+    </xml>
+    <link rel="stylesheet" type="text/css" href="MSDN.css" />
+  </head>
+  <body id="bodyID" class="dtBODY">
+    <div id="nsbanner">
+      <div id="bannerrow1">
+        <table class="bannerparthead" cellspacing="0">
+          <tr id="hdr">
+            <td class="runninghead">Calitha GOLD Parser Engine Documentation</td>
+            <td class="product">
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div id="TitleRow">
+        <h1 class="dtH1">LALRParser.OnParseError Event
+					</h1>
+      </div>
+    </div>
+    <div id="nstext">
+      <p> This event will be called when the parser has a token it cannot parse. </p>
+      <div class="syntax">public&nbsp;event&nbsp;<a href="com.calitha.goldparser.LALRParser.ParseErrorHandler.html">ParseErrorHandler</a>&nbsp;OnParseError;</div>
+      <p>
+      </p>
+      <h4 class="dtH4">Event Data</h4>
+      <p>The event handler receives an argument of type <a href="com.calitha.goldparser.ParseErrorEventArgs.html">ParseErrorEventArgs</a> containing data related to this event. The following <b>ParseErrorEventArgs</b> properties provide information specific to this event.</p>
+      <div class="tablediv">
+        <table class="dtTABLE" cellspacing="0">
+          <tr valign="top">
+            <th width="50%">Property</th>
+            <th width="50%">Description</th>
+          </tr>
+          <tr VALIGN="top">
+            <td width="50%">
+              <a href="com.calitha.goldparser.ParseErrorEventArgs.Continue.html">Continue</a>
+            </td>
+            <td width="50%"> The continue property can be set during the parse error event. It can be set to the following: (1) Stop to not try to parse the rest of the input. (2) Insert will pretend that the next token is the one set in NextToken after which the current &quot;bad&quot; token will be parsed again. (3) Skip will just ignore the current bad token and proceed to parse the input as if nothing happened. The default value is Stop. </td>
+          </tr>
+          <tr VALIGN="top">
+            <td width="50%">
+              <a href="com.calitha.goldparser.ParseErrorEventArgs.ExpectedTokens.html">ExpectedTokens</a>
+            </td>
+            <td width="50%"> The symbols that were expected by the parser. </td>
+          </tr>
+          <tr VALIGN="top">
+            <td width="50%">
+              <a href="com.calitha.goldparser.ParseErrorEventArgs.NextToken.html">NextToken</a>
+            </td>
+            <td width="50%"> If the continue property is set to true, then NextToken will be the next token to be used as input to the parser (it will become the lookahead token). The default value is null, which means that the next token will be read from the normal input stream. stream. </td>
+          </tr>
+          <tr VALIGN="top">
+            <td width="50%">
+              <a href="com.calitha.goldparser.ParseErrorEventArgs.UnexpectedToken.html">UnexpectedToken</a>
+            </td>
+            <td width="50%"> The token that caused this parser error. </td>
+          </tr>
+        </table>
+      </div>
+      <h4 class="dtH4">See Also</h4>
+      <p>
+        <a href="com.calitha.goldparser.LALRParser.html">LALRParser Class</a> | <a href="com.calitha.goldparser.html">com.calitha.goldparser Namespace</a></p>
+    </div>
+  </body>
+</html>

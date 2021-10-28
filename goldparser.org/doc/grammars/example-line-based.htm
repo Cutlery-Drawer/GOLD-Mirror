@@ -1,0 +1,284 @@
+<html>
+
+<head>
+<title>Example: Line-Based Grammar</title>
+<link REL="STYLESHEET" HREF="../gold-parser-doc-style.css">
+</head>
+
+<body class="ssMainPage">
+
+<h1>Example: Line-Based Grammar</h1>
+
+<h2>Overview</h2>
+
+<p>The following grammars implement line-based programming languages. This type of grammar
+does not ignore the end of a line, but, instead, uses it as an essential part of the
+language. Real world examples include Visual Basic and many scripting languages.</p>
+
+<p>To accomplish this, the grammar must be able to recognize the Newline as a terminal
+rather than simply considering it whitespace. The characters used to represent a Newline
+differ slightly between computer platforms. The Windows operating system uses the
+combination of a Carriage Return followed by a Line Feed; UNIX, on the other hand, merely
+uses the Carriage Return. The definition of a Newline terminal must take this into
+account.</p>
+
+<p>In the grammars below, a <em>Newline</em> terminal is declared with the two possible
+permutations of the Carriage Return and Line Feed. It may also be advisable to make a
+solitary Line Feed recognized as a Newline terminal (for fault tolerance). </p>
+
+<p>The <a href="define-terminals.htm">Whitespace Terminal</a> must also be declared
+such that it does not accept the <em>Newline</em> as whitespace. Below, Whitespace is
+declared as a series of the normal whitespace characters without the Carriage Return and
+Line Feed.</p>
+
+<h2>Solution #1 - NewLine Terminal</h2>
+
+<p>In this example, a NewLine is added to the end of each statement. So the grammar can
+allow blank lines, the statement rule also contains a simple NewLine. </p>
+
+<table class="ssCodeTable" cellpadding="0" cellspacing="0" width="80%">
+  <tr>
+    <td nowrap class="ssCodeTableBody">&quot;Start Symbol&quot; = &lt;Program&gt;</td>
+  </tr>
+  <tr>
+    <td nowrap class="ssCodeTableBody"><br>
+    </td>
+  </tr>
+  <tr>
+    <td nowrap class="ssCodeTableBody">{WS} = {Whitespace} - {CR} - {LF}</td>
+  </tr>
+  <tr>
+    <td nowrap class="ssCodeTableBody"><br>
+    </td>
+  </tr>
+  <tr>
+    <td nowrap class="ssCodeTableBody">Whitespace = {WS}+</td>
+  </tr>
+  <tr>
+    <td nowrap class="ssCodeTableBody"><span class="ssCodeEmphasis">NewLine</span> =
+    {CR}{LF}|{CR}</td>
+  </tr>
+  <tr>
+    <td nowrap class="ssCodeTableBody"><br>
+    </td>
+  </tr>
+  <tr>
+    <td nowrap class="ssCodeTableBody">&lt;Program&gt; ::= &lt;Statements&gt;</td>
+  </tr>
+  <tr>
+    <td nowrap class="ssCodeTableBody"><br>
+    </td>
+  </tr>
+  <tr>
+    <td nowrap class="ssCodeTableBody">&lt;Statement&gt; ::= If Identifier Then <span
+    class="ssCodeEmphasis">NewLine</span> &lt;Statements&gt; End <span class="ssCodeEmphasis">NewLine</span>
+    </td>
+  </tr>
+  <tr>
+    <td nowrap class="ssCodeTableBody">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    | Print '(' Identifier ')' <span class="ssCodeEmphasis">NewLine</span></td>
+  </tr>
+  <tr>
+    <td nowrap class="ssCodeTableBody">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    | Read '(' Identifier ')' <span class="ssCodeEmphasis">NewLine</span></td>
+  </tr>
+  <tr>
+    <td nowrap class="ssCodeTableBody">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    | <span class="ssCodeEmphasis">NewLine</span>&nbsp;&nbsp; <span class="ssCodeAttention">!Allow
+    blank lines</span></td>
+  </tr>
+  <tr>
+    <td nowrap class="ssCodeTableBody"><br>
+    </td>
+  </tr>
+  <tr>
+    <td nowrap class="ssCodeTableBody">&lt;Statements&gt; ::= &lt;Statement&gt;
+    &lt;Statements&gt;</td>
+  </tr>
+  <tr>
+    <td nowrap class="ssCodeTableBody">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    | </td>
+  </tr>
+  <tr>
+    <td nowrap class="ssCodeTableBody"><br>
+    </td>
+  </tr>
+  <tr>
+    <td nowrap class="ssCodeTableBody">&lt;Exp&gt; ::= Identifier '=' Identifier</td>
+  </tr>
+  <tr>
+    <td nowrap class="ssCodeTableBody">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Identifier
+    '&lt;&gt;' Identifier</td>
+  </tr>
+</table>
+
+<h2>Solution #2 - Using a NewLine rule and terminal</h2>
+
+<p>Although this solution above works for simple line-based grammars, it will not work
+well for more complex variants.</p>
+
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top"><table border="0" cellspacing="0" cellpadding="0" class="ssCodeTable">
+      <tr>
+        <td nowrap class="ssCodeTableBodyLines">1</td>
+        <td nowrap class="ssCodeTableBody">Select Case Value</td>
+      </tr>
+      <tr>
+        <td nowrap class="ssCodeTableBodyLines">2</td>
+        <td nowrap class="ssCodeTableBody"></td>
+      </tr>
+      <tr>
+        <td nowrap class="ssCodeTableBodyLines">3</td>
+        <td nowrap class="ssCodeTableBody">&nbsp;&nbsp; Case 1, -1</td>
+      </tr>
+      <tr>
+        <td nowrap class="ssCodeTableBodyLines">4</td>
+        <td nowrap class="ssCodeTableBody">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Name = &quot;True&quot;</td>
+      </tr>
+      <tr>
+        <td nowrap class="ssCodeTableBodyLines">5</td>
+        <td nowrap class="ssCodeTableBody"></td>
+      </tr>
+      <tr>
+        <td nowrap class="ssCodeTableBodyLines">6</td>
+        <td nowrap class="ssCodeTableBody">&nbsp;&nbsp; Case 0</td>
+      </tr>
+      <tr>
+        <td nowrap class="ssCodeTableBodyLines">7</td>
+        <td nowrap class="ssCodeTableBody">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Name = &quot;False&quot;</td>
+      </tr>
+      <tr>
+        <td nowrap class="ssCodeTableBodyLines">8</td>
+        <td nowrap class="ssCodeTableBody">&nbsp;&nbsp; Case Else</td>
+      </tr>
+      <tr>
+        <td nowrap class="ssCodeTableBodyLines">9</td>
+        <td nowrap class="ssCodeTableBody">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Name = &quot;Error</td>
+      </tr>
+      <tr>
+        <td nowrap class="ssCodeTableBodyLines">10</td>
+        <td nowrap class="ssCodeTableBody">End Select</td>
+      </tr>
+    </table>
+    </td>
+    <td valign="top" width="20"></td>
+    <td valign="top">For grammars where the constructs can be quite complex, such as
+    case-statements, this solution becomes difficult to write. For instance, assume you have
+    the following Visual Basic Select-Case statement<p>Line #2 is a blank line and, as a
+    result, must be specified in the grammar. The developer could manually declare each
+    section where optional newlines are permitted, but this approach is very tedious and
+    mistakes are easy to make.</p>
+    <p>A better solution is to use a rule that accepts NewLines rather than using the NewLine
+    terminal at the end of each statement.</td>
+  </tr>
+</table>
+
+<p>The following solution replaces each NewLine with a new rule called &lt;nl&gt; - for <u>N</u>ew<u>L</u>ines.
+The &lt;nl&gt; rule is designed to accept one or more NewLine tokens. This solution makes
+it far easier to write complex line-based grammars. Each line is now logically followed by
+one or more NewLines rather than just a one. The rule that accepted a blank line as a
+statement is no longer needed. </p>
+
+<p>However, since NewLine characters are only acceptable following a statement, any blank
+lines before the start of the program must be removed. In the grammar below, the &lt;nl
+opt&gt; rule removes any NewLines before the start of the first actual line.</p>
+
+<table class="ssCodeTable" cellpadding="0" cellspacing="0" width="80%">
+  <tr>
+    <td nowrap class="ssCodeTableBody">&quot;Start Symbol&quot; = &lt;Program&gt;</td>
+  </tr>
+  <tr>
+    <td nowrap class="ssCodeTableBody"><br>
+    </td>
+  </tr>
+  <tr>
+    <td nowrap class="ssCodeTableBody">{WS} = {Whitespace} - {CR} - {LF}</td>
+  </tr>
+  <tr>
+    <td nowrap class="ssCodeTableBody"><br>
+    </td>
+  </tr>
+  <tr>
+    <td nowrap class="ssCodeTableBody">Whitespace = {WS}+</td>
+  </tr>
+  <tr>
+    <td nowrap class="ssCodeTableBody"><span class="ssCodeEmphasis">NewLine</span> =
+    {CR}{LF}|{CR}</td>
+  </tr>
+  <tr>
+    <td nowrap class="ssCodeTableBody"><br>
+    </td>
+  </tr>
+  <tr>
+    <td nowrap class="ssCodeTableBody">&lt;nl&gt;&nbsp;&nbsp;&nbsp;&nbsp; ::= <span
+    class="ssCodeEmphasis">NewLine</span> &lt;nl&gt;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="ssCodeAttention">!One or
+    more</span></td>
+  </tr>
+  <tr>
+    <td nowrap class="ssCodeTableBody">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    | <span class="ssCodeEmphasis">NewLine</span> </td>
+  </tr>
+  <tr>
+    <td nowrap class="ssCodeTableBody"><br>
+    </td>
+  </tr>
+  <tr>
+    <td nowrap class="ssCodeTableBody">&lt;nl Opt&gt; ::= <span class="ssCodeEmphasis">NewLine</span>
+    &lt;nl Opt&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="ssCodeAttention">!Zero or more</span></td>
+  </tr>
+  <tr>
+    <td nowrap class="ssCodeTableBody">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    |</td>
+  </tr>
+  <tr>
+    <td nowrap class="ssCodeTableBody"><br>
+    </td>
+  </tr>
+  <tr>
+    <td nowrap class="ssCodeTableBody"><span class="ssCodeAttention">! &lt;nl opt&gt; removes
+    blank lines before first statement</span></td>
+  </tr>
+  <tr>
+    <td nowrap class="ssCodeTableBody"><br>
+    </td>
+  </tr>
+  <tr>
+    <td nowrap class="ssCodeTableBody">&lt;Program&gt; ::= <span class="ssCodeEmphasis">&lt;nl
+    Opt&gt;</span> &lt;Statements&gt;&nbsp;</td>
+  </tr>
+  <tr>
+    <td nowrap class="ssCodeTableBody"><br>
+    </td>
+  </tr>
+  <tr>
+    <td nowrap class="ssCodeTableBody">&lt;Statement&gt; ::= If Identifier Then <span
+    class="ssCodeEmphasis">&lt;nl&gt;</span> &lt;Statements&gt; End <span
+    class="ssCodeEmphasis">&lt;nl&gt;</span></td>
+  </tr>
+  <tr>
+    <td nowrap class="ssCodeTableBody">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    | Print '(' Identifier ')' <span class="ssCodeEmphasis">&lt;nl&gt;</span></td>
+  </tr>
+  <tr>
+    <td nowrap class="ssCodeTableBody">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    | Read '(' Identifier ')' <span class="ssCodeEmphasis">&lt;nl&gt;</span></td>
+  </tr>
+  <tr>
+    <td nowrap class="ssCodeTableBody"><br>
+    </td>
+  </tr>
+  <tr>
+    <td nowrap class="ssCodeTableBody">&lt;Statements&gt; ::= &lt;Statement&gt;
+    &lt;Statements&gt;</td>
+  </tr>
+  <tr>
+    <td nowrap class="ssCodeTableBody">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    | </td>
+  </tr>
+</table>
+
+<p>&nbsp;</p>
+</body>
+</html>

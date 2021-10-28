@@ -1,0 +1,296 @@
+<html>
+
+<head>
+<meta NAME="GENERATOR" Content="Microsoft FrontPage 12.0">
+<meta http-equiv="X-UA-Compatible" content="IE=9">
+
+<link REL="STYLESHEET" HREF="../gold-parser-style.css">
+<title>GOLD Parsing System - Grammars and Backus-Naur Form</title>
+</head>
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%" class="ssMainContentTop">
+  <tr>
+    <td valign="top" class="ssMainTitleCell" colspan="2" height="110"><table border="0" cellspacing="0" cellpadding="0" class="ssTitleTable">
+      <tr>
+        <td class="ssTitleLogoCell" rowspan="2"><img src="../images/gold-logo-v4-100.png" alt="The Tower Bridge in Sacramento, California" WIDTH="100" HEIGHT="100"></td>
+        <td class="ssTitleTopicCell">Parsing Concepts</td>
+        <td class="ssTitleGraphicCell" rowspan="2"><img src="../images/pic-title-graphic.png" WIDTH="200" HEIGHT="110"></td>
+      </tr>
+      <tr>
+        <td class="ssTitleDescCell">Grammars and Backus-Naur Form</td>
+      </tr>
+    </table>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" class="ssMainContentTop" colspan="2"></td>
+  </tr>
+  <tr valign="top">
+    <td valign="top" align="center" class="ssMainMenuCell" width="150"><table class="ssMenuTable" border="0" cellspacing="0">
+      <tr>
+        <td valign="bottom" class="ssMenuTitleCell" colspan="2">
+		<a href="../index.htm">Main</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../images/bullets/bullet-news.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell"><a href="../news/index.htm">Latest News</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../images/bullets/bullet-getting-started.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a target="_top" href="../getting-started/index.htm">Getting
+        Started</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell">
+		<img src="../images/bullets/bullet-picture.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a href="../builder/screenshots.htm">Screen Shots</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../images/bullets/bullet-disk.gif" border="0" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a href="../download.htm" target="_top">Download</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../images/bullets/bullet-help.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell"><a href="../doc/index.htm">Documentation</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../images/bullets/bullet-contributor.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a target="_top" href="../contributors/index.htm">Contributors</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../images/bullets/bullet-contact.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a target="_top" href="../contact.htm">Contact</a></td>
+      </tr>
+    </table>
+    <table class="ssMenuTable" border="0" cellspacing="0">
+      <tr>
+        <td valign="bottom" class="ssMenuTitleCell" colspan="2">
+		<a href="../about/index.htm">About GOLD</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../images/bullets/bullet-information.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a href="../about/how-it-works.htm" target="_top">How
+        It Works</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../images/bullets/bullet-information.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a href="../about/faq.htm" target="_top">FAQ</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../images/bullets/bullet-information.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a target="_top" href="../about/why-use-gold.htm">Why
+        Use GOLD?</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../images/bullets/bullet-information.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a href="../about/comparison-parsers.htm" target="_top">Comparison</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../images/bullets/bullet-information.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a href="../about/revision-history.htm" target="_top">Revision History</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../images/bullets/bullet-information.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a target="_top" href="../about/license.htm">Freeware
+        License</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../images/bullets/bullet-information.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a target="_top" href="../about/index.htm">More ...</a></td>
+      </tr>
+    </table>
+    <div align="center"><center><table border="0" class="ssMenuTable" cellspacing="0" cellpadding="0">
+      <tr>
+        <td valign="bottom" class="ssMenuTitleCell" colspan="2">
+		<a href="index.htm">Articles</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../images/bullets/bullet-article.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a target="_top" href="parser.htm">What
+        is a Parser?</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../images/bullets/bullet-article.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell"><a href="bnf.htm">Backus-Naur Form</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../images/bullets/bullet-article.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell"><a href="dfa.htm">DFA Lexer</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../images/bullets/bullet-article.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell"><a href="lalr.htm">LALR Parsing</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../images/bullets/bullet-article.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell"><a href="glossary.htm">Glossary</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../images/bullets/bullet-article.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a target="_top" href="links.htm">Links</a></td>
+      </tr>
+      <tr>
+        <td valign="middle" class="ssMenuBodyCell" align="left">
+		<img src="../images/bullets/bullet-article.gif" WIDTH="11" HEIGHT="11"></td>
+        <td valign="top" class="ssMenuBodyCell">
+		<a target="_top" href="index.htm">More
+        ...</a></td>
+      </tr>
+    </table>
+    </center></div><p><br>
+    </p>
+    <p align="center">
+	<img src="../images/spacer-150.gif" border="0" WIDTH="150" HEIGHT="4"></td>
+    <td valign="top" class="ssMainContentCell" align="center"><h1>Context Free Grammars</h1>
+    <p>Grammars provide rules that specify the structure of languages, independently from the
+    actual meaning of the content. Grammars are classified according to the complexity of the
+    structure they describe. The class of context free grammars (CFG) is the most common one
+    use to describe the syntax of programming languages. In this class, the category a token
+    belongs to (e.g. reserved words, identifiers, etc.) is what matters rather than the
+    specific token (e.g. the identifier xyz). </p>
+    <p>In addition, the formatting of the program (the content of whitespace) and the actual
+    text of identifiers does not affect the syntax of the grammar. This is very important in
+    parsing technology. Grammars that are not context free cannot be parsed by the LR, LALR or
+    LL parsing algorithms. </p>
+    <h1>Backus-Naur Form</h1>
+    <p>Backus-Naur Form, or BNF for short, is a notation used to describe context free
+    grammars. The notation breaks down the grammar into a series of rules - which are used to
+    describe how the programming languages tokens form different logical units </p>
+    <p>The actual reserved words and recognized symbol categories in the grammar represent
+    &quot;terminals&quot;. Usually, terminals are left without special formatting or are
+    delimited by single or double quotes. Examples include: if, while, '=' and identifier. </p>
+    <p>In Backus-Naur Form, rules are represented with a &quot;nonterminal&quot; - which are
+    structure names. Typically, nonterminals are delimited by angle-brackets, but this is not
+    always the case. Examples include &lt;statement&gt; and &lt;exp&gt;. Both terminals and
+    nonterminals are referred to generically as &quot;symbols&quot;. Each nonterminal is
+    defined using a series of one or more rules (also called productions). They have the
+    following format:<dl>
+      <blockquote>
+        <table border="0" class="ssCodeTable" cellspacing="0" cellpadding="0">
+          <tr>
+            <td width="100%" class="ssCodeTableBody"><strong>N</strong> ::= <strong>s</strong></td>
+          </tr>
+        </table>
+      </blockquote>
+      <p>where <strong><em>N</em></strong> is a nonterminal and <strong><em>s</em></strong> is a
+      series of zero or more terminals and nonterminals.&nbsp; Different alternatives for rules
+      can be specified in Backus-Naur Form. For readability, often productions are grouped
+      together and&nbsp; separated by a &#147;pipe&#148; symbol which is read as the word
+      &#147;or&#148;.</p>
+      <p>In summary , there are slight variations in use, but the notation has the following
+      properties.<ul>
+        <li>A rule consists of one or more productions.</li>
+        <li>The production starts with a single nonterminal, which is the name of the rule being
+          defined</li>
+        <li>This nonterminal is followed by a <span class="ssCodeText"><strong>::=</strong> </span>symbol
+          which means &#147;as defined as&#148;. The&nbsp; <span class="ssCodeText">::= </span>symbol
+          is often used interchangeably with the <img src="../images/pic-bnf-arrow.gif" align="absmiddle" WIDTH="14" HEIGHT="10"> symbol. They both have the same meaning.</li>
+        <li>The symbol is followed by a series of terminals and nonterminals.</li>
+      </ul>
+      <p align="left">The following chart identifies the various parts of a rule definition.</p>
+      <p align="center"><img src="../images/rule-componants.gif" WIDTH="417" HEIGHT="88"></p>
+      <p>&nbsp;</p>
+      <p>For example, the following defines a rule called &lt;Value&gt; which can contain either
+      an Identifier terminal or the contents of another rule called &lt;Literal&gt;</p>
+      <blockquote>
+        <table border="0" class="ssCodeTable" cellspacing="0" cellpadding="0">
+          <tr>
+            <td width="100%" class="ssCodeTableBody" nowrap>&lt;Value&gt; ::= Identifier |
+            &lt;Literal&gt;<br>
+            &lt;Literal&gt; ::= Number | String </td>
+          </tr>
+        </table>
+      </blockquote>
+      <p>The &lt;Literal&gt; rule can contain either a&nbsp; Number&nbsp; or String &nbsp;
+      terminal. As a result of this definition, a &lt;Value&gt; can contain an Identifier,
+      Number or String.</p>
+      <p>Rules can also be recursively defined. The following rule defines a series of one or
+      more Identifiers.</p>
+      <blockquote>
+        <table border="0" class="ssCodeTable" cellspacing="0" cellpadding="0">
+          <tr>
+            <td width="100%" class="ssCodeTableBody" nowrap style="font-family: 'Courier New', Courier, monospace">&lt;Identifiers&gt;
+            ::= Identifier &lt;Identifiers&gt;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            | Identifier</td>
+          </tr>
+        </table>
+      </blockquote>
+      <h1>Extended BNF</h1>
+      <p>There is another version of BNF called Extended BNF, or EBNF (ISO/IEC 14977), for
+      short. This variant was originally developed by Niklaus Wirth to define the syntax for the
+      Pascal Programming Language. The notation was designed to simplify the notation of BNF by
+      allowing the developer to use special notation for defining lists and optional sets of
+      symbols. </p>
+      <p>Variations between different versions of EBNF exist, but most use similar notation.
+      Square brackets &quot;[ ... ]&quot; are used to denote optional elements of a rule.
+      Elements of a rule can also be grouped together using braces &quot;{ ... }&quot; which
+      denotes a repetition of zero to infinity. Symbols can also be grouped using parenthesis
+      &quot;( ... )&quot; and followed by a Kleene closure. In this case, the semantics are
+      identical to those used in Regular Expressions. </p>
+      <p>This format, while powerful, creates a number of implied rules. For instance, if the
+      programmer was to define a rule with an optional clause, the system would have two
+      distinct forms of the rule - the one with the clause and one without. This is also the
+      case with lists and other enhanced features. For instance, the If-then-else statement
+      could be defined as: </p>
+      <blockquote>
+        <table border="0" class="ssCodeTable" cellspacing="0" cellpadding="0">
+          <tr>
+            <td width="100%" class="ssCodeTableBody" nowrap>&lt;If Stm&gt; ::= IF &lt;Expression&gt;
+            THEN &lt;Stms&gt; <strong>[</strong> ELSE &lt;Stms&gt; <strong>] </strong></td>
+          </tr>
+        </table>
+      </blockquote>
+      <p>This would create the following rules: </p>
+      <blockquote>
+        <table border="0" class="ssCodeTable" cellspacing="0" cellpadding="0">
+          <tr>
+            <td width="100%" class="ssCodeTableBody" nowrap>&lt;If Stm&gt; ::= IF &lt;Expression&gt;
+            THEN &lt;Stms&gt; <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | IF &lt;Expression&gt; THEN
+            &lt;Stms&gt; ELSE &lt;Stms&gt; </td>
+          </tr>
+        </table>
+      </blockquote>
+      <p>&nbsp;</p>
+    </dl>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

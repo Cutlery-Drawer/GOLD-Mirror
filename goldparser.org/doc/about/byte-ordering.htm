@@ -1,0 +1,59 @@
+<html>
+
+<head>
+<link REL="STYLESHEET" HREF="../../gold-parser-doc-style.css">
+<title>About: Byte Ordering</title>
+</head>
+
+<body class="ssMainPage">
+
+<h1>Byte Ordering - Little Endian vs. Big Endian</h1>
+
+<p>&nbsp;</p>
+
+<p>Computers use data structures of all configurations. They range from the simple
+&quot;byte&quot; to 32-bit integers to those both complex and abstract. In most cases, the
+data structure consists of more than one byte. These bytes must be stored in memory and,
+sometimes, to files. However, the question remains: &quot;When multiple bytes are used,
+what order are they stored in memory?&quot; &nbsp; This is a fundamental issue that must
+be know with absolute certainly, or the reading and writing of binary data could be
+interpreted incorrectly.</p>
+
+<p>Two different classes of byte ordering are used in computers: Big-Endian and
+Little-Endian. When a data structure is stored in Little Endian format, the least
+significant byte is stored in the lower memory address. The opposite is true for Big
+Endian, the most significant byte is stored in the lower memory address.</p>
+
+<p>For instance, assume you have a 32-bit integer containing the value D7C4<sub>16</sub>.
+The least significant byte contains the value C4<sub>16</sub> and the most significant
+byte contains D7<sub>16</sub>. If the number is stored using Little Endian byte ordering,
+the first byte in the file will contain the value C4<sub>16</sub>; the second: D7<sub>16</sub>.
+This is the format used on the Intel family of processors and is the standard used by most
+file formats.</p>
+
+<p align="center"><img src="images/diagram-little-vs-big-endian.gif" alt="pic-little-vs-big-endian.gif (3810 bytes)" WIDTH="341" HEIGHT="183"></p>
+
+<p>At first you might consider the Little Endian format &quot;backwards&quot;, but this is
+not the case. In Little Endian, the <strong>low</strong> memory byte is stored in the <strong>lower</strong>
+memory location in the file - what we would logically assume would happen. The
+&quot;backwards&quot; appearance of Little Endian is not a result of the order of the
+bytes, but instead from differences in the notation commonly used to represent numbers and
+files. In fact, it is these representations that are reversed. </p>
+
+<p>Typically, hexadecimal numbers are printed with the high-order bit on the leftmost
+position; the rightmost bit being the least significant. In storage terms, the higher byte
+is displayed first; this being the case with the value D7C4<sub>16</sub>. In other words,
+hexadecimal and binary numbers are normally displayed in <strong>descending order</strong>.
+On the other hand, when displaying the binary information in files, the low-order byte of
+the file is displayed first. In this case, files are displayed in <strong>ascending order</strong>.
+</p>
+
+<p>If files were displayed with the high-byte first, the onscreen representation would
+look like the following:</p>
+
+<p align="center"><img src="images/diagram-little-endian-descending.gif" alt="diagram-little-endian-descending.gif (2381 bytes)" WIDTH="139" HEIGHT="123"></p>
+
+<p>This reversal of notations is what gives Little Endian the appearance of being
+&quot;backwards&quot;.</p>
+</body>
+</html>

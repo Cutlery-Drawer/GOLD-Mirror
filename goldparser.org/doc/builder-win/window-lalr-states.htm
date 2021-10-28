@@ -1,0 +1,84 @@
+<html>
+
+<head>
+<link REL="STYLESHEET" HREF="../gold-parser-doc-style.css">
+<title>LALR State Browser Window</title>
+</head>
+
+<body class="ssMainPage">
+
+<h1>LALR State Browser Window</h1>
+
+<h2>Overview</h2>
+
+<p>Most errors that occur in grammars are found in the <a href="../about/lalr.htm">LALR
+State Table</a>. When the system analyzes a grammar and computes the parser tables, often
+shift-reduce and reduce-reduce conflicts are occur. These conflicts are caused,
+ultimately, by ambiguities in the grammar which might not obvious to the developer.</p>
+
+<p>The LALR State Table Window allows the developer to review the produced states - in
+particular the state that contains the error.</p>
+
+<h2>Controls</h2>
+
+<p>The LALR State Browser functions much like a common Internet web browser. If you double
+click on any &quot;Shift&quot; or &quot;Goto&quot; link, the window will automatically
+advance to that state. At the bottom of the window, there are a number of simple controls
+that allow you to jump to any state in table or return to the last state you were
+examining.</p>
+
+<p>
+<img src="images/ss-browser-controls.png" alt="Browser Controls" WIDTH="522" HEIGHT="50"></p>
+
+<p>The &quot;Back&quot; and &quot;Forward&quot; buttons function exactly like those found
+on an Internet web browser. To the right of these buttons, a series of controls allow you
+jump to any state in the table. </p>
+
+<h2>Screenshots</h2>
+
+<p>The LALR State Browser window consists of three different tabs which contain
+information about the current state. The Configurations Tab displays the <em>configuration
+set </em>that the state represents. Essentially, each LALR state represents a particular
+&quot;state&quot; the system can be in during the parse. Rules which are being analyzed
+are called &quot;configurations&quot; with a cursor (representing the parse) represented
+by a dot.</p>
+
+<p>For each token (an instance of a terminal) received from the scanner, the LR algorithm
+can take four different actions: Shift, Reduce, Accept and Goto. 
+
+<ul>
+  <li>When cursor advances past a terminal, it is <strong><em>shifted</em></strong>.</li>
+  <li>When a configuration is complete, the system will <em><strong>reduce</strong></em> for
+    each terminal in the lookahead set. Essentially, the system &quot;sees&quot; an expected
+    token, reduces the rule, and then passes it to the developer. </li>
+  <li>When a rule is reduced, the system will jump (<em><strong>goto</strong></em>) the
+    appropriate state representing the reduced nonterminal. This simulates the shifting of a
+    nonterminal. </li>
+  <li>Finally, when the start symbol itself is reduced, the input is both complete and
+    correct. At this point, the input is <strong><em>accepted</em></strong> and parsing
+    terminates. </li>
+</ul>
+
+<p><img src="images/ss-lalr-states-0.png" WIDTH="607" HEIGHT="338"></p>
+
+<p>&nbsp;</p>
+
+<p>Each configuration has a Lookahead Set which contains all the terminals that can follow
+it. This information is used to create the actions - what the parser can do - at the
+current state.</p>
+
+<p><img src="images/ss-lalr-states-1.png" WIDTH="607" HEIGHT="338"></p>
+
+<p>&nbsp;</p>
+
+<p>The third tab in the LALR State Browser contains all the &quot;prior states&quot;. Each
+of these states will advance to the current state through either a <em><strong>shift</strong></em>
+or <strong><em>goto</em></strong>.</p>
+
+<p>Essentially, this tab allows the developer to move backwards through the state table.</p>
+
+<p><img src="images/ss-lalr-states-2.png" WIDTH="607" HEIGHT="338"></p>
+
+<p>&nbsp;</p>
+</body>
+</html>

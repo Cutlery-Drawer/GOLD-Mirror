@@ -1,0 +1,533 @@
+﻿/* The Style Sheet for the GOLD Parser website */
+/* By Devin Cook                               */
+
+TABLE   {color: #000000; font-size: 9pt; text-align:left;}  
+
+BODY    
+{
+  margin: 0px;
+  font-size: 9pt;
+  background-image: url('images/menu-background.png'); 
+  background-repeat: repeat-y;
+}
+
+H1      
+{
+  font-size: 12pt; 
+  font-weight: bold; 
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-top: 5px; 
+  padding-bottom: 5px; 
+  
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+
+  margin-top: 24px;
+  margin-bottom: 8px;
+
+  color:  #FFFFFF;   
+  border: 1px solid #104080;  
+  background-color:  #3060A0;  
+} 
+
+
+H2      {font-size: 12pt; font-weight: bold; color: #3060A0; padding-top: 8px;}
+
+HR      {color: #E0E0E0; background-color: #E0E0E0; width: 100%; height: 4px; text-align: left;}
+FORM    {border: 0px; margin: 0px; padding: 0px;}
+
+UL      {list-style-image: url('images/inline-bullet.gif'); margin-bottom: 0px; margin-top: 0px;}
+LI      {padding-top: 4px; padding-bottom: 4px;}
+
+
+A:visited, A:active, A:link 
+{
+  text-decoration: none; 
+  color:  #204080;; 
+  font-weight: bold;
+}
+
+A:hover
+{
+  text-decoration: underline;
+  color: #3060C0;
+  font-weight: bold;
+}
+
+.ssCodeText    {font-family: "Courier New", Courier, monospace; font-weight: bold;}
+.ssAttention   {color: #C00000; font-weight: bold;} 
+.ssQuote       {color: #000000; font-size: 10pt; font-weight: bold;} 
+.ssQuoteSource {margin-left: 32px; font-size: 9pt;}
+
+/* ------------------- Main Cells ------------------- */
+.ssMainTitleCell 
+{
+  background-color: #205040;
+  /*background-image:  url('images/bg-main-title-cell.gif');  */
+  background-image:  url('images/green-gradiant.png'); 
+  border-bottom: 1px solid #003000;
+  height: 110px;
+}
+
+.ssMainContentTop 
+{
+  /*background-image: url('images/bg-main-content-top.gif');   */ 
+  background-color: #E8E8E8;
+  height: 16px;
+}
+
+.ssMainContentCell 
+{ 
+  background-image: url('images/bg-content-corner.gif'); 
+  background-repeat: no-repeat;
+  background-color: #FFFFFF;
+
+  font-family: Arial;
+  font-size: 9pt;
+  color: #000000;  
+  text-align: left;
+  padding: 24px;
+}
+
+.ssMainMenuCell 
+{
+  background-color: #E8E8E8;
+  padding-top: 16px;
+  width: 150px !important;
+}
+
+/* ------------------- Title Table ------------------- */
+.ssTitleTable {width: 100%; border: none; padding: 0px; margin:0px;}
+
+.ssTitleLogoCell
+{
+  vertical-align: middle;
+  padding: 5px;
+  width: 120px;
+  text-align: center;
+}
+
+.ssTitleTopicCell
+{  
+  height: 55px; 
+  font-family: Arial;
+  font-size: 18pt;
+  color: #FFFFFF; /* #FFFAA0; */
+  padding-bottom: 5px;
+  vertical-align: bottom;
+}
+
+.ssTitleDescCell
+{
+  height: 55px; 
+  font-family: Arial;
+  font-size: 16pt;
+  color: #EAD597; /*#FFFAA0; */
+  padding-top: 5px;
+  vertical-align: top ;
+}
+
+.ssTitleGraphicCell {width: 200px; vertical-align: middle;}
+
+/* ------------------- Menu Tables ------------------- */
+.ssMenuTable
+{
+  width: 130px;
+  margin-bottom: 32px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+
+  border: 1px solid #305040;
+  background-color: #306050;
+}
+
+.ssMenuTitleCell   a:active,
+.ssMenuTitleCell   a:link,
+.ssMenuTitleCell   a:visited 
+{ 
+  color: #FFFFFF;  /* #FFFFD0; */
+  text-decoration: none;
+}
+
+.ssMenuTitleCell   a:hover
+{
+  color: #FFFFFF;  /*#FFFFD0; */
+  text-decoration: underline;
+}
+
+.ssMenuTitleCell
+{
+  font-family: Arial;
+  font-size: 9pt;
+  font-weight: bold;
+  text-align: center;
+  color: #FFFFFF;  /*#FFFFD0;*/
+  padding: 3px;
+}
+
+.ssMenuBodyCell   a:active,
+.ssMenuBodyCell   a:link,
+.ssMenuBodyCell   a:visited 
+{ 
+  color: #202050;
+  text-decoration: none;
+}
+
+.ssMenuBodyCell   a:hover
+{   
+  color: #4040A0; 
+  text-decoration: underline;
+}
+
+.ssMenuBodyCell
+{
+  font-family: Arial;
+  font-size: 8pt;
+  background-color: #FFFFFF;
+  border-top: 1px solid #E0E0E0;
+  padding: 3px;
+  vertical-align: middle;
+  color: #202020; 
+}
+
+/* ------------------- Active Table ------------------- */
+.ssActiveTable 
+{
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  margin-bottom: 32px;
+  font-size: 9pt;
+  background-color: #205040;
+  /*border: 1px solid #003020;  */
+  
+  border: 1px solid #104080; /*#104030;*/
+  background-color:  #3060A0; /*#3E6C9F; /*#306050; */ 
+}
+
+.ssActiveTable   a:active,
+.ssActiveTable   a:link,
+.ssActiveTable   a:visited 
+{ 
+  color: #204080;
+  text-decoration: none;
+  font-weight: bold; 
+}
+
+.ssActiveTable   a:hover
+{
+  font-family: Arial;
+  color: #4040C0; 
+  text-decoration: underline;
+  font-weight: bold; 
+}
+
+.ssActiveTitleCell
+{  
+  font-size: 10pt;
+  font-weight: bold; 
+  text-align: center;
+  color: #FFFFFF; /*#EAD597;    /*#FFFFD0;*/
+  padding: 5px;
+}
+
+.ssActiveSubTitleCell
+{
+  font-size: 8pt;
+  text-align: center;
+  color: #101010;
+  padding: 2px;
+  background-color:  #D0D0D0;
+}
+
+.ssActiveColumnCell
+{  
+  vertical-align: top; 
+  font-size: 8pt;
+  font-weight: bold; 
+  color: #202020;
+  padding: 4px;
+  background-color: #E0E0E0;
+  border-top: 1px solid #C0C0C0; 
+}
+
+.ssActiveIconCell
+{
+  text-align: center;
+  vertical-align: top;
+  padding-top: 6px;
+  width: 19px;
+  background-color: #F8F8F8;
+  border-top: 1px solid #C0C0C0;
+}
+
+.ssActiveBodyCell 
+{
+  vertical-align: top;
+  font-family: Arial;
+  color: #202020;
+  padding: 6px;
+  background-color: #F8F8F8;
+  border-top: 1px solid #C0C0C0;
+}
+
+.ssActiveBodyDescCell 
+{
+  font-family: Arial;
+  vertical-align: top;
+  font-size: 8pt; /*smaller;*/
+  color: #202020;
+  padding: 6px;
+  background-color: #F8F8F8;
+  border-top: 1px solid #C0C0C0;
+}
+
+/* ------------------- About Table ------------------- */
+.ssAboutTable {font-size: 8pt; margin-top: 16px;}
+.ssAboutCellName {padding-right: 3px;}
+.ssAboutCellValue {padding-left: 3px;}
+
+/* ------------------- Code Table ------------------- */
+.ssCodeTable {border: 1px solid #505050; }
+
+.ssCodeTableBody
+{
+  font-family: courier new, monospace;
+  font-size: 10pt;
+  background-color: #FCFCFC;
+  color: #101010;
+  padding: 8px;
+  border-bottom: 1px solid #A0A0A0;
+  white-space: nowrap;
+}
+
+.ssCodeTableHeader
+{
+  font-family: arial;
+  font-size: 10pt;
+  text-align:center ;
+  background-color: #F0F0F0;
+  color: #303030;
+  padding: 4px;
+  border-bottom: 1px solid #A0A0A0;
+}
+
+
+.ssCodeHighlight
+{
+  background-color: #FFB0B0;
+  color: #A00000;
+}
+
+.ssCodeTableBodyDesc 
+{
+  font-family: Arial;
+  vertical-align: top;
+  background-color: #F8F8F8;
+  color: #202020;
+  border-bottom: 1px solid #A0A0A0;
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.ssCodeTableColumn
+{
+  text-align: center;
+  font-family: Arial;
+  font-weight: bold;
+  background-color: #D8D8D8; 
+  color: #101010;
+  border-bottom: 1px solid #505050;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+
+/* ------------------- Lists ------------------- */
+.ssListIconCell 
+{
+  vertical-align: top;
+  font-size: 9pt;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  padding-right: 8px;  
+  border-top: 2px solid #C0C0C0;
+}
+ 
+.ssListItemCell 
+{
+  font-family: Arial;
+  vertical-align: top;
+  font-size: 9pt;
+  color: #000000;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  padding-right: 8px;
+  border-top: 2px solid #C0C0C0;
+}
+
+.ssListDescCell 
+{
+  font-family: Arial;
+  vertical-align: top;
+  font-size: 9pt;
+  color: #000000;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  border-top: 2px solid #C0C0C0;
+}
+
+.ssListHeaderText
+{
+  font-family: Arial;
+  font-size: 10pt;
+  font-weight: bold;
+  color: #000000;
+}
+
+.ssListTable {}
+
+
+/* ------------------- Header Table ------------------- */
+
+.ssHeaderTable
+{
+   width: 100%;
+   margin-bottom: 32px;
+}
+
+.ssHeaderTableText
+{
+  padding: 10px;
+  font-family: Arial;
+  font-size: 8pt;
+  vertical-align: middle;
+  background-color: #FFFFF0;
+
+  border-top: 1px solid #808060; 
+  border-left: 1px solid #808060;
+  border-bottom: 1px solid #808060;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+ }
+
+.ssHeaderTableGraphic
+{
+  padding: 10px;
+  vertical-align: top;
+  background-color: #FFFFF0;
+
+  border-top: 1px solid #808060;
+  border-right: 1px solid #808060;
+  border-bottom: 1px solid #808060;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+ }
+
+.ssHeaderTableSide
+{
+  padding-left: 16px;
+  vertical-align: top;
+}
+
+
+/* ------------------- Side Table ------------------- */
+.ssSideTable
+{
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  font-family: Arial;
+  margin-bottom: 32px;
+  
+  border: 1px solid #305040;
+  background-color: #306050;
+}
+
+.ssSideGraphic
+{
+  margin-bottom: 32px;
+}
+
+.ssSideTitleCell 
+{ 
+  font-size: 8pt;
+  text-align: center;
+  font-weight: bold;
+  color: #FFFFFF;  
+  padding: 4px;
+  border-bottom:  1px solid #2E5C8F;
+}
+
+ 
+.ssSideBodyCell 
+{
+  font-size: 8pt;  
+  vertical-align: top;
+  color: #101010; 
+  padding-top:    2px;
+  padding-bottom: 2px;
+  padding-left:   5px;
+  padding-right:  5px;
+  background-color: #F5F5F6;
+  border-bottom: 1px solid #E4E4E6;
+}
+
+
+
+
+.ssMenuInput 
+{
+  font-family: Arial;
+  font-size: 8pt;
+  vertical-align: middle;
+  border: 1px solid #B0B0B0;
+  color: #202020;
+  background-color: #F8F8F8;
+  width: 140px;
+  margin-top: 4px;
+}
+
+.ssMenuSubmit 
+{
+  font-family: Arial;
+  font-size: 8pt;
+  vertical-align: middle;
+  text-align: center;
+  margin-top: 4px;
+  background-color: #E0E0E0;
+  border: 1px solid #B0B0B0; 
+}
+
+.ssSideBodyCell    a:active,
+.ssSideBodyCell    a:link,
+.ssSideBodyCell    a:visited 
+{ 
+  color: #202040;
+  text-decoration: none;
+  font-weight: normal;  
+}
+
+.ssSideBodyCell   a:hover
+{
+  color: #4040C0; 
+  text-decoration: underline;
+  font-weight: normal; 
+}
+
+.ssSideColumnCell   /* Column headers */
+{  
+  vertical-align: middle;
+  font-family: Arial;  
+  font-size: 8pt;   
+  color: #202020;
+  padding-top:    1px;
+  padding-bottom: 1px;
+  padding-left:   5px;
+  padding-right:  5px;
+  background-color: #E0E0E4;
+  border-bottom: 1px solid #B0B0B0; 
+}

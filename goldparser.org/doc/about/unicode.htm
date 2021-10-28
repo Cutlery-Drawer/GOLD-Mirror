@@ -1,0 +1,49 @@
+<html>
+
+<head>
+<title>About: Unicode</title>
+<link REL="STYLESHEET" HREF="../../gold-parser-doc-style.css">
+</head>
+
+<body class="ssMainPage">
+
+<h1>Unicode Strings</h1>
+
+<p>&nbsp;</p>
+
+<h2>ASCII vs. Unicode</h2>
+
+<p>One of the most common storage formats is ASCII (American Standard Code for Information
+Interchange).ASCII is 7-bit, giving a total of 128 possible characters.&nbsp; In most
+cases, it is extended to 8-bit, giving a full 256. Older systems, and some current ones as
+well, use ASCII as the primary format for storing text. These include: DOS, Mac-OS,
+Windows 95 (not the NT/2000 series). </p>
+
+<p>Unfortunately, given the rather small number of possible characters in ASCII, it is
+unable to represent any languages besides English and other western languages.</p>
+
+<p>The solution to this dilemma is Unicode. In Unicode, each logical character is
+represented by a 32-bit integer, giving a total 65535 characters that can represented.
+This allows Unicode to represent all the ASCII codes, the characters of other languages,
+and leaves plenty of room for expansion. </p>
+
+<p>For more information please see <a href="http://www.unicode.org">www.unicode.org</a></p>
+
+<p>&nbsp;</p>
+
+<h2>Reading and Writing Unicode</h2>
+
+<p>Unicode characters are technically 2-byte integers, making the order in which the bytes
+are stored important. These bytes are stored using <a href="byte-ordering.htm">Little
+Endian</a> byte ordering, which means the lower byte of the 32-bit integer is stored first
+to the file.</p>
+
+<p align="center"><img src="images/diagram-unicode.gif" alt="pic-unicode.gif (3483 bytes)" WIDTH="388" HEIGHT="132"></p>
+
+<p>The Unicode characters with the values 0-127 are equivalent to those in ASCII, making
+the conversion between Unicode and ASCII rather trivial. Note that the most significant
+byte (the second listed in Little Endian) will contain a 0 in every case.</p>
+
+<p>&nbsp;</p>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<html>
+
+<head>
+<title>About LALR Parsing</title>
+<link REL="STYLESHEET" HREF="../../gold-parser-doc-style.css">
+</head>
+
+<body class="ssMainPage">
+
+<h1><u>L</u>ook<u>a</u>head <u>L</u>eft to <u>R</u>ight Parsing (LALR) </h1>
+
+<p>&nbsp;</p>
+
+<h2>Introduction</h2>
+
+<p>The primary goal a parser is to organize a sequence of tokens based on the rules of a
+formal language. As the parser accepts a sequence of tokens, it determines, based on this
+information, when the grammar's respective rules are complete and verifies the syntactic
+correctness of the token sequence. The end result of the process is a
+&quot;derivation&quot; which represents the token sequence organized following the rules
+of the grammar. </p>
+
+<p>Typically, Backus-Naur Form is used to define the context free grammar used by the
+language. The entire language, as a whole, is represented through a single nonterminal
+called the &quot;start symbol&quot;. Often the parse information is stored into a tree,
+called a derivation tree, where the start symbol is the root node. </p>
+
+<p>There are two distinct approaches currently used to implement parsers. Recursive
+Descent Parsers and LL parsers are examples of top-down parsers and LR parsers are
+examples of bottom-up parsers. Most parser generators, such as YACC, use one of the LR
+algorithm variants.</p>
+
+<p>&nbsp;</p>
+
+<h2>LR Parsing</h2>
+
+<p>LR Parsing, or Left-to-right Right-derivation parsing, uses tables to determine when a
+rule is complete and when additional tokens must be read from the source string. LR
+parsers identify substrings which can be reduced to nonterminals. Unlike recursive descent
+parsers, LR parsers do very little &quot;thinking&quot; at runtime. All decisions are
+based on the content of the parse tables. </p>
+
+<p>LR parser generators construct these tables by analyzing the grammar and determining
+all the possible &quot;states&quot; the system can have when parsing. Each state
+represents a point in the parse process where a number of tokens have been read from the
+source string and rules are in different states of completion. Each production in a state
+of completion is called a &quot;configuration&quot; and each state corresponds to a
+configuration set. Each configuration contains a &quot;cursor&quot; which represents the
+point where the production is complete. </p>
+
+<p>LALR Parsing, or &quot;Lookahead LR parsing&quot;, is a variant of LR Parsing which
+most parser generators, such as YACC, implement. LR Parsing combines related
+&quot;configuration sets&quot; thereby limiting the size of the parse tables. As a result,
+the algorithm is slightly less powerful than LR Parsing but much more practical. </p>
+
+<p>Grammars that can be parsed by the LR algorithm, might not be able to be parsed by the
+LALR algorithm. However, this is very rarely the case and real-world examples are few. The
+number of states eliminated by choosing LALR over LR is sometimes huge. The C programming
+language, for instance, has over 10,000 LR states. LALR drops this number to around 350. </p>
+
+<p><img src="images/diagram-lalr.gif" alt="lalr.gif (5271 bytes)" align="right" hspace="5" vspace="5" WIDTH="309" HEIGHT="362">Typically, the LR / LALR parsing algorithms, like deterministic finite
+automata, are commonly represented by using a graph - albeit a more complex variant. For
+each token received from the scanner, the LR algorithm can take four different actions:
+Shift, Reduce, Accept and Goto. </p>
+
+<p>For each state, the LR algorithm checks the next token on the input queue against all
+tokens that expected at that stage of the parse. If the token is expected, it is
+&quot;shifted&quot;. This action represents moving the cursor past the current token. The
+token is removed form the input queue and pushed onto the parse stack. </p>
+
+<p>A reduce is performed when a rule is complete and ready to be replaced by the single
+nonterminal it represents. Essentially, the tokens that are part of the rule's handle -
+the right-hand side of the definition - are popped from the parse stack and replaced by
+the rule's nonterminal plus additional information including the current state in the LR
+state machine. </p>
+
+<p>When a rule is reduced, the algorithm jumps to (gotos) the appropriate state
+representing the reduced nonterminal. This simulates the shifting of a nonterminal in the
+LR state machine. </p>
+
+<p>Finally, when the start symbol itself is reduced, the input is both complete and
+correct. At this point, parsing terminates. </p>
+
+<p>&nbsp;</p>
+
+<p>For more information, please refer to the following: 
+
+<ul>
+  <li>Loudan, Kenneth C. (1997). Compiler Construction, PWS Publishing Company, 20 Park Plaza,
+    Boston, MA 02116-4324</li>
+  <li>Appel, Andrew W. (1998). Modern Compiler Implementation in C. Cambridge University
+    Press, 40 West 20th Street, New York City, New York 10011-4211</li>
+  <li>Fischer, Charles N. &amp; LeBlanc Jr., Richard J. (1988). Crafting a Compiler, The
+    Benjamin/Cummings Publishing Company Inc., 2727 Sand Hill Road, Menlo Park, California
+    94025</li>
+  <li>... or just search for &quot;LALR Parsing&quot; on the Internet.</li>
+</ul>
+</body>
+</html>

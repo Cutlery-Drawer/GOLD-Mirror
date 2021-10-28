@@ -1,0 +1,44 @@
+<html>
+
+<head>
+<title>File Content: Initial States</title>
+<link REL="STYLESHEET" HREF="../gold-parser-doc-style.css">
+</head>
+
+<body class="ssMainPage">
+
+<h1>Initial States Record</h1>
+
+<h2>Format</h2>
+
+<p><img height="83" src="images/record-initial-states.png" width="193"></p>
+
+<p>The Initial State record only occurs once in the Compiled Grammar Table file. It will
+contain the initial states for both the DFA and LALR algorithms.&nbsp; The record is
+preceded by a byte field contains the value 73, the ASCII code for the letter 'I'.</p>
+
+<h2>Fields</h2>
+<table class="ssChartTable" cellspacing="0" cellpadding="0">
+	<tr>
+		<th class="ssChartTableColumn">Item</th>
+		<th class="ssChartTableColumn">Type</th>
+		<th class="ssChartTableColumn">Description</th>
+	</tr>
+	<tr>
+		<td class="ssChartTableBodyItem">DFA</td>
+		<td class="ssChartTableBodyDesc">Integer</td>
+		<td class="ssChartTableBodyDesc" style="padding: 0">The initial state in the 
+		<a href="../about/dfa.htm">Deterministic
+    Finite Automata</a> table. Normally, due to how the generation
+    algorithm is implemented, this value should be 0</td>
+	</tr>
+	<tr>
+		<td valign="top" class="ssChartTableBodyItem">LALR</td>
+		<td valign="top" class="ssChartTableBodyDesc">Integer</td>
+		<td class="ssChartTableBodyDesc">The initial state in the 
+		<a href="../about/lalr.htm">LALR</a>
+    state table. Like the DFA state table, this value should normally be 0.</td>
+	</tr>
+</table>
+</body>
+</html>

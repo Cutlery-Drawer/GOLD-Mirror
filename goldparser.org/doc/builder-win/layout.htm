@@ -1,0 +1,73 @@
+<html>
+
+<head>
+<link REL="STYLESHEET" HREF="../gold-parser-doc-style.css">
+<title>Main Window</title>
+</head>
+
+<body class="ssMainPage">
+
+<h1>Application Layout</h1>
+
+<p>&nbsp;</p>
+
+<h2>Overview</h2>
+
+<p>The flow of the application is broken down into three distinct steps that progress from
+a grammar to the completed parse tables. The developer advances by clicking the
+&quot;Next&quot; button which is located on the bottom left side of the main window. This
+is similar to the interface commonly used by installation software and application
+&quot;wizards&quot;. </p>
+
+<p>&nbsp;</p>
+
+<h2>Screenshot</h2>
+
+<p>
+<img src="images/ss-layout.png" alt="Builder Layout" WIDTH="800" HEIGHT="600"></p>
+
+<p>&nbsp;</p>
+
+<h2>Next Button</h2>
+
+<p>The Next Button will change each time it is clicked - representing the next step in
+compilation process. </p>
+
+<p>&nbsp;</p>
+
+<table border="0" width="100%" class="ssListTable" cellspacing="0" cellpadding="0">
+  <tr>
+    <td nowrap valign="top" class="ssListItemCell"><strong>Step 1</strong></td>
+    <td valign="top" class="ssListItemCell"><strong>Enter the Grammar</strong><p>During this
+    step, the Builder checks the syntax of the grammar itself and prepares the system to
+    compute the parse tables. If the grammar contains an error, it is reported to the user and
+    the system resets. </td>
+  </tr>
+  <tr>
+    <td nowrap valign="top" class="ssListItemCell"><strong>Step 2</strong></td>
+    <td valign="top" class="ssListItemCell"><strong>Compute the Parser</strong><p>During this
+    step, the Builder attempts to construct the LALR Parser tables. Most conflicts occur
+    during the construction of the LALR parse tables, and, as a result, these are constructed
+    first. </td>
+  </tr>
+  <tr>
+    <td nowrap valign="top" class="ssListItemCell"><strong>Step 3</strong></td>
+    <td valign="top" class="ssListItemCell"><strong>Compute the Tokenizer</strong><p>During
+    this step, the Builder attempts to DFA tables used by the tokenizer (scanner). </td>
+  </tr>
+  <tr>
+    <td nowrap valign="top" class="ssListItemCell"><strong>Step 4</strong></td>
+    <td valign="top" class="ssListItemCell"><strong>Save the Compiled Grammar</strong><p>If no
+    problems are found, the developer now has the ability to save the parse information to a
+    Compiled Grammar Table file. If the developer clicks on the button at this point, the
+    system will automatically display the &quot;Save File&quot; dialog window.Since the parse
+    tables are complete and ready to use, the developer has the ability to interactively test
+    the grammar using the embedded parser engine. Also, the developer can export the grammar
+    to different file formats (besides Compiled Grammar Table files), and create skeleton
+    programs. </td>
+  </tr>
+</table>
+
+<p>&nbsp;</p>
+</body>
+</html>
