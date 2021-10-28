@@ -1,0 +1,39 @@
+"Name"    = 'Micro'
+"Author"  = 'Charles N. Fischer & Richard J. LeBlanc, Jr.'
+"About"   = 'A simple grammer used in the book "Crafting a Compiler"'
+
+"Case Sensitive" = False
+"Start Symbol" = <Program>
+
+! ============================================================ Terminals
+
+IntLiteral = {digit}+
+
+Id         = {letter}{alphanumeric}* 
+
+
+! ============================================================ Rules
+<Program>        ::= begin <Statement List> end
+
+<Statement List> ::= <Statement> 
+                  |  <Statement> <Statement List>
+
+<Statement>      ::= Id ':=' <Expression> ';'
+                   | read '(' <Id List> ')' ';'
+                   | write '(' <Expr List> ')' ';'
+
+<Id List>        ::= Id
+                   | Id ',' <Id List>                     
+
+<Expr List>      ::= <Expression>
+                   | <Expression> ',' <Expr List>
+
+<Expression>     ::= <Primary>
+                   | <Primary> <Add Op> <Primary>
+
+<Primary>        ::= '(' <Expression> ')'
+                   | Id
+                   | IntLiteral
+
+<Add Op>         ::= '+' | '-'
+   

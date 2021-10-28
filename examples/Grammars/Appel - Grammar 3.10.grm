@@ -1,0 +1,23 @@
+! A very simple example of operator precendence
+
+"Name"    = 'Grammar 3.10'
+"Author"  = 'Andrew W. Appel'
+"About"   = 'A grammar located in the "Modern Compiler Implementation" book series'
+
+"Case Sensitive" = False
+"Start Symbol" = <E>
+
+Id = {Letter}{Alphanumeric}*
+Num = {Digit}+
+
+<E> ::= <E> '+' <T>
+    |   <E> '-' <T>
+    |   <T>
+
+<T> ::= <T> '*' <F>
+    |   <T> '/' <F>
+    |   <F>
+
+<F> ::= id
+    |   num
+    |   '(' <E> ')'

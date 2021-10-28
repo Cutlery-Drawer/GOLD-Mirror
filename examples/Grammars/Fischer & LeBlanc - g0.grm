@@ -1,0 +1,14 @@
+"Name"    = 'g0'
+"Author"  = 'Charles N. Fischer & Richard J. LeBlanc, Jr.'
+"About"   = 'A simple grammer used in the book "Crafting a Compiler"'
+
+"Case Sensitive" = False
+"Start Symbol" = <Program>
+
+<Program> ::= begin <Stmts> end
+
+<Stmts>   ::= SimpleStmt ';' <Stmts>
+            | begin <stmts> end ';' <stmts>
+            |
+
+   

@@ -1,0 +1,20 @@
+! This very simple grammar causes a shift-reduce error
+
+"Name"    = 'Grammar 3.1'
+"Author"  = 'Andrew W. Appel'
+"About"   = 'A grammar located in the "Modern Compiler Implementation" book series'
+
+"Case Sensitive" = False
+"Start Symbol" = <S>
+
+<S> ::= <S> ';' <S>
+    |   Id ':=' <E>
+    |   Print '(' <L> ')'
+
+<E> ::= Id
+    |   num
+    |   <E> '+' <E>
+    |   '(' <S> ',' <E> ')'
+
+<L> ::= <E>
+    |   <L> ',' <E>

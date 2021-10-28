@@ -1,0 +1,14 @@
+! A simple example of a list
+
+"Name"    = 'Grammar 3.20'
+"Author"  = 'Andrew W. Appel'
+"About"   = 'A grammar located in the "Modern Compiler Implementation" book series'
+
+"Case Sensitive" = False
+"Start Symbol" = <S>
+
+<S> ::= '(' <L> ')'
+    |   x
+
+<L> ::= <S>
+    |   <L> ',' <S>

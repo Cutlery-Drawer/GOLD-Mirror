@@ -1,0 +1,17 @@
+"Name"    = 'Grammar 3.11'
+"Author"  = 'Andrew W. Appel'
+"About"   = 'A grammar located in the "Modern Compiler Implementation" book series'
+
+"Case Sensitive" = False
+"Start Symbol" = <S>
+
+num = {Digit}+
+
+<S> ::= if <E> then <S> else <S>
+    |   begin <S> <L>
+    |   print <E>
+
+<L> ::= end
+    |   ';' <S> <L>
+
+<E> ::= num '=' num

@@ -1,0 +1,25 @@
+"Name"    = 'Grammar 3.15'
+"Author"  = 'Andrew W. Appel'
+"About"   = 'A grammar located in the "Modern Compiler Implementation" book series'
+
+"Case Sensitive" = False
+"Start Symbol" = <E>
+
+num = {Digit}+
+id  = {Letter}{Alphanumeric}*
+
+<E>  ::= <T> <E^>
+
+<E^> ::= '+' <T> <E^>
+       | '-' <T> <E^>
+       |
+
+<T>  ::= <F> <T^>
+
+<T^> ::= '*' <F> <T^>
+       | '/' <F> <T^>
+       |
+
+<F>  ::= id
+       | num
+       | '(' <E> ')'

@@ -1,0 +1,40 @@
+! This is a solution to the hanging "else" problem that occurred in 
+! Grammer 3.30. The ambiguity was due to the recursive definition of 
+! the "If" statement.
+!
+!    if Enrolled then if Studied then Grade:=A ELSE Grade:=B
+!
+! Which "if" did ELSE belong to?
+!
+! The solution uses two levels of statements. The second set is used 
+! with the "If" statement and guarentees that no "if-then" statements can appear
+! inside the "then" part of an "if-then-else". In other words, no if statements without
+! "else" clauses can appear inside the "then" part of an "if-then-else". 
+!
+! In this case, the "else" will bind to the last "If" statement,
+! as it does in C/C++
+
+"Name"    = 'Grammar 3.30 (Repaired)'
+"Author"  = 'Andrew W. Appel (modified by Devin Cook)'
+"About"   = 'A grammar located in the "Modern Compiler Implementation" book series'
+
+"Case Sensitive" = False
+"Start Symbol" = <P>
+
+id = {letter}{alphanumeric}*
+
+<P>  ::=  <L>
+
+<S>  ::=  id ':=' id
+       |  while id do <S>
+       |  begin <L> end
+       |  if id then <S>
+       |  if id then <SR> else <S>
+
+<SR> ::=  id ':=' id
+       |  while id do <SR>
+       |  begin <L> end
+       |  if id then <SR> else <SR>
+   
+<L>  ::=  <S>
+       |  <L> ';' <S>

@@ -1,0 +1,23 @@
+! This is an example of the "hanging else" grammar problem.
+! The resulting ambiguity causes a conflict in the LALR State 
+! Table
+
+"Name"    = Grammar 3.30
+"Author"  = Andrew W. Appel
+"About"   = A grammar located in the author's "Modern Compiler Implementation" book series
+
+"Case Sensitive" = False
+"Start Symbol" = <P>
+
+id = {letter}{alphanumeric}*
+
+<P> ::= <L>
+
+<S> ::= id := id
+    |   while id do <S>
+    |   begin <L> end
+    |   if id then <S>
+    |   if id then <S> else <S>
+
+<L> ::= <S>
+    |   <L> ';' <S>
